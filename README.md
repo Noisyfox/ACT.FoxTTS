@@ -1,3 +1,5 @@
+[![Build status](https://ci.appveyor.com/api/projects/status/e4b7hytb4rjyvkgy/branch/master?svg=true)](https://ci.appveyor.com/project/Noisyfox/act-foxtts/branch/master)
+
 # ACT.FoxTTS
 Add Chinese TTS (and maybe more) to ACT &amp; TTSYukkuri
 
