@@ -1,0 +1,34 @@
+version: 1.0.0.{build}
+image: Visual Studio 2017
+configuration:
+- Debug
+- Release
+assembly_info:
+  patch: true
+  file: ACT.FoxTTS\ACT.FoxTTS*\**\AssemblyInfo.*
+  assembly_version: '{version}'
+  assembly_file_version: '{version}'
+  assembly_informational_version: '{version}'
+before_build:
+- cmd: >-
+    git submodule update --init --recursive
+
+    nuget restore ACT.FoxTTS
+
+    cp MSBuild.ILMerge.Task.targets .\ACT.FoxTTS\packages\MSBuild.ILMerge.Task.1.0.5\build\MSBuild.ILMerge.Task.targets
+build:
+  project: ACT.FoxTTS/ACT.FoxTTS.sln
+  verbosity: minimal
+after_build:
+- cmd: >-
+    cd ACT.FoxTTS\ACT.FoxTTS\bin\%CONFIGURATION%\
+
+
+    7z a -x!*.pdb %APPVEYOR_BUILD_FOLDER%\ACT.FoxTTS-%APPVEYOR_BUILD_VERSION%-%CONFIGURATION%.7z .\*
+test: off
+artifacts:
+- path: ACT.FoxTTS\ACT.FoxTTS\bin\**\*
+  name: Bin
+- path: ACT.FoxTTS*.7z
+  name: PKG
+  
