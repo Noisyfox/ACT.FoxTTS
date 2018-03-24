@@ -13,6 +13,8 @@ namespace ACT.FoxTTS
         public TabPage ParentTabPage { get; private set; }
         public Label StatusLabel { get; private set; }
         public FoxTTSTabControl SettingsTab { get; private set; }
+        private TTSInjector _ttsInjector = new TTSInjector();
+
         internal UpdateChecker UpdateChecker { get; } = new UpdateChecker();
 
         public override void InitPlugin(TabPage pluginScreenSpace, Label pluginStatusText)
@@ -33,10 +35,12 @@ namespace ACT.FoxTTS
                 SettingsTab.AttachToAct(this);
                 
                 UpdateChecker.AttachToAct(this);
+                _ttsInjector.AttachToAct(this);
 
                 Settings.PostAttachToAct(this);
                 SettingsTab.PostAttachToAct(this);
                 UpdateChecker.PostAttachToAct(this);
+                _ttsInjector.PostAttachToAct(this);
 
                 Settings.Load();
                 _settingsLoaded = true;
@@ -44,6 +48,8 @@ namespace ACT.FoxTTS
                 DoLocalization();
 
                 Settings.NotifySettingsLoaded();
+
+                _ttsInjector.StartWorkingThread(this);
 
                 StatusLabel.Text = "Init Success. >w<";
             }
@@ -73,6 +79,7 @@ namespace ACT.FoxTTS
 
         public override void DeInitPlugin()
         {
+            _ttsInjector.Stop();
             UpdateChecker.Stop();
 
             if (_settingsLoaded)
