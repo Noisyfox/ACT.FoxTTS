@@ -1,0 +1,3 @@
+[submodule "ACT.FoxTTS/ACT.FoxCommon"]
+	path = ACT.FoxTTS/ACT.FoxCommon
+	url = https://github.com/Noisyfox/ACT.FoxCommon.git
