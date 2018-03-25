@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Reflection;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using ACT.FoxCommon;
 using ACT.FoxCommon.localization;
@@ -254,7 +255,7 @@ namespace ACT.FoxTTS
 
         private void buttonPreview_Click(object sender, EventArgs e)
         {
-            _plugin.Speak(textBoxPreview.Text, 1);
+            Task.Run(() => _plugin.Speak(textBoxPreview.Text, 0));
         }
 
         private void linkLabelOpenCacheDir_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
