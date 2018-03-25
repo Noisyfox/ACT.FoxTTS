@@ -156,7 +156,7 @@ namespace ACT.FoxTTS
         void Speak(string text, dynamic playDevice)
         {
             _plugin.Controller.NotifyLogMessageAppend(false, $"Speak {text}");
-            _plugin.TtsEngine?.Speak(text, playDevice);
+            _plugin.Speak(text, playDevice);
         }
 
         public void PlayTTSYukkuri(string waveFile, dynamic playDevice)

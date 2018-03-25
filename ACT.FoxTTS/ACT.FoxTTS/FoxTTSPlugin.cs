@@ -18,7 +18,7 @@ namespace ACT.FoxTTS
         public TTSInjector TtsInjector { get; } = new TTSInjector();
         public SoundPlayerWrapper SoundPlayer { get; } = new SoundPlayerWrapper();
 
-        public ITTSEngine TtsEngine
+        private ITTSEngine TtsEngine
         {
             get
             {
@@ -127,6 +127,18 @@ namespace ACT.FoxTTS
                 _ttsEngine = TTSEngineFactory.CreateEngine(engine);
                 _ttsEngine.AttachToAct(this);
                 _ttsEngine.PostAttachToAct(this);
+            }
+        }
+
+        public void Speak(string text, dynamic playDevice)
+        {
+            try
+            {
+                TtsEngine?.Speak(text, playDevice);
+            }
+            catch (Exception ex)
+            {
+                Controller.NotifyLogMessageAppend(false, ex.ToString());
             }
         }
     }

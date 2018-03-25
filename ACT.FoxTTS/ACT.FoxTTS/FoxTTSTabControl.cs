@@ -252,7 +252,7 @@ namespace ACT.FoxTTS
 
         private void buttonPreview_Click(object sender, EventArgs e)
         {
-            _plugin.TtsEngine?.Speak(textBoxPreview.Text, 1);
+            _plugin.Speak(textBoxPreview.Text, 1);
         }
     }
 }
