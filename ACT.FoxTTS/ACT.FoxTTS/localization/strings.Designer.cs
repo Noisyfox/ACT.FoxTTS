@@ -367,6 +367,24 @@ namespace ACT.FoxTTS.localization {
         }
         
         /// <summary>
+        ///   查找类似 你确定要删除所有缓存的音频吗？ 的本地化字符串。
+        /// </summary>
+        internal static string messageAskClearCache {
+            get {
+                return ResourceManager.GetString("messageAskClearCache", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 缓存已删除。 的本地化字符串。
+        /// </summary>
+        internal static string messageCacheCleared {
+            get {
+                return ResourceManager.GetString("messageCacheCleared", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 当前已是最新版！ 的本地化字符串。
         /// </summary>
         internal static string messageLatest {

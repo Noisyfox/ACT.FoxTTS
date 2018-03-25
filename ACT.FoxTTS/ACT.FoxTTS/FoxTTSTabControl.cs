@@ -265,5 +265,46 @@ namespace ACT.FoxTTS
                 Process.Start(Utils.CacheDirectory);
             }
         }
+
+        private void linkLabelClearCache_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            if (Directory.Exists(Utils.CacheDirectory))
+            {
+                var result = MessageBox.Show(
+                    strings.messageAskClearCache,
+                    strings.actPanelTitle,
+                    MessageBoxButtons.OKCancel,
+                    MessageBoxIcon.Question);
+
+                if (result != DialogResult.OK)
+                {
+                    return;
+                }
+
+                Task.Run(() =>
+                {
+                    foreach (var file in Directory.GetFiles(
+                        Utils.CacheDirectory,
+                        "*",
+                        SearchOption.TopDirectoryOnly))
+                    {
+                        try
+                        {
+                            File.Delete(file);
+                        }
+                        catch (Exception ex)
+                        {
+                            _controller.NotifyLogMessageAppend(true, ex.ToString());
+                        }
+                    }
+                }).Wait();
+
+                MessageBox.Show(
+                    strings.messageCacheCleared,
+                    strings.actPanelTitle,
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+            }
+        }
     }
 }

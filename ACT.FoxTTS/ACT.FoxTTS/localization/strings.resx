@@ -219,6 +219,12 @@
   <data name="linkLabelOpenCacheDir" xml:space="preserve">
     <value>打开缓存文件夹</value>
   </data>
+  <data name="messageAskClearCache" xml:space="preserve">
+    <value>你确定要删除所有缓存的音频吗？</value>
+  </data>
+  <data name="messageCacheCleared" xml:space="preserve">
+    <value>缓存已删除。</value>
+  </data>
   <data name="messageLatest" xml:space="preserve">
     <value>当前已是最新版！</value>
   </data>

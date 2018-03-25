@@ -219,6 +219,7 @@
             this.checkBoxClearCacheExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.checkBoxClearCacheExit.AutoSize = true;
             this.tableLayoutPanel1.SetColumnSpan(this.checkBoxClearCacheExit, 2);
+            this.checkBoxClearCacheExit.Enabled = false;
             this.checkBoxClearCacheExit.Location = new System.Drawing.Point(3, 32);
             this.checkBoxClearCacheExit.Name = "checkBoxClearCacheExit";
             this.checkBoxClearCacheExit.Size = new System.Drawing.Size(335, 19);
@@ -237,6 +238,7 @@
             this.linkLabelClearCache.TabIndex = 4;
             this.linkLabelClearCache.TabStop = true;
             this.linkLabelClearCache.Text = "Clear Cache Right Now";
+            this.linkLabelClearCache.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelClearCache_LinkClicked);
             // 
             // linkLabelOpenCacheDir
             // 
