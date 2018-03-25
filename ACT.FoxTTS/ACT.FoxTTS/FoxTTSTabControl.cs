@@ -212,5 +212,21 @@ namespace ACT.FoxTTS
                 }
             }
         }
+
+        private void checkBoxPlaybackYukkuri_CheckedChanged(object sender, EventArgs e)
+        {
+            bool yukkuriPlaybackEnable = checkBoxPlaybackYukkuri.Enabled && checkBoxPlaybackYukkuri.Checked;
+            tableLayoutPanelPlayback.Enabled = !yukkuriPlaybackEnable;
+
+            _controller.NotifyYukkuriPlaybackEnabledChanged(true, yukkuriPlaybackEnable);
+        }
+
+        private void checkBoxPlaybackYukkuri_EnabledChanged(object sender, EventArgs e)
+        {
+            bool yukkuriPlaybackEnable = checkBoxPlaybackYukkuri.Enabled && checkBoxPlaybackYukkuri.Checked;
+            tableLayoutPanelPlayback.Enabled = !yukkuriPlaybackEnable;
+
+            _controller.NotifyYukkuriPlaybackEnabledChanged(true, yukkuriPlaybackEnable);
+        }
     }
 }

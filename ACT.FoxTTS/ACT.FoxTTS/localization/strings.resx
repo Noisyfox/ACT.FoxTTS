@@ -141,6 +141,12 @@
   <data name="checkBoxNotifyStableOnly" xml:space="preserve">
     <value>只提示稳定版更新</value>
   </data>
+  <data name="checkBoxPlaybackYukkuri" xml:space="preserve">
+    <value>使用 TTSYukkuri 的设置进行回放</value>
+  </data>
+  <data name="groupBoxPlayback" xml:space="preserve">
+    <value>回放设置</value>
+  </data>
   <data name="groupBoxUpdate" xml:space="preserve">
     <value>插件更新</value>
   </data>
@@ -156,8 +162,17 @@
   <data name="labelMainLanguage" xml:space="preserve">
     <value>语言:</value>
   </data>
+  <data name="labelMasterVolume" xml:space="preserve">
+    <value>主音量:</value>
+  </data>
   <data name="labelNeedToRestart" xml:space="preserve">
     <value>*需要重启ACT。</value>
+  </data>
+  <data name="labelPlaybackDevice" xml:space="preserve">
+    <value>输出设备:</value>
+  </data>
+  <data name="labelPlaybackMethod" xml:space="preserve">
+    <value>回放 API:</value>
   </data>
   <data name="messageLatest" xml:space="preserve">
     <value>当前已是最新版！</value>

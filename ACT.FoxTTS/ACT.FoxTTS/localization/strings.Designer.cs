@@ -133,6 +133,24 @@ namespace ACT.FoxTTS.localization {
         }
         
         /// <summary>
+        ///   查找类似 使用 TTSYukkuri 的设置进行回放 的本地化字符串。
+        /// </summary>
+        internal static string checkBoxPlaybackYukkuri {
+            get {
+                return ResourceManager.GetString("checkBoxPlaybackYukkuri", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 回放设置 的本地化字符串。
+        /// </summary>
+        internal static string groupBoxPlayback {
+            get {
+                return ResourceManager.GetString("groupBoxPlayback", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 插件更新 的本地化字符串。
         /// </summary>
         internal static string groupBoxUpdate {
@@ -178,11 +196,38 @@ namespace ACT.FoxTTS.localization {
         }
         
         /// <summary>
+        ///   查找类似 主音量: 的本地化字符串。
+        /// </summary>
+        internal static string labelMasterVolume {
+            get {
+                return ResourceManager.GetString("labelMasterVolume", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 *需要重启ACT。 的本地化字符串。
         /// </summary>
         internal static string labelNeedToRestart {
             get {
                 return ResourceManager.GetString("labelNeedToRestart", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 输出设备: 的本地化字符串。
+        /// </summary>
+        internal static string labelPlaybackDevice {
+            get {
+                return ResourceManager.GetString("labelPlaybackDevice", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 回放 API: 的本地化字符串。
+        /// </summary>
+        internal static string labelPlaybackMethod {
+            get {
+                return ResourceManager.GetString("labelPlaybackMethod", resourceCulture);
             }
         }
         

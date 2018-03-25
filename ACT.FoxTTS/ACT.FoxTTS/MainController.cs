@@ -22,5 +22,14 @@ namespace ACT.FoxTTS
         {
             YukkuriEnabledChanged?.Invoke(fromView, enabled);
         }
+
+        public delegate void OnYukkuriPlaybackEnabledChangedDelegate(bool fromView, bool enabled);
+
+        public event OnYukkuriEnabledChangedDelegate YukkuriPlaybackEnabledChanged;
+
+        public void NotifyYukkuriPlaybackEnabledChanged(bool fromView, bool enabled)
+        {
+            YukkuriPlaybackEnabledChanged?.Invoke(fromView, enabled);
+        }
     }
 }

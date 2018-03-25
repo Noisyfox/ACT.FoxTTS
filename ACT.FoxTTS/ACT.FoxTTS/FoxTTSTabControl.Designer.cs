@@ -48,12 +48,25 @@
             this.labelNeedToRestart = new System.Windows.Forms.Label();
             this.tabPageLog = new System.Windows.Forms.TabPage();
             this.richTextBoxLog = new System.Windows.Forms.RichTextBox();
+            this.groupBoxPlayback = new System.Windows.Forms.GroupBox();
+            this.checkBoxPlaybackYukkuri = new System.Windows.Forms.CheckBox();
+            this.tableLayoutPanelPlayback = new System.Windows.Forms.TableLayoutPanel();
+            this.labelMasterVolume = new System.Windows.Forms.Label();
+            this.trackBar1 = new System.Windows.Forms.TrackBar();
+            this.labelCurrentVolume = new System.Windows.Forms.Label();
+            this.labelPlaybackMethod = new System.Windows.Forms.Label();
+            this.comboBoxPlaybackMethod = new System.Windows.Forms.ComboBox();
+            this.labelPlaybackDevice = new System.Windows.Forms.Label();
+            this.comboBoxPlaybackDevice = new System.Windows.Forms.ComboBox();
             this.tabControl1.SuspendLayout();
             this.tabPageGeneralSettings.SuspendLayout();
             this.groupBoxUpdate.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanelMainLanguage.SuspendLayout();
             this.tabPageLog.SuspendLayout();
+            this.groupBoxPlayback.SuspendLayout();
+            this.tableLayoutPanelPlayback.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -65,19 +78,20 @@
             this.tabControl1.Margin = new System.Windows.Forms.Padding(4);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(728, 396);
+            this.tabControl1.Size = new System.Drawing.Size(989, 693);
             this.tabControl1.TabIndex = 9;
             // 
             // tabPageGeneralSettings
             // 
             this.tabPageGeneralSettings.AutoScroll = true;
+            this.tabPageGeneralSettings.Controls.Add(this.groupBoxPlayback);
             this.tabPageGeneralSettings.Controls.Add(this.groupBoxUpdate);
             this.tabPageGeneralSettings.Controls.Add(this.tableLayoutPanelMainLanguage);
             this.tabPageGeneralSettings.Location = new System.Drawing.Point(4, 25);
             this.tabPageGeneralSettings.Margin = new System.Windows.Forms.Padding(4);
             this.tabPageGeneralSettings.Name = "tabPageGeneralSettings";
             this.tabPageGeneralSettings.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPageGeneralSettings.Size = new System.Drawing.Size(720, 367);
+            this.tabPageGeneralSettings.Size = new System.Drawing.Size(981, 664);
             this.tabPageGeneralSettings.TabIndex = 0;
             this.tabPageGeneralSettings.Text = "General Settings";
             this.tabPageGeneralSettings.UseVisualStyleBackColor = true;
@@ -85,7 +99,7 @@
             // groupBoxUpdate
             // 
             this.groupBoxUpdate.Controls.Add(this.tableLayoutPanel4);
-            this.groupBoxUpdate.Location = new System.Drawing.Point(8, 55);
+            this.groupBoxUpdate.Location = new System.Drawing.Point(4, 420);
             this.groupBoxUpdate.Margin = new System.Windows.Forms.Padding(4);
             this.groupBoxUpdate.Name = "groupBoxUpdate";
             this.groupBoxUpdate.Padding = new System.Windows.Forms.Padding(4);
@@ -299,7 +313,7 @@
             this.tabPageLog.Margin = new System.Windows.Forms.Padding(4);
             this.tabPageLog.Name = "tabPageLog";
             this.tabPageLog.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPageLog.Size = new System.Drawing.Size(720, 367);
+            this.tabPageLog.Size = new System.Drawing.Size(966, 650);
             this.tabPageLog.TabIndex = 2;
             this.tabPageLog.Text = "Log";
             this.tabPageLog.UseVisualStyleBackColor = true;
@@ -311,9 +325,134 @@
             this.richTextBoxLog.Margin = new System.Windows.Forms.Padding(4);
             this.richTextBoxLog.Name = "richTextBoxLog";
             this.richTextBoxLog.ReadOnly = true;
-            this.richTextBoxLog.Size = new System.Drawing.Size(712, 359);
+            this.richTextBoxLog.Size = new System.Drawing.Size(958, 642);
             this.richTextBoxLog.TabIndex = 6;
             this.richTextBoxLog.Text = "";
+            // 
+            // groupBoxPlayback
+            // 
+            this.groupBoxPlayback.Controls.Add(this.tableLayoutPanelPlayback);
+            this.groupBoxPlayback.Controls.Add(this.checkBoxPlaybackYukkuri);
+            this.groupBoxPlayback.Location = new System.Drawing.Point(8, 54);
+            this.groupBoxPlayback.Name = "groupBoxPlayback";
+            this.groupBoxPlayback.Size = new System.Drawing.Size(347, 186);
+            this.groupBoxPlayback.TabIndex = 5;
+            this.groupBoxPlayback.TabStop = false;
+            this.groupBoxPlayback.Text = "Playback";
+            // 
+            // checkBoxPlaybackYukkuri
+            // 
+            this.checkBoxPlaybackYukkuri.AutoSize = true;
+            this.checkBoxPlaybackYukkuri.Location = new System.Drawing.Point(6, 24);
+            this.checkBoxPlaybackYukkuri.Name = "checkBoxPlaybackYukkuri";
+            this.checkBoxPlaybackYukkuri.Size = new System.Drawing.Size(293, 19);
+            this.checkBoxPlaybackYukkuri.TabIndex = 0;
+            this.checkBoxPlaybackYukkuri.Text = "Use TTSYukkuri for Sound Playback";
+            this.checkBoxPlaybackYukkuri.UseVisualStyleBackColor = true;
+            this.checkBoxPlaybackYukkuri.CheckedChanged += new System.EventHandler(this.checkBoxPlaybackYukkuri_CheckedChanged);
+            this.checkBoxPlaybackYukkuri.EnabledChanged += new System.EventHandler(this.checkBoxPlaybackYukkuri_EnabledChanged);
+            // 
+            // tableLayoutPanelPlayback
+            // 
+            this.tableLayoutPanelPlayback.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanelPlayback.ColumnCount = 3;
+            this.tableLayoutPanelPlayback.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanelPlayback.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanelPlayback.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanelPlayback.Controls.Add(this.labelMasterVolume, 0, 0);
+            this.tableLayoutPanelPlayback.Controls.Add(this.trackBar1, 1, 0);
+            this.tableLayoutPanelPlayback.Controls.Add(this.labelCurrentVolume, 2, 0);
+            this.tableLayoutPanelPlayback.Controls.Add(this.labelPlaybackMethod, 0, 1);
+            this.tableLayoutPanelPlayback.Controls.Add(this.comboBoxPlaybackMethod, 1, 1);
+            this.tableLayoutPanelPlayback.Controls.Add(this.labelPlaybackDevice, 0, 2);
+            this.tableLayoutPanelPlayback.Controls.Add(this.comboBoxPlaybackDevice, 1, 2);
+            this.tableLayoutPanelPlayback.Location = new System.Drawing.Point(7, 49);
+            this.tableLayoutPanelPlayback.Name = "tableLayoutPanelPlayback";
+            this.tableLayoutPanelPlayback.RowCount = 4;
+            this.tableLayoutPanelPlayback.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanelPlayback.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanelPlayback.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanelPlayback.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanelPlayback.Size = new System.Drawing.Size(334, 131);
+            this.tableLayoutPanelPlayback.TabIndex = 1;
+            // 
+            // labelMasterVolume
+            // 
+            this.labelMasterVolume.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelMasterVolume.AutoSize = true;
+            this.labelMasterVolume.Location = new System.Drawing.Point(3, 0);
+            this.labelMasterVolume.Name = "labelMasterVolume";
+            this.labelMasterVolume.Padding = new System.Windows.Forms.Padding(0, 7, 0, 0);
+            this.labelMasterVolume.Size = new System.Drawing.Size(103, 22);
+            this.labelMasterVolume.TabIndex = 0;
+            this.labelMasterVolume.Text = "Master Vol.:";
+            // 
+            // trackBar1
+            // 
+            this.trackBar1.BackColor = System.Drawing.SystemColors.Window;
+            this.trackBar1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.trackBar1.Location = new System.Drawing.Point(112, 3);
+            this.trackBar1.Maximum = 100;
+            this.trackBar1.Name = "trackBar1";
+            this.trackBar1.Size = new System.Drawing.Size(173, 56);
+            this.trackBar1.TabIndex = 1;
+            this.trackBar1.TickStyle = System.Windows.Forms.TickStyle.None;
+            // 
+            // labelCurrentVolume
+            // 
+            this.labelCurrentVolume.AutoSize = true;
+            this.labelCurrentVolume.Location = new System.Drawing.Point(291, 0);
+            this.labelCurrentVolume.MinimumSize = new System.Drawing.Size(40, 0);
+            this.labelCurrentVolume.Name = "labelCurrentVolume";
+            this.labelCurrentVolume.Padding = new System.Windows.Forms.Padding(0, 7, 0, 0);
+            this.labelCurrentVolume.Size = new System.Drawing.Size(40, 22);
+            this.labelCurrentVolume.TabIndex = 2;
+            this.labelCurrentVolume.Text = "100";
+            // 
+            // labelPlaybackMethod
+            // 
+            this.labelPlaybackMethod.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelPlaybackMethod.AutoSize = true;
+            this.labelPlaybackMethod.Location = new System.Drawing.Point(3, 69);
+            this.labelPlaybackMethod.Name = "labelPlaybackMethod";
+            this.labelPlaybackMethod.Size = new System.Drawing.Size(103, 15);
+            this.labelPlaybackMethod.TabIndex = 3;
+            this.labelPlaybackMethod.Text = "Method:";
+            // 
+            // comboBoxPlaybackMethod
+            // 
+            this.comboBoxPlaybackMethod.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanelPlayback.SetColumnSpan(this.comboBoxPlaybackMethod, 2);
+            this.comboBoxPlaybackMethod.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxPlaybackMethod.FormattingEnabled = true;
+            this.comboBoxPlaybackMethod.Location = new System.Drawing.Point(112, 65);
+            this.comboBoxPlaybackMethod.Name = "comboBoxPlaybackMethod";
+            this.comboBoxPlaybackMethod.Size = new System.Drawing.Size(219, 23);
+            this.comboBoxPlaybackMethod.TabIndex = 4;
+            // 
+            // labelPlaybackDevice
+            // 
+            this.labelPlaybackDevice.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelPlaybackDevice.AutoSize = true;
+            this.labelPlaybackDevice.Location = new System.Drawing.Point(3, 98);
+            this.labelPlaybackDevice.Name = "labelPlaybackDevice";
+            this.labelPlaybackDevice.Size = new System.Drawing.Size(103, 15);
+            this.labelPlaybackDevice.TabIndex = 5;
+            this.labelPlaybackDevice.Text = "Device:";
+            // 
+            // comboBoxPlaybackDevice
+            // 
+            this.comboBoxPlaybackDevice.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanelPlayback.SetColumnSpan(this.comboBoxPlaybackDevice, 2);
+            this.comboBoxPlaybackDevice.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxPlaybackDevice.FormattingEnabled = true;
+            this.comboBoxPlaybackDevice.Location = new System.Drawing.Point(112, 94);
+            this.comboBoxPlaybackDevice.Name = "comboBoxPlaybackDevice";
+            this.comboBoxPlaybackDevice.Size = new System.Drawing.Size(219, 23);
+            this.comboBoxPlaybackDevice.TabIndex = 6;
             // 
             // FoxTTSTabControl
             // 
@@ -321,7 +460,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.tabControl1);
             this.Name = "FoxTTSTabControl";
-            this.Size = new System.Drawing.Size(728, 396);
+            this.Size = new System.Drawing.Size(989, 693);
             this.tabControl1.ResumeLayout(false);
             this.tabPageGeneralSettings.ResumeLayout(false);
             this.groupBoxUpdate.ResumeLayout(false);
@@ -330,6 +469,11 @@
             this.tableLayoutPanelMainLanguage.ResumeLayout(false);
             this.tableLayoutPanelMainLanguage.PerformLayout();
             this.tabPageLog.ResumeLayout(false);
+            this.groupBoxPlayback.ResumeLayout(false);
+            this.groupBoxPlayback.PerformLayout();
+            this.tableLayoutPanelPlayback.ResumeLayout(false);
+            this.tableLayoutPanelPlayback.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -356,5 +500,15 @@
         private System.Windows.Forms.Label labelNeedToRestart;
         private System.Windows.Forms.TabPage tabPageLog;
         private System.Windows.Forms.RichTextBox richTextBoxLog;
+        private System.Windows.Forms.GroupBox groupBoxPlayback;
+        private System.Windows.Forms.CheckBox checkBoxPlaybackYukkuri;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanelPlayback;
+        private System.Windows.Forms.Label labelMasterVolume;
+        private System.Windows.Forms.TrackBar trackBar1;
+        private System.Windows.Forms.Label labelCurrentVolume;
+        private System.Windows.Forms.Label labelPlaybackMethod;
+        private System.Windows.Forms.ComboBox comboBoxPlaybackMethod;
+        private System.Windows.Forms.Label labelPlaybackDevice;
+        private System.Windows.Forms.ComboBox comboBoxPlaybackDevice;
     }
 }
