@@ -13,5 +13,14 @@ namespace ACT.FoxTTS
         {
             LanguageChanged?.Invoke(fromView, lang);
         }
+
+        public delegate void OnYukkuriEnabledChangedDelegate(bool fromView, bool enabled);
+
+        public event OnYukkuriEnabledChangedDelegate YukkuriEnabledChanged;
+
+        public void NotifyYukkuriEnabledChanged(bool fromView, bool enabled)
+        {
+            YukkuriEnabledChanged?.Invoke(fromView, enabled);
+        }
     }
 }

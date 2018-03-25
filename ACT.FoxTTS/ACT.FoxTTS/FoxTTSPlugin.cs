@@ -13,7 +13,8 @@ namespace ACT.FoxTTS
         public TabPage ParentTabPage { get; private set; }
         public Label StatusLabel { get; private set; }
         public FoxTTSTabControl SettingsTab { get; private set; }
-        private TTSInjector _ttsInjector = new TTSInjector();
+        public TTSInjector TtsInjector { get; } = new TTSInjector();
+        public SoundPlayerWrapper SoundPlayer { get; } = new SoundPlayerWrapper();
 
         internal UpdateChecker UpdateChecker { get; } = new UpdateChecker();
 
@@ -35,12 +36,14 @@ namespace ACT.FoxTTS
                 SettingsTab.AttachToAct(this);
                 
                 UpdateChecker.AttachToAct(this);
-                _ttsInjector.AttachToAct(this);
+                SoundPlayer.AttachToAct(this);
+                TtsInjector.AttachToAct(this);
 
                 Settings.PostAttachToAct(this);
                 SettingsTab.PostAttachToAct(this);
                 UpdateChecker.PostAttachToAct(this);
-                _ttsInjector.PostAttachToAct(this);
+                SoundPlayer.PostAttachToAct(this);
+                TtsInjector.PostAttachToAct(this);
 
                 Settings.Load();
                 _settingsLoaded = true;
@@ -49,7 +52,7 @@ namespace ACT.FoxTTS
 
                 Settings.NotifySettingsLoaded();
 
-                _ttsInjector.StartWorkingThread(this);
+                TtsInjector.StartWorkingThread(this);
 
                 StatusLabel.Text = "Init Success. >w<";
             }
@@ -79,7 +82,8 @@ namespace ACT.FoxTTS
 
         public override void DeInitPlugin()
         {
-            _ttsInjector.Stop();
+            TtsInjector.Stop();
+            SoundPlayer.Stop();
             UpdateChecker.Stop();
 
             if (_settingsLoaded)
