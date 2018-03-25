@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Reflection;
 using System.Windows.Forms;
 using ACT.FoxCommon;
@@ -85,7 +87,7 @@ namespace ACT.FoxTTS
 
         private void buttonDownloadUpdate_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start(UpdateChecker.ReleasePage);
+            Process.Start(UpdateChecker.ReleasePage);
         }
 
         private void ControllerOnSettingsLoaded()
@@ -253,6 +255,14 @@ namespace ACT.FoxTTS
         private void buttonPreview_Click(object sender, EventArgs e)
         {
             _plugin.Speak(textBoxPreview.Text, 1);
+        }
+
+        private void linkLabelOpenCacheDir_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            if (Directory.Exists(Utils.CacheDirectory))
+            {
+                Process.Start(Utils.CacheDirectory);
+            }
         }
     }
 }

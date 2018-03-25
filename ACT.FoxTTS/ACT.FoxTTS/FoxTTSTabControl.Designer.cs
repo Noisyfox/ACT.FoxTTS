@@ -30,6 +30,28 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPageGeneralSettings = new System.Windows.Forms.TabPage();
+            this.groupBoxPreview = new System.Windows.Forms.GroupBox();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.textBoxPreview = new System.Windows.Forms.TextBox();
+            this.buttonPreview = new System.Windows.Forms.Button();
+            this.groupBoxTTSEngine = new System.Windows.Forms.GroupBox();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.labelTTSEngine = new System.Windows.Forms.Label();
+            this.comboBoxTTSEngine = new System.Windows.Forms.ComboBox();
+            this.checkBoxClearCacheExit = new System.Windows.Forms.CheckBox();
+            this.linkLabelClearCache = new System.Windows.Forms.LinkLabel();
+            this.linkLabelOpenCacheDir = new System.Windows.Forms.LinkLabel();
+            this.panelTTSEngineSettings = new System.Windows.Forms.Panel();
+            this.groupBoxPlayback = new System.Windows.Forms.GroupBox();
+            this.tableLayoutPanelPlayback = new System.Windows.Forms.TableLayoutPanel();
+            this.labelMasterVolume = new System.Windows.Forms.Label();
+            this.trackBar1 = new System.Windows.Forms.TrackBar();
+            this.labelCurrentVolume = new System.Windows.Forms.Label();
+            this.labelPlaybackMethod = new System.Windows.Forms.Label();
+            this.comboBoxPlaybackMethod = new System.Windows.Forms.ComboBox();
+            this.labelPlaybackDevice = new System.Windows.Forms.Label();
+            this.comboBoxPlaybackDevice = new System.Windows.Forms.ComboBox();
+            this.checkBoxPlaybackYukkuri = new System.Windows.Forms.CheckBox();
             this.groupBoxUpdate = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.labelCurrentVersion = new System.Windows.Forms.Label();
@@ -48,41 +70,19 @@
             this.labelNeedToRestart = new System.Windows.Forms.Label();
             this.tabPageLog = new System.Windows.Forms.TabPage();
             this.richTextBoxLog = new System.Windows.Forms.RichTextBox();
-            this.groupBoxPlayback = new System.Windows.Forms.GroupBox();
-            this.checkBoxPlaybackYukkuri = new System.Windows.Forms.CheckBox();
-            this.tableLayoutPanelPlayback = new System.Windows.Forms.TableLayoutPanel();
-            this.labelMasterVolume = new System.Windows.Forms.Label();
-            this.trackBar1 = new System.Windows.Forms.TrackBar();
-            this.labelCurrentVolume = new System.Windows.Forms.Label();
-            this.labelPlaybackMethod = new System.Windows.Forms.Label();
-            this.comboBoxPlaybackMethod = new System.Windows.Forms.ComboBox();
-            this.labelPlaybackDevice = new System.Windows.Forms.Label();
-            this.comboBoxPlaybackDevice = new System.Windows.Forms.ComboBox();
-            this.panelTTSEngineSettings = new System.Windows.Forms.Panel();
-            this.groupBoxTTSEngine = new System.Windows.Forms.GroupBox();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.labelTTSEngine = new System.Windows.Forms.Label();
-            this.comboBoxTTSEngine = new System.Windows.Forms.ComboBox();
-            this.checkBoxClearCacheExit = new System.Windows.Forms.CheckBox();
-            this.linkLabelOpenCacheDir = new System.Windows.Forms.LinkLabel();
-            this.linkLabelClearCache = new System.Windows.Forms.LinkLabel();
-            this.groupBoxPreview = new System.Windows.Forms.GroupBox();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.textBoxPreview = new System.Windows.Forms.TextBox();
-            this.buttonPreview = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPageGeneralSettings.SuspendLayout();
+            this.groupBoxPreview.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
+            this.groupBoxTTSEngine.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
+            this.groupBoxPlayback.SuspendLayout();
+            this.tableLayoutPanelPlayback.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.groupBoxUpdate.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanelMainLanguage.SuspendLayout();
             this.tabPageLog.SuspendLayout();
-            this.groupBoxPlayback.SuspendLayout();
-            this.tableLayoutPanelPlayback.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
-            this.groupBoxTTSEngine.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
-            this.groupBoxPreview.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -114,6 +114,279 @@
             this.tabPageGeneralSettings.TabIndex = 0;
             this.tabPageGeneralSettings.Text = "General Settings";
             this.tabPageGeneralSettings.UseVisualStyleBackColor = true;
+            // 
+            // groupBoxPreview
+            // 
+            this.groupBoxPreview.Controls.Add(this.tableLayoutPanel2);
+            this.groupBoxPreview.Location = new System.Drawing.Point(8, 420);
+            this.groupBoxPreview.Name = "groupBoxPreview";
+            this.groupBoxPreview.Size = new System.Drawing.Size(347, 64);
+            this.groupBoxPreview.TabIndex = 8;
+            this.groupBoxPreview.TabStop = false;
+            this.groupBoxPreview.Text = "Preview";
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.ColumnCount = 2;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel2.Controls.Add(this.textBoxPreview, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.buttonPreview, 1, 0);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 21);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 2;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(341, 40);
+            this.tableLayoutPanel2.TabIndex = 0;
+            // 
+            // textBoxPreview
+            // 
+            this.textBoxPreview.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxPreview.Location = new System.Drawing.Point(3, 3);
+            this.textBoxPreview.Name = "textBoxPreview";
+            this.textBoxPreview.Size = new System.Drawing.Size(254, 25);
+            this.textBoxPreview.TabIndex = 0;
+            // 
+            // buttonPreview
+            // 
+            this.buttonPreview.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonPreview.Location = new System.Drawing.Point(263, 4);
+            this.buttonPreview.Name = "buttonPreview";
+            this.buttonPreview.Size = new System.Drawing.Size(75, 23);
+            this.buttonPreview.TabIndex = 1;
+            this.buttonPreview.Text = "Say!";
+            this.buttonPreview.UseVisualStyleBackColor = true;
+            this.buttonPreview.Click += new System.EventHandler(this.buttonPreview_Click);
+            // 
+            // groupBoxTTSEngine
+            // 
+            this.groupBoxTTSEngine.Controls.Add(this.tableLayoutPanel1);
+            this.groupBoxTTSEngine.Location = new System.Drawing.Point(8, 247);
+            this.groupBoxTTSEngine.Name = "groupBoxTTSEngine";
+            this.groupBoxTTSEngine.Size = new System.Drawing.Size(347, 166);
+            this.groupBoxTTSEngine.TabIndex = 7;
+            this.groupBoxTTSEngine.TabStop = false;
+            this.groupBoxTTSEngine.Text = "TTS Engine";
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Controls.Add(this.labelTTSEngine, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.comboBoxTTSEngine, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.checkBoxClearCacheExit, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.linkLabelClearCache, 0, 4);
+            this.tableLayoutPanel1.Controls.Add(this.linkLabelOpenCacheDir, 0, 3);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 21);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 6;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(341, 142);
+            this.tableLayoutPanel1.TabIndex = 0;
+            // 
+            // labelTTSEngine
+            // 
+            this.labelTTSEngine.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelTTSEngine.AutoSize = true;
+            this.labelTTSEngine.Location = new System.Drawing.Point(3, 7);
+            this.labelTTSEngine.Name = "labelTTSEngine";
+            this.labelTTSEngine.Size = new System.Drawing.Size(63, 15);
+            this.labelTTSEngine.TabIndex = 0;
+            this.labelTTSEngine.Text = "Engine:";
+            // 
+            // comboBoxTTSEngine
+            // 
+            this.comboBoxTTSEngine.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboBoxTTSEngine.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxTTSEngine.FormattingEnabled = true;
+            this.comboBoxTTSEngine.Location = new System.Drawing.Point(72, 3);
+            this.comboBoxTTSEngine.Name = "comboBoxTTSEngine";
+            this.comboBoxTTSEngine.Size = new System.Drawing.Size(266, 23);
+            this.comboBoxTTSEngine.TabIndex = 1;
+            this.comboBoxTTSEngine.SelectedIndexChanged += new System.EventHandler(this.comboBoxTTSEngine_SelectedIndexChanged);
+            // 
+            // checkBoxClearCacheExit
+            // 
+            this.checkBoxClearCacheExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.checkBoxClearCacheExit.AutoSize = true;
+            this.tableLayoutPanel1.SetColumnSpan(this.checkBoxClearCacheExit, 2);
+            this.checkBoxClearCacheExit.Location = new System.Drawing.Point(3, 32);
+            this.checkBoxClearCacheExit.Name = "checkBoxClearCacheExit";
+            this.checkBoxClearCacheExit.Size = new System.Drawing.Size(335, 19);
+            this.checkBoxClearCacheExit.TabIndex = 2;
+            this.checkBoxClearCacheExit.Text = "Clear Cache on Exit";
+            this.checkBoxClearCacheExit.UseVisualStyleBackColor = true;
+            // 
+            // linkLabelClearCache
+            // 
+            this.linkLabelClearCache.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.linkLabelClearCache.AutoSize = true;
+            this.tableLayoutPanel1.SetColumnSpan(this.linkLabelClearCache, 2);
+            this.linkLabelClearCache.Location = new System.Drawing.Point(3, 107);
+            this.linkLabelClearCache.Name = "linkLabelClearCache";
+            this.linkLabelClearCache.Size = new System.Drawing.Size(335, 15);
+            this.linkLabelClearCache.TabIndex = 4;
+            this.linkLabelClearCache.TabStop = true;
+            this.linkLabelClearCache.Text = "Clear Cache Right Now";
+            // 
+            // linkLabelOpenCacheDir
+            // 
+            this.linkLabelOpenCacheDir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.linkLabelOpenCacheDir.AutoSize = true;
+            this.tableLayoutPanel1.SetColumnSpan(this.linkLabelOpenCacheDir, 2);
+            this.linkLabelOpenCacheDir.Location = new System.Drawing.Point(3, 92);
+            this.linkLabelOpenCacheDir.Name = "linkLabelOpenCacheDir";
+            this.linkLabelOpenCacheDir.Size = new System.Drawing.Size(335, 15);
+            this.linkLabelOpenCacheDir.TabIndex = 3;
+            this.linkLabelOpenCacheDir.TabStop = true;
+            this.linkLabelOpenCacheDir.Text = "Open Cache Directory";
+            this.linkLabelOpenCacheDir.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelOpenCacheDir_LinkClicked);
+            // 
+            // panelTTSEngineSettings
+            // 
+            this.panelTTSEngineSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelTTSEngineSettings.Location = new System.Drawing.Point(361, 54);
+            this.panelTTSEngineSettings.Name = "panelTTSEngineSettings";
+            this.panelTTSEngineSettings.Size = new System.Drawing.Size(613, 677);
+            this.panelTTSEngineSettings.TabIndex = 6;
+            // 
+            // groupBoxPlayback
+            // 
+            this.groupBoxPlayback.Controls.Add(this.tableLayoutPanelPlayback);
+            this.groupBoxPlayback.Controls.Add(this.checkBoxPlaybackYukkuri);
+            this.groupBoxPlayback.Location = new System.Drawing.Point(8, 54);
+            this.groupBoxPlayback.Name = "groupBoxPlayback";
+            this.groupBoxPlayback.Size = new System.Drawing.Size(347, 186);
+            this.groupBoxPlayback.TabIndex = 5;
+            this.groupBoxPlayback.TabStop = false;
+            this.groupBoxPlayback.Text = "Playback";
+            // 
+            // tableLayoutPanelPlayback
+            // 
+            this.tableLayoutPanelPlayback.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanelPlayback.ColumnCount = 3;
+            this.tableLayoutPanelPlayback.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanelPlayback.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanelPlayback.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanelPlayback.Controls.Add(this.labelMasterVolume, 0, 0);
+            this.tableLayoutPanelPlayback.Controls.Add(this.trackBar1, 1, 0);
+            this.tableLayoutPanelPlayback.Controls.Add(this.labelCurrentVolume, 2, 0);
+            this.tableLayoutPanelPlayback.Controls.Add(this.labelPlaybackMethod, 0, 1);
+            this.tableLayoutPanelPlayback.Controls.Add(this.comboBoxPlaybackMethod, 1, 1);
+            this.tableLayoutPanelPlayback.Controls.Add(this.labelPlaybackDevice, 0, 2);
+            this.tableLayoutPanelPlayback.Controls.Add(this.comboBoxPlaybackDevice, 1, 2);
+            this.tableLayoutPanelPlayback.Location = new System.Drawing.Point(7, 49);
+            this.tableLayoutPanelPlayback.Name = "tableLayoutPanelPlayback";
+            this.tableLayoutPanelPlayback.RowCount = 4;
+            this.tableLayoutPanelPlayback.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanelPlayback.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanelPlayback.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanelPlayback.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanelPlayback.Size = new System.Drawing.Size(334, 131);
+            this.tableLayoutPanelPlayback.TabIndex = 1;
+            // 
+            // labelMasterVolume
+            // 
+            this.labelMasterVolume.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelMasterVolume.AutoSize = true;
+            this.labelMasterVolume.Location = new System.Drawing.Point(3, 0);
+            this.labelMasterVolume.Name = "labelMasterVolume";
+            this.labelMasterVolume.Padding = new System.Windows.Forms.Padding(0, 7, 0, 0);
+            this.labelMasterVolume.Size = new System.Drawing.Size(103, 22);
+            this.labelMasterVolume.TabIndex = 0;
+            this.labelMasterVolume.Text = "Master Vol.:";
+            // 
+            // trackBar1
+            // 
+            this.trackBar1.BackColor = System.Drawing.SystemColors.Window;
+            this.trackBar1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.trackBar1.Location = new System.Drawing.Point(112, 3);
+            this.trackBar1.Maximum = 100;
+            this.trackBar1.Name = "trackBar1";
+            this.trackBar1.Size = new System.Drawing.Size(173, 56);
+            this.trackBar1.TabIndex = 1;
+            this.trackBar1.TickStyle = System.Windows.Forms.TickStyle.None;
+            // 
+            // labelCurrentVolume
+            // 
+            this.labelCurrentVolume.AutoSize = true;
+            this.labelCurrentVolume.Location = new System.Drawing.Point(291, 0);
+            this.labelCurrentVolume.MinimumSize = new System.Drawing.Size(40, 0);
+            this.labelCurrentVolume.Name = "labelCurrentVolume";
+            this.labelCurrentVolume.Padding = new System.Windows.Forms.Padding(0, 7, 0, 0);
+            this.labelCurrentVolume.Size = new System.Drawing.Size(40, 22);
+            this.labelCurrentVolume.TabIndex = 2;
+            this.labelCurrentVolume.Text = "100";
+            // 
+            // labelPlaybackMethod
+            // 
+            this.labelPlaybackMethod.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelPlaybackMethod.AutoSize = true;
+            this.labelPlaybackMethod.Location = new System.Drawing.Point(3, 69);
+            this.labelPlaybackMethod.Name = "labelPlaybackMethod";
+            this.labelPlaybackMethod.Size = new System.Drawing.Size(103, 15);
+            this.labelPlaybackMethod.TabIndex = 3;
+            this.labelPlaybackMethod.Text = "Method:";
+            // 
+            // comboBoxPlaybackMethod
+            // 
+            this.comboBoxPlaybackMethod.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanelPlayback.SetColumnSpan(this.comboBoxPlaybackMethod, 2);
+            this.comboBoxPlaybackMethod.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxPlaybackMethod.FormattingEnabled = true;
+            this.comboBoxPlaybackMethod.Location = new System.Drawing.Point(112, 65);
+            this.comboBoxPlaybackMethod.Name = "comboBoxPlaybackMethod";
+            this.comboBoxPlaybackMethod.Size = new System.Drawing.Size(219, 23);
+            this.comboBoxPlaybackMethod.TabIndex = 4;
+            // 
+            // labelPlaybackDevice
+            // 
+            this.labelPlaybackDevice.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelPlaybackDevice.AutoSize = true;
+            this.labelPlaybackDevice.Location = new System.Drawing.Point(3, 98);
+            this.labelPlaybackDevice.Name = "labelPlaybackDevice";
+            this.labelPlaybackDevice.Size = new System.Drawing.Size(103, 15);
+            this.labelPlaybackDevice.TabIndex = 5;
+            this.labelPlaybackDevice.Text = "Device:";
+            // 
+            // comboBoxPlaybackDevice
+            // 
+            this.comboBoxPlaybackDevice.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanelPlayback.SetColumnSpan(this.comboBoxPlaybackDevice, 2);
+            this.comboBoxPlaybackDevice.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxPlaybackDevice.FormattingEnabled = true;
+            this.comboBoxPlaybackDevice.Location = new System.Drawing.Point(112, 94);
+            this.comboBoxPlaybackDevice.Name = "comboBoxPlaybackDevice";
+            this.comboBoxPlaybackDevice.Size = new System.Drawing.Size(219, 23);
+            this.comboBoxPlaybackDevice.TabIndex = 6;
+            // 
+            // checkBoxPlaybackYukkuri
+            // 
+            this.checkBoxPlaybackYukkuri.AutoSize = true;
+            this.checkBoxPlaybackYukkuri.Checked = true;
+            this.checkBoxPlaybackYukkuri.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxPlaybackYukkuri.Location = new System.Drawing.Point(6, 24);
+            this.checkBoxPlaybackYukkuri.Name = "checkBoxPlaybackYukkuri";
+            this.checkBoxPlaybackYukkuri.Size = new System.Drawing.Size(293, 19);
+            this.checkBoxPlaybackYukkuri.TabIndex = 0;
+            this.checkBoxPlaybackYukkuri.Text = "Use TTSYukkuri for Sound Playback";
+            this.checkBoxPlaybackYukkuri.UseVisualStyleBackColor = true;
+            this.checkBoxPlaybackYukkuri.CheckedChanged += new System.EventHandler(this.checkBoxPlaybackYukkuri_CheckedChanged);
+            this.checkBoxPlaybackYukkuri.EnabledChanged += new System.EventHandler(this.checkBoxPlaybackYukkuri_EnabledChanged);
             // 
             // groupBoxUpdate
             // 
@@ -332,7 +605,7 @@
             this.tabPageLog.Margin = new System.Windows.Forms.Padding(4);
             this.tabPageLog.Name = "tabPageLog";
             this.tabPageLog.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPageLog.Size = new System.Drawing.Size(966, 650);
+            this.tabPageLog.Size = new System.Drawing.Size(981, 738);
             this.tabPageLog.TabIndex = 2;
             this.tabPageLog.Text = "Log";
             this.tabPageLog.UseVisualStyleBackColor = true;
@@ -344,281 +617,9 @@
             this.richTextBoxLog.Margin = new System.Windows.Forms.Padding(4);
             this.richTextBoxLog.Name = "richTextBoxLog";
             this.richTextBoxLog.ReadOnly = true;
-            this.richTextBoxLog.Size = new System.Drawing.Size(958, 642);
+            this.richTextBoxLog.Size = new System.Drawing.Size(973, 730);
             this.richTextBoxLog.TabIndex = 6;
             this.richTextBoxLog.Text = "";
-            // 
-            // groupBoxPlayback
-            // 
-            this.groupBoxPlayback.Controls.Add(this.tableLayoutPanelPlayback);
-            this.groupBoxPlayback.Controls.Add(this.checkBoxPlaybackYukkuri);
-            this.groupBoxPlayback.Location = new System.Drawing.Point(8, 54);
-            this.groupBoxPlayback.Name = "groupBoxPlayback";
-            this.groupBoxPlayback.Size = new System.Drawing.Size(347, 186);
-            this.groupBoxPlayback.TabIndex = 5;
-            this.groupBoxPlayback.TabStop = false;
-            this.groupBoxPlayback.Text = "Playback";
-            // 
-            // checkBoxPlaybackYukkuri
-            // 
-            this.checkBoxPlaybackYukkuri.AutoSize = true;
-            this.checkBoxPlaybackYukkuri.Checked = true;
-            this.checkBoxPlaybackYukkuri.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxPlaybackYukkuri.Location = new System.Drawing.Point(6, 24);
-            this.checkBoxPlaybackYukkuri.Name = "checkBoxPlaybackYukkuri";
-            this.checkBoxPlaybackYukkuri.Size = new System.Drawing.Size(293, 19);
-            this.checkBoxPlaybackYukkuri.TabIndex = 0;
-            this.checkBoxPlaybackYukkuri.Text = "Use TTSYukkuri for Sound Playback";
-            this.checkBoxPlaybackYukkuri.UseVisualStyleBackColor = true;
-            this.checkBoxPlaybackYukkuri.CheckedChanged += new System.EventHandler(this.checkBoxPlaybackYukkuri_CheckedChanged);
-            this.checkBoxPlaybackYukkuri.EnabledChanged += new System.EventHandler(this.checkBoxPlaybackYukkuri_EnabledChanged);
-            // 
-            // tableLayoutPanelPlayback
-            // 
-            this.tableLayoutPanelPlayback.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanelPlayback.ColumnCount = 3;
-            this.tableLayoutPanelPlayback.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanelPlayback.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanelPlayback.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanelPlayback.Controls.Add(this.labelMasterVolume, 0, 0);
-            this.tableLayoutPanelPlayback.Controls.Add(this.trackBar1, 1, 0);
-            this.tableLayoutPanelPlayback.Controls.Add(this.labelCurrentVolume, 2, 0);
-            this.tableLayoutPanelPlayback.Controls.Add(this.labelPlaybackMethod, 0, 1);
-            this.tableLayoutPanelPlayback.Controls.Add(this.comboBoxPlaybackMethod, 1, 1);
-            this.tableLayoutPanelPlayback.Controls.Add(this.labelPlaybackDevice, 0, 2);
-            this.tableLayoutPanelPlayback.Controls.Add(this.comboBoxPlaybackDevice, 1, 2);
-            this.tableLayoutPanelPlayback.Location = new System.Drawing.Point(7, 49);
-            this.tableLayoutPanelPlayback.Name = "tableLayoutPanelPlayback";
-            this.tableLayoutPanelPlayback.RowCount = 4;
-            this.tableLayoutPanelPlayback.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanelPlayback.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanelPlayback.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanelPlayback.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanelPlayback.Size = new System.Drawing.Size(334, 131);
-            this.tableLayoutPanelPlayback.TabIndex = 1;
-            // 
-            // labelMasterVolume
-            // 
-            this.labelMasterVolume.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelMasterVolume.AutoSize = true;
-            this.labelMasterVolume.Location = new System.Drawing.Point(3, 0);
-            this.labelMasterVolume.Name = "labelMasterVolume";
-            this.labelMasterVolume.Padding = new System.Windows.Forms.Padding(0, 7, 0, 0);
-            this.labelMasterVolume.Size = new System.Drawing.Size(103, 22);
-            this.labelMasterVolume.TabIndex = 0;
-            this.labelMasterVolume.Text = "Master Vol.:";
-            // 
-            // trackBar1
-            // 
-            this.trackBar1.BackColor = System.Drawing.SystemColors.Window;
-            this.trackBar1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.trackBar1.Location = new System.Drawing.Point(112, 3);
-            this.trackBar1.Maximum = 100;
-            this.trackBar1.Name = "trackBar1";
-            this.trackBar1.Size = new System.Drawing.Size(173, 56);
-            this.trackBar1.TabIndex = 1;
-            this.trackBar1.TickStyle = System.Windows.Forms.TickStyle.None;
-            // 
-            // labelCurrentVolume
-            // 
-            this.labelCurrentVolume.AutoSize = true;
-            this.labelCurrentVolume.Location = new System.Drawing.Point(291, 0);
-            this.labelCurrentVolume.MinimumSize = new System.Drawing.Size(40, 0);
-            this.labelCurrentVolume.Name = "labelCurrentVolume";
-            this.labelCurrentVolume.Padding = new System.Windows.Forms.Padding(0, 7, 0, 0);
-            this.labelCurrentVolume.Size = new System.Drawing.Size(40, 22);
-            this.labelCurrentVolume.TabIndex = 2;
-            this.labelCurrentVolume.Text = "100";
-            // 
-            // labelPlaybackMethod
-            // 
-            this.labelPlaybackMethod.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelPlaybackMethod.AutoSize = true;
-            this.labelPlaybackMethod.Location = new System.Drawing.Point(3, 69);
-            this.labelPlaybackMethod.Name = "labelPlaybackMethod";
-            this.labelPlaybackMethod.Size = new System.Drawing.Size(103, 15);
-            this.labelPlaybackMethod.TabIndex = 3;
-            this.labelPlaybackMethod.Text = "Method:";
-            // 
-            // comboBoxPlaybackMethod
-            // 
-            this.comboBoxPlaybackMethod.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanelPlayback.SetColumnSpan(this.comboBoxPlaybackMethod, 2);
-            this.comboBoxPlaybackMethod.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxPlaybackMethod.FormattingEnabled = true;
-            this.comboBoxPlaybackMethod.Location = new System.Drawing.Point(112, 65);
-            this.comboBoxPlaybackMethod.Name = "comboBoxPlaybackMethod";
-            this.comboBoxPlaybackMethod.Size = new System.Drawing.Size(219, 23);
-            this.comboBoxPlaybackMethod.TabIndex = 4;
-            // 
-            // labelPlaybackDevice
-            // 
-            this.labelPlaybackDevice.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelPlaybackDevice.AutoSize = true;
-            this.labelPlaybackDevice.Location = new System.Drawing.Point(3, 98);
-            this.labelPlaybackDevice.Name = "labelPlaybackDevice";
-            this.labelPlaybackDevice.Size = new System.Drawing.Size(103, 15);
-            this.labelPlaybackDevice.TabIndex = 5;
-            this.labelPlaybackDevice.Text = "Device:";
-            // 
-            // comboBoxPlaybackDevice
-            // 
-            this.comboBoxPlaybackDevice.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanelPlayback.SetColumnSpan(this.comboBoxPlaybackDevice, 2);
-            this.comboBoxPlaybackDevice.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxPlaybackDevice.FormattingEnabled = true;
-            this.comboBoxPlaybackDevice.Location = new System.Drawing.Point(112, 94);
-            this.comboBoxPlaybackDevice.Name = "comboBoxPlaybackDevice";
-            this.comboBoxPlaybackDevice.Size = new System.Drawing.Size(219, 23);
-            this.comboBoxPlaybackDevice.TabIndex = 6;
-            // 
-            // panelTTSEngineSettings
-            // 
-            this.panelTTSEngineSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelTTSEngineSettings.Location = new System.Drawing.Point(361, 54);
-            this.panelTTSEngineSettings.Name = "panelTTSEngineSettings";
-            this.panelTTSEngineSettings.Size = new System.Drawing.Size(613, 677);
-            this.panelTTSEngineSettings.TabIndex = 6;
-            // 
-            // groupBoxTTSEngine
-            // 
-            this.groupBoxTTSEngine.Controls.Add(this.tableLayoutPanel1);
-            this.groupBoxTTSEngine.Location = new System.Drawing.Point(8, 247);
-            this.groupBoxTTSEngine.Name = "groupBoxTTSEngine";
-            this.groupBoxTTSEngine.Size = new System.Drawing.Size(347, 166);
-            this.groupBoxTTSEngine.TabIndex = 7;
-            this.groupBoxTTSEngine.TabStop = false;
-            this.groupBoxTTSEngine.Text = "TTS Engine";
-            // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Controls.Add(this.labelTTSEngine, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.comboBoxTTSEngine, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.checkBoxClearCacheExit, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.linkLabelClearCache, 0, 4);
-            this.tableLayoutPanel1.Controls.Add(this.linkLabelOpenCacheDir, 0, 3);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 21);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 6;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(341, 142);
-            this.tableLayoutPanel1.TabIndex = 0;
-            // 
-            // labelTTSEngine
-            // 
-            this.labelTTSEngine.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelTTSEngine.AutoSize = true;
-            this.labelTTSEngine.Location = new System.Drawing.Point(3, 7);
-            this.labelTTSEngine.Name = "labelTTSEngine";
-            this.labelTTSEngine.Size = new System.Drawing.Size(63, 15);
-            this.labelTTSEngine.TabIndex = 0;
-            this.labelTTSEngine.Text = "Engine:";
-            // 
-            // comboBoxTTSEngine
-            // 
-            this.comboBoxTTSEngine.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboBoxTTSEngine.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxTTSEngine.FormattingEnabled = true;
-            this.comboBoxTTSEngine.Location = new System.Drawing.Point(72, 3);
-            this.comboBoxTTSEngine.Name = "comboBoxTTSEngine";
-            this.comboBoxTTSEngine.Size = new System.Drawing.Size(266, 23);
-            this.comboBoxTTSEngine.TabIndex = 1;
-            this.comboBoxTTSEngine.SelectedIndexChanged += new System.EventHandler(this.comboBoxTTSEngine_SelectedIndexChanged);
-            // 
-            // checkBoxClearCacheExit
-            // 
-            this.checkBoxClearCacheExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.checkBoxClearCacheExit.AutoSize = true;
-            this.tableLayoutPanel1.SetColumnSpan(this.checkBoxClearCacheExit, 2);
-            this.checkBoxClearCacheExit.Location = new System.Drawing.Point(3, 32);
-            this.checkBoxClearCacheExit.Name = "checkBoxClearCacheExit";
-            this.checkBoxClearCacheExit.Size = new System.Drawing.Size(335, 19);
-            this.checkBoxClearCacheExit.TabIndex = 2;
-            this.checkBoxClearCacheExit.Text = "Clear Cache on Exit";
-            this.checkBoxClearCacheExit.UseVisualStyleBackColor = true;
-            // 
-            // linkLabelOpenCacheDir
-            // 
-            this.linkLabelOpenCacheDir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.linkLabelOpenCacheDir.AutoSize = true;
-            this.tableLayoutPanel1.SetColumnSpan(this.linkLabelOpenCacheDir, 2);
-            this.linkLabelOpenCacheDir.Location = new System.Drawing.Point(3, 92);
-            this.linkLabelOpenCacheDir.Name = "linkLabelOpenCacheDir";
-            this.linkLabelOpenCacheDir.Size = new System.Drawing.Size(335, 15);
-            this.linkLabelOpenCacheDir.TabIndex = 3;
-            this.linkLabelOpenCacheDir.TabStop = true;
-            this.linkLabelOpenCacheDir.Text = "Open Cache Directory";
-            // 
-            // linkLabelClearCache
-            // 
-            this.linkLabelClearCache.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.linkLabelClearCache.AutoSize = true;
-            this.tableLayoutPanel1.SetColumnSpan(this.linkLabelClearCache, 2);
-            this.linkLabelClearCache.Location = new System.Drawing.Point(3, 107);
-            this.linkLabelClearCache.Name = "linkLabelClearCache";
-            this.linkLabelClearCache.Size = new System.Drawing.Size(335, 15);
-            this.linkLabelClearCache.TabIndex = 4;
-            this.linkLabelClearCache.TabStop = true;
-            this.linkLabelClearCache.Text = "Clear Cache Right Now";
-            // 
-            // groupBoxPreview
-            // 
-            this.groupBoxPreview.Controls.Add(this.tableLayoutPanel2);
-            this.groupBoxPreview.Location = new System.Drawing.Point(8, 420);
-            this.groupBoxPreview.Name = "groupBoxPreview";
-            this.groupBoxPreview.Size = new System.Drawing.Size(347, 64);
-            this.groupBoxPreview.TabIndex = 8;
-            this.groupBoxPreview.TabStop = false;
-            this.groupBoxPreview.Text = "Preview";
-            // 
-            // tableLayoutPanel2
-            // 
-            this.tableLayoutPanel2.ColumnCount = 2;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel2.Controls.Add(this.textBoxPreview, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.buttonPreview, 1, 0);
-            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 21);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 2;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(341, 40);
-            this.tableLayoutPanel2.TabIndex = 0;
-            // 
-            // textBoxPreview
-            // 
-            this.textBoxPreview.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxPreview.Location = new System.Drawing.Point(3, 3);
-            this.textBoxPreview.Name = "textBoxPreview";
-            this.textBoxPreview.Size = new System.Drawing.Size(254, 25);
-            this.textBoxPreview.TabIndex = 0;
-            // 
-            // buttonPreview
-            // 
-            this.buttonPreview.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonPreview.Location = new System.Drawing.Point(263, 4);
-            this.buttonPreview.Name = "buttonPreview";
-            this.buttonPreview.Size = new System.Drawing.Size(75, 23);
-            this.buttonPreview.TabIndex = 1;
-            this.buttonPreview.Text = "Say!";
-            this.buttonPreview.UseVisualStyleBackColor = true;
-            this.buttonPreview.Click += new System.EventHandler(this.buttonPreview_Click);
             // 
             // FoxTTSTabControl
             // 
@@ -629,23 +630,23 @@
             this.Size = new System.Drawing.Size(989, 767);
             this.tabControl1.ResumeLayout(false);
             this.tabPageGeneralSettings.ResumeLayout(false);
+            this.groupBoxPreview.ResumeLayout(false);
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel2.PerformLayout();
+            this.groupBoxTTSEngine.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
+            this.groupBoxPlayback.ResumeLayout(false);
+            this.groupBoxPlayback.PerformLayout();
+            this.tableLayoutPanelPlayback.ResumeLayout(false);
+            this.tableLayoutPanelPlayback.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             this.groupBoxUpdate.ResumeLayout(false);
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();
             this.tableLayoutPanelMainLanguage.ResumeLayout(false);
             this.tableLayoutPanelMainLanguage.PerformLayout();
             this.tabPageLog.ResumeLayout(false);
-            this.groupBoxPlayback.ResumeLayout(false);
-            this.groupBoxPlayback.PerformLayout();
-            this.tableLayoutPanelPlayback.ResumeLayout(false);
-            this.tableLayoutPanelPlayback.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
-            this.groupBoxTTSEngine.ResumeLayout(false);
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
-            this.groupBoxPreview.ResumeLayout(false);
-            this.tableLayoutPanel2.ResumeLayout(false);
-            this.tableLayoutPanel2.PerformLayout();
             this.ResumeLayout(false);
 
         }

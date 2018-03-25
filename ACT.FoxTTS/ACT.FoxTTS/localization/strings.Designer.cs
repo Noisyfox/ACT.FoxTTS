@@ -349,6 +349,15 @@ namespace ACT.FoxTTS.localization {
         }
         
         /// <summary>
+        ///   查找类似 注册 API 密钥 的本地化字符串。
+        /// </summary>
+        internal static string linkLabelOpenBaiduReg {
+            get {
+                return ResourceManager.GetString("linkLabelOpenBaiduReg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 打开缓存文件夹 的本地化字符串。
         /// </summary>
         internal static string linkLabelOpenCacheDir {

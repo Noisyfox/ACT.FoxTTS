@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
 using ACT.FoxCommon;
@@ -78,6 +79,11 @@ namespace ACT.FoxTTS.engine.baidu
             settings.Volume = trackBarVolume.Value;
 
             settings.Person = comboBoxPerson.SelectedIndex;
+        }
+
+        private void linkLabelOpenBaiduReg_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Process.Start(@"http://yuyin.baidu.com/sdk");
         }
     }
 }

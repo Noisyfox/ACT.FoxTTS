@@ -45,6 +45,7 @@
             this.labelSpeedValue = new System.Windows.Forms.Label();
             this.labelPitchValue = new System.Windows.Forms.Label();
             this.labelVolumeValue = new System.Windows.Forms.Label();
+            this.linkLabelOpenBaiduReg = new System.Windows.Forms.LinkLabel();
             this.groupBoxTTSEngineDetail.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarSpeed)).BeginInit();
@@ -84,10 +85,12 @@
             this.tableLayoutPanel1.Controls.Add(this.labelSpeedValue, 2, 2);
             this.tableLayoutPanel1.Controls.Add(this.labelPitchValue, 2, 3);
             this.tableLayoutPanel1.Controls.Add(this.labelVolumeValue, 2, 4);
+            this.tableLayoutPanel1.Controls.Add(this.linkLabelOpenBaiduReg, 0, 6);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 21);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 7;
+            this.tableLayoutPanel1.RowCount = 8;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -263,6 +266,19 @@
             this.labelVolumeValue.TabIndex = 14;
             this.labelVolumeValue.Text = "5";
             // 
+            // linkLabelOpenBaiduReg
+            // 
+            this.linkLabelOpenBaiduReg.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.linkLabelOpenBaiduReg.AutoSize = true;
+            this.tableLayoutPanel1.SetColumnSpan(this.linkLabelOpenBaiduReg, 3);
+            this.linkLabelOpenBaiduReg.Location = new System.Drawing.Point(3, 277);
+            this.linkLabelOpenBaiduReg.Name = "linkLabelOpenBaiduReg";
+            this.linkLabelOpenBaiduReg.Size = new System.Drawing.Size(681, 15);
+            this.linkLabelOpenBaiduReg.TabIndex = 15;
+            this.linkLabelOpenBaiduReg.TabStop = true;
+            this.linkLabelOpenBaiduReg.Text = "Register Your Own API Keys";
+            this.linkLabelOpenBaiduReg.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelOpenBaiduReg_LinkClicked);
+            // 
             // BaiduTTSSettingsControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -300,5 +316,6 @@
         private System.Windows.Forms.Label labelSpeedValue;
         private System.Windows.Forms.Label labelPitchValue;
         private System.Windows.Forms.Label labelVolumeValue;
+        private System.Windows.Forms.LinkLabel linkLabelOpenBaiduReg;
     }
 }
