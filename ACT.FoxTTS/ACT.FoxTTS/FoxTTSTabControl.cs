@@ -5,6 +5,7 @@ using System.Windows.Forms;
 using ACT.FoxCommon;
 using ACT.FoxCommon.localization;
 using ACT.FoxCommon.update;
+using ACT.FoxTTS.engine;
 using ACT.FoxTTS.localization;
 
 namespace ACT.FoxTTS
@@ -21,6 +22,8 @@ namespace ACT.FoxTTS
             comboBoxLanguage.DisplayMember = nameof(LanguageDef.DisplayName);
             comboBoxLanguage.ValueMember = nameof(LanguageDef.LangCode);
             comboBoxLanguage.DataSource = Localization.SupportedLanguages;
+            comboBoxTTSEngine.DisplayMember = nameof(TTSEngineDef.DisplayName);
+            comboBoxTTSEngine.ValueMember = nameof(TTSEngineDef.Name);
 
             labelCurrentVersionValue.Text = Assembly.GetCallingAssembly().GetName().Version.ToString();
         }
@@ -48,16 +51,19 @@ namespace ACT.FoxTTS
             _controller.LogMessageAppend += ControllerOnLogMessageAppend;
             _controller.UpdateCheckingStarted += ControllerOnUpdateCheckingStarted;
             _controller.VersionChecked += ControllerOnVersionChecked;
+            _controller.TTSEngineChanged += ControllerOnTtsEngineChanged;
         }
 
         public void PostAttachToAct(FoxTTSPlugin plugin)
         {
+            checkBoxPlaybackYukkuri_CheckedChanged(checkBoxPlaybackYukkuri, EventArgs.Empty);
         }
 
         public void DoLocalization()
         {
             LocalizationBase.TranslateControls(this);
 
+            comboBoxTTSEngine.DataSource = TTSEngineFactory.Engines;
             labelLatestStableVersionValue.Text = strings.versionUnknown;
             labelLatestVersionValue.Text = strings.versionUnknown;
         }
@@ -152,6 +158,16 @@ namespace ACT.FoxTTS
             }
         }
 
+        private void ControllerOnTtsEngineChanged(bool fromView, string engine)
+        {
+            if (fromView)
+            {
+                return;
+            }
+
+            comboBoxPlaybackMethod.SelectedValue = engine;
+        }
+
         private PublishVersion IsNewVersion(PublishVersion newVersion)
         {
             if (newVersion == null)
@@ -227,6 +243,11 @@ namespace ACT.FoxTTS
             tableLayoutPanelPlayback.Enabled = !yukkuriPlaybackEnable;
 
             _controller.NotifyYukkuriPlaybackEnabledChanged(true, yukkuriPlaybackEnable);
+        }
+
+        private void comboBoxTTSEngine_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            _controller.NotifyTTSEngineChanged(true, (string)comboBoxTTSEngine.SelectedValue);
         }
     }
 }

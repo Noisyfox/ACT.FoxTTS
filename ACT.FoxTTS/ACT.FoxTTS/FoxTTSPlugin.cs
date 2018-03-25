@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using ACT.FoxCommon.core;
+using ACT.FoxTTS.engine;
 using ACT.FoxTTS.localization;
 
 namespace ACT.FoxTTS
@@ -11,10 +12,23 @@ namespace ACT.FoxTTS
 
         public SettingsHolder Settings { get; private set; }
         public TabPage ParentTabPage { get; private set; }
+        public Panel EngineSettingsPanel => SettingsTab.panelTTSEngineSettings;
         public Label StatusLabel { get; private set; }
         public FoxTTSTabControl SettingsTab { get; private set; }
         public TTSInjector TtsInjector { get; } = new TTSInjector();
         public SoundPlayerWrapper SoundPlayer { get; } = new SoundPlayerWrapper();
+
+        public ITTSEngine TtsEngine
+        {
+            get
+            {
+                lock (this)
+                {
+                    return _ttsEngine;
+                }
+            }
+        }
+        private ITTSEngine _ttsEngine;
 
         internal UpdateChecker UpdateChecker { get; } = new UpdateChecker();
 
@@ -38,6 +52,8 @@ namespace ACT.FoxTTS
                 UpdateChecker.AttachToAct(this);
                 SoundPlayer.AttachToAct(this);
                 TtsInjector.AttachToAct(this);
+
+                Controller.TTSEngineChanged += ControllerOnTtsEngineChanged;
 
                 Settings.PostAttachToAct(this);
                 SettingsTab.PostAttachToAct(this);
@@ -82,9 +98,16 @@ namespace ACT.FoxTTS
 
         public override void DeInitPlugin()
         {
+            Controller.TTSEngineChanged -= ControllerOnTtsEngineChanged;
             TtsInjector.Stop();
             SoundPlayer.Stop();
             UpdateChecker.Stop();
+
+            lock (this)
+            {
+                _ttsEngine?.Stop();
+                _ttsEngine = null;
+            }
 
             if (_settingsLoaded)
             {
@@ -92,6 +115,19 @@ namespace ACT.FoxTTS
             }
 
             StatusLabel.Text = "Exited. Bye~";
+        }
+
+        private void ControllerOnTtsEngineChanged(bool fromView, string engine)
+        {
+            Controller.NotifyLogMessageAppend(fromView, $"TTSEngine Changed: fromView = {fromView}, engine = {engine}");
+            lock (this)
+            {
+                _ttsEngine?.Stop();
+                _ttsEngine = null;
+                _ttsEngine = TTSEngineFactory.CreateEngine(engine);
+                _ttsEngine.AttachToAct(this);
+                _ttsEngine.PostAttachToAct(this);
+            }
         }
     }
 

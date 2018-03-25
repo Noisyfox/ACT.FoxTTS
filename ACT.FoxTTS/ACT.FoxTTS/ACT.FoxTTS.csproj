@@ -55,6 +55,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="engine\baidu\BaiduTTSEngine.cs" />
+    <Compile Include="engine\baidu\BaiduTTSSettings.cs" />
+    <Compile Include="engine\baidu\BaiduTTSSettingsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="engine\baidu\BaiduTTSSettingsControl.Designer.cs">
+      <DependentUpon>BaiduTTSSettingsControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="engine\ITTSEngine.cs" />
+    <Compile Include="engine\TTSEngineFactory.cs" />
     <Compile Include="FoxTTSPlugin.cs" />
     <Compile Include="FoxTTSTabControl.cs">
       <SubType>UserControl</SubType>
@@ -89,6 +99,9 @@
     <Content Include="ILMergeOrder.txt" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="engine\baidu\BaiduTTSSettingsControl.resx">
+      <DependentUpon>BaiduTTSSettingsControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FoxTTSTabControl.resx">
       <DependentUpon>FoxTTSTabControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -97,6 +110,7 @@
       <LastGenOutput>strings.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="AfterBuild">
     <!-- Copy satellite assemblies. -->

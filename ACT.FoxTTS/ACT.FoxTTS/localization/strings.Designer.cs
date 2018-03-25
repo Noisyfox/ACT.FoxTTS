@@ -124,6 +124,15 @@ namespace ACT.FoxTTS.localization {
         }
         
         /// <summary>
+        ///   查找类似 退出时清空 TTS 缓存 的本地化字符串。
+        /// </summary>
+        internal static string checkBoxClearCacheExit {
+            get {
+                return ResourceManager.GetString("checkBoxClearCacheExit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 只提示稳定版更新 的本地化字符串。
         /// </summary>
         internal static string checkBoxNotifyStableOnly {
@@ -151,11 +160,38 @@ namespace ACT.FoxTTS.localization {
         }
         
         /// <summary>
+        ///   查找类似 TTS 引擎 的本地化字符串。
+        /// </summary>
+        internal static string groupBoxTTSEngine {
+            get {
+                return ResourceManager.GetString("groupBoxTTSEngine", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 引擎详情 的本地化字符串。
+        /// </summary>
+        internal static string groupBoxTTSEngineDetail {
+            get {
+                return ResourceManager.GetString("groupBoxTTSEngineDetail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 插件更新 的本地化字符串。
         /// </summary>
         internal static string groupBoxUpdate {
             get {
                 return ResourceManager.GetString("groupBoxUpdate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 API Key: 的本地化字符串。
+        /// </summary>
+        internal static string labelApiKey {
+            get {
+                return ResourceManager.GetString("labelApiKey", resourceCulture);
             }
         }
         
@@ -214,6 +250,24 @@ namespace ACT.FoxTTS.localization {
         }
         
         /// <summary>
+        ///   查找类似 人声选择: 的本地化字符串。
+        /// </summary>
+        internal static string labelPerson {
+            get {
+                return ResourceManager.GetString("labelPerson", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 音调: 的本地化字符串。
+        /// </summary>
+        internal static string labelPitch {
+            get {
+                return ResourceManager.GetString("labelPitch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 输出设备: 的本地化字符串。
         /// </summary>
         internal static string labelPlaybackDevice {
@@ -228,6 +282,60 @@ namespace ACT.FoxTTS.localization {
         internal static string labelPlaybackMethod {
             get {
                 return ResourceManager.GetString("labelPlaybackMethod", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Secret Key: 的本地化字符串。
+        /// </summary>
+        internal static string labelSecretKey {
+            get {
+                return ResourceManager.GetString("labelSecretKey", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 语速: 的本地化字符串。
+        /// </summary>
+        internal static string labelSpeed {
+            get {
+                return ResourceManager.GetString("labelSpeed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 引擎: 的本地化字符串。
+        /// </summary>
+        internal static string labelTTSEngine {
+            get {
+                return ResourceManager.GetString("labelTTSEngine", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 音量: 的本地化字符串。
+        /// </summary>
+        internal static string labelVolume {
+            get {
+                return ResourceManager.GetString("labelVolume", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 立即清空缓存 的本地化字符串。
+        /// </summary>
+        internal static string linkLabelClearCache {
+            get {
+                return ResourceManager.GetString("linkLabelClearCache", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 打开缓存文件夹 的本地化字符串。
+        /// </summary>
+        internal static string linkLabelOpenCacheDir {
+            get {
+                return ResourceManager.GetString("linkLabelOpenCacheDir", resourceCulture);
             }
         }
         
@@ -273,6 +381,15 @@ namespace ACT.FoxTTS.localization {
         internal static string tabPageLog {
             get {
                 return ResourceManager.GetString("tabPageLog", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 百度语音 的本地化字符串。
+        /// </summary>
+        internal static string ttsEngineBaidu {
+            get {
+                return ResourceManager.GetString("ttsEngineBaidu", resourceCulture);
             }
         }
         

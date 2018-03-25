@@ -58,6 +58,14 @@
             this.comboBoxPlaybackMethod = new System.Windows.Forms.ComboBox();
             this.labelPlaybackDevice = new System.Windows.Forms.Label();
             this.comboBoxPlaybackDevice = new System.Windows.Forms.ComboBox();
+            this.panelTTSEngineSettings = new System.Windows.Forms.Panel();
+            this.groupBoxTTSEngine = new System.Windows.Forms.GroupBox();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.labelTTSEngine = new System.Windows.Forms.Label();
+            this.comboBoxTTSEngine = new System.Windows.Forms.ComboBox();
+            this.checkBoxClearCacheExit = new System.Windows.Forms.CheckBox();
+            this.linkLabelOpenCacheDir = new System.Windows.Forms.LinkLabel();
+            this.linkLabelClearCache = new System.Windows.Forms.LinkLabel();
             this.tabControl1.SuspendLayout();
             this.tabPageGeneralSettings.SuspendLayout();
             this.groupBoxUpdate.SuspendLayout();
@@ -67,6 +75,8 @@
             this.groupBoxPlayback.SuspendLayout();
             this.tableLayoutPanelPlayback.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
+            this.groupBoxTTSEngine.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -84,6 +94,8 @@
             // tabPageGeneralSettings
             // 
             this.tabPageGeneralSettings.AutoScroll = true;
+            this.tabPageGeneralSettings.Controls.Add(this.groupBoxTTSEngine);
+            this.tabPageGeneralSettings.Controls.Add(this.panelTTSEngineSettings);
             this.tabPageGeneralSettings.Controls.Add(this.groupBoxPlayback);
             this.tabPageGeneralSettings.Controls.Add(this.groupBoxUpdate);
             this.tabPageGeneralSettings.Controls.Add(this.tableLayoutPanelMainLanguage);
@@ -343,6 +355,8 @@
             // checkBoxPlaybackYukkuri
             // 
             this.checkBoxPlaybackYukkuri.AutoSize = true;
+            this.checkBoxPlaybackYukkuri.Checked = true;
+            this.checkBoxPlaybackYukkuri.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxPlaybackYukkuri.Location = new System.Drawing.Point(6, 24);
             this.checkBoxPlaybackYukkuri.Name = "checkBoxPlaybackYukkuri";
             this.checkBoxPlaybackYukkuri.Size = new System.Drawing.Size(293, 19);
@@ -454,6 +468,106 @@
             this.comboBoxPlaybackDevice.Size = new System.Drawing.Size(219, 23);
             this.comboBoxPlaybackDevice.TabIndex = 6;
             // 
+            // panelTTSEngineSettings
+            // 
+            this.panelTTSEngineSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelTTSEngineSettings.Location = new System.Drawing.Point(361, 54);
+            this.panelTTSEngineSettings.Name = "panelTTSEngineSettings";
+            this.panelTTSEngineSettings.Size = new System.Drawing.Size(613, 603);
+            this.panelTTSEngineSettings.TabIndex = 6;
+            // 
+            // groupBoxTTSEngine
+            // 
+            this.groupBoxTTSEngine.Controls.Add(this.tableLayoutPanel1);
+            this.groupBoxTTSEngine.Location = new System.Drawing.Point(8, 247);
+            this.groupBoxTTSEngine.Name = "groupBoxTTSEngine";
+            this.groupBoxTTSEngine.Size = new System.Drawing.Size(347, 166);
+            this.groupBoxTTSEngine.TabIndex = 7;
+            this.groupBoxTTSEngine.TabStop = false;
+            this.groupBoxTTSEngine.Text = "TTS Engine";
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Controls.Add(this.labelTTSEngine, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.comboBoxTTSEngine, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.checkBoxClearCacheExit, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.linkLabelClearCache, 0, 4);
+            this.tableLayoutPanel1.Controls.Add(this.linkLabelOpenCacheDir, 0, 3);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 21);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 6;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(341, 142);
+            this.tableLayoutPanel1.TabIndex = 0;
+            // 
+            // labelTTSEngine
+            // 
+            this.labelTTSEngine.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelTTSEngine.AutoSize = true;
+            this.labelTTSEngine.Location = new System.Drawing.Point(3, 7);
+            this.labelTTSEngine.Name = "labelTTSEngine";
+            this.labelTTSEngine.Size = new System.Drawing.Size(63, 15);
+            this.labelTTSEngine.TabIndex = 0;
+            this.labelTTSEngine.Text = "Engine:";
+            // 
+            // comboBoxTTSEngine
+            // 
+            this.comboBoxTTSEngine.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboBoxTTSEngine.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxTTSEngine.FormattingEnabled = true;
+            this.comboBoxTTSEngine.Location = new System.Drawing.Point(72, 3);
+            this.comboBoxTTSEngine.Name = "comboBoxTTSEngine";
+            this.comboBoxTTSEngine.Size = new System.Drawing.Size(266, 23);
+            this.comboBoxTTSEngine.TabIndex = 1;
+            this.comboBoxTTSEngine.SelectedIndexChanged += new System.EventHandler(this.comboBoxTTSEngine_SelectedIndexChanged);
+            // 
+            // checkBoxClearCacheExit
+            // 
+            this.checkBoxClearCacheExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.checkBoxClearCacheExit.AutoSize = true;
+            this.tableLayoutPanel1.SetColumnSpan(this.checkBoxClearCacheExit, 2);
+            this.checkBoxClearCacheExit.Location = new System.Drawing.Point(3, 32);
+            this.checkBoxClearCacheExit.Name = "checkBoxClearCacheExit";
+            this.checkBoxClearCacheExit.Size = new System.Drawing.Size(335, 19);
+            this.checkBoxClearCacheExit.TabIndex = 2;
+            this.checkBoxClearCacheExit.Text = "Clear Cache on Exit";
+            this.checkBoxClearCacheExit.UseVisualStyleBackColor = true;
+            // 
+            // linkLabelOpenCacheDir
+            // 
+            this.linkLabelOpenCacheDir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.linkLabelOpenCacheDir.AutoSize = true;
+            this.tableLayoutPanel1.SetColumnSpan(this.linkLabelOpenCacheDir, 2);
+            this.linkLabelOpenCacheDir.Location = new System.Drawing.Point(3, 92);
+            this.linkLabelOpenCacheDir.Name = "linkLabelOpenCacheDir";
+            this.linkLabelOpenCacheDir.Size = new System.Drawing.Size(335, 15);
+            this.linkLabelOpenCacheDir.TabIndex = 3;
+            this.linkLabelOpenCacheDir.TabStop = true;
+            this.linkLabelOpenCacheDir.Text = "Open Cache Directory";
+            // 
+            // linkLabelClearCache
+            // 
+            this.linkLabelClearCache.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.linkLabelClearCache.AutoSize = true;
+            this.tableLayoutPanel1.SetColumnSpan(this.linkLabelClearCache, 2);
+            this.linkLabelClearCache.Location = new System.Drawing.Point(3, 107);
+            this.linkLabelClearCache.Name = "linkLabelClearCache";
+            this.linkLabelClearCache.Size = new System.Drawing.Size(335, 15);
+            this.linkLabelClearCache.TabIndex = 4;
+            this.linkLabelClearCache.TabStop = true;
+            this.linkLabelClearCache.Text = "Clear Cache Right Now";
+            // 
             // FoxTTSTabControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -474,6 +588,9 @@
             this.tableLayoutPanelPlayback.ResumeLayout(false);
             this.tableLayoutPanelPlayback.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
+            this.groupBoxTTSEngine.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -510,5 +627,13 @@
         private System.Windows.Forms.ComboBox comboBoxPlaybackMethod;
         private System.Windows.Forms.Label labelPlaybackDevice;
         private System.Windows.Forms.ComboBox comboBoxPlaybackDevice;
+        public System.Windows.Forms.Panel panelTTSEngineSettings;
+        private System.Windows.Forms.GroupBox groupBoxTTSEngine;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Label labelTTSEngine;
+        private System.Windows.Forms.ComboBox comboBoxTTSEngine;
+        private System.Windows.Forms.CheckBox checkBoxClearCacheExit;
+        private System.Windows.Forms.LinkLabel linkLabelClearCache;
+        private System.Windows.Forms.LinkLabel linkLabelOpenCacheDir;
     }
 }

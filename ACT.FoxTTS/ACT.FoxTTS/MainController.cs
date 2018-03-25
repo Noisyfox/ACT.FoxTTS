@@ -31,5 +31,14 @@ namespace ACT.FoxTTS
         {
             YukkuriPlaybackEnabledChanged?.Invoke(fromView, enabled);
         }
+
+        public delegate void OnTTSEngineChangedDelegate(bool fromView, string engine);
+
+        public event OnTTSEngineChangedDelegate TTSEngineChanged;
+
+        public void NotifyTTSEngineChanged(bool fromView, string engine)
+        {
+            TTSEngineChanged?.Invoke(fromView, engine);
+        }
     }
 }

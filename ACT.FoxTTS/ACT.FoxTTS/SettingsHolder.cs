@@ -1,7 +1,10 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Text;
 using System.Windows.Forms;
 using System.Xml;
+using System.Xml.Serialization;
+using ACT.FoxTTS.engine.baidu;
 using Advanced_Combat_Tracker;
 
 namespace ACT.FoxTTS
@@ -11,11 +14,14 @@ namespace ACT.FoxTTS
     /// </summary>
     internal class PluginSettings : SettingsSerializer
     {
-        private readonly string _settingsFile = Path.Combine(ActGlobals.oFormActMain.AppDataFolder.FullName, "Config\\ACT.FoxTTS.config.xml");
+        private readonly string _settingsFile = Path.Combine(ActGlobals.oFormActMain.AppDataFolder.FullName,
+            "Config\\ACT.FoxTTS.config.xml");
 
         public PluginSettings(object ParentSettingsClass) : base(ParentSettingsClass)
         {
         }
+
+        public BaiduTTSSettings BaiduTtsSettings = new BaiduTTSSettings();
 
         public void Load()
         {
@@ -26,9 +32,22 @@ namespace ACT.FoxTTS
                 XmlTextReader reader = new XmlTextReader(fs);
                 while (reader.Read())
                 {
-                    if (reader.NodeType == XmlNodeType.Element && reader.LocalName == "SettingsSerializer")
-                        ImportFromXml(reader);
+                    if (reader.NodeType != XmlNodeType.Element)
+                    {
+                        continue;
+                    }
+
+                    switch (reader.LocalName)
+                    {
+                        case "SettingsSerializer":
+                            ImportFromXml(reader);
+                            break;
+                        case nameof(BaiduTTSSettings):
+                            BaiduTtsSettings = Deserialize<BaiduTTSSettings>(reader);
+                            break;
+                    }
                 }
+
                 reader.Close();
             }
         }
@@ -45,10 +64,29 @@ namespace ACT.FoxTTS
             writer.WriteStartElement("SettingsSerializer");
             ExportToXml(writer);
             writer.WriteEndElement();
+
+            Serialize(writer, BaiduTtsSettings);
+
             writer.WriteEndElement();
             writer.WriteEndDocument();
             writer.Flush();
             writer.Close();
+        }
+
+        private static void Serialize<T>(XmlTextWriter writer, T obj) where T : class
+        {
+            var ns = new XmlSerializerNamespaces();
+            ns.Add("", "");
+            XmlSerializer serializer = new XmlSerializer(typeof(T));
+            serializer.Serialize(writer, obj, ns);
+        }
+
+        private static T Deserialize<T>(XmlTextReader reader) where T : class
+        {
+            var ns = new XmlSerializerNamespaces();
+            ns.Add("", "");
+            XmlSerializer serializer = new XmlSerializer(typeof(T));
+            return serializer.Deserialize(reader) as T;
         }
     }
 
@@ -85,6 +123,10 @@ namespace ACT.FoxTTS
         public string Language { get; set; }
 
         public string VersionIgnored { get; set; }
+
+        public BaiduTTSSettings BaiduTtsSettings => Settings.BaiduTtsSettings;
+
+        public string TTSEngine { get; set; }
         
         #endregion
 
@@ -96,11 +138,13 @@ namespace ACT.FoxTTS
         {
             Settings.AddStringSetting(nameof(Language));
             Settings.AddStringSetting(nameof(VersionIgnored));
+            Settings.AddStringSetting(nameof(TTSEngine));
 
             _controller = plugin.Controller;
 
             _controller.LanguageChanged += ControllerOnLanguageChanged;
             _controller.NewVersionIgnored += ControllerOnNewVersionIgnored;
+            _controller.TTSEngineChanged += ControllerOnTtsEngineChanged;
         }
 
         public void PostAttachToAct(FoxTTSPlugin plugin)
@@ -126,6 +170,16 @@ namespace ACT.FoxTTS
         private void ControllerOnNewVersionIgnored(bool fromView, string ignoredVersion)
         {
             VersionIgnored = ignoredVersion;
+        }
+
+        private void ControllerOnTtsEngineChanged(bool fromView, string engine)
+        {
+            if (!fromView)
+            {
+                return;
+            }
+
+            TTSEngine = engine;
         }
 
         #endregion
