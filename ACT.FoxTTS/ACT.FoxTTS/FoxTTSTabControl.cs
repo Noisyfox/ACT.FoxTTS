@@ -249,5 +249,10 @@ namespace ACT.FoxTTS
         {
             _controller.NotifyTTSEngineChanged(true, (string)comboBoxTTSEngine.SelectedValue);
         }
+
+        private void buttonPreview_Click(object sender, EventArgs e)
+        {
+            _plugin.TtsEngine?.Speak(textBoxPreview.Text, 1);
+        }
     }
 }

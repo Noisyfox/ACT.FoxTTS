@@ -97,6 +97,15 @@ namespace ACT.FoxTTS.localization {
         }
         
         /// <summary>
+        ///   查找类似 听听看! 的本地化字符串。
+        /// </summary>
+        internal static string buttonPreview {
+            get {
+                return ResourceManager.GetString("buttonPreview", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 稍后 的本地化字符串。
         /// </summary>
         internal static string buttonUpdateLater {
@@ -156,6 +165,15 @@ namespace ACT.FoxTTS.localization {
         internal static string groupBoxPlayback {
             get {
                 return ResourceManager.GetString("groupBoxPlayback", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 声音预览 的本地化字符串。
+        /// </summary>
+        internal static string groupBoxPreview {
+            get {
+                return ResourceManager.GetString("groupBoxPreview", resourceCulture);
             }
         }
         
@@ -381,6 +399,15 @@ namespace ACT.FoxTTS.localization {
         internal static string tabPageLog {
             get {
                 return ResourceManager.GetString("tabPageLog", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 今天天气真不错。 的本地化字符串。
+        /// </summary>
+        internal static string textBoxPreview {
+            get {
+                return ResourceManager.GetString("textBoxPreview", resourceCulture);
             }
         }
         

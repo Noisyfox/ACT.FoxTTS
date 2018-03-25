@@ -66,6 +66,10 @@
             this.checkBoxClearCacheExit = new System.Windows.Forms.CheckBox();
             this.linkLabelOpenCacheDir = new System.Windows.Forms.LinkLabel();
             this.linkLabelClearCache = new System.Windows.Forms.LinkLabel();
+            this.groupBoxPreview = new System.Windows.Forms.GroupBox();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.textBoxPreview = new System.Windows.Forms.TextBox();
+            this.buttonPreview = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPageGeneralSettings.SuspendLayout();
             this.groupBoxUpdate.SuspendLayout();
@@ -77,6 +81,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.groupBoxTTSEngine.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            this.groupBoxPreview.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -88,12 +94,13 @@
             this.tabControl1.Margin = new System.Windows.Forms.Padding(4);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(989, 693);
+            this.tabControl1.Size = new System.Drawing.Size(989, 767);
             this.tabControl1.TabIndex = 9;
             // 
             // tabPageGeneralSettings
             // 
             this.tabPageGeneralSettings.AutoScroll = true;
+            this.tabPageGeneralSettings.Controls.Add(this.groupBoxPreview);
             this.tabPageGeneralSettings.Controls.Add(this.groupBoxTTSEngine);
             this.tabPageGeneralSettings.Controls.Add(this.panelTTSEngineSettings);
             this.tabPageGeneralSettings.Controls.Add(this.groupBoxPlayback);
@@ -103,7 +110,7 @@
             this.tabPageGeneralSettings.Margin = new System.Windows.Forms.Padding(4);
             this.tabPageGeneralSettings.Name = "tabPageGeneralSettings";
             this.tabPageGeneralSettings.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPageGeneralSettings.Size = new System.Drawing.Size(981, 664);
+            this.tabPageGeneralSettings.Size = new System.Drawing.Size(981, 738);
             this.tabPageGeneralSettings.TabIndex = 0;
             this.tabPageGeneralSettings.Text = "General Settings";
             this.tabPageGeneralSettings.UseVisualStyleBackColor = true;
@@ -111,7 +118,7 @@
             // groupBoxUpdate
             // 
             this.groupBoxUpdate.Controls.Add(this.tableLayoutPanel4);
-            this.groupBoxUpdate.Location = new System.Drawing.Point(4, 420);
+            this.groupBoxUpdate.Location = new System.Drawing.Point(8, 491);
             this.groupBoxUpdate.Margin = new System.Windows.Forms.Padding(4);
             this.groupBoxUpdate.Name = "groupBoxUpdate";
             this.groupBoxUpdate.Padding = new System.Windows.Forms.Padding(4);
@@ -475,7 +482,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelTTSEngineSettings.Location = new System.Drawing.Point(361, 54);
             this.panelTTSEngineSettings.Name = "panelTTSEngineSettings";
-            this.panelTTSEngineSettings.Size = new System.Drawing.Size(613, 603);
+            this.panelTTSEngineSettings.Size = new System.Drawing.Size(613, 677);
             this.panelTTSEngineSettings.TabIndex = 6;
             // 
             // groupBoxTTSEngine
@@ -568,13 +575,58 @@
             this.linkLabelClearCache.TabStop = true;
             this.linkLabelClearCache.Text = "Clear Cache Right Now";
             // 
+            // groupBoxPreview
+            // 
+            this.groupBoxPreview.Controls.Add(this.tableLayoutPanel2);
+            this.groupBoxPreview.Location = new System.Drawing.Point(8, 420);
+            this.groupBoxPreview.Name = "groupBoxPreview";
+            this.groupBoxPreview.Size = new System.Drawing.Size(347, 64);
+            this.groupBoxPreview.TabIndex = 8;
+            this.groupBoxPreview.TabStop = false;
+            this.groupBoxPreview.Text = "Preview";
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.ColumnCount = 2;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel2.Controls.Add(this.textBoxPreview, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.buttonPreview, 1, 0);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 21);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 2;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(341, 40);
+            this.tableLayoutPanel2.TabIndex = 0;
+            // 
+            // textBoxPreview
+            // 
+            this.textBoxPreview.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxPreview.Location = new System.Drawing.Point(3, 3);
+            this.textBoxPreview.Name = "textBoxPreview";
+            this.textBoxPreview.Size = new System.Drawing.Size(254, 25);
+            this.textBoxPreview.TabIndex = 0;
+            // 
+            // buttonPreview
+            // 
+            this.buttonPreview.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonPreview.Location = new System.Drawing.Point(263, 4);
+            this.buttonPreview.Name = "buttonPreview";
+            this.buttonPreview.Size = new System.Drawing.Size(75, 23);
+            this.buttonPreview.TabIndex = 1;
+            this.buttonPreview.Text = "Say!";
+            this.buttonPreview.UseVisualStyleBackColor = true;
+            this.buttonPreview.Click += new System.EventHandler(this.buttonPreview_Click);
+            // 
             // FoxTTSTabControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.tabControl1);
             this.Name = "FoxTTSTabControl";
-            this.Size = new System.Drawing.Size(989, 693);
+            this.Size = new System.Drawing.Size(989, 767);
             this.tabControl1.ResumeLayout(false);
             this.tabPageGeneralSettings.ResumeLayout(false);
             this.groupBoxUpdate.ResumeLayout(false);
@@ -591,6 +643,9 @@
             this.groupBoxTTSEngine.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            this.groupBoxPreview.ResumeLayout(false);
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -635,5 +690,9 @@
         private System.Windows.Forms.CheckBox checkBoxClearCacheExit;
         private System.Windows.Forms.LinkLabel linkLabelClearCache;
         private System.Windows.Forms.LinkLabel linkLabelOpenCacheDir;
+        private System.Windows.Forms.GroupBox groupBoxPreview;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.TextBox textBoxPreview;
+        private System.Windows.Forms.Button buttonPreview;
     }
 }

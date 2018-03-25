@@ -9,5 +9,7 @@ namespace ACT.FoxTTS.engine
     public interface ITTSEngine : IPluginComponent
     {
         void Stop();
+
+        void Speak(string text, dynamic playDevice);
     }
 }
