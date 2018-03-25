@@ -5,10 +5,10 @@ namespace ACT.FoxTTS.engine.baidu
     public class BaiduTTSSettings
     {
         [XmlElement]
-        public string ApiKey = "";
+        public string ApiKey = "ALLgqCqouZ9GmIiFgafuyCsG";
 
         [XmlElement]
-        public string SecretKey = "";
+        public string SecretKey = "079d11c1b742b0031adc5872661fab81";
 
         [XmlElement]
         public int Speed = 5;
