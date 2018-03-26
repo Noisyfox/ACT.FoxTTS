@@ -152,9 +152,10 @@
             // buttonPreview
             // 
             this.buttonPreview.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonPreview.Location = new System.Drawing.Point(263, 4);
+            this.buttonPreview.AutoSize = true;
+            this.buttonPreview.Location = new System.Drawing.Point(263, 3);
             this.buttonPreview.Name = "buttonPreview";
-            this.buttonPreview.Size = new System.Drawing.Size(75, 23);
+            this.buttonPreview.Size = new System.Drawing.Size(75, 25);
             this.buttonPreview.TabIndex = 1;
             this.buttonPreview.Text = "Say!";
             this.buttonPreview.UseVisualStyleBackColor = true;
