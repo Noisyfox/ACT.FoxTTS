@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using ACT.FoxCommon.core;
@@ -10,6 +11,12 @@ namespace ACT.FoxTTS
 {
     public class TTSInjector : BaseThreading<FoxTTSPlugin>, IPluginComponent
     {
+        private static readonly HashSet<string> YUKKURI_INIT_SUCCESS = new HashSet<string>(new[]
+        {
+            "Plugin Started".ToUpper(),
+            "插件加载成功.".ToUpper(),
+        });
+
         private FoxTTSPlugin _plugin;
         private YukkuriContext _yukkuriContext;
 
@@ -46,7 +53,7 @@ namespace ACT.FoxTTS
                         foreach (var item in ActGlobals.oFormActMain.ActPlugins)
                         {
                             if (item.pluginFile.Name.ToUpper() == "ACT.TTSYukkuri.dll".ToUpper() &&
-                                item.lblPluginStatus.Text.ToUpper() == "Plugin Started".ToUpper())
+                                YUKKURI_INIT_SUCCESS.Contains(item.lblPluginStatus.Text.ToUpper()))
                             {
                                 currentEnabled = true;
                                 break;
@@ -186,7 +193,8 @@ namespace ACT.FoxTTS
                 ISpeechControllerType = yukkuriAssembly.GetType("ACT.TTSYukkuri.ISpeechController");
 
                 var s = yukkuriAssembly.GetType("ACT.TTSYukkuri.SpeechController");
-                _speechControllerInstanceFieldInfo = s.GetField("instance", BindingFlags.Static | BindingFlags.NonPublic);
+                _speechControllerInstanceFieldInfo =
+                    s.GetField("instance", BindingFlags.Static | BindingFlags.NonPublic);
                 var lockObjectField = s.GetField("lockObject", BindingFlags.Static | BindingFlags.NonPublic);
 
                 SpeechControllerLockObject = lockObjectField.GetValue(null);
@@ -197,7 +205,7 @@ namespace ACT.FoxTTS
 
             public void Play(string waveFile, dynamic playDevice)
             {
-                _soundPlayerWrapperPlayMethodInfo.Invoke(null, new object[] { waveFile, playDevice });
+                _soundPlayerWrapperPlayMethodInfo.Invoke(null, new object[] {waveFile, playDevice});
             }
         }
     }
