@@ -166,6 +166,13 @@ namespace ACT.FoxTTS
             _plugin.Speak(text, playDevice);
         }
 
+        // Old Yukkuri version < 3.4
+        void Speak(string text)
+        {
+            _plugin.Controller.NotifyLogMessageAppend(false, $"Speak {text}");
+            _plugin.Speak(text, 0);
+        }
+
         public void PlayTTSYukkuri(string waveFile, dynamic playDevice)
         {
             _yukkuriContext?.Play(waveFile, playDevice);
@@ -205,7 +212,17 @@ namespace ACT.FoxTTS
 
             public void Play(string waveFile, dynamic playDevice)
             {
-                _soundPlayerWrapperPlayMethodInfo.Invoke(null, new object[] {waveFile, playDevice});
+                var paramCount = _soundPlayerWrapperPlayMethodInfo.GetParameters().Length;
+                switch (paramCount)
+                {
+                    case 1:
+                        // Old Yukkuri version < 3.4
+                        _soundPlayerWrapperPlayMethodInfo.Invoke(null, new object[] { waveFile });
+                        break;
+                    case 2:
+                        _soundPlayerWrapperPlayMethodInfo.Invoke(null, new object[] { waveFile, playDevice });
+                        break;
+                }
             }
         }
     }
