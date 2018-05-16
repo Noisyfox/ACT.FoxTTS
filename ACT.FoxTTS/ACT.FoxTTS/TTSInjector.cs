@@ -59,39 +59,39 @@ namespace ACT.FoxTTS
                                 break;
                             }
                         }
-                    }
 
-                    if (currentEnabled)
-                    {
-                        var ass = AppDomain.CurrentDomain.GetAssemblies()
-                            .SingleOrDefault(assembly => assembly.GetName().Name == "ACT.TTSYukkuri.Core");
-                        if (_yukkuriContext == null || _yukkuriContext.YukkuriAssembly != ass)
+                        if (currentEnabled)
                         {
-                            _yukkuriContext = new YukkuriContext(ass);
+                            var ass = AppDomain.CurrentDomain.GetAssemblies()
+                                .SingleOrDefault(assembly => assembly.GetName().Name == "ACT.TTSYukkuri.Core");
+                            if (_yukkuriContext == null || _yukkuriContext.YukkuriAssembly != ass)
+                            {
+                                _yukkuriContext = new YukkuriContext(ass);
+                                _originalInstance = null;
+                            }
+                        }
+                        else
+                        {
+                            UnInjectYukkuri();
+
+                            longWait = false;
+                            _yukkuriContext = null;
                             _originalInstance = null;
                         }
-                    }
-                    else
-                    {
-                        UnInjectYukkuri();
 
-                        longWait = false;
-                        _yukkuriContext = null;
-                        _originalInstance = null;
-                    }
+                        if (yukkuriEnabled != currentEnabled || firstRun)
+                        {
+                            yukkuriEnabled = currentEnabled;
+                            firstRun = false;
 
-                    if (yukkuriEnabled != currentEnabled || firstRun)
-                    {
-                        yukkuriEnabled = currentEnabled;
-                        firstRun = false;
+                            context.Controller.NotifyYukkuriEnabledChanged(false, yukkuriEnabled);
+                            context.Controller.NotifyLogMessageAppend(false, $"yukkuriEnabled = {yukkuriEnabled}");
+                        }
 
-                        context.Controller.NotifyYukkuriEnabledChanged(false, yukkuriEnabled);
-                        context.Controller.NotifyLogMessageAppend(false, $"yukkuriEnabled = {yukkuriEnabled}");
-                    }
-
-                    if (yukkuriEnabled)
-                    {
-                        InjectYukkuri();
+                        if (yukkuriEnabled)
+                        {
+                            InjectYukkuri();
+                        }
                     }
                 }
                 catch (Exception e)
