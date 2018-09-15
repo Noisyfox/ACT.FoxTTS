@@ -29,7 +29,7 @@ namespace ACT.FoxTTS.engine.baidu
             _settingsControl.RemoveFromAct();
         }
 
-        public void Speak(string text, dynamic playDevice)
+        public void Speak(string text, dynamic playDevice, bool isSync)
         {
             var settings = _plugin.Settings.BaiduTtsSettings;
 
@@ -70,7 +70,7 @@ namespace ACT.FoxTTS.engine.baidu
                 }
             }
 
-            _plugin.SoundPlayer.Play(wave, playDevice);
+            _plugin.SoundPlayer.Play(wave, playDevice, isSync);
         }
     }
 }

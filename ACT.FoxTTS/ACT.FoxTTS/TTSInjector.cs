@@ -160,6 +160,12 @@ namespace ACT.FoxTTS
             WakeUp();
         }
 
+        void Speak(string text, dynamic playDevice, bool isSync)
+        {
+            _plugin.Controller.NotifyLogMessageAppend(false, $"Speak {text}");
+            _plugin.Speak(text, playDevice, isSync);
+        }
+
         void Speak(string text, dynamic playDevice)
         {
             _plugin.Controller.NotifyLogMessageAppend(false, $"Speak {text}");
@@ -173,9 +179,9 @@ namespace ACT.FoxTTS
             _plugin.Speak(text, 0);
         }
 
-        public void PlayTTSYukkuri(string waveFile, dynamic playDevice)
+        public void PlayTTSYukkuri(string waveFile, dynamic playDevice, bool isSync = false)
         {
-            _yukkuriContext?.Play(waveFile, playDevice);
+            _yukkuriContext?.Play(waveFile, playDevice, isSync);
         }
 
         private class YukkuriContext
@@ -210,7 +216,7 @@ namespace ACT.FoxTTS
                 _soundPlayerWrapperPlayMethodInfo = s.GetMethod("Play");
             }
 
-            public void Play(string waveFile, dynamic playDevice)
+            public void Play(string waveFile, dynamic playDevice, bool isSync)
             {
                 var paramCount = _soundPlayerWrapperPlayMethodInfo.GetParameters().Length;
                 switch (paramCount)
@@ -221,6 +227,9 @@ namespace ACT.FoxTTS
                         break;
                     case 2:
                         _soundPlayerWrapperPlayMethodInfo.Invoke(null, new object[] { waveFile, playDevice });
+                        break;
+                    case 3:
+                        _soundPlayerWrapperPlayMethodInfo.Invoke(null, new object[] { waveFile, playDevice, isSync });
                         break;
                 }
             }

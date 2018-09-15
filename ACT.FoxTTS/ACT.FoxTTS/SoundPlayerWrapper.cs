@@ -31,11 +31,11 @@ namespace ACT.FoxTTS
 
         }
 
-        public void Play(string waveFile, dynamic playDevice)
+        public void Play(string waveFile, dynamic playDevice, bool isSync)
         {
             if (_useYukkuri)
             {
-                _plugin.TtsInjector.PlayTTSYukkuri(waveFile, playDevice);
+                _plugin.TtsInjector.PlayTTSYukkuri(waveFile, playDevice, isSync);
             }
         }
     }
