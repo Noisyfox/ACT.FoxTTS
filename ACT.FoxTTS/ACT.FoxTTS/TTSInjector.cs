@@ -66,7 +66,7 @@ namespace ACT.FoxTTS
                                 .SingleOrDefault(assembly => assembly.GetName().Name == "ACT.TTSYukkuri.Core");
                             if (_yukkuriContext == null || _yukkuriContext.YukkuriAssembly != ass)
                             {
-                                _yukkuriContext = new YukkuriContext(ass);
+                                _yukkuriContext = new YukkuriContext(context, ass);
                                 _originalInstance = null;
                             }
                         }
@@ -160,6 +160,13 @@ namespace ACT.FoxTTS
             WakeUp();
         }
 
+        // ACT.Hojoring 5.26.6+
+        void Speak(string text, dynamic playDevice, bool isSync, float? volume)
+        {
+            _plugin.Controller.NotifyLogMessageAppend(false, $"Speak {text}");
+            _plugin.Speak(text, playDevice, isSync, volume);
+        }
+
         void Speak(string text, dynamic playDevice, bool isSync)
         {
             _plugin.Controller.NotifyLogMessageAppend(false, $"Speak {text}");
@@ -179,9 +186,9 @@ namespace ACT.FoxTTS
             _plugin.Speak(text, 0);
         }
 
-        public void PlayTTSYukkuri(string waveFile, dynamic playDevice, bool isSync = false)
+        public void PlayTTSYukkuri(string waveFile, dynamic playDevice, bool isSync, float? volume)
         {
-            _yukkuriContext?.Play(waveFile, playDevice, isSync);
+            _yukkuriContext?.Play(waveFile, playDevice, isSync, volume);
         }
 
         private class YukkuriContext
@@ -192,6 +199,7 @@ namespace ACT.FoxTTS
             public Type ISpeechControllerType { get; }
             private readonly FieldInfo _speechControllerInstanceFieldInfo;
             private readonly MethodInfo _soundPlayerWrapperPlayMethodInfo;
+            private readonly FoxTTSPlugin _plugin;
 
             public dynamic SpeechControllerInstanceObject
             {
@@ -199,8 +207,9 @@ namespace ACT.FoxTTS
                 set => _speechControllerInstanceFieldInfo.SetValue(null, value);
             }
 
-            public YukkuriContext(Assembly yukkuriAssembly)
+            public YukkuriContext(FoxTTSPlugin plugin, Assembly yukkuriAssembly)
             {
+                _plugin = plugin;
                 YukkuriAssembly = yukkuriAssembly;
 
                 ISpeechControllerType = yukkuriAssembly.GetType("ACT.TTSYukkuri.ISpeechController");
@@ -216,7 +225,7 @@ namespace ACT.FoxTTS
                 _soundPlayerWrapperPlayMethodInfo = s.GetMethod("Play");
             }
 
-            public void Play(string waveFile, dynamic playDevice, bool isSync)
+            public void Play(string waveFile, dynamic playDevice, bool isSync, float? volume)
             {
                 var paramCount = _soundPlayerWrapperPlayMethodInfo.GetParameters().Length;
                 switch (paramCount)
@@ -230,6 +239,13 @@ namespace ACT.FoxTTS
                         break;
                     case 3:
                         _soundPlayerWrapperPlayMethodInfo.Invoke(null, new object[] { waveFile, playDevice, isSync });
+                        break;
+                    case 4:
+                        // ACT.Hojoring 5.26.6+
+                        _soundPlayerWrapperPlayMethodInfo.Invoke(null, new object[] { waveFile, playDevice, isSync, volume });
+                        break;
+                    default:
+                        _plugin.Controller.NotifyLogMessageAppend(false, $"Unsupported ACT.Hojoring version! ACT.TTSYukkuri.SoundPlayerWrapper.Play() has unexpected parameter count {paramCount}.");
                         break;
                 }
             }

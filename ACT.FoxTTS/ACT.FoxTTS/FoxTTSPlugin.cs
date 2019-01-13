@@ -130,11 +130,11 @@ namespace ACT.FoxTTS
             }
         }
 
-        public void Speak(string text, dynamic playDevice, bool isSync = false)
+        public void Speak(string text, dynamic playDevice, bool isSync = false, float? volume = null)
         {
             try
             {
-                TtsEngine?.Speak(text, playDevice, isSync);
+                TtsEngine?.Speak(text, playDevice, isSync, volume);
             }
             catch (Exception ex)
             {
