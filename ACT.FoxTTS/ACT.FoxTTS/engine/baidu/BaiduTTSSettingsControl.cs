@@ -83,7 +83,7 @@ namespace ACT.FoxTTS.engine.baidu
 
         private void linkLabelOpenBaiduReg_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Process.Start(@"http://yuyin.baidu.com/sdk");
+            Process.Start(@"https://ai.baidu.com/tech/speech/tts");
         }
     }
 }
