@@ -60,6 +60,12 @@ namespace ACT.FoxTTS
         public void PostAttachToAct(FoxTTSPlugin plugin)
         {
             checkBoxPlaybackYukkuri_CheckedChanged(checkBoxPlaybackYukkuri, EventArgs.Empty);
+
+            if (!UpdateChecker.IsEnabled)
+            {
+                // Hide update checker panel
+                groupBoxUpdate.Visible = false;
+            }
         }
 
         public void DoLocalization()
