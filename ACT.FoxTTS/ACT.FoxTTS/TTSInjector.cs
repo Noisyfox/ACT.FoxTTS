@@ -47,9 +47,9 @@ namespace ACT.FoxTTS
                 bool longWait = true;
                 try
                 {
-                    bool currentEnabled = false;
                     if (ActGlobals.oFormActMain.Visible)
                     {
+                        bool currentEnabled = false;
                         foreach (var item in ActGlobals.oFormActMain.ActPlugins)
                         {
                             if (item.pluginFile.Name.ToUpper() == "ACT.TTSYukkuri.dll".ToUpper() &&
@@ -158,6 +158,13 @@ namespace ACT.FoxTTS
 
             _plugin.Controller.NotifyLogMessageAppend(false, "Free");
             WakeUp();
+        }
+
+        // ACT.Hojoring 7.8.7+
+        void Speak(string text, dynamic playDevice, dynamic voicePalette, bool isSync, float? volume)
+        {
+            _plugin.Controller.NotifyLogMessageAppend(false, $"Speak {text}, voicePalette ignored.");
+            _plugin.Speak(text, playDevice, isSync, volume);
         }
 
         // ACT.Hojoring 5.26.6+
