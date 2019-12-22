@@ -239,10 +239,15 @@
             this.comboBoxPerson.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxPerson.FormattingEnabled = true;
             this.comboBoxPerson.Items.AddRange(new object[] {
-            "女声",
-            "男声",
+            "度小美",
+            "度小宇",
             "度逍遥",
-            "度丫丫"});
+            "度丫丫",
+            "度博文",
+            "度小童",
+            "度小萌",
+            "度米朵",
+            "度小娇"});
             this.comboBoxPerson.Location = new System.Drawing.Point(77, 199);
             this.comboBoxPerson.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBoxPerson.Name = "comboBoxPerson";

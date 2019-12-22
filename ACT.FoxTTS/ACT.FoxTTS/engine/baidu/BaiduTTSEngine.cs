@@ -29,15 +29,25 @@ namespace ACT.FoxTTS.engine.baidu
             _settingsControl.RemoveFromAct();
         }
 
+        // https://ai.baidu.com/ai-doc/SPEECH/Qk38y8lrl
+        private static readonly int[] PERSON_CODES =
+        {
+            0, // 度小美
+            1, // 度小宇
+            3, // 度逍遥
+            4, // 度丫丫
+            106, // 度博文
+            110, // 度小童
+            111, // 度小萌
+            103, // 度米朵
+            5 // 度小娇
+        };
+
         public void Speak(string text, dynamic playDevice, bool isSync, float? volume)
         {
             var settings = _plugin.Settings.BaiduTtsSettings;
 
-            var person = settings.Person;
-            if (person > 1)
-            {
-                person++;
-            }
+            var person = PERSON_CODES[settings.Person];
 
             var option = new Dictionary<string, object>()
             {
