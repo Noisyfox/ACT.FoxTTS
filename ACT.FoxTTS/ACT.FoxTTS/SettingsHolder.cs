@@ -21,6 +21,7 @@ namespace ACT.FoxTTS
         {
         }
 
+        public PlaybackSettings Playback = new PlaybackSettings();
         public BaiduTTSSettings BaiduTtsSettings = new BaiduTTSSettings();
 
         public void Load()
@@ -41,6 +42,9 @@ namespace ACT.FoxTTS
                     {
                         case "SettingsSerializer":
                             ImportFromXml(reader);
+                            break;
+                        case nameof(PlaybackSettings):
+                            Playback = Deserialize<PlaybackSettings>(reader);
                             break;
                         case nameof(BaiduTTSSettings):
                             BaiduTtsSettings = Deserialize<BaiduTTSSettings>(reader);
@@ -65,6 +69,7 @@ namespace ACT.FoxTTS
             ExportToXml(writer);
             writer.WriteEndElement();
 
+            Serialize(writer, Playback);
             Serialize(writer, BaiduTtsSettings);
 
             writer.WriteEndElement();
@@ -88,6 +93,21 @@ namespace ACT.FoxTTS
             XmlSerializer serializer = new XmlSerializer(typeof(T));
             return serializer.Deserialize(reader) as T;
         }
+    }
+
+    public enum PlaybackMethod
+    {
+        Yukkuri,
+        Act
+    }
+
+    public class PlaybackSettings
+    {
+        [XmlElement]
+        public PlaybackMethod Method = PlaybackMethod.Yukkuri;
+
+        [XmlElement]
+        public int MasterVolume = 100;
     }
 
     public class SettingsHolder : IPluginComponent
@@ -123,6 +143,8 @@ namespace ACT.FoxTTS
         public string Language { get; set; }
 
         public string VersionIgnored { get; set; }
+
+        public PlaybackSettings PlaybackSettings => Settings.Playback;
 
         public BaiduTTSSettings BaiduTtsSettings => Settings.BaiduTtsSettings;
 

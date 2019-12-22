@@ -147,9 +147,6 @@
   <data name="checkBoxNotifyStableOnly" xml:space="preserve">
     <value>只提示稳定版更新</value>
   </data>
-  <data name="checkBoxPlaybackYukkuri" xml:space="preserve">
-    <value>使用 TTSYukkuri 的设置进行回放</value>
-  </data>
   <data name="groupBoxPlayback" xml:space="preserve">
     <value>回放设置</value>
   </data>
@@ -233,6 +230,12 @@
   </data>
   <data name="messageNewStable" xml:space="preserve">
     <value>发现新的稳定版: {0}。</value>
+  </data>
+  <data name="radioButtonPlaybackACT" xml:space="preserve">
+    <value>使用 ACT 的设置进行回放</value>
+  </data>
+  <data name="radioButtonPlaybackYukkuri" xml:space="preserve">
+    <value>使用 TTSYukkuri 的设置进行回放</value>
   </data>
   <data name="tabPageGeneralSettings" xml:space="preserve">
     <value>常规设置</value>

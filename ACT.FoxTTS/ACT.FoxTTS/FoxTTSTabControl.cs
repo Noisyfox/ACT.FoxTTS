@@ -59,8 +59,6 @@ namespace ACT.FoxTTS
 
         public void PostAttachToAct(FoxTTSPlugin plugin)
         {
-            checkBoxPlaybackYukkuri_CheckedChanged(checkBoxPlaybackYukkuri, EventArgs.Empty);
-
             if (!UpdateChecker.IsEnabled)
             {
                 // Hide update checker panel
@@ -104,7 +102,24 @@ namespace ACT.FoxTTS
                 _plugin.UpdateChecker.CheckUpdate(false);
             }
 
-            var settings = _plugin.Settings;
+            var playbackSettings = _plugin.Settings.PlaybackSettings;
+            trackBarMasterVolume.SetValue(playbackSettings.MasterVolume, 100);
+            switch (playbackSettings.Method)
+            {
+                case PlaybackMethod.Act:
+                    radioButtonPlaybackYukkuri.Checked = false;
+                    radioButtonPlaybackACT.Checked = true;
+                    break;
+                default:
+                case PlaybackMethod.Yukkuri:
+                    radioButtonPlaybackACT.Checked = false;
+                    radioButtonPlaybackYukkuri.Checked = true;
+                    break;
+            }
+            radioButtonPlaybackACT.CheckedChanged += OnPlaybackValueChanged;
+            radioButtonPlaybackYukkuri.CheckedChanged += OnPlaybackValueChanged;
+            trackBarMasterVolume.ValueChanged += OnPlaybackValueChanged;
+            OnPlaybackValueChanged(null, EventArgs.Empty);
         }
 
         private void ControllerOnLanguageChanged(bool fromView, string lang)
@@ -238,22 +253,6 @@ namespace ACT.FoxTTS
             }
         }
 
-        private void checkBoxPlaybackYukkuri_CheckedChanged(object sender, EventArgs e)
-        {
-            bool yukkuriPlaybackEnable = checkBoxPlaybackYukkuri.Enabled && checkBoxPlaybackYukkuri.Checked;
-            tableLayoutPanelPlayback.Enabled = !yukkuriPlaybackEnable;
-
-            _controller.NotifyYukkuriPlaybackEnabledChanged(true, yukkuriPlaybackEnable);
-        }
-
-        private void checkBoxPlaybackYukkuri_EnabledChanged(object sender, EventArgs e)
-        {
-            bool yukkuriPlaybackEnable = checkBoxPlaybackYukkuri.Enabled && checkBoxPlaybackYukkuri.Checked;
-            tableLayoutPanelPlayback.Enabled = !yukkuriPlaybackEnable;
-
-            _controller.NotifyYukkuriPlaybackEnabledChanged(true, yukkuriPlaybackEnable);
-        }
-
         private void comboBoxTTSEngine_SelectedIndexChanged(object sender, EventArgs e)
         {
             _controller.NotifyTTSEngineChanged(true, (string)comboBoxTTSEngine.SelectedValue);
@@ -310,6 +309,30 @@ namespace ACT.FoxTTS
                     strings.actPanelTitle,
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
+            }
+        }
+
+        private void OnPlaybackValueChanged(object sender, EventArgs e)
+        {
+            var settings = _plugin.Settings.PlaybackSettings;
+            settings.MasterVolume = trackBarMasterVolume.Value;
+            labelCurrentVolume.Text = settings.MasterVolume.ToString();
+
+            if (radioButtonPlaybackACT.Checked)
+            {
+                settings.Method = PlaybackMethod.Act;
+
+                trackBarMasterVolume.Enabled = true;
+                comboBoxPlaybackMethod.Enabled = false;
+                comboBoxPlaybackDevice.Enabled = false;
+            }
+            else
+            {
+                settings.Method = PlaybackMethod.Yukkuri;
+
+                trackBarMasterVolume.Enabled = false;
+                comboBoxPlaybackMethod.Enabled = false;
+                comboBoxPlaybackDevice.Enabled = false;
             }
         }
     }
