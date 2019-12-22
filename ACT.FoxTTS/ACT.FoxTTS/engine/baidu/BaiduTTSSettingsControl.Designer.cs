@@ -46,6 +46,7 @@
             this.labelPitchValue = new System.Windows.Forms.Label();
             this.labelVolumeValue = new System.Windows.Forms.Label();
             this.linkLabelOpenBaiduReg = new System.Windows.Forms.LinkLabel();
+            this.linkLabelSetRecommend = new System.Windows.Forms.LinkLabel();
             this.groupBoxTTSEngineDetail.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarSpeed)).BeginInit();
@@ -58,8 +59,10 @@
             this.groupBoxTTSEngineDetail.Controls.Add(this.tableLayoutPanel1);
             this.groupBoxTTSEngineDetail.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBoxTTSEngineDetail.Location = new System.Drawing.Point(0, 0);
+            this.groupBoxTTSEngineDetail.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBoxTTSEngineDetail.Name = "groupBoxTTSEngineDetail";
-            this.groupBoxTTSEngineDetail.Size = new System.Drawing.Size(693, 564);
+            this.groupBoxTTSEngineDetail.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBoxTTSEngineDetail.Size = new System.Drawing.Size(520, 451);
             this.groupBoxTTSEngineDetail.TabIndex = 0;
             this.groupBoxTTSEngineDetail.TabStop = false;
             this.groupBoxTTSEngineDetail.Text = "Engine Detail";
@@ -85,11 +88,14 @@
             this.tableLayoutPanel1.Controls.Add(this.labelSpeedValue, 2, 2);
             this.tableLayoutPanel1.Controls.Add(this.labelPitchValue, 2, 3);
             this.tableLayoutPanel1.Controls.Add(this.labelVolumeValue, 2, 4);
-            this.tableLayoutPanel1.Controls.Add(this.linkLabelOpenBaiduReg, 0, 6);
+            this.tableLayoutPanel1.Controls.Add(this.linkLabelOpenBaiduReg, 0, 7);
+            this.tableLayoutPanel1.Controls.Add(this.linkLabelSetRecommend, 0, 6);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 21);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(2, 16);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 8;
+            this.tableLayoutPanel1.RowCount = 9;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -98,16 +104,17 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(687, 540);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(516, 433);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // labelApiKey
             // 
             this.labelApiKey.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.labelApiKey.AutoSize = true;
-            this.labelApiKey.Location = new System.Drawing.Point(3, 8);
+            this.labelApiKey.Location = new System.Drawing.Point(2, 6);
+            this.labelApiKey.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelApiKey.Name = "labelApiKey";
-            this.labelApiKey.Size = new System.Drawing.Size(95, 15);
+            this.labelApiKey.Size = new System.Drawing.Size(71, 12);
             this.labelApiKey.TabIndex = 0;
             this.labelApiKey.Text = "API Key:";
             // 
@@ -115,9 +122,10 @@
             // 
             this.labelSecretKey.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.labelSecretKey.AutoSize = true;
-            this.labelSecretKey.Location = new System.Drawing.Point(3, 39);
+            this.labelSecretKey.Location = new System.Drawing.Point(2, 31);
+            this.labelSecretKey.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelSecretKey.Name = "labelSecretKey";
-            this.labelSecretKey.Size = new System.Drawing.Size(95, 15);
+            this.labelSecretKey.Size = new System.Drawing.Size(71, 12);
             this.labelSecretKey.TabIndex = 1;
             this.labelSecretKey.Text = "Secret Key:";
             // 
@@ -125,18 +133,20 @@
             // 
             this.textBoxApiKey.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel1.SetColumnSpan(this.textBoxApiKey, 2);
-            this.textBoxApiKey.Location = new System.Drawing.Point(104, 3);
+            this.textBoxApiKey.Location = new System.Drawing.Point(77, 2);
+            this.textBoxApiKey.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxApiKey.Name = "textBoxApiKey";
-            this.textBoxApiKey.Size = new System.Drawing.Size(580, 25);
+            this.textBoxApiKey.Size = new System.Drawing.Size(437, 21);
             this.textBoxApiKey.TabIndex = 2;
             // 
             // textBoxSecretKey
             // 
             this.textBoxSecretKey.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel1.SetColumnSpan(this.textBoxSecretKey, 2);
-            this.textBoxSecretKey.Location = new System.Drawing.Point(104, 34);
+            this.textBoxSecretKey.Location = new System.Drawing.Point(77, 27);
+            this.textBoxSecretKey.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxSecretKey.Name = "textBoxSecretKey";
-            this.textBoxSecretKey.Size = new System.Drawing.Size(580, 25);
+            this.textBoxSecretKey.Size = new System.Drawing.Size(437, 21);
             this.textBoxSecretKey.TabIndex = 3;
             // 
             // labelSpeed
@@ -144,10 +154,11 @@
             this.labelSpeed.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.labelSpeed.AutoSize = true;
-            this.labelSpeed.Location = new System.Drawing.Point(3, 62);
+            this.labelSpeed.Location = new System.Drawing.Point(2, 50);
+            this.labelSpeed.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelSpeed.Name = "labelSpeed";
-            this.labelSpeed.Padding = new System.Windows.Forms.Padding(0, 12, 0, 0);
-            this.labelSpeed.Size = new System.Drawing.Size(95, 27);
+            this.labelSpeed.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
+            this.labelSpeed.Size = new System.Drawing.Size(71, 22);
             this.labelSpeed.TabIndex = 4;
             this.labelSpeed.Text = "Speed:";
             // 
@@ -156,10 +167,11 @@
             this.labelPitch.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.labelPitch.AutoSize = true;
-            this.labelPitch.Location = new System.Drawing.Point(3, 124);
+            this.labelPitch.Location = new System.Drawing.Point(2, 99);
+            this.labelPitch.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelPitch.Name = "labelPitch";
-            this.labelPitch.Padding = new System.Windows.Forms.Padding(0, 12, 0, 0);
-            this.labelPitch.Size = new System.Drawing.Size(95, 27);
+            this.labelPitch.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
+            this.labelPitch.Size = new System.Drawing.Size(71, 22);
             this.labelPitch.TabIndex = 5;
             this.labelPitch.Text = "Pitch:";
             // 
@@ -168,10 +180,11 @@
             this.labelVolume.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.labelVolume.AutoSize = true;
-            this.labelVolume.Location = new System.Drawing.Point(3, 186);
+            this.labelVolume.Location = new System.Drawing.Point(2, 148);
+            this.labelVolume.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelVolume.Name = "labelVolume";
-            this.labelVolume.Padding = new System.Windows.Forms.Padding(0, 12, 0, 0);
-            this.labelVolume.Size = new System.Drawing.Size(95, 27);
+            this.labelVolume.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
+            this.labelVolume.Size = new System.Drawing.Size(71, 22);
             this.labelVolume.TabIndex = 6;
             this.labelVolume.Text = "Volume:";
             // 
@@ -179,39 +192,43 @@
             // 
             this.labelPerson.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.labelPerson.AutoSize = true;
-            this.labelPerson.Location = new System.Drawing.Point(3, 255);
+            this.labelPerson.Location = new System.Drawing.Point(2, 203);
+            this.labelPerson.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelPerson.Name = "labelPerson";
-            this.labelPerson.Size = new System.Drawing.Size(95, 15);
+            this.labelPerson.Size = new System.Drawing.Size(71, 12);
             this.labelPerson.TabIndex = 7;
             this.labelPerson.Text = "Person:";
             // 
             // trackBarSpeed
             // 
             this.trackBarSpeed.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.trackBarSpeed.Location = new System.Drawing.Point(104, 65);
+            this.trackBarSpeed.Location = new System.Drawing.Point(77, 52);
+            this.trackBarSpeed.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.trackBarSpeed.Maximum = 9;
             this.trackBarSpeed.Name = "trackBarSpeed";
-            this.trackBarSpeed.Size = new System.Drawing.Size(544, 56);
+            this.trackBarSpeed.Size = new System.Drawing.Size(411, 45);
             this.trackBarSpeed.TabIndex = 8;
             this.trackBarSpeed.Value = 5;
             // 
             // trackBarPitch
             // 
             this.trackBarPitch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.trackBarPitch.Location = new System.Drawing.Point(104, 127);
+            this.trackBarPitch.Location = new System.Drawing.Point(77, 101);
+            this.trackBarPitch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.trackBarPitch.Maximum = 9;
             this.trackBarPitch.Name = "trackBarPitch";
-            this.trackBarPitch.Size = new System.Drawing.Size(544, 56);
+            this.trackBarPitch.Size = new System.Drawing.Size(411, 45);
             this.trackBarPitch.TabIndex = 9;
             this.trackBarPitch.Value = 5;
             // 
             // trackBarVolume
             // 
             this.trackBarVolume.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.trackBarVolume.Location = new System.Drawing.Point(104, 189);
+            this.trackBarVolume.Location = new System.Drawing.Point(77, 150);
+            this.trackBarVolume.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.trackBarVolume.Maximum = 15;
             this.trackBarVolume.Name = "trackBarVolume";
-            this.trackBarVolume.Size = new System.Drawing.Size(544, 56);
+            this.trackBarVolume.Size = new System.Drawing.Size(411, 45);
             this.trackBarVolume.TabIndex = 10;
             this.trackBarVolume.Value = 5;
             // 
@@ -226,9 +243,10 @@
             "男声",
             "度逍遥",
             "度丫丫"});
-            this.comboBoxPerson.Location = new System.Drawing.Point(104, 251);
+            this.comboBoxPerson.Location = new System.Drawing.Point(77, 199);
+            this.comboBoxPerson.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBoxPerson.Name = "comboBoxPerson";
-            this.comboBoxPerson.Size = new System.Drawing.Size(580, 23);
+            this.comboBoxPerson.Size = new System.Drawing.Size(437, 20);
             this.comboBoxPerson.TabIndex = 11;
             // 
             // labelSpeedValue
@@ -236,33 +254,36 @@
             this.labelSpeedValue.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.labelSpeedValue.AutoSize = true;
-            this.labelSpeedValue.Location = new System.Drawing.Point(654, 62);
-            this.labelSpeedValue.MinimumSize = new System.Drawing.Size(30, 0);
+            this.labelSpeedValue.Location = new System.Drawing.Point(492, 50);
+            this.labelSpeedValue.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelSpeedValue.MinimumSize = new System.Drawing.Size(22, 0);
             this.labelSpeedValue.Name = "labelSpeedValue";
-            this.labelSpeedValue.Padding = new System.Windows.Forms.Padding(0, 12, 0, 0);
-            this.labelSpeedValue.Size = new System.Drawing.Size(30, 27);
+            this.labelSpeedValue.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
+            this.labelSpeedValue.Size = new System.Drawing.Size(22, 22);
             this.labelSpeedValue.TabIndex = 12;
             this.labelSpeedValue.Text = "5";
             // 
             // labelPitchValue
             // 
             this.labelPitchValue.AutoSize = true;
-            this.labelPitchValue.Location = new System.Drawing.Point(654, 124);
-            this.labelPitchValue.MinimumSize = new System.Drawing.Size(30, 0);
+            this.labelPitchValue.Location = new System.Drawing.Point(492, 99);
+            this.labelPitchValue.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelPitchValue.MinimumSize = new System.Drawing.Size(22, 0);
             this.labelPitchValue.Name = "labelPitchValue";
-            this.labelPitchValue.Padding = new System.Windows.Forms.Padding(0, 12, 0, 0);
-            this.labelPitchValue.Size = new System.Drawing.Size(30, 27);
+            this.labelPitchValue.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
+            this.labelPitchValue.Size = new System.Drawing.Size(22, 22);
             this.labelPitchValue.TabIndex = 13;
             this.labelPitchValue.Text = "5";
             // 
             // labelVolumeValue
             // 
             this.labelVolumeValue.AutoSize = true;
-            this.labelVolumeValue.Location = new System.Drawing.Point(654, 186);
-            this.labelVolumeValue.MinimumSize = new System.Drawing.Size(30, 0);
+            this.labelVolumeValue.Location = new System.Drawing.Point(492, 148);
+            this.labelVolumeValue.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelVolumeValue.MinimumSize = new System.Drawing.Size(22, 0);
             this.labelVolumeValue.Name = "labelVolumeValue";
-            this.labelVolumeValue.Padding = new System.Windows.Forms.Padding(0, 12, 0, 0);
-            this.labelVolumeValue.Size = new System.Drawing.Size(30, 27);
+            this.labelVolumeValue.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
+            this.labelVolumeValue.Size = new System.Drawing.Size(22, 22);
             this.labelVolumeValue.TabIndex = 14;
             this.labelVolumeValue.Text = "5";
             // 
@@ -271,22 +292,38 @@
             this.linkLabelOpenBaiduReg.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.linkLabelOpenBaiduReg.AutoSize = true;
             this.tableLayoutPanel1.SetColumnSpan(this.linkLabelOpenBaiduReg, 3);
-            this.linkLabelOpenBaiduReg.Location = new System.Drawing.Point(3, 277);
+            this.linkLabelOpenBaiduReg.Location = new System.Drawing.Point(2, 263);
+            this.linkLabelOpenBaiduReg.Margin = new System.Windows.Forms.Padding(2, 15, 2, 0);
             this.linkLabelOpenBaiduReg.Name = "linkLabelOpenBaiduReg";
-            this.linkLabelOpenBaiduReg.Size = new System.Drawing.Size(681, 15);
+            this.linkLabelOpenBaiduReg.Size = new System.Drawing.Size(512, 12);
             this.linkLabelOpenBaiduReg.TabIndex = 15;
             this.linkLabelOpenBaiduReg.TabStop = true;
             this.linkLabelOpenBaiduReg.Text = "Register Your Own API Keys";
             this.linkLabelOpenBaiduReg.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelOpenBaiduReg_LinkClicked);
             // 
+            // linkLabelSetRecommend
+            // 
+            this.linkLabelSetRecommend.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.linkLabelSetRecommend.AutoSize = true;
+            this.tableLayoutPanel1.SetColumnSpan(this.linkLabelSetRecommend, 3);
+            this.linkLabelSetRecommend.Location = new System.Drawing.Point(2, 236);
+            this.linkLabelSetRecommend.Margin = new System.Windows.Forms.Padding(2, 15, 2, 0);
+            this.linkLabelSetRecommend.Name = "linkLabelSetRecommend";
+            this.linkLabelSetRecommend.Size = new System.Drawing.Size(512, 12);
+            this.linkLabelSetRecommend.TabIndex = 16;
+            this.linkLabelSetRecommend.TabStop = true;
+            this.linkLabelSetRecommend.Text = "Set to Recommend";
+            this.linkLabelSetRecommend.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelSetRecommend_LinkClicked);
+            // 
             // BaiduTTSSettingsControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.Controls.Add(this.groupBoxTTSEngineDetail);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "BaiduTTSSettingsControl";
-            this.Size = new System.Drawing.Size(693, 564);
+            this.Size = new System.Drawing.Size(520, 451);
             this.groupBoxTTSEngineDetail.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
@@ -317,5 +354,6 @@
         private System.Windows.Forms.Label labelPitchValue;
         private System.Windows.Forms.Label labelVolumeValue;
         private System.Windows.Forms.LinkLabel linkLabelOpenBaiduReg;
+        private System.Windows.Forms.LinkLabel linkLabelSetRecommend;
     }
 }

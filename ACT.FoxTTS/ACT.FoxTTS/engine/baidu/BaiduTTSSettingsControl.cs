@@ -85,5 +85,15 @@ namespace ACT.FoxTTS.engine.baidu
         {
             Process.Start(@"https://ai.baidu.com/tech/speech/tts");
         }
+
+        private void linkLabelSetRecommend_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            textBoxApiKey.Text = "ALLgqCqouZ9GmIiFgafuyCsG";
+            textBoxSecretKey.Text = "079d11c1b742b0031adc5872661fab81";
+            trackBarSpeed.SetValue(5, 5);
+            trackBarPitch.SetValue(5, 5);
+            trackBarVolume.SetValue(5, 5);
+            comboBoxPerson.SelectedIndex = 3;
+        }
     }
 }

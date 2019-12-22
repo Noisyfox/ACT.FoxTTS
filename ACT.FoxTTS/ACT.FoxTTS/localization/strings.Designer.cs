@@ -367,6 +367,15 @@ namespace ACT.FoxTTS.localization {
         }
         
         /// <summary>
+        ///   查找类似 设为推荐值 的本地化字符串。
+        /// </summary>
+        internal static string linkLabelSetRecommend {
+            get {
+                return ResourceManager.GetString("linkLabelSetRecommend", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 你确定要删除所有缓存的音频吗？ 的本地化字符串。
         /// </summary>
         internal static string messageAskClearCache {
