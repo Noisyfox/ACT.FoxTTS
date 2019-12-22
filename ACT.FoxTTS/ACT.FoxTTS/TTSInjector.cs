@@ -47,16 +47,6 @@ namespace ACT.FoxTTS
             PluginIntegration currentIntegration = PluginIntegration.Auto;
             bool currentInjected = false;
 
-            // Wait for Yukkuri to load
-            for (var i = 0; i < 10; i++)
-            {
-                if (YukkuriInjector.isYukkuriEnabled())
-                {
-                    break;
-                }
-                SafeSleep(1000);
-            }
-
             while (!WorkingThreadStopping)
             {
                 bool longWait = true;
