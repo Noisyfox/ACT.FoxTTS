@@ -147,6 +147,9 @@
   <data name="checkBoxNotifyStableOnly" xml:space="preserve">
     <value>只提示稳定版更新</value>
   </data>
+  <data name="groupBoxIntegration" xml:space="preserve">
+    <value>插件集成</value>
+  </data>
   <data name="groupBoxPlayback" xml:space="preserve">
     <value>回放设置</value>
   </data>
@@ -230,6 +233,15 @@
   </data>
   <data name="messageNewStable" xml:space="preserve">
     <value>发现新的稳定版: {0}。</value>
+  </data>
+  <data name="radioButtonIntegrationAct" xml:space="preserve">
+    <value>ACT 原生 TTS</value>
+  </data>
+  <data name="radioButtonIntegrationAuto" xml:space="preserve">
+    <value>自动检测</value>
+  </data>
+  <data name="radioButtonIntegrationYukkuri" xml:space="preserve">
+    <value>Hojoring 语音合成 (TTSYukkuri)</value>
   </data>
   <data name="radioButtonPlaybackACT" xml:space="preserve">
     <value>使用 ACT 的设置进行回放</value>

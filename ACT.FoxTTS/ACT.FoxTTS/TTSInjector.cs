@@ -11,14 +11,17 @@ namespace ACT.FoxTTS
 {
     public class TTSInjector : BaseThreading<FoxTTSPlugin>, IPluginComponent
     {
-        private static readonly HashSet<string> YUKKURI_INIT_SUCCESS = new HashSet<string>(new[]
-        {
-            "Plugin Started".ToUpper(),
-            "插件加载成功.".ToUpper(),
-        });
 
-        private FoxTTSPlugin _plugin;
-        private YukkuriContext _yukkuriContext;
+        internal FoxTTSPlugin _plugin;
+
+        private readonly YukkuriInjector yukkuriInjector;
+        private readonly ActInjector actInjector;
+
+        public TTSInjector()
+        {
+            yukkuriInjector = new YukkuriInjector(this);
+            actInjector = new ActInjector(this);
+        }
 
         public void AttachToAct(FoxTTSPlugin plugin)
         {
@@ -34,13 +37,25 @@ namespace ACT.FoxTTS
             StopWorkingThread();
 
             // Restore
-            UnInjectYukkuri();
+            yukkuriInjector.UnInject();
+            actInjector.UnInject();
         }
 
         protected override void DoWork(FoxTTSPlugin context)
         {
             bool firstRun = true;
-            bool yukkuriEnabled = false;
+            PluginIntegration currentIntegration = PluginIntegration.Auto;
+            bool currentInjected = false;
+
+            // Wait for Yukkuri to load
+            for (var i = 0; i < 10; i++)
+            {
+                if (YukkuriInjector.isYukkuriEnabled())
+                {
+                    break;
+                }
+                SafeSleep(1000);
+            }
 
             while (!WorkingThreadStopping)
             {
@@ -49,48 +64,62 @@ namespace ACT.FoxTTS
                 {
                     if (ActGlobals.oFormActMain.Visible)
                     {
-                        bool currentEnabled = false;
-                        foreach (var item in ActGlobals.oFormActMain.ActPlugins)
+                        PluginIntegration targetIntegration = context.Settings.PluginIntegration;
+                        bool successfullyInjected = false;
+                        switch (targetIntegration)
                         {
-                            if (item.pluginFile.Name.ToUpper() == "ACT.TTSYukkuri.dll".ToUpper() &&
-                                YUKKURI_INIT_SUCCESS.Contains(item.lblPluginStatus.Text.ToUpper()))
-                            {
-                                currentEnabled = true;
+                            case PluginIntegration.Auto:
+                                successfullyInjected = true;
+                                if (YukkuriInjector.isYukkuriEnabled())
+                                {
+                                    actInjector.UnInject();
+                                    yukkuriInjector.Inject();
+                                    targetIntegration = PluginIntegration.Yukkuri;
+                                }
+                                else
+                                {
+                                    yukkuriInjector.UnInject();
+                                    actInjector.Inject();
+                                    targetIntegration = PluginIntegration.Act;
+                                    longWait = false;
+                                }
                                 break;
-                            }
+                            case PluginIntegration.Act:
+                                yukkuriInjector.UnInject();
+                                actInjector.Inject();
+                                successfullyInjected = true;
+                                longWait = false;
+                                break;
+                            case PluginIntegration.Yukkuri:
+                                actInjector.UnInject();
+                                if (YukkuriInjector.isYukkuriEnabled())
+                                {
+                                    successfullyInjected = true;
+                                    yukkuriInjector.Inject();
+                                }
+                                else
+                                {
+                                    yukkuriInjector.UnInject();
+                                    longWait = false;
+                                }
+                                break;
                         }
 
-                        if (currentEnabled)
+                        if (currentIntegration != targetIntegration || currentInjected != successfullyInjected || firstRun)
                         {
-                            var ass = AppDomain.CurrentDomain.GetAssemblies()
-                                .SingleOrDefault(assembly => assembly.GetName().Name == "ACT.TTSYukkuri.Core");
-                            if (_yukkuriContext == null || _yukkuriContext.YukkuriAssembly != ass)
-                            {
-                                _yukkuriContext = new YukkuriContext(context, ass);
-                                _originalInstance = null;
-                            }
-                        }
-                        else
-                        {
-                            UnInjectYukkuri();
-
-                            longWait = false;
-                            _yukkuriContext = null;
-                            _originalInstance = null;
-                        }
-
-                        if (yukkuriEnabled != currentEnabled || firstRun)
-                        {
-                            yukkuriEnabled = currentEnabled;
+                            currentIntegration = targetIntegration;
+                            currentInjected = successfullyInjected;
                             firstRun = false;
 
-                            context.Controller.NotifyYukkuriEnabledChanged(false, yukkuriEnabled);
-                            context.Controller.NotifyLogMessageAppend(false, $"yukkuriEnabled = {yukkuriEnabled}");
-                        }
-
-                        if (yukkuriEnabled)
-                        {
-                            InjectYukkuri();
+                            switch (targetIntegration)
+                            {
+                                case PluginIntegration.Act:
+                                    context.Controller.NotifyLogMessageAppend(false, $"ACT integration: {successfullyInjected}");
+                                    break;
+                                case PluginIntegration.Yukkuri:
+                                    context.Controller.NotifyLogMessageAppend(false, $"Yukkuri integration: {successfullyInjected}");
+                                    break;
+                            }
                         }
                     }
                 }
@@ -99,32 +128,125 @@ namespace ACT.FoxTTS
                     context.Controller.NotifyLogMessageAppend(false, e.ToString());
                 }
 
-                SafeSleep(longWait ? 1000 : 100);
+                SafeSleep(longWait ? 5000 : 1000);
             }
         }
 
-        private dynamic _originalInstance = null;
-
-        private void InjectYukkuri()
+        internal void WakeUp()
         {
-            var c = _yukkuriContext;
-            if (c != null)
+            base.WakeUp();
+        }
+
+        public void PlayTTSYukkuri(string waveFile, dynamic playDevice, bool isSync, float? volume)
+        {
+            yukkuriInjector.PlayTTSYukkuri(waveFile, playDevice, isSync, volume);
+        }
+    }
+
+    #region ACT TTS Integration
+
+    class ActInjector
+    {
+        private readonly TTSInjector injector;
+
+        private FormActMain.PlayTtsDelegate originalTTSMethod;
+
+        public ActInjector(TTSInjector injector)
+        {
+            this.injector = injector;
+        }
+
+        public void Inject()
+        {
+            if (ActGlobals.oFormActMain.PlayTtsMethod != Speak)
             {
-                lock (c.SpeechControllerLockObject)
+                originalTTSMethod = (FormActMain.PlayTtsDelegate)ActGlobals.oFormActMain.PlayTtsMethod.Clone();
+                ActGlobals.oFormActMain.PlayTtsMethod = Speak;
+            }
+        }
+
+
+        public void UnInject()
+        {
+            if (originalTTSMethod != null)
+            {
+                ActGlobals.oFormActMain.PlayTtsMethod = originalTTSMethod;
+                originalTTSMethod = null;
+            }
+        }
+
+        public void Speak(string message)
+        {
+            injector._plugin.Controller.NotifyLogMessageAppend(false, $"Speak {message}");
+            injector._plugin.Speak(message, 0);
+        }
+
+    }
+
+    #endregion
+
+    #region Yukurri Integration
+
+    class YukkuriInjector
+    {
+        private static readonly HashSet<string> YUKKURI_INIT_SUCCESS = new HashSet<string>(new[]
+        {
+            "Plugin Started".ToUpper(),
+            "插件加载成功.".ToUpper(),
+        });
+
+        private readonly TTSInjector injector;
+        private YukkuriContext _yukkuriContext;
+        private dynamic _originalYukkuriInstance = null;
+
+        public static bool isYukkuriEnabled()
+        {
+            bool yukkuriCurrentEnabled = false;
+            foreach (var item in ActGlobals.oFormActMain.ActPlugins)
+            {
+                if (item.pluginFile.Name.ToUpper() == "ACT.TTSYukkuri.dll".ToUpper() &&
+                    YUKKURI_INIT_SUCCESS.Contains(item.lblPluginStatus.Text.ToUpper()))
                 {
-                    var instance = c.SpeechControllerInstanceObject;
-                    if (instance == null || !(instance is IActLikeProxyInitialize))
-                    {
-                        _originalInstance = instance;
-                        var myInterface = Impromptu.DynamicActLike(this, c.ISpeechControllerType);
-                        _yukkuriContext.SpeechControllerInstanceObject = myInterface;
-                        _plugin.Controller.NotifyLogMessageAppend(false, "TTSYukkuri injected!");
-                    }
+                    yukkuriCurrentEnabled = true;
+                    break;
+                }
+            }
+
+            return yukkuriCurrentEnabled;
+        }
+
+        public YukkuriInjector(TTSInjector injector)
+        {
+            this.injector = injector;
+        }
+
+        public void Inject()
+        {
+            var context = _yukkuriContext;
+
+            var ass = AppDomain.CurrentDomain.GetAssemblies()
+                .SingleOrDefault(assembly => assembly.GetName().Name == "ACT.TTSYukkuri.Core");
+            if (context == null || context.YukkuriAssembly != ass)
+            {
+                context = new YukkuriContext(injector._plugin, ass);
+                _yukkuriContext = context;
+                _originalYukkuriInstance = null;
+            }
+
+            lock (context.SpeechControllerLockObject)
+            {
+                var instance = context.SpeechControllerInstanceObject;
+                if (instance == null || !(instance is IActLikeProxyInitialize))
+                {
+                    _originalYukkuriInstance = instance;
+                    var myInterface = Impromptu.DynamicActLike(this, context.ISpeechControllerType);
+                    _yukkuriContext.SpeechControllerInstanceObject = myInterface;
+                    injector._plugin.Controller.NotifyLogMessageAppend(false, "TTSYukkuri injected!");
                 }
             }
         }
 
-        private void UnInjectYukkuri()
+        public void UnInject()
         {
             try
             {
@@ -134,63 +256,64 @@ namespace ACT.FoxTTS
                 {
                     lock (c.SpeechControllerLockObject)
                     {
-                        c.SpeechControllerInstanceObject = _originalInstance;
+                        c.SpeechControllerInstanceObject = _originalYukkuriInstance;
                     }
                 }
             }
             catch (Exception e)
             {
-                _plugin.Controller.NotifyLogMessageAppend(false, e.ToString());
+                injector._plugin.Controller.NotifyLogMessageAppend(false, e.ToString());
             }
 
-            _originalInstance = null;
+            _yukkuriContext = null;
+            _originalYukkuriInstance = null;
         }
 
         void Initialize()
         {
-            _plugin.Controller.NotifyLogMessageAppend(false, "Initialize");
+            injector._plugin.Controller.NotifyLogMessageAppend(false, "Initialize");
         }
 
         void Free()
         {
-            _originalInstance?.Free();
-            _originalInstance = null;
+            _originalYukkuriInstance?.Free();
+            _originalYukkuriInstance = null;
 
-            _plugin.Controller.NotifyLogMessageAppend(false, "Free");
-            WakeUp();
+            injector._plugin.Controller.NotifyLogMessageAppend(false, "Free");
+            injector.WakeUp();
         }
 
         // ACT.Hojoring 7.8.7+
         void Speak(string text, dynamic playDevice, dynamic voicePalette, bool isSync, float? volume)
         {
-            _plugin.Controller.NotifyLogMessageAppend(false, $"Speak {text}, voicePalette ignored.");
-            _plugin.Speak(text, playDevice, isSync, volume);
+            injector._plugin.Controller.NotifyLogMessageAppend(false, $"Speak {text}, voicePalette ignored.");
+            injector._plugin.Speak(text, playDevice, isSync, volume);
         }
 
         // ACT.Hojoring 5.26.6+
         void Speak(string text, dynamic playDevice, bool isSync, float? volume)
         {
-            _plugin.Controller.NotifyLogMessageAppend(false, $"Speak {text}");
-            _plugin.Speak(text, playDevice, isSync, volume);
+            injector._plugin.Controller.NotifyLogMessageAppend(false, $"Speak {text}");
+            injector._plugin.Speak(text, playDevice, isSync, volume);
         }
 
         void Speak(string text, dynamic playDevice, bool isSync)
         {
-            _plugin.Controller.NotifyLogMessageAppend(false, $"Speak {text}");
-            _plugin.Speak(text, playDevice, isSync);
+            injector._plugin.Controller.NotifyLogMessageAppend(false, $"Speak {text}");
+            injector._plugin.Speak(text, playDevice, isSync);
         }
 
         void Speak(string text, dynamic playDevice)
         {
-            _plugin.Controller.NotifyLogMessageAppend(false, $"Speak {text}");
-            _plugin.Speak(text, playDevice);
+            injector._plugin.Controller.NotifyLogMessageAppend(false, $"Speak {text}");
+            injector._plugin.Speak(text, playDevice);
         }
 
         // Old Yukkuri version < 3.4
         void Speak(string text)
         {
-            _plugin.Controller.NotifyLogMessageAppend(false, $"Speak {text}");
-            _plugin.Speak(text, 0);
+            injector._plugin.Controller.NotifyLogMessageAppend(false, $"Speak {text}");
+            injector._plugin.Speak(text, 0);
         }
 
         public void PlayTTSYukkuri(string waveFile, dynamic playDevice, bool isSync, float? volume)
@@ -258,4 +381,6 @@ namespace ACT.FoxTTS
             }
         }
     }
+
+    #endregion
 }

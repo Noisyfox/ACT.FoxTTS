@@ -102,23 +102,40 @@ namespace ACT.FoxTTS
                 _plugin.UpdateChecker.CheckUpdate(false);
             }
 
+            switch (_plugin.Settings.PluginIntegration)
+            {
+                case PluginIntegration.Act:
+                    radioButtonIntegrationAct.Checked = true;
+                    break;
+                case PluginIntegration.Yukkuri:
+                    radioButtonIntegrationYukkuri.Checked = true;
+                    break;
+                default:
+                case PluginIntegration.Auto:
+                    radioButtonIntegrationAuto.Checked = true;
+                    break;
+            }
+            radioButtonIntegrationAuto.CheckedChanged += OnPluginIntegrationValueChanged;
+            radioButtonIntegrationAct.CheckedChanged += OnPluginIntegrationValueChanged;
+            radioButtonIntegrationYukkuri.CheckedChanged += OnPluginIntegrationValueChanged;
+
             var playbackSettings = _plugin.Settings.PlaybackSettings;
             trackBarMasterVolume.SetValue(playbackSettings.MasterVolume, 100);
             switch (playbackSettings.Method)
             {
                 case PlaybackMethod.Act:
-                    radioButtonPlaybackYukkuri.Checked = false;
                     radioButtonPlaybackACT.Checked = true;
                     break;
                 default:
                 case PlaybackMethod.Yukkuri:
-                    radioButtonPlaybackACT.Checked = false;
                     radioButtonPlaybackYukkuri.Checked = true;
                     break;
             }
             radioButtonPlaybackACT.CheckedChanged += OnPlaybackValueChanged;
             radioButtonPlaybackYukkuri.CheckedChanged += OnPlaybackValueChanged;
             trackBarMasterVolume.ValueChanged += OnPlaybackValueChanged;
+
+            OnPluginIntegrationValueChanged(null, EventArgs.Empty);
             OnPlaybackValueChanged(null, EventArgs.Empty);
         }
 
@@ -309,6 +326,23 @@ namespace ACT.FoxTTS
                     strings.actPanelTitle,
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
+            }
+        }
+
+        private void OnPluginIntegrationValueChanged(object sender, EventArgs e)
+        {
+            var settings = _plugin.Settings;
+            if (radioButtonIntegrationAct.Checked)
+            {
+                settings.PluginIntegration = PluginIntegration.Act;
+            }
+            else if (radioButtonIntegrationYukkuri.Checked)
+            {
+                settings.PluginIntegration = PluginIntegration.Yukkuri;
+            }
+            else
+            {
+                settings.PluginIntegration = PluginIntegration.Auto;
             }
         }
 

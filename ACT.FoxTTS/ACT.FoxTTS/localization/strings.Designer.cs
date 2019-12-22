@@ -151,6 +151,15 @@ namespace ACT.FoxTTS.localization {
         }
         
         /// <summary>
+        ///   查找类似 插件集成 的本地化字符串。
+        /// </summary>
+        internal static string groupBoxIntegration {
+            get {
+                return ResourceManager.GetString("groupBoxIntegration", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 回放设置 的本地化字符串。
         /// </summary>
         internal static string groupBoxPlayback {
@@ -399,6 +408,33 @@ namespace ACT.FoxTTS.localization {
         internal static string messageNewStable {
             get {
                 return ResourceManager.GetString("messageNewStable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 ACT 原生 TTS 的本地化字符串。
+        /// </summary>
+        internal static string radioButtonIntegrationAct {
+            get {
+                return ResourceManager.GetString("radioButtonIntegrationAct", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 自动检测 的本地化字符串。
+        /// </summary>
+        internal static string radioButtonIntegrationAuto {
+            get {
+                return ResourceManager.GetString("radioButtonIntegrationAuto", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Hojoring 语音合成 (TTSYukkuri) 的本地化字符串。
+        /// </summary>
+        internal static string radioButtonIntegrationYukkuri {
+            get {
+                return ResourceManager.GetString("radioButtonIntegrationYukkuri", resourceCulture);
             }
         }
         

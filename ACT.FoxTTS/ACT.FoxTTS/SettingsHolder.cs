@@ -95,6 +95,13 @@ namespace ACT.FoxTTS
         }
     }
 
+    public enum PluginIntegration: int
+    {
+        Auto = 0,
+        Act,
+        Yukkuri
+    }
+
     public enum PlaybackMethod
     {
         Yukkuri,
@@ -104,7 +111,7 @@ namespace ACT.FoxTTS
     public class PlaybackSettings
     {
         [XmlElement]
-        public PlaybackMethod Method = PlaybackMethod.Yukkuri;
+        public PlaybackMethod Method = PlaybackMethod.Act;
 
         [XmlElement]
         public int MasterVolume = 100;
@@ -144,6 +151,8 @@ namespace ACT.FoxTTS
 
         public string VersionIgnored { get; set; }
 
+        public PluginIntegration PluginIntegration { get; set; } = PluginIntegration.Auto;
+
         public PlaybackSettings PlaybackSettings => Settings.Playback;
 
         public BaiduTTSSettings BaiduTtsSettings => Settings.BaiduTtsSettings;
@@ -161,6 +170,7 @@ namespace ACT.FoxTTS
             Settings.AddStringSetting(nameof(Language));
             Settings.AddStringSetting(nameof(VersionIgnored));
             Settings.AddStringSetting(nameof(TTSEngine));
+            Settings.AddIntSetting(nameof(PluginIntegration));
 
             _controller = plugin.Controller;
 

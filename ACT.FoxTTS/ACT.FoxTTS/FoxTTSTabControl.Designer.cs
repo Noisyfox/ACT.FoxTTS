@@ -71,6 +71,10 @@
             this.labelNeedToRestart = new System.Windows.Forms.Label();
             this.tabPageLog = new System.Windows.Forms.TabPage();
             this.richTextBoxLog = new System.Windows.Forms.RichTextBox();
+            this.groupBoxIntegration = new System.Windows.Forms.GroupBox();
+            this.radioButtonIntegrationAuto = new System.Windows.Forms.RadioButton();
+            this.radioButtonIntegrationAct = new System.Windows.Forms.RadioButton();
+            this.radioButtonIntegrationYukkuri = new System.Windows.Forms.RadioButton();
             this.tabControl1.SuspendLayout();
             this.tabPageGeneralSettings.SuspendLayout();
             this.groupBoxPreview.SuspendLayout();
@@ -84,6 +88,7 @@
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanelMainLanguage.SuspendLayout();
             this.tabPageLog.SuspendLayout();
+            this.groupBoxIntegration.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -100,6 +105,7 @@
             // tabPageGeneralSettings
             // 
             this.tabPageGeneralSettings.AutoScroll = true;
+            this.tabPageGeneralSettings.Controls.Add(this.groupBoxIntegration);
             this.tabPageGeneralSettings.Controls.Add(this.groupBoxPreview);
             this.tabPageGeneralSettings.Controls.Add(this.groupBoxTTSEngine);
             this.tabPageGeneralSettings.Controls.Add(this.panelTTSEngineSettings);
@@ -117,11 +123,11 @@
             // groupBoxPreview
             // 
             this.groupBoxPreview.Controls.Add(this.tableLayoutPanel2);
-            this.groupBoxPreview.Location = new System.Drawing.Point(5, 363);
+            this.groupBoxPreview.Location = new System.Drawing.Point(5, 459);
             this.groupBoxPreview.Margin = new System.Windows.Forms.Padding(2);
             this.groupBoxPreview.Name = "groupBoxPreview";
             this.groupBoxPreview.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBoxPreview.Size = new System.Drawing.Size(260, 51);
+            this.groupBoxPreview.Size = new System.Drawing.Size(262, 51);
             this.groupBoxPreview.TabIndex = 8;
             this.groupBoxPreview.TabStop = false;
             this.groupBoxPreview.Text = "Preview";
@@ -140,7 +146,7 @@
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(256, 33);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(258, 33);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // textBoxPreview
@@ -149,14 +155,14 @@
             this.textBoxPreview.Location = new System.Drawing.Point(2, 2);
             this.textBoxPreview.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxPreview.Name = "textBoxPreview";
-            this.textBoxPreview.Size = new System.Drawing.Size(192, 21);
+            this.textBoxPreview.Size = new System.Drawing.Size(194, 21);
             this.textBoxPreview.TabIndex = 8;
             // 
             // buttonPreview
             // 
             this.buttonPreview.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonPreview.AutoSize = true;
-            this.buttonPreview.Location = new System.Drawing.Point(198, 2);
+            this.buttonPreview.Location = new System.Drawing.Point(200, 2);
             this.buttonPreview.Margin = new System.Windows.Forms.Padding(2);
             this.buttonPreview.Name = "buttonPreview";
             this.buttonPreview.Size = new System.Drawing.Size(56, 22);
@@ -168,11 +174,11 @@
             // groupBoxTTSEngine
             // 
             this.groupBoxTTSEngine.Controls.Add(this.tableLayoutPanel1);
-            this.groupBoxTTSEngine.Location = new System.Drawing.Point(5, 225);
+            this.groupBoxTTSEngine.Location = new System.Drawing.Point(5, 322);
             this.groupBoxTTSEngine.Margin = new System.Windows.Forms.Padding(2);
             this.groupBoxTTSEngine.Name = "groupBoxTTSEngine";
             this.groupBoxTTSEngine.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBoxTTSEngine.Size = new System.Drawing.Size(260, 133);
+            this.groupBoxTTSEngine.Size = new System.Drawing.Size(262, 133);
             this.groupBoxTTSEngine.TabIndex = 7;
             this.groupBoxTTSEngine.TabStop = false;
             this.groupBoxTTSEngine.Text = "TTS Engine";
@@ -198,7 +204,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 16F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(256, 115);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(258, 115);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // labelTTSEngine
@@ -220,7 +226,7 @@
             this.comboBoxTTSEngine.Location = new System.Drawing.Point(53, 2);
             this.comboBoxTTSEngine.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxTTSEngine.Name = "comboBoxTTSEngine";
-            this.comboBoxTTSEngine.Size = new System.Drawing.Size(201, 20);
+            this.comboBoxTTSEngine.Size = new System.Drawing.Size(203, 20);
             this.comboBoxTTSEngine.TabIndex = 4;
             this.comboBoxTTSEngine.SelectedIndexChanged += new System.EventHandler(this.comboBoxTTSEngine_SelectedIndexChanged);
             // 
@@ -233,7 +239,7 @@
             this.checkBoxClearCacheExit.Location = new System.Drawing.Point(2, 26);
             this.checkBoxClearCacheExit.Margin = new System.Windows.Forms.Padding(2);
             this.checkBoxClearCacheExit.Name = "checkBoxClearCacheExit";
-            this.checkBoxClearCacheExit.Size = new System.Drawing.Size(252, 16);
+            this.checkBoxClearCacheExit.Size = new System.Drawing.Size(254, 16);
             this.checkBoxClearCacheExit.TabIndex = 5;
             this.checkBoxClearCacheExit.Text = "Clear Cache on Exit";
             this.checkBoxClearCacheExit.UseVisualStyleBackColor = true;
@@ -246,7 +252,7 @@
             this.linkLabelClearCache.Location = new System.Drawing.Point(2, 87);
             this.linkLabelClearCache.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.linkLabelClearCache.Name = "linkLabelClearCache";
-            this.linkLabelClearCache.Size = new System.Drawing.Size(252, 12);
+            this.linkLabelClearCache.Size = new System.Drawing.Size(254, 12);
             this.linkLabelClearCache.TabIndex = 7;
             this.linkLabelClearCache.TabStop = true;
             this.linkLabelClearCache.Text = "Clear Cache Right Now";
@@ -260,7 +266,7 @@
             this.linkLabelOpenCacheDir.Location = new System.Drawing.Point(2, 75);
             this.linkLabelOpenCacheDir.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.linkLabelOpenCacheDir.Name = "linkLabelOpenCacheDir";
-            this.linkLabelOpenCacheDir.Size = new System.Drawing.Size(252, 12);
+            this.linkLabelOpenCacheDir.Size = new System.Drawing.Size(254, 12);
             this.linkLabelOpenCacheDir.TabIndex = 6;
             this.linkLabelOpenCacheDir.TabStop = true;
             this.linkLabelOpenCacheDir.Text = "Open Cache Directory";
@@ -282,11 +288,11 @@
             this.groupBoxPlayback.Controls.Add(this.radioButtonPlaybackACT);
             this.groupBoxPlayback.Controls.Add(this.radioButtonPlaybackYukkuri);
             this.groupBoxPlayback.Controls.Add(this.tableLayoutPanelPlayback);
-            this.groupBoxPlayback.Location = new System.Drawing.Point(6, 43);
+            this.groupBoxPlayback.Location = new System.Drawing.Point(5, 140);
             this.groupBoxPlayback.Margin = new System.Windows.Forms.Padding(2);
             this.groupBoxPlayback.Name = "groupBoxPlayback";
             this.groupBoxPlayback.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBoxPlayback.Size = new System.Drawing.Size(260, 178);
+            this.groupBoxPlayback.Size = new System.Drawing.Size(262, 178);
             this.groupBoxPlayback.TabIndex = 5;
             this.groupBoxPlayback.TabStop = false;
             this.groupBoxPlayback.Text = "Playback";
@@ -294,22 +300,22 @@
             // radioButtonPlaybackACT
             // 
             this.radioButtonPlaybackACT.AutoSize = true;
-            this.radioButtonPlaybackACT.Location = new System.Drawing.Point(9, 42);
+            this.radioButtonPlaybackACT.Checked = true;
+            this.radioButtonPlaybackACT.Location = new System.Drawing.Point(6, 19);
             this.radioButtonPlaybackACT.Name = "radioButtonPlaybackACT";
             this.radioButtonPlaybackACT.Size = new System.Drawing.Size(179, 16);
             this.radioButtonPlaybackACT.TabIndex = 2;
+            this.radioButtonPlaybackACT.TabStop = true;
             this.radioButtonPlaybackACT.Text = "Use ACT for Sound Playback";
             this.radioButtonPlaybackACT.UseVisualStyleBackColor = true;
             // 
             // radioButtonPlaybackYukkuri
             // 
             this.radioButtonPlaybackYukkuri.AutoSize = true;
-            this.radioButtonPlaybackYukkuri.Checked = true;
-            this.radioButtonPlaybackYukkuri.Location = new System.Drawing.Point(9, 19);
+            this.radioButtonPlaybackYukkuri.Location = new System.Drawing.Point(6, 41);
             this.radioButtonPlaybackYukkuri.Name = "radioButtonPlaybackYukkuri";
             this.radioButtonPlaybackYukkuri.Size = new System.Drawing.Size(221, 16);
             this.radioButtonPlaybackYukkuri.TabIndex = 1;
-            this.radioButtonPlaybackYukkuri.TabStop = true;
             this.radioButtonPlaybackYukkuri.Text = "Use TTSYukkuri for Sound Playback";
             this.radioButtonPlaybackYukkuri.UseVisualStyleBackColor = true;
             // 
@@ -337,7 +343,7 @@
             this.tableLayoutPanelPlayback.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanelPlayback.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanelPlayback.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanelPlayback.Size = new System.Drawing.Size(250, 110);
+            this.tableLayoutPanelPlayback.Size = new System.Drawing.Size(252, 110);
             this.tableLayoutPanelPlayback.TabIndex = 1;
             // 
             // labelMasterVolume
@@ -361,7 +367,7 @@
             this.trackBarMasterVolume.Margin = new System.Windows.Forms.Padding(2);
             this.trackBarMasterVolume.Maximum = 100;
             this.trackBarMasterVolume.Name = "trackBarMasterVolume";
-            this.trackBarMasterVolume.Size = new System.Drawing.Size(131, 45);
+            this.trackBarMasterVolume.Size = new System.Drawing.Size(133, 45);
             this.trackBarMasterVolume.TabIndex = 3;
             this.trackBarMasterVolume.TickStyle = System.Windows.Forms.TickStyle.None;
             this.trackBarMasterVolume.Value = 100;
@@ -369,7 +375,7 @@
             // labelCurrentVolume
             // 
             this.labelCurrentVolume.AutoSize = true;
-            this.labelCurrentVolume.Location = new System.Drawing.Point(218, 0);
+            this.labelCurrentVolume.Location = new System.Drawing.Point(220, 0);
             this.labelCurrentVolume.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelCurrentVolume.MinimumSize = new System.Drawing.Size(30, 0);
             this.labelCurrentVolume.Name = "labelCurrentVolume";
@@ -398,7 +404,7 @@
             this.comboBoxPlaybackMethod.Location = new System.Drawing.Point(83, 51);
             this.comboBoxPlaybackMethod.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxPlaybackMethod.Name = "comboBoxPlaybackMethod";
-            this.comboBoxPlaybackMethod.Size = new System.Drawing.Size(165, 20);
+            this.comboBoxPlaybackMethod.Size = new System.Drawing.Size(167, 20);
             this.comboBoxPlaybackMethod.TabIndex = 4;
             // 
             // labelPlaybackDevice
@@ -421,15 +427,16 @@
             this.comboBoxPlaybackDevice.Location = new System.Drawing.Point(83, 75);
             this.comboBoxPlaybackDevice.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxPlaybackDevice.Name = "comboBoxPlaybackDevice";
-            this.comboBoxPlaybackDevice.Size = new System.Drawing.Size(165, 20);
+            this.comboBoxPlaybackDevice.Size = new System.Drawing.Size(167, 20);
             this.comboBoxPlaybackDevice.TabIndex = 6;
             // 
             // groupBoxUpdate
             // 
             this.groupBoxUpdate.Controls.Add(this.tableLayoutPanel4);
-            this.groupBoxUpdate.Location = new System.Drawing.Point(5, 420);
+            this.groupBoxUpdate.Location = new System.Drawing.Point(5, 514);
+            this.groupBoxUpdate.Margin = new System.Windows.Forms.Padding(2);
             this.groupBoxUpdate.Name = "groupBoxUpdate";
-            this.groupBoxUpdate.Size = new System.Drawing.Size(263, 190);
+            this.groupBoxUpdate.Size = new System.Drawing.Size(262, 173);
             this.groupBoxUpdate.TabIndex = 4;
             this.groupBoxUpdate.TabStop = false;
             this.groupBoxUpdate.Text = "Update";
@@ -461,7 +468,7 @@
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(257, 170);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(256, 153);
             this.tableLayoutPanel4.TabIndex = 0;
             // 
             // labelCurrentVersion
@@ -527,7 +534,7 @@
             this.checkBoxCheckUpdate.Dock = System.Windows.Forms.DockStyle.Fill;
             this.checkBoxCheckUpdate.Location = new System.Drawing.Point(3, 39);
             this.checkBoxCheckUpdate.Name = "checkBoxCheckUpdate";
-            this.checkBoxCheckUpdate.Size = new System.Drawing.Size(251, 16);
+            this.checkBoxCheckUpdate.Size = new System.Drawing.Size(250, 16);
             this.checkBoxCheckUpdate.TabIndex = 10;
             this.checkBoxCheckUpdate.Text = "Check Update on Startup";
             this.checkBoxCheckUpdate.UseVisualStyleBackColor = true;
@@ -539,7 +546,7 @@
             this.checkBoxNotifyStableOnly.Dock = System.Windows.Forms.DockStyle.Fill;
             this.checkBoxNotifyStableOnly.Location = new System.Drawing.Point(3, 61);
             this.checkBoxNotifyStableOnly.Name = "checkBoxNotifyStableOnly";
-            this.checkBoxNotifyStableOnly.Size = new System.Drawing.Size(251, 16);
+            this.checkBoxNotifyStableOnly.Size = new System.Drawing.Size(250, 16);
             this.checkBoxNotifyStableOnly.TabIndex = 11;
             this.checkBoxNotifyStableOnly.Text = "Check for Stable Version Only";
             this.checkBoxNotifyStableOnly.UseVisualStyleBackColor = true;
@@ -549,7 +556,7 @@
             this.buttonCheckUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonCheckUpdate.AutoSize = true;
             this.tableLayoutPanel4.SetColumnSpan(this.buttonCheckUpdate, 2);
-            this.buttonCheckUpdate.Location = new System.Drawing.Point(109, 83);
+            this.buttonCheckUpdate.Location = new System.Drawing.Point(108, 83);
             this.buttonCheckUpdate.Name = "buttonCheckUpdate";
             this.buttonCheckUpdate.Size = new System.Drawing.Size(145, 25);
             this.buttonCheckUpdate.TabIndex = 12;
@@ -562,7 +569,7 @@
             this.buttonDownloadUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonDownloadUpdate.AutoSize = true;
             this.tableLayoutPanel4.SetColumnSpan(this.buttonDownloadUpdate, 2);
-            this.buttonDownloadUpdate.Location = new System.Drawing.Point(69, 114);
+            this.buttonDownloadUpdate.Location = new System.Drawing.Point(68, 114);
             this.buttonDownloadUpdate.Name = "buttonDownloadUpdate";
             this.buttonDownloadUpdate.Size = new System.Drawing.Size(185, 25);
             this.buttonDownloadUpdate.TabIndex = 13;
@@ -638,6 +645,51 @@
             this.richTextBoxLog.TabIndex = 6;
             this.richTextBoxLog.Text = "";
             // 
+            // groupBoxIntegration
+            // 
+            this.groupBoxIntegration.Controls.Add(this.radioButtonIntegrationYukkuri);
+            this.groupBoxIntegration.Controls.Add(this.radioButtonIntegrationAct);
+            this.groupBoxIntegration.Controls.Add(this.radioButtonIntegrationAuto);
+            this.groupBoxIntegration.Location = new System.Drawing.Point(5, 43);
+            this.groupBoxIntegration.Margin = new System.Windows.Forms.Padding(2);
+            this.groupBoxIntegration.Name = "groupBoxIntegration";
+            this.groupBoxIntegration.Size = new System.Drawing.Size(262, 93);
+            this.groupBoxIntegration.TabIndex = 15;
+            this.groupBoxIntegration.TabStop = false;
+            this.groupBoxIntegration.Text = "Plugin Integration";
+            // 
+            // radioButtonIntegrationAuto
+            // 
+            this.radioButtonIntegrationAuto.AutoSize = true;
+            this.radioButtonIntegrationAuto.Checked = true;
+            this.radioButtonIntegrationAuto.Location = new System.Drawing.Point(9, 21);
+            this.radioButtonIntegrationAuto.Name = "radioButtonIntegrationAuto";
+            this.radioButtonIntegrationAuto.Size = new System.Drawing.Size(107, 16);
+            this.radioButtonIntegrationAuto.TabIndex = 0;
+            this.radioButtonIntegrationAuto.TabStop = true;
+            this.radioButtonIntegrationAuto.Text = "Auto Detection";
+            this.radioButtonIntegrationAuto.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonIntegrationAct
+            // 
+            this.radioButtonIntegrationAct.AutoSize = true;
+            this.radioButtonIntegrationAct.Location = new System.Drawing.Point(9, 44);
+            this.radioButtonIntegrationAct.Name = "radioButtonIntegrationAct";
+            this.radioButtonIntegrationAct.Size = new System.Drawing.Size(41, 16);
+            this.radioButtonIntegrationAct.TabIndex = 1;
+            this.radioButtonIntegrationAct.Text = "ACT";
+            this.radioButtonIntegrationAct.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonIntegrationYukkuri
+            // 
+            this.radioButtonIntegrationYukkuri.AutoSize = true;
+            this.radioButtonIntegrationYukkuri.Location = new System.Drawing.Point(9, 67);
+            this.radioButtonIntegrationYukkuri.Name = "radioButtonIntegrationYukkuri";
+            this.radioButtonIntegrationYukkuri.Size = new System.Drawing.Size(65, 16);
+            this.radioButtonIntegrationYukkuri.TabIndex = 2;
+            this.radioButtonIntegrationYukkuri.Text = "Yukkuri";
+            this.radioButtonIntegrationYukkuri.UseVisualStyleBackColor = true;
+            // 
             // FoxTTSTabControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -665,6 +717,8 @@
             this.tableLayoutPanelMainLanguage.ResumeLayout(false);
             this.tableLayoutPanelMainLanguage.PerformLayout();
             this.tabPageLog.ResumeLayout(false);
+            this.groupBoxIntegration.ResumeLayout(false);
+            this.groupBoxIntegration.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -714,5 +768,9 @@
         private System.Windows.Forms.Button buttonPreview;
         private System.Windows.Forms.RadioButton radioButtonPlaybackACT;
         private System.Windows.Forms.RadioButton radioButtonPlaybackYukkuri;
+        private System.Windows.Forms.GroupBox groupBoxIntegration;
+        private System.Windows.Forms.RadioButton radioButtonIntegrationYukkuri;
+        private System.Windows.Forms.RadioButton radioButtonIntegrationAct;
+        private System.Windows.Forms.RadioButton radioButtonIntegrationAuto;
     }
 }
