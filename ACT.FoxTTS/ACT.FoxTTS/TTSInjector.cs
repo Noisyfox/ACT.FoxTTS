@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using System.Threading.Tasks;
 using ACT.FoxCommon.core;
 using Advanced_Combat_Tracker;
 using ImpromptuInterface;
@@ -168,7 +169,10 @@ namespace ACT.FoxTTS
         public void Speak(string message)
         {
             injector._plugin.Controller.NotifyLogMessageAppend(false, $"Speak {message}");
-            injector._plugin.Speak(message, 0);
+            Task.Run(() =>
+            {
+                injector._plugin.Speak(message, 0);
+            });
         }
 
     }
