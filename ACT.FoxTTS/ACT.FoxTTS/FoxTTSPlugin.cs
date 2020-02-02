@@ -48,7 +48,7 @@ namespace ACT.FoxTTS
 
                 SettingsTab = new FoxTTSTabControl();
                 SettingsTab.AttachToAct(this);
-                
+
                 UpdateChecker.AttachToAct(this);
                 SoundPlayer.AttachToAct(this);
                 TtsInjector.AttachToAct(this);
@@ -71,6 +71,10 @@ namespace ACT.FoxTTS
                 TtsInjector.StartWorkingThread(this);
 
                 StatusLabel.Text = "Init Success. >w<";
+            }
+            catch (SettingsNotLoadException ex)
+            {
+                StatusLabel.Text = "Init Failed: " + ex;
             }
             catch (Exception ex)
             {

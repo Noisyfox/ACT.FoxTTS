@@ -1,9 +1,6 @@
-﻿using System;
-using System.IO;
-using System.Text;
-using System.Windows.Forms;
-using System.Xml;
+﻿using System.Windows.Forms;
 using System.Xml.Serialization;
+using ACT.FoxCommon.core;
 using ACT.FoxTTS.engine.baidu;
 using Advanced_Combat_Tracker;
 
@@ -14,84 +11,48 @@ namespace ACT.FoxTTS
     /// </summary>
     internal class PluginSettings : SettingsSerializer
     {
-        private readonly string _settingsFile = Path.Combine(ActGlobals.oFormActMain.AppDataFolder.FullName,
-            "Config\\ACT.FoxTTS.config.xml");
-
-        public PluginSettings(object ParentSettingsClass) : base(ParentSettingsClass)
-        {
-        }
+        private readonly SettingsIO _settingsIo = new SettingsIO("ACT.FoxTTS");
 
         public PlaybackSettings Playback = new PlaybackSettings();
         public BaiduTTSSettings BaiduTtsSettings = new BaiduTTSSettings();
 
+        public PluginSettings(object ParentSettingsClass) : base(ParentSettingsClass)
+        {
+            _settingsIo.WriteSettings = writer =>
+            {
+                writer.WriteStartElement("SettingsSerializer");
+                ExportToXml(writer);
+                writer.WriteEndElement();
+
+                writer.Serialize(Playback);
+                writer.Serialize(BaiduTtsSettings);
+            };
+
+            _settingsIo.ReadSettings = reader =>
+            {
+                switch (reader.LocalName)
+                {
+                    case "SettingsSerializer":
+                        ImportFromXml(reader);
+                        break;
+                    case nameof(PlaybackSettings):
+                        Playback = reader.Deserialize<PlaybackSettings>();
+                        break;
+                    case nameof(BaiduTTSSettings):
+                        BaiduTtsSettings = reader.Deserialize<BaiduTTSSettings>();
+                        break;
+                }
+            };
+        }
+
         public void Load()
         {
-            if (File.Exists(_settingsFile))
-            {
-                FileStream fs = new FileStream(_settingsFile, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-
-                XmlTextReader reader = new XmlTextReader(fs);
-                while (reader.Read())
-                {
-                    if (reader.NodeType != XmlNodeType.Element)
-                    {
-                        continue;
-                    }
-
-                    switch (reader.LocalName)
-                    {
-                        case "SettingsSerializer":
-                            ImportFromXml(reader);
-                            break;
-                        case nameof(PlaybackSettings):
-                            Playback = Deserialize<PlaybackSettings>(reader);
-                            break;
-                        case nameof(BaiduTTSSettings):
-                            BaiduTtsSettings = Deserialize<BaiduTTSSettings>(reader);
-                            break;
-                    }
-                }
-
-                reader.Close();
-            }
+            _settingsIo.Load();
         }
 
         public void Save()
         {
-            FileStream stream = new FileStream(_settingsFile, FileMode.Create, FileAccess.Write, FileShare.ReadWrite);
-            XmlTextWriter writer = new XmlTextWriter(stream, Encoding.UTF8);
-            writer.Formatting = Formatting.Indented;
-            writer.Indentation = 1;
-            writer.IndentChar = '\t';
-            writer.WriteStartDocument(true);
-            writer.WriteStartElement("Config");
-            writer.WriteStartElement("SettingsSerializer");
-            ExportToXml(writer);
-            writer.WriteEndElement();
-
-            Serialize(writer, Playback);
-            Serialize(writer, BaiduTtsSettings);
-
-            writer.WriteEndElement();
-            writer.WriteEndDocument();
-            writer.Flush();
-            writer.Close();
-        }
-
-        private static void Serialize<T>(XmlTextWriter writer, T obj) where T : class
-        {
-            var ns = new XmlSerializerNamespaces();
-            ns.Add("", "");
-            XmlSerializer serializer = new XmlSerializer(typeof(T));
-            serializer.Serialize(writer, obj, ns);
-        }
-
-        private static T Deserialize<T>(XmlTextReader reader) where T : class
-        {
-            var ns = new XmlSerializerNamespaces();
-            ns.Add("", "");
-            XmlSerializer serializer = new XmlSerializer(typeof(T));
-            return serializer.Deserialize(reader) as T;
+            _settingsIo.Save();
         }
     }
 

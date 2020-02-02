@@ -126,11 +126,20 @@
   <data name="buttonDownloadUpdate" xml:space="preserve">
     <value>打开下载页面</value>
   </data>
+  <data name="buttonIgnore" xml:space="preserve">
+    <value>忽略错误（插件将无法正常工作）</value>
+  </data>
   <data name="buttonIgnoreVersion" xml:space="preserve">
     <value>忽略</value>
   </data>
   <data name="buttonPreview" xml:space="preserve">
     <value>听听看!</value>
+  </data>
+  <data name="buttonResetToDefault" xml:space="preserve">
+    <value>重置为默认设置</value>
+  </data>
+  <data name="buttonRestoreFromBackup" xml:space="preserve">
+    <value>加载上一次的设置</value>
   </data>
   <data name="buttonUpdateLater" xml:space="preserve">
     <value>稍后</value>
@@ -251,6 +260,23 @@
   </data>
   <data name="radioButtonPlaybackYukkuri" xml:space="preserve">
     <value>使用 TTSYukkuri 的设置进行回放</value>
+  </data>
+  <data name="settingsError" xml:space="preserve">
+    <value>无法加载当前的设置文件！</value>
+  </data>
+  <data name="settingsErrorBackup" xml:space="preserve">
+    <value>上一次的设置文件备份也无法加载！</value>
+  </data>
+  <data name="settingsErrorHintNoBackup" xml:space="preserve">
+    <value>你可以：
+1. 重置为默认设置，注意这将导致当前设置丢失！
+2. 直接忽略设置文件的错误并继续，这将不会更改任何现有设置，因此你可以手动检查你的设置文件并尝试恢复，但是本插件将无法正常工作！</value>
+  </data>
+  <data name="settingsErrorHintWithBackup" xml:space="preserve">
+    <value>你可以：
+1.从上一次的设置备份中恢复，注意这将导致当前设置丢失！
+2.重置为默认设置，这也将导致当前设置丢失！
+3.直接忽略设置文件的错误并继续，这将不会更改任何现有设置，因此你可以手动检查你的设置文件并尝试恢复，但是本插件将无法正常工作！</value>
   </data>
   <data name="tabPageGeneralSettings" xml:space="preserve">
     <value>常规设置</value>

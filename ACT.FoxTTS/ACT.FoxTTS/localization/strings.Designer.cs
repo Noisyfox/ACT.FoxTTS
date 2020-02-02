@@ -88,6 +88,15 @@ namespace ACT.FoxTTS.localization {
         }
         
         /// <summary>
+        ///   查找类似 忽略错误（插件将无法正常工作） 的本地化字符串。
+        /// </summary>
+        internal static string buttonIgnore {
+            get {
+                return ResourceManager.GetString("buttonIgnore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 忽略 的本地化字符串。
         /// </summary>
         internal static string buttonIgnoreVersion {
@@ -102,6 +111,24 @@ namespace ACT.FoxTTS.localization {
         internal static string buttonPreview {
             get {
                 return ResourceManager.GetString("buttonPreview", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 重置为默认设置 的本地化字符串。
+        /// </summary>
+        internal static string buttonResetToDefault {
+            get {
+                return ResourceManager.GetString("buttonResetToDefault", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 加载上一次的设置 的本地化字符串。
+        /// </summary>
+        internal static string buttonRestoreFromBackup {
+            get {
+                return ResourceManager.GetString("buttonRestoreFromBackup", resourceCulture);
             }
         }
         
@@ -462,6 +489,47 @@ namespace ACT.FoxTTS.localization {
         internal static string radioButtonPlaybackYukkuri {
             get {
                 return ResourceManager.GetString("radioButtonPlaybackYukkuri", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 无法加载当前的设置文件！ 的本地化字符串。
+        /// </summary>
+        internal static string settingsError {
+            get {
+                return ResourceManager.GetString("settingsError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 上一次的设置文件备份也无法加载！ 的本地化字符串。
+        /// </summary>
+        internal static string settingsErrorBackup {
+            get {
+                return ResourceManager.GetString("settingsErrorBackup", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 你可以：
+        ///1. 重置为默认设置，注意这将导致当前设置丢失！
+        ///2. 直接忽略设置文件的错误并继续，这将不会更改任何现有设置，因此你可以手动检查你的设置文件并尝试恢复，但是本插件将无法正常工作！ 的本地化字符串。
+        /// </summary>
+        internal static string settingsErrorHintNoBackup {
+            get {
+                return ResourceManager.GetString("settingsErrorHintNoBackup", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 你可以：
+        ///1.从上一次的设置备份中恢复，注意这将导致当前设置丢失！
+        ///2.重置为默认设置，这也将导致当前设置丢失！
+        ///3.直接忽略设置文件的错误并继续，这将不会更改任何现有设置，因此你可以手动检查你的设置文件并尝试恢复，但是本插件将无法正常工作！ 的本地化字符串。
+        /// </summary>
+        internal static string settingsErrorHintWithBackup {
+            get {
+                return ResourceManager.GetString("settingsErrorHintWithBackup", resourceCulture);
             }
         }
         
