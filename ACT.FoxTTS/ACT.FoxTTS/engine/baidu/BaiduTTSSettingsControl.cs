@@ -34,7 +34,7 @@ namespace ACT.FoxTTS.engine.baidu
             trackBarSpeed.SetValue(settings.Speed, 5);
             trackBarPitch.SetValue(settings.Pitch, 5);
             trackBarVolume.SetValue(settings.Volume, 5);
-            comboBoxPerson.SelectedIndex = settings.Person.Clamp(0, 3);
+            comboBoxPerson.SelectedIndex = settings.Person.Clamp(0, comboBoxPerson.Items.Count - 1);
 
             textBoxApiKey.TextChanged += OnValueChanged;
             textBoxSecretKey.TextChanged += OnValueChanged;
