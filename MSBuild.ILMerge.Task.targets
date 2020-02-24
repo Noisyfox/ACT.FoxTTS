@@ -3,7 +3,7 @@
   <PropertyGroup>
     <!-- give project-specific settings reasonable defaults -->
     <ILMergePackagesPath Condition=" $(ILMergePackagePath) == '' ">$(SolutionDir)packages</ILMergePackagesPath>
-    <ILMergeOrderFile Condition=" $(ILMergeOrderFile) == '' ">$(MSBuildProjectDir)ILMergeOrder.txt</ILMergeOrderFile>
+    <ILMergeOrderFile Condition=" $(ILMergeOrderFile) == '' ">$(MSBuildProjectDirectory)\ILMergeOrder.txt</ILMergeOrderFile>
     <ILMergeKeyFile Condition=" $(ILMergeKeyFile) == '' ">$(AssemblyOriginatorKeyFile)</ILMergeKeyFile>
     <ILMergeAssemblyVersion Condition=" $(ILMergeAssemblyVersion) == '' "></ILMergeAssemblyVersion>
 
@@ -24,7 +24,7 @@
     <ILTargetPlatform Condition=" $(ILTargetPlatform) == '' ">40</ILTargetPlatform>
     <!--<ILMergeVersion Condition=" $(ILMergeVersion) == '' "></ILMergeVersion>-->
     
-    <ILMergeToolsPath>$(MSBuildThisFileDirectory)..\tools\</ILMergeToolsPath>
+    <ILMergeToolsPath Condition=" $(ILMergeToolsPath) == '' ">$(MSBuildThisFileDirectory)..\tools\</ILMergeToolsPath>
   </PropertyGroup>
 
   <!-- decide what goes into output after compile-->
@@ -72,6 +72,7 @@
 
   <!-- override standard target our own merge-and-copy-content -->
   <Target Name="CopyFilesToOutputDirectory">
+    <Message Text="Merge PDBs: $(ILMergeDebugInfo)" Importance="high" />
     <Message Text="Merged assemblies: $(MergedAssemblies)" Importance="high" />
     <Message Text="Not merged assemblies: $(UnmergedAssemblies)" Importance="normal" />
     <Message Text="Merged Output in: $(MergeOutputFile)" Importance="normal" />
