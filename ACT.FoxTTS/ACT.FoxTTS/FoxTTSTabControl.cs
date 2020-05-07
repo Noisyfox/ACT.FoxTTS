@@ -6,6 +6,7 @@ using System.Reflection;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ACT.FoxCommon;
+using ACT.FoxCommon.dpi;
 using ACT.FoxCommon.localization;
 using ACT.FoxCommon.update;
 using ACT.FoxTTS.engine;
@@ -29,6 +30,8 @@ namespace ACT.FoxTTS
             comboBoxTTSEngine.ValueMember = nameof(TTSEngineDef.Name);
 
             labelCurrentVersionValue.Text = Assembly.GetCallingAssembly().GetName().Version.ToString();
+
+            this.AdjustForDpiScaling();
         }
 
         public void AttachToAct(FoxTTSPlugin plugin)

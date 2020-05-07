@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
 using ACT.FoxCommon;
+using ACT.FoxCommon.dpi;
 using ACT.FoxCommon.localization;
 
 namespace ACT.FoxTTS.engine.baidu
@@ -14,6 +15,8 @@ namespace ACT.FoxTTS.engine.baidu
         public BaiduTTSSettingsControl()
         {
             InitializeComponent();
+
+            this.AdjustForDpiScaling();
         }
 
         public void AttachToAct(FoxTTSPlugin plugin)
