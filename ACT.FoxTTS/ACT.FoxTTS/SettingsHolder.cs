@@ -66,7 +66,13 @@ namespace ACT.FoxTTS
     public enum PlaybackMethod
     {
         Yukkuri,
-        Act
+        Act,
+        BuiltIn, // Use built in playback apis
+    }
+
+    public enum PlaybackApi : int
+    {
+        WinMM = 0,
     }
 
     public class PlaybackSettings
@@ -76,6 +82,9 @@ namespace ACT.FoxTTS
 
         [XmlElement]
         public int MasterVolume = 100;
+
+        [XmlElement]
+        public PlaybackApi Api = PlaybackApi.WinMM;
     }
 
     public class SettingsHolder : IPluginComponent

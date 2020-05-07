@@ -30,6 +30,10 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPageGeneralSettings = new System.Windows.Forms.TabPage();
+            this.groupBoxIntegration = new System.Windows.Forms.GroupBox();
+            this.radioButtonIntegrationYukkuri = new System.Windows.Forms.RadioButton();
+            this.radioButtonIntegrationAct = new System.Windows.Forms.RadioButton();
+            this.radioButtonIntegrationAuto = new System.Windows.Forms.RadioButton();
             this.groupBoxPreview = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.textBoxPreview = new System.Windows.Forms.TextBox();
@@ -43,14 +47,15 @@
             this.linkLabelOpenCacheDir = new System.Windows.Forms.LinkLabel();
             this.panelTTSEngineSettings = new System.Windows.Forms.Panel();
             this.groupBoxPlayback = new System.Windows.Forms.GroupBox();
+            this.radioButtonPlaybackBuiltIn = new System.Windows.Forms.RadioButton();
             this.radioButtonPlaybackACT = new System.Windows.Forms.RadioButton();
             this.radioButtonPlaybackYukkuri = new System.Windows.Forms.RadioButton();
             this.tableLayoutPanelPlayback = new System.Windows.Forms.TableLayoutPanel();
             this.labelMasterVolume = new System.Windows.Forms.Label();
             this.trackBarMasterVolume = new System.Windows.Forms.TrackBar();
             this.labelCurrentVolume = new System.Windows.Forms.Label();
-            this.labelPlaybackMethod = new System.Windows.Forms.Label();
-            this.comboBoxPlaybackMethod = new System.Windows.Forms.ComboBox();
+            this.labelPlaybackApi = new System.Windows.Forms.Label();
+            this.comboBoxPlaybackApi = new System.Windows.Forms.ComboBox();
             this.labelPlaybackDevice = new System.Windows.Forms.Label();
             this.comboBoxPlaybackDevice = new System.Windows.Forms.ComboBox();
             this.groupBoxUpdate = new System.Windows.Forms.GroupBox();
@@ -71,12 +76,9 @@
             this.labelNeedToRestart = new System.Windows.Forms.Label();
             this.tabPageLog = new System.Windows.Forms.TabPage();
             this.richTextBoxLog = new System.Windows.Forms.RichTextBox();
-            this.groupBoxIntegration = new System.Windows.Forms.GroupBox();
-            this.radioButtonIntegrationAuto = new System.Windows.Forms.RadioButton();
-            this.radioButtonIntegrationAct = new System.Windows.Forms.RadioButton();
-            this.radioButtonIntegrationYukkuri = new System.Windows.Forms.RadioButton();
             this.tabControl1.SuspendLayout();
             this.tabPageGeneralSettings.SuspendLayout();
+            this.groupBoxIntegration.SuspendLayout();
             this.groupBoxPreview.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.groupBoxTTSEngine.SuspendLayout();
@@ -88,7 +90,6 @@
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanelMainLanguage.SuspendLayout();
             this.tabPageLog.SuspendLayout();
-            this.groupBoxIntegration.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -99,7 +100,7 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1009, 731);
+            this.tabControl1.Size = new System.Drawing.Size(1009, 860);
             this.tabControl1.TabIndex = 9;
             // 
             // tabPageGeneralSettings
@@ -115,15 +116,60 @@
             this.tabPageGeneralSettings.Location = new System.Drawing.Point(4, 22);
             this.tabPageGeneralSettings.Name = "tabPageGeneralSettings";
             this.tabPageGeneralSettings.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageGeneralSettings.Size = new System.Drawing.Size(1001, 705);
+            this.tabPageGeneralSettings.Size = new System.Drawing.Size(1001, 834);
             this.tabPageGeneralSettings.TabIndex = 0;
             this.tabPageGeneralSettings.Text = "General Settings";
             this.tabPageGeneralSettings.UseVisualStyleBackColor = true;
             // 
+            // groupBoxIntegration
+            // 
+            this.groupBoxIntegration.Controls.Add(this.radioButtonIntegrationYukkuri);
+            this.groupBoxIntegration.Controls.Add(this.radioButtonIntegrationAct);
+            this.groupBoxIntegration.Controls.Add(this.radioButtonIntegrationAuto);
+            this.groupBoxIntegration.Location = new System.Drawing.Point(5, 43);
+            this.groupBoxIntegration.Margin = new System.Windows.Forms.Padding(2);
+            this.groupBoxIntegration.Name = "groupBoxIntegration";
+            this.groupBoxIntegration.Size = new System.Drawing.Size(262, 93);
+            this.groupBoxIntegration.TabIndex = 15;
+            this.groupBoxIntegration.TabStop = false;
+            this.groupBoxIntegration.Text = "Plugin Integration";
+            // 
+            // radioButtonIntegrationYukkuri
+            // 
+            this.radioButtonIntegrationYukkuri.AutoSize = true;
+            this.radioButtonIntegrationYukkuri.Location = new System.Drawing.Point(9, 67);
+            this.radioButtonIntegrationYukkuri.Name = "radioButtonIntegrationYukkuri";
+            this.radioButtonIntegrationYukkuri.Size = new System.Drawing.Size(65, 16);
+            this.radioButtonIntegrationYukkuri.TabIndex = 2;
+            this.radioButtonIntegrationYukkuri.Text = "Yukkuri";
+            this.radioButtonIntegrationYukkuri.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonIntegrationAct
+            // 
+            this.radioButtonIntegrationAct.AutoSize = true;
+            this.radioButtonIntegrationAct.Location = new System.Drawing.Point(9, 44);
+            this.radioButtonIntegrationAct.Name = "radioButtonIntegrationAct";
+            this.radioButtonIntegrationAct.Size = new System.Drawing.Size(41, 16);
+            this.radioButtonIntegrationAct.TabIndex = 1;
+            this.radioButtonIntegrationAct.Text = "ACT";
+            this.radioButtonIntegrationAct.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonIntegrationAuto
+            // 
+            this.radioButtonIntegrationAuto.AutoSize = true;
+            this.radioButtonIntegrationAuto.Checked = true;
+            this.radioButtonIntegrationAuto.Location = new System.Drawing.Point(9, 21);
+            this.radioButtonIntegrationAuto.Name = "radioButtonIntegrationAuto";
+            this.radioButtonIntegrationAuto.Size = new System.Drawing.Size(107, 16);
+            this.radioButtonIntegrationAuto.TabIndex = 0;
+            this.radioButtonIntegrationAuto.TabStop = true;
+            this.radioButtonIntegrationAuto.Text = "Auto Detection";
+            this.radioButtonIntegrationAuto.UseVisualStyleBackColor = true;
+            // 
             // groupBoxPreview
             // 
             this.groupBoxPreview.Controls.Add(this.tableLayoutPanel2);
-            this.groupBoxPreview.Location = new System.Drawing.Point(5, 459);
+            this.groupBoxPreview.Location = new System.Drawing.Point(5, 478);
             this.groupBoxPreview.Margin = new System.Windows.Forms.Padding(2);
             this.groupBoxPreview.Name = "groupBoxPreview";
             this.groupBoxPreview.Padding = new System.Windows.Forms.Padding(2);
@@ -174,7 +220,7 @@
             // groupBoxTTSEngine
             // 
             this.groupBoxTTSEngine.Controls.Add(this.tableLayoutPanel1);
-            this.groupBoxTTSEngine.Location = new System.Drawing.Point(5, 322);
+            this.groupBoxTTSEngine.Location = new System.Drawing.Point(5, 341);
             this.groupBoxTTSEngine.Margin = new System.Windows.Forms.Padding(2);
             this.groupBoxTTSEngine.Name = "groupBoxTTSEngine";
             this.groupBoxTTSEngine.Padding = new System.Windows.Forms.Padding(2);
@@ -280,11 +326,12 @@
             this.panelTTSEngineSettings.Location = new System.Drawing.Point(271, 43);
             this.panelTTSEngineSettings.Margin = new System.Windows.Forms.Padding(2);
             this.panelTTSEngineSettings.Name = "panelTTSEngineSettings";
-            this.panelTTSEngineSettings.Size = new System.Drawing.Size(727, 659);
+            this.panelTTSEngineSettings.Size = new System.Drawing.Size(727, 788);
             this.panelTTSEngineSettings.TabIndex = 14;
             // 
             // groupBoxPlayback
             // 
+            this.groupBoxPlayback.Controls.Add(this.radioButtonPlaybackBuiltIn);
             this.groupBoxPlayback.Controls.Add(this.radioButtonPlaybackACT);
             this.groupBoxPlayback.Controls.Add(this.radioButtonPlaybackYukkuri);
             this.groupBoxPlayback.Controls.Add(this.tableLayoutPanelPlayback);
@@ -292,10 +339,20 @@
             this.groupBoxPlayback.Margin = new System.Windows.Forms.Padding(2);
             this.groupBoxPlayback.Name = "groupBoxPlayback";
             this.groupBoxPlayback.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBoxPlayback.Size = new System.Drawing.Size(262, 178);
+            this.groupBoxPlayback.Size = new System.Drawing.Size(262, 197);
             this.groupBoxPlayback.TabIndex = 5;
             this.groupBoxPlayback.TabStop = false;
             this.groupBoxPlayback.Text = "Playback";
+            // 
+            // radioButtonPlaybackBuiltIn
+            // 
+            this.radioButtonPlaybackBuiltIn.AutoSize = true;
+            this.radioButtonPlaybackBuiltIn.Location = new System.Drawing.Point(6, 63);
+            this.radioButtonPlaybackBuiltIn.Name = "radioButtonPlaybackBuiltIn";
+            this.radioButtonPlaybackBuiltIn.Size = new System.Drawing.Size(185, 16);
+            this.radioButtonPlaybackBuiltIn.TabIndex = 3;
+            this.radioButtonPlaybackBuiltIn.Text = "Use Built-in Sound Playback";
+            this.radioButtonPlaybackBuiltIn.UseVisualStyleBackColor = true;
             // 
             // radioButtonPlaybackACT
             // 
@@ -331,11 +388,11 @@
             this.tableLayoutPanelPlayback.Controls.Add(this.labelMasterVolume, 0, 0);
             this.tableLayoutPanelPlayback.Controls.Add(this.trackBarMasterVolume, 1, 0);
             this.tableLayoutPanelPlayback.Controls.Add(this.labelCurrentVolume, 2, 0);
-            this.tableLayoutPanelPlayback.Controls.Add(this.labelPlaybackMethod, 0, 1);
-            this.tableLayoutPanelPlayback.Controls.Add(this.comboBoxPlaybackMethod, 1, 1);
+            this.tableLayoutPanelPlayback.Controls.Add(this.labelPlaybackApi, 0, 1);
+            this.tableLayoutPanelPlayback.Controls.Add(this.comboBoxPlaybackApi, 1, 1);
             this.tableLayoutPanelPlayback.Controls.Add(this.labelPlaybackDevice, 0, 2);
             this.tableLayoutPanelPlayback.Controls.Add(this.comboBoxPlaybackDevice, 1, 2);
-            this.tableLayoutPanelPlayback.Location = new System.Drawing.Point(5, 63);
+            this.tableLayoutPanelPlayback.Location = new System.Drawing.Point(5, 84);
             this.tableLayoutPanelPlayback.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanelPlayback.Name = "tableLayoutPanelPlayback";
             this.tableLayoutPanelPlayback.RowCount = 4;
@@ -343,7 +400,7 @@
             this.tableLayoutPanelPlayback.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanelPlayback.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanelPlayback.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanelPlayback.Size = new System.Drawing.Size(252, 110);
+            this.tableLayoutPanelPlayback.Size = new System.Drawing.Size(252, 108);
             this.tableLayoutPanelPlayback.TabIndex = 1;
             // 
             // labelMasterVolume
@@ -384,28 +441,30 @@
             this.labelCurrentVolume.TabIndex = 2;
             this.labelCurrentVolume.Text = "100";
             // 
-            // labelPlaybackMethod
+            // labelPlaybackApi
             // 
-            this.labelPlaybackMethod.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelPlaybackMethod.AutoSize = true;
-            this.labelPlaybackMethod.Location = new System.Drawing.Point(2, 55);
-            this.labelPlaybackMethod.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.labelPlaybackMethod.Name = "labelPlaybackMethod";
-            this.labelPlaybackMethod.Size = new System.Drawing.Size(77, 12);
-            this.labelPlaybackMethod.TabIndex = 3;
-            this.labelPlaybackMethod.Text = "Method:";
+            this.labelPlaybackApi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelPlaybackApi.AutoSize = true;
+            this.labelPlaybackApi.Location = new System.Drawing.Point(2, 55);
+            this.labelPlaybackApi.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelPlaybackApi.Name = "labelPlaybackApi";
+            this.labelPlaybackApi.Size = new System.Drawing.Size(77, 12);
+            this.labelPlaybackApi.TabIndex = 3;
+            this.labelPlaybackApi.Text = "Api:";
             // 
-            // comboBoxPlaybackMethod
+            // comboBoxPlaybackApi
             // 
-            this.comboBoxPlaybackMethod.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanelPlayback.SetColumnSpan(this.comboBoxPlaybackMethod, 2);
-            this.comboBoxPlaybackMethod.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxPlaybackMethod.FormattingEnabled = true;
-            this.comboBoxPlaybackMethod.Location = new System.Drawing.Point(83, 51);
-            this.comboBoxPlaybackMethod.Margin = new System.Windows.Forms.Padding(2);
-            this.comboBoxPlaybackMethod.Name = "comboBoxPlaybackMethod";
-            this.comboBoxPlaybackMethod.Size = new System.Drawing.Size(167, 20);
-            this.comboBoxPlaybackMethod.TabIndex = 4;
+            this.comboBoxPlaybackApi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanelPlayback.SetColumnSpan(this.comboBoxPlaybackApi, 2);
+            this.comboBoxPlaybackApi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxPlaybackApi.FormattingEnabled = true;
+            this.comboBoxPlaybackApi.Items.AddRange(new object[] {
+            "WinMM"});
+            this.comboBoxPlaybackApi.Location = new System.Drawing.Point(83, 51);
+            this.comboBoxPlaybackApi.Margin = new System.Windows.Forms.Padding(2);
+            this.comboBoxPlaybackApi.Name = "comboBoxPlaybackApi";
+            this.comboBoxPlaybackApi.Size = new System.Drawing.Size(167, 20);
+            this.comboBoxPlaybackApi.TabIndex = 4;
             // 
             // labelPlaybackDevice
             // 
@@ -433,7 +492,7 @@
             // groupBoxUpdate
             // 
             this.groupBoxUpdate.Controls.Add(this.tableLayoutPanel4);
-            this.groupBoxUpdate.Location = new System.Drawing.Point(5, 514);
+            this.groupBoxUpdate.Location = new System.Drawing.Point(5, 533);
             this.groupBoxUpdate.Margin = new System.Windows.Forms.Padding(2);
             this.groupBoxUpdate.Name = "groupBoxUpdate";
             this.groupBoxUpdate.Size = new System.Drawing.Size(262, 173);
@@ -630,7 +689,7 @@
             this.tabPageLog.Location = new System.Drawing.Point(4, 22);
             this.tabPageLog.Name = "tabPageLog";
             this.tabPageLog.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageLog.Size = new System.Drawing.Size(1001, 705);
+            this.tabPageLog.Size = new System.Drawing.Size(1001, 834);
             this.tabPageLog.TabIndex = 2;
             this.tabPageLog.Text = "Log";
             this.tabPageLog.UseVisualStyleBackColor = true;
@@ -641,54 +700,9 @@
             this.richTextBoxLog.Location = new System.Drawing.Point(3, 3);
             this.richTextBoxLog.Name = "richTextBoxLog";
             this.richTextBoxLog.ReadOnly = true;
-            this.richTextBoxLog.Size = new System.Drawing.Size(995, 699);
+            this.richTextBoxLog.Size = new System.Drawing.Size(995, 828);
             this.richTextBoxLog.TabIndex = 6;
             this.richTextBoxLog.Text = "";
-            // 
-            // groupBoxIntegration
-            // 
-            this.groupBoxIntegration.Controls.Add(this.radioButtonIntegrationYukkuri);
-            this.groupBoxIntegration.Controls.Add(this.radioButtonIntegrationAct);
-            this.groupBoxIntegration.Controls.Add(this.radioButtonIntegrationAuto);
-            this.groupBoxIntegration.Location = new System.Drawing.Point(5, 43);
-            this.groupBoxIntegration.Margin = new System.Windows.Forms.Padding(2);
-            this.groupBoxIntegration.Name = "groupBoxIntegration";
-            this.groupBoxIntegration.Size = new System.Drawing.Size(262, 93);
-            this.groupBoxIntegration.TabIndex = 15;
-            this.groupBoxIntegration.TabStop = false;
-            this.groupBoxIntegration.Text = "Plugin Integration";
-            // 
-            // radioButtonIntegrationAuto
-            // 
-            this.radioButtonIntegrationAuto.AutoSize = true;
-            this.radioButtonIntegrationAuto.Checked = true;
-            this.radioButtonIntegrationAuto.Location = new System.Drawing.Point(9, 21);
-            this.radioButtonIntegrationAuto.Name = "radioButtonIntegrationAuto";
-            this.radioButtonIntegrationAuto.Size = new System.Drawing.Size(107, 16);
-            this.radioButtonIntegrationAuto.TabIndex = 0;
-            this.radioButtonIntegrationAuto.TabStop = true;
-            this.radioButtonIntegrationAuto.Text = "Auto Detection";
-            this.radioButtonIntegrationAuto.UseVisualStyleBackColor = true;
-            // 
-            // radioButtonIntegrationAct
-            // 
-            this.radioButtonIntegrationAct.AutoSize = true;
-            this.radioButtonIntegrationAct.Location = new System.Drawing.Point(9, 44);
-            this.radioButtonIntegrationAct.Name = "radioButtonIntegrationAct";
-            this.radioButtonIntegrationAct.Size = new System.Drawing.Size(41, 16);
-            this.radioButtonIntegrationAct.TabIndex = 1;
-            this.radioButtonIntegrationAct.Text = "ACT";
-            this.radioButtonIntegrationAct.UseVisualStyleBackColor = true;
-            // 
-            // radioButtonIntegrationYukkuri
-            // 
-            this.radioButtonIntegrationYukkuri.AutoSize = true;
-            this.radioButtonIntegrationYukkuri.Location = new System.Drawing.Point(9, 67);
-            this.radioButtonIntegrationYukkuri.Name = "radioButtonIntegrationYukkuri";
-            this.radioButtonIntegrationYukkuri.Size = new System.Drawing.Size(65, 16);
-            this.radioButtonIntegrationYukkuri.TabIndex = 2;
-            this.radioButtonIntegrationYukkuri.Text = "Yukkuri";
-            this.radioButtonIntegrationYukkuri.UseVisualStyleBackColor = true;
             // 
             // FoxTTSTabControl
             // 
@@ -697,9 +711,11 @@
             this.Controls.Add(this.tabControl1);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FoxTTSTabControl";
-            this.Size = new System.Drawing.Size(1009, 731);
+            this.Size = new System.Drawing.Size(1009, 860);
             this.tabControl1.ResumeLayout(false);
             this.tabPageGeneralSettings.ResumeLayout(false);
+            this.groupBoxIntegration.ResumeLayout(false);
+            this.groupBoxIntegration.PerformLayout();
             this.groupBoxPreview.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
@@ -717,8 +733,6 @@
             this.tableLayoutPanelMainLanguage.ResumeLayout(false);
             this.tableLayoutPanelMainLanguage.PerformLayout();
             this.tabPageLog.ResumeLayout(false);
-            this.groupBoxIntegration.ResumeLayout(false);
-            this.groupBoxIntegration.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -750,8 +764,8 @@
         private System.Windows.Forms.Label labelMasterVolume;
         private System.Windows.Forms.TrackBar trackBarMasterVolume;
         private System.Windows.Forms.Label labelCurrentVolume;
-        private System.Windows.Forms.Label labelPlaybackMethod;
-        private System.Windows.Forms.ComboBox comboBoxPlaybackMethod;
+        private System.Windows.Forms.Label labelPlaybackApi;
+        private System.Windows.Forms.ComboBox comboBoxPlaybackApi;
         private System.Windows.Forms.Label labelPlaybackDevice;
         private System.Windows.Forms.ComboBox comboBoxPlaybackDevice;
         public System.Windows.Forms.Panel panelTTSEngineSettings;
@@ -772,5 +786,6 @@
         private System.Windows.Forms.RadioButton radioButtonIntegrationYukkuri;
         private System.Windows.Forms.RadioButton radioButtonIntegrationAct;
         private System.Windows.Forms.RadioButton radioButtonIntegrationAuto;
+        private System.Windows.Forms.RadioButton radioButtonPlaybackBuiltIn;
     }
 }

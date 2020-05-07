@@ -201,11 +201,11 @@
   <data name="labelPitch" xml:space="preserve">
     <value>音调:</value>
   </data>
+  <data name="labelPlaybackApi" xml:space="preserve">
+    <value>回放 API:</value>
+  </data>
   <data name="labelPlaybackDevice" xml:space="preserve">
     <value>输出设备:</value>
-  </data>
-  <data name="labelPlaybackMethod" xml:space="preserve">
-    <value>回放 API:</value>
   </data>
   <data name="labelSecretKey" xml:space="preserve">
     <value>Secret Key:</value>
@@ -257,6 +257,9 @@
   </data>
   <data name="radioButtonPlaybackACT" xml:space="preserve">
     <value>使用 ACT 的设置进行回放</value>
+  </data>
+  <data name="radioButtonPlaybackBuiltIn" xml:space="preserve">
+    <value>使用内置回放 API</value>
   </data>
   <data name="radioButtonPlaybackYukkuri" xml:space="preserve">
     <value>使用 TTSYukkuri 的设置进行回放</value>

@@ -313,20 +313,20 @@ namespace ACT.FoxTTS.localization {
         }
         
         /// <summary>
+        ///   查找类似 回放 API: 的本地化字符串。
+        /// </summary>
+        internal static string labelPlaybackApi {
+            get {
+                return ResourceManager.GetString("labelPlaybackApi", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 输出设备: 的本地化字符串。
         /// </summary>
         internal static string labelPlaybackDevice {
             get {
                 return ResourceManager.GetString("labelPlaybackDevice", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   查找类似 回放 API: 的本地化字符串。
-        /// </summary>
-        internal static string labelPlaybackMethod {
-            get {
-                return ResourceManager.GetString("labelPlaybackMethod", resourceCulture);
             }
         }
         
@@ -480,6 +480,15 @@ namespace ACT.FoxTTS.localization {
         internal static string radioButtonPlaybackACT {
             get {
                 return ResourceManager.GetString("radioButtonPlaybackACT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 使用内置回放 API 的本地化字符串。
+        /// </summary>
+        internal static string radioButtonPlaybackBuiltIn {
+            get {
+                return ResourceManager.GetString("radioButtonPlaybackBuiltIn", resourceCulture);
             }
         }
         

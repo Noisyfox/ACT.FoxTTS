@@ -123,7 +123,7 @@ namespace ACT.FoxTTS
             }
         }
 
-        internal void WakeUp()
+        internal new void WakeUp()
         {
             base.WakeUp();
         }

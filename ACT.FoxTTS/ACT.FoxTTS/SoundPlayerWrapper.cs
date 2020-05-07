@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using ACT.FoxCommon;
+using ACT.FoxTTS.playback;
 using Advanced_Combat_Tracker;
 
 namespace ACT.FoxTTS
@@ -11,14 +9,18 @@ namespace ACT.FoxTTS
     {
         private FoxTTSPlugin _plugin;
 
+        private WMMPlayback _wmm = new WMMPlayback();
+
         public void AttachToAct(FoxTTSPlugin plugin)
         {
             _plugin = plugin;
+            _wmm.AttachToAct(plugin);
         }
 
 
         public void PostAttachToAct(FoxTTSPlugin plugin)
         {
+            _wmm.PostAttachToAct(plugin);
         }
 
         public void Stop()
@@ -37,6 +39,12 @@ namespace ACT.FoxTTS
                 case PlaybackMethod.Act:
                     // Play sound with ACT's sound API
                     ActGlobals.oFormActMain.PlaySoundWmpApi(waveFile, settings.MasterVolume);
+                    break;
+                case PlaybackMethod.BuiltIn:
+                    // Use built-in api to play sounds
+                    // atm we support WMM only
+                    // And WMM needs to be called in main thread
+                    ActGlobals.oFormActMain.SafeInvoke(new Action(() => _wmm.PlaySound(waveFile)));
                     break;
             }
         }

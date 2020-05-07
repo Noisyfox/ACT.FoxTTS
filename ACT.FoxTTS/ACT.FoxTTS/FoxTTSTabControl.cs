@@ -129,14 +129,20 @@ namespace ACT.FoxTTS
                 case PlaybackMethod.Act:
                     radioButtonPlaybackACT.Checked = true;
                     break;
-                default:
                 case PlaybackMethod.Yukkuri:
                     radioButtonPlaybackYukkuri.Checked = true;
                     break;
+                default:
+                case PlaybackMethod.BuiltIn:
+                    radioButtonPlaybackBuiltIn.Checked = true;
+                    break;
             }
+            comboBoxPlaybackApi.SelectedIndex = (int) playbackSettings.Api;
             radioButtonPlaybackACT.CheckedChanged += OnPlaybackValueChanged;
             radioButtonPlaybackYukkuri.CheckedChanged += OnPlaybackValueChanged;
+            radioButtonPlaybackBuiltIn.CheckedChanged += OnPlaybackValueChanged;
             trackBarMasterVolume.ValueChanged += OnPlaybackValueChanged;
+            comboBoxPlaybackApi.SelectedIndexChanged += OnPlaybackValueChanged;
 
             OnPluginIntegrationValueChanged(null, EventArgs.Empty);
             OnPlaybackValueChanged(null, EventArgs.Empty);
@@ -209,7 +215,7 @@ namespace ACT.FoxTTS
                 return;
             }
 
-            comboBoxPlaybackMethod.SelectedValue = engine;
+            comboBoxPlaybackApi.SelectedValue = engine;
         }
 
         private PublishVersion IsNewVersion(PublishVersion newVersion)
@@ -360,17 +366,27 @@ namespace ACT.FoxTTS
                 settings.Method = PlaybackMethod.Act;
 
                 trackBarMasterVolume.Enabled = true;
-                comboBoxPlaybackMethod.Enabled = false;
+                comboBoxPlaybackApi.Enabled = false;
                 comboBoxPlaybackDevice.Enabled = false;
             }
-            else
+            else if (radioButtonPlaybackYukkuri.Checked)
             {
                 settings.Method = PlaybackMethod.Yukkuri;
 
                 trackBarMasterVolume.Enabled = false;
-                comboBoxPlaybackMethod.Enabled = false;
+                comboBoxPlaybackApi.Enabled = false;
                 comboBoxPlaybackDevice.Enabled = false;
             }
+            else
+            {
+                settings.Method = PlaybackMethod.BuiltIn;
+
+                trackBarMasterVolume.Enabled = false;
+                comboBoxPlaybackApi.Enabled = true;
+                comboBoxPlaybackDevice.Enabled = false;
+            }
+
+            settings.Api = (PlaybackApi) comboBoxPlaybackApi.SelectedIndex;
         }
     }
 }
