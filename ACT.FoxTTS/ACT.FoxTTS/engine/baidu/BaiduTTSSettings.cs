@@ -21,5 +21,8 @@ namespace ACT.FoxTTS.engine.baidu
 
         [XmlElement]
         public int Person = 0;
+
+        [XmlElement]
+        public bool UseHttps = true;
     }
 }

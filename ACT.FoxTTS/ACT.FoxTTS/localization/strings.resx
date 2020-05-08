@@ -156,6 +156,9 @@
   <data name="checkBoxNotifyStableOnly" xml:space="preserve">
     <value>只提示稳定版更新</value>
   </data>
+  <data name="checkBoxUseHttps" xml:space="preserve">
+    <value>使用 HTTPS</value>
+  </data>
   <data name="groupBoxIntegration" xml:space="preserve">
     <value>插件集成</value>
   </data>

@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Net;
+using Baidu.Aip;
+using Baidu.Aip.Speech;
 
 namespace ACT.FoxTTS.engine.baidu
 {
@@ -71,7 +74,7 @@ namespace ACT.FoxTTS.engine.baidu
                         return;
                     }
 
-                    var client = new Baidu.Aip.Speech.Tts(apiKey, secretKey);
+                    var client = settings.UseHttps ? new TtsWithHttps(apiKey, secretKey) : new Tts(apiKey, secretKey);
                     var result = client.Synthesis(text, option);
                     if (result.Success)
                     {
@@ -81,6 +84,26 @@ namespace ACT.FoxTTS.engine.baidu
             }
 
             _plugin.SoundPlayer.Play(wave, playDevice, isSync, volume);
+        }
+
+        private class TtsWithHttps : Tts
+        {
+            public TtsWithHttps(string apiKey, string secretKey) : base(apiKey, secretKey)
+            {
+            }
+
+            protected override HttpWebRequest GenerateWebRequest(AipHttpRequest aipRequest)
+            {
+                // Modify the uri to use https
+                var url = aipRequest.Uri.OriginalString;
+                if (url.StartsWith("http:"))
+                {
+                    url = url.Insert(4, "s");
+                    aipRequest.Uri = new Uri(url);
+                }
+
+                return base.GenerateWebRequest(aipRequest);
+            }
         }
     }
 }

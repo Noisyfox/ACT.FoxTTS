@@ -178,6 +178,15 @@ namespace ACT.FoxTTS.localization {
         }
         
         /// <summary>
+        ///   查找类似 使用 HTTPS 的本地化字符串。
+        /// </summary>
+        internal static string checkBoxUseHttps {
+            get {
+                return ResourceManager.GetString("checkBoxUseHttps", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 插件集成 的本地化字符串。
         /// </summary>
         internal static string groupBoxIntegration {
