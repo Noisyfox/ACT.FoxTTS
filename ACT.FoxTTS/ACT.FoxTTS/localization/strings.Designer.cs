@@ -588,6 +588,15 @@ namespace ACT.FoxTTS.localization {
         }
         
         /// <summary>
+        ///   查找类似 系统自带 TTS 的本地化字符串。
+        /// </summary>
+        internal static string ttsEngineSAPI5 {
+            get {
+                return ResourceManager.GetString("ttsEngineSAPI5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 检查中... 的本地化字符串。
         /// </summary>
         internal static string updateChecking {

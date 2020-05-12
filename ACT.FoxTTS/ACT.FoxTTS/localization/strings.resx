@@ -296,6 +296,9 @@
   <data name="ttsEngineBaidu" xml:space="preserve">
     <value>百度语音</value>
   </data>
+  <data name="ttsEngineSAPI5" xml:space="preserve">
+    <value>系统自带 TTS</value>
+  </data>
   <data name="updateChecking" xml:space="preserve">
     <value>检查中...</value>
   </data>

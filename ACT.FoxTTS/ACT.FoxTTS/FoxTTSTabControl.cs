@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
+using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -105,6 +106,11 @@ namespace ACT.FoxTTS
                 _plugin.UpdateChecker.CheckUpdate(false);
             }
 
+            comboBoxTTSEngine.SelectedItem =
+                TTSEngineFactory.Engines.FirstOrDefault(it => it.Name.Equals(_plugin.Settings.TTSEngine)) ??
+                TTSEngineFactory.Engines.First();
+            comboBoxTTSEngine.SelectedIndexChanged += comboBoxTTSEngine_SelectedIndexChanged;
+
             switch (_plugin.Settings.PluginIntegration)
             {
                 case PluginIntegration.Act:
@@ -144,6 +150,7 @@ namespace ACT.FoxTTS
             trackBarMasterVolume.ValueChanged += OnPlaybackValueChanged;
             comboBoxPlaybackApi.SelectedIndexChanged += OnPlaybackValueChanged;
 
+            comboBoxTTSEngine_SelectedIndexChanged(null, EventArgs.Empty);
             OnPluginIntegrationValueChanged(null, EventArgs.Empty);
             OnPlaybackValueChanged(null, EventArgs.Empty);
         }

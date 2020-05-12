@@ -50,6 +50,7 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Speech" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -68,6 +69,7 @@
       <DependentUpon>BaiduTTSSettingsControl.cs</DependentUpon>
     </Compile>
     <Compile Include="engine\ITTSEngine.cs" />
+    <Compile Include="engine\sapi5\SAPI5Engine.cs" />
     <Compile Include="engine\TTSEngineFactory.cs" />
     <Compile Include="FoxTTSPlugin.cs" />
     <Compile Include="FoxTTSTabControl.cs">

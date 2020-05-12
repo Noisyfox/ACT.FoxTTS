@@ -274,7 +274,6 @@
             this.comboBoxTTSEngine.Name = "comboBoxTTSEngine";
             this.comboBoxTTSEngine.Size = new System.Drawing.Size(203, 20);
             this.comboBoxTTSEngine.TabIndex = 4;
-            this.comboBoxTTSEngine.SelectedIndexChanged += new System.EventHandler(this.comboBoxTTSEngine_SelectedIndexChanged);
             // 
             // checkBoxClearCacheExit
             // 
