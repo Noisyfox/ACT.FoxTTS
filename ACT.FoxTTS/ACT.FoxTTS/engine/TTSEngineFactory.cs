@@ -1,13 +1,6 @@
-﻿
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ACT.FoxCommon.localization;
+﻿using ACT.FoxCommon.localization;
 using ACT.FoxTTS.engine.baidu;
 using ACT.FoxTTS.engine.sapi5;
-using ACT.FoxTTS.localization;
 
 namespace ACT.FoxTTS.engine
 {
@@ -26,8 +19,8 @@ namespace ACT.FoxTTS.engine
     {
         public static TTSEngineDef[] Engines =
         {
-            new TTSEngineDef("ttsEngineSAPI5"),
             new TTSEngineDef("ttsEngineBaidu"),
+            new TTSEngineDef("ttsEngineSAPI5"),
         };
 
         public static ITTSEngine CreateEngine(string engine)
