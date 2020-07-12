@@ -32,8 +32,6 @@ namespace ACT.FoxTTS.engine.sapi5
             {
                 if (!File.Exists(wave))
                 {
-                    var speechSynthesizer = new SpeechSynthesizer();
-
                     using (var fileStream = new FileStream(
                         wave,
                         FileMode.OpenOrCreate,
@@ -41,10 +39,13 @@ namespace ACT.FoxTTS.engine.sapi5
                         FileShare.ReadWrite
                     ))
                     {
-                        fileStream.SetLength(0L);
-                        speechSynthesizer.SetOutputToWaveStream(fileStream);
-                        speechSynthesizer.Speak(text);
-                        fileStream.Flush();
+                        using (var speechSynthesizer = new SpeechSynthesizer())
+                        {
+                            fileStream.SetLength(0L);
+                            speechSynthesizer.SetOutputToWaveStream(fileStream);
+                            speechSynthesizer.Speak(text);
+                            fileStream.Flush();
+                        }
                     }
                 }
             }
