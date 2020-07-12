@@ -187,6 +187,60 @@ namespace ACT.FoxTTS.localization {
         }
         
         /// <summary>
+        ///   查找类似 默认 的本地化字符串。
+        /// </summary>
+        internal static string comboBoxPitchDefault {
+            get {
+                return ResourceManager.GetString("comboBoxPitchDefault", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 高 的本地化字符串。
+        /// </summary>
+        internal static string comboBoxPitchHigh {
+            get {
+                return ResourceManager.GetString("comboBoxPitchHigh", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 低 的本地化字符串。
+        /// </summary>
+        internal static string comboBoxPitchLow {
+            get {
+                return ResourceManager.GetString("comboBoxPitchLow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 中等 的本地化字符串。
+        /// </summary>
+        internal static string comboBoxPitchMedium {
+            get {
+                return ResourceManager.GetString("comboBoxPitchMedium", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 非常高 的本地化字符串。
+        /// </summary>
+        internal static string comboBoxPitchXHigh {
+            get {
+                return ResourceManager.GetString("comboBoxPitchXHigh", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 非常低 的本地化字符串。
+        /// </summary>
+        internal static string comboBoxPitchXLow {
+            get {
+                return ResourceManager.GetString("comboBoxPitchXLow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 插件集成 的本地化字符串。
         /// </summary>
         internal static string groupBoxIntegration {

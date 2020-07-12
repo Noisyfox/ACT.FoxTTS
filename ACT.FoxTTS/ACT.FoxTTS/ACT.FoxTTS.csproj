@@ -70,6 +70,13 @@
     </Compile>
     <Compile Include="engine\ITTSEngine.cs" />
     <Compile Include="engine\sapi5\SAPI5Engine.cs" />
+    <Compile Include="engine\sapi5\SAPI5Settings.cs" />
+    <Compile Include="engine\sapi5\SAPI5SettingsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="engine\sapi5\SAPI5SettingsControl.Designer.cs">
+      <DependentUpon>SAPI5SettingsControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="engine\TTSEngineFactory.cs" />
     <Compile Include="FoxTTSPlugin.cs" />
     <Compile Include="FoxTTSTabControl.cs">
@@ -106,6 +113,9 @@
   <ItemGroup>
     <EmbeddedResource Include="engine\baidu\BaiduTTSSettingsControl.resx">
       <DependentUpon>BaiduTTSSettingsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="engine\sapi5\SAPI5SettingsControl.resx">
+      <DependentUpon>SAPI5SettingsControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FoxTTSTabControl.resx">
       <DependentUpon>FoxTTSTabControl.cs</DependentUpon>

@@ -159,6 +159,24 @@
   <data name="checkBoxUseHttps" xml:space="preserve">
     <value>使用 HTTPS</value>
   </data>
+  <data name="comboBoxPitchDefault" xml:space="preserve">
+    <value>默认</value>
+  </data>
+  <data name="comboBoxPitchHigh" xml:space="preserve">
+    <value>高</value>
+  </data>
+  <data name="comboBoxPitchLow" xml:space="preserve">
+    <value>低</value>
+  </data>
+  <data name="comboBoxPitchMedium" xml:space="preserve">
+    <value>中等</value>
+  </data>
+  <data name="comboBoxPitchXHigh" xml:space="preserve">
+    <value>非常高</value>
+  </data>
+  <data name="comboBoxPitchXLow" xml:space="preserve">
+    <value>非常低</value>
+  </data>
   <data name="groupBoxIntegration" xml:space="preserve">
     <value>插件集成</value>
   </data>
