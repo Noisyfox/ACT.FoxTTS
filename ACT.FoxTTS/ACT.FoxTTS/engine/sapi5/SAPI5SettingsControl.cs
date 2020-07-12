@@ -7,6 +7,7 @@ using System.Windows.Forms;
 using ACT.FoxCommon;
 using ACT.FoxCommon.dpi;
 using ACT.FoxCommon.localization;
+using ACT.FoxTTS.localization;
 
 namespace ACT.FoxTTS.engine.sapi5
 {
@@ -106,6 +107,45 @@ namespace ACT.FoxTTS.engine.sapi5
             settings.Volume = trackBarVolume.Value;
 
             settings.Voice = comboBoxPerson.SelectedValue.ToString();
+        }
+
+        private void linkLabelCopyVoice_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+
+            var result = MessageBox.Show(
+                strings.messageAskCopyVoice,
+                strings.actPanelTitle,
+                MessageBoxButtons.OKCancel,
+                MessageBoxIcon.Warning);
+
+            if (result != DialogResult.OK)
+            {
+                return;
+            }
+
+            try
+            {
+                var copiedVoices = VoiceCopier.CopyVoice();
+
+                var message = string.Format(strings.messageCopyVoiceSuccess,
+                    copiedVoices.Count,
+                    string.Join("\n", copiedVoices));
+
+                MessageBox.Show(message,
+                    strings.actPanelTitle,
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                _plugin.Controller.NotifyLogMessageAppend(true, "Unable to update voice: " + ex + "\n");
+
+                MessageBox.Show(
+                    strings.messageCopyVoiceFailed,
+                    strings.actPanelTitle,
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
         }
     }
 }

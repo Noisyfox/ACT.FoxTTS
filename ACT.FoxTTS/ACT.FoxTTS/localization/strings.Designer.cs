@@ -439,6 +439,15 @@ namespace ACT.FoxTTS.localization {
         }
         
         /// <summary>
+        ///   查找类似 修复 Win10 TTS 人声列表 的本地化字符串。
+        /// </summary>
+        internal static string linkLabelCopyVoice {
+            get {
+                return ResourceManager.GetString("linkLabelCopyVoice", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 注册 API 密钥 的本地化字符串。
         /// </summary>
         internal static string linkLabelOpenBaiduReg {
@@ -475,11 +484,43 @@ namespace ACT.FoxTTS.localization {
         }
         
         /// <summary>
+        ///   查找类似 你确定要修复 Win10 人声列表吗？
+        ///
+        ///该操作涉及修改系统注册表，可能导致的一切后果自负！ 的本地化字符串。
+        /// </summary>
+        internal static string messageAskCopyVoice {
+            get {
+                return ResourceManager.GetString("messageAskCopyVoice", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 缓存已删除。 的本地化字符串。
         /// </summary>
         internal static string messageCacheCleared {
             get {
                 return ResourceManager.GetString("messageCacheCleared", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 修复失败！详情请查看插件日志。 的本地化字符串。
+        /// </summary>
+        internal static string messageCopyVoiceFailed {
+            get {
+                return ResourceManager.GetString("messageCopyVoiceFailed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 修复成功！已更新 {0} 个人声：
+        ///{1}
+        ///
+        ///请重启 ACT 以生效。 的本地化字符串。
+        /// </summary>
+        internal static string messageCopyVoiceSuccess {
+            get {
+                return ResourceManager.GetString("messageCopyVoiceSuccess", resourceCulture);
             }
         }
         
