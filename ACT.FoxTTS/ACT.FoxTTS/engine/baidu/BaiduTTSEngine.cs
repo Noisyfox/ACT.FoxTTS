@@ -80,6 +80,23 @@ namespace ACT.FoxTTS.engine.baidu
                     {
                         File.WriteAllBytes(wave, result.Data);
                     }
+                    else
+                    {
+                        _plugin.Controller.NotifyLogMessageAppend(false, $"Unable to complete the request: {result.ErrorCode}: {result.ErrorMsg}");
+                        switch (result.ErrorCode)
+                        {
+                            case 502:
+                                if (result.ErrorMsg != null)
+                                {
+                                    if (result.ErrorMsg.StartsWith("4:"))
+                                    {
+                                        _plugin.Controller.NotifyLogMessageAppend(false, "API 额度不足");
+                                    }
+                                }
+
+                                break;
+                        }
+                    }
                 }
             }
 
