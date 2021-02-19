@@ -74,6 +74,27 @@
             this.comboBoxLanguage = new System.Windows.Forms.ComboBox();
             this.labelMainLanguage = new System.Windows.Forms.Label();
             this.labelNeedToRestart = new System.Windows.Forms.Label();
+            this.tabPageTextProcessor = new System.Windows.Forms.TabPage();
+            this.groupBoxPreprocessRules = new System.Windows.Forms.GroupBox();
+            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.checkBoxRuleEnabled = new System.Windows.Forms.CheckBox();
+            this.checkBoxUseRegex = new System.Windows.Forms.CheckBox();
+            this.labelFindPattern = new System.Windows.Forms.Label();
+            this.labelReplacement = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.buttonAddRule = new System.Windows.Forms.Button();
+            this.buttonDupRule = new System.Windows.Forms.Button();
+            this.buttonDelRule = new System.Windows.Forms.Button();
+            this.buttonMoveDown = new System.Windows.Forms.Button();
+            this.buttonMoveUp = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.ColumnOrder = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnEnabled = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.ColumnFindPattern = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnReplacement = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnUseRegex = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.tabPageLog = new System.Windows.Forms.TabPage();
             this.richTextBoxLog = new System.Windows.Forms.RichTextBox();
             this.tabControl1.SuspendLayout();
@@ -89,12 +110,18 @@
             this.groupBoxUpdate.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanelMainLanguage.SuspendLayout();
+            this.tabPageTextProcessor.SuspendLayout();
+            this.groupBoxPreprocessRules.SuspendLayout();
+            this.tableLayoutPanel5.SuspendLayout();
+            this.tableLayoutPanel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabPageLog.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPageGeneralSettings);
+            this.tabControl1.Controls.Add(this.tabPageTextProcessor);
             this.tabControl1.Controls.Add(this.tabPageLog);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
@@ -198,7 +225,7 @@
             // textBoxPreview
             // 
             this.textBoxPreview.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxPreview.Location = new System.Drawing.Point(2, 2);
+            this.textBoxPreview.Location = new System.Drawing.Point(2, 4);
             this.textBoxPreview.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxPreview.Name = "textBoxPreview";
             this.textBoxPreview.Size = new System.Drawing.Size(194, 21);
@@ -211,7 +238,7 @@
             this.buttonPreview.Location = new System.Drawing.Point(200, 2);
             this.buttonPreview.Margin = new System.Windows.Forms.Padding(2);
             this.buttonPreview.Name = "buttonPreview";
-            this.buttonPreview.Size = new System.Drawing.Size(56, 22);
+            this.buttonPreview.Size = new System.Drawing.Size(56, 25);
             this.buttonPreview.TabIndex = 9;
             this.buttonPreview.Text = "Say!";
             this.buttonPreview.UseVisualStyleBackColor = true;
@@ -629,7 +656,7 @@
             this.tableLayoutPanel4.SetColumnSpan(this.buttonDownloadUpdate, 2);
             this.buttonDownloadUpdate.Location = new System.Drawing.Point(68, 114);
             this.buttonDownloadUpdate.Name = "buttonDownloadUpdate";
-            this.buttonDownloadUpdate.Size = new System.Drawing.Size(185, 25);
+            this.buttonDownloadUpdate.Size = new System.Drawing.Size(185, 22);
             this.buttonDownloadUpdate.TabIndex = 13;
             this.buttonDownloadUpdate.Text = "Open Download Website";
             this.buttonDownloadUpdate.UseVisualStyleBackColor = true;
@@ -682,6 +709,268 @@
             this.labelNeedToRestart.TabIndex = 5;
             this.labelNeedToRestart.Text = "*Need to restart the ACT.";
             // 
+            // tabPageTextProcessor
+            // 
+            this.tabPageTextProcessor.AutoScroll = true;
+            this.tabPageTextProcessor.Controls.Add(this.groupBoxPreprocessRules);
+            this.tabPageTextProcessor.Location = new System.Drawing.Point(4, 22);
+            this.tabPageTextProcessor.Name = "tabPageTextProcessor";
+            this.tabPageTextProcessor.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageTextProcessor.Size = new System.Drawing.Size(1001, 834);
+            this.tabPageTextProcessor.TabIndex = 3;
+            this.tabPageTextProcessor.Text = "Text Processor";
+            this.tabPageTextProcessor.UseVisualStyleBackColor = true;
+            // 
+            // groupBoxPreprocessRules
+            // 
+            this.groupBoxPreprocessRules.AutoSize = true;
+            this.groupBoxPreprocessRules.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.groupBoxPreprocessRules.Controls.Add(this.tableLayoutPanel5);
+            this.groupBoxPreprocessRules.Controls.Add(this.tableLayoutPanel3);
+            this.groupBoxPreprocessRules.Controls.Add(this.dataGridView1);
+            this.groupBoxPreprocessRules.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBoxPreprocessRules.Location = new System.Drawing.Point(3, 3);
+            this.groupBoxPreprocessRules.Margin = new System.Windows.Forms.Padding(2);
+            this.groupBoxPreprocessRules.Name = "groupBoxPreprocessRules";
+            this.groupBoxPreprocessRules.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBoxPreprocessRules.Size = new System.Drawing.Size(995, 328);
+            this.groupBoxPreprocessRules.TabIndex = 0;
+            this.groupBoxPreprocessRules.TabStop = false;
+            this.groupBoxPreprocessRules.Text = "Preprocess Rules";
+            // 
+            // tableLayoutPanel5
+            // 
+            this.tableLayoutPanel5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel5.AutoSize = true;
+            this.tableLayoutPanel5.ColumnCount = 4;
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 64F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel5.Controls.Add(this.checkBoxUseRegex, 3, 0);
+            this.tableLayoutPanel5.Controls.Add(this.labelFindPattern, 0, 1);
+            this.tableLayoutPanel5.Controls.Add(this.labelReplacement, 0, 2);
+            this.tableLayoutPanel5.Controls.Add(this.textBox1, 1, 1);
+            this.tableLayoutPanel5.Controls.Add(this.textBox2, 1, 2);
+            this.tableLayoutPanel5.Controls.Add(this.checkBoxRuleEnabled, 1, 0);
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(6, 233);
+            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
+            this.tableLayoutPanel5.RowCount = 3;
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(982, 76);
+            this.tableLayoutPanel5.TabIndex = 2;
+            // 
+            // checkBoxRuleEnabled
+            // 
+            this.checkBoxRuleEnabled.AutoSize = true;
+            this.checkBoxRuleEnabled.Location = new System.Drawing.Point(92, 3);
+            this.checkBoxRuleEnabled.Name = "checkBoxRuleEnabled";
+            this.checkBoxRuleEnabled.Size = new System.Drawing.Size(66, 16);
+            this.checkBoxRuleEnabled.TabIndex = 2;
+            this.checkBoxRuleEnabled.Text = "Enabled";
+            this.checkBoxRuleEnabled.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxUseRegex
+            // 
+            this.checkBoxUseRegex.AutoSize = true;
+            this.checkBoxUseRegex.Location = new System.Drawing.Point(228, 3);
+            this.checkBoxUseRegex.Name = "checkBoxUseRegex";
+            this.checkBoxUseRegex.Size = new System.Drawing.Size(78, 16);
+            this.checkBoxUseRegex.TabIndex = 3;
+            this.checkBoxUseRegex.Text = "Use Regex";
+            this.checkBoxUseRegex.UseVisualStyleBackColor = true;
+            // 
+            // labelFindPattern
+            // 
+            this.labelFindPattern.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelFindPattern.AutoSize = true;
+            this.labelFindPattern.Location = new System.Drawing.Point(3, 29);
+            this.labelFindPattern.Name = "labelFindPattern";
+            this.labelFindPattern.Size = new System.Drawing.Size(83, 12);
+            this.labelFindPattern.TabIndex = 4;
+            this.labelFindPattern.Text = "Find Pattern:";
+            // 
+            // labelReplacement
+            // 
+            this.labelReplacement.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelReplacement.AutoSize = true;
+            this.labelReplacement.Location = new System.Drawing.Point(3, 56);
+            this.labelReplacement.Name = "labelReplacement";
+            this.labelReplacement.Size = new System.Drawing.Size(83, 12);
+            this.labelReplacement.TabIndex = 5;
+            this.labelReplacement.Text = "Replacement:";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel5.SetColumnSpan(this.textBox1, 3);
+            this.textBox1.Location = new System.Drawing.Point(92, 25);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(887, 21);
+            this.textBox1.TabIndex = 6;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel5.SetColumnSpan(this.textBox2, 3);
+            this.textBox2.Location = new System.Drawing.Point(92, 52);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(887, 21);
+            this.textBox2.TabIndex = 7;
+            // 
+            // tableLayoutPanel3
+            // 
+            this.tableLayoutPanel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel3.AutoSize = true;
+            this.tableLayoutPanel3.ColumnCount = 6;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel3.Controls.Add(this.buttonAddRule, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.buttonDupRule, 1, 0);
+            this.tableLayoutPanel3.Controls.Add(this.buttonDelRule, 2, 0);
+            this.tableLayoutPanel3.Controls.Add(this.buttonMoveDown, 5, 0);
+            this.tableLayoutPanel3.Controls.Add(this.buttonMoveUp, 4, 0);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(4, 202);
+            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(2);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 1;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(986, 26);
+            this.tableLayoutPanel3.TabIndex = 1;
+            // 
+            // buttonAddRule
+            // 
+            this.buttonAddRule.AutoSize = true;
+            this.buttonAddRule.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.buttonAddRule.Location = new System.Drawing.Point(2, 2);
+            this.buttonAddRule.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonAddRule.Name = "buttonAddRule";
+            this.buttonAddRule.Size = new System.Drawing.Size(63, 22);
+            this.buttonAddRule.TabIndex = 0;
+            this.buttonAddRule.Text = "Add Rule";
+            this.buttonAddRule.UseVisualStyleBackColor = true;
+            // 
+            // buttonDupRule
+            // 
+            this.buttonDupRule.AutoSize = true;
+            this.buttonDupRule.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.buttonDupRule.Location = new System.Drawing.Point(69, 2);
+            this.buttonDupRule.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonDupRule.Name = "buttonDupRule";
+            this.buttonDupRule.Size = new System.Drawing.Size(63, 22);
+            this.buttonDupRule.TabIndex = 1;
+            this.buttonDupRule.Text = "Dup Rule";
+            this.buttonDupRule.UseVisualStyleBackColor = true;
+            // 
+            // buttonDelRule
+            // 
+            this.buttonDelRule.AutoSize = true;
+            this.buttonDelRule.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.buttonDelRule.Location = new System.Drawing.Point(136, 2);
+            this.buttonDelRule.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonDelRule.Name = "buttonDelRule";
+            this.buttonDelRule.Size = new System.Drawing.Size(81, 22);
+            this.buttonDelRule.TabIndex = 2;
+            this.buttonDelRule.Text = "Delete Rule";
+            this.buttonDelRule.UseVisualStyleBackColor = true;
+            // 
+            // buttonMoveDown
+            // 
+            this.buttonMoveDown.AutoSize = true;
+            this.buttonMoveDown.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.buttonMoveDown.Location = new System.Drawing.Point(915, 2);
+            this.buttonMoveDown.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonMoveDown.Name = "buttonMoveDown";
+            this.buttonMoveDown.Size = new System.Drawing.Size(69, 22);
+            this.buttonMoveDown.TabIndex = 4;
+            this.buttonMoveDown.Text = "Move Down";
+            this.buttonMoveDown.UseVisualStyleBackColor = true;
+            // 
+            // buttonMoveUp
+            // 
+            this.buttonMoveUp.AutoSize = true;
+            this.buttonMoveUp.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.buttonMoveUp.Location = new System.Drawing.Point(854, 2);
+            this.buttonMoveUp.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonMoveUp.Name = "buttonMoveUp";
+            this.buttonMoveUp.Size = new System.Drawing.Size(57, 22);
+            this.buttonMoveUp.TabIndex = 3;
+            this.buttonMoveUp.Text = "Move Up";
+            this.buttonMoveUp.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToResizeRows = false;
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColumnOrder,
+            this.ColumnEnabled,
+            this.ColumnFindPattern,
+            this.ColumnReplacement,
+            this.ColumnUseRegex});
+            this.dataGridView1.Location = new System.Drawing.Point(4, 19);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
+            this.dataGridView1.MultiSelect = false;
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 27;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(986, 178);
+            this.dataGridView1.TabIndex = 0;
+            // 
+            // ColumnOrder
+            // 
+            this.ColumnOrder.HeaderText = "Order";
+            this.ColumnOrder.MinimumWidth = 6;
+            this.ColumnOrder.Name = "ColumnOrder";
+            this.ColumnOrder.ReadOnly = true;
+            this.ColumnOrder.Width = 125;
+            // 
+            // ColumnEnabled
+            // 
+            this.ColumnEnabled.HeaderText = "Enabled";
+            this.ColumnEnabled.MinimumWidth = 6;
+            this.ColumnEnabled.Name = "ColumnEnabled";
+            this.ColumnEnabled.ReadOnly = true;
+            this.ColumnEnabled.Width = 125;
+            // 
+            // ColumnFindPattern
+            // 
+            this.ColumnFindPattern.HeaderText = "Find Pattern";
+            this.ColumnFindPattern.MinimumWidth = 6;
+            this.ColumnFindPattern.Name = "ColumnFindPattern";
+            this.ColumnFindPattern.ReadOnly = true;
+            this.ColumnFindPattern.Width = 125;
+            // 
+            // ColumnReplacement
+            // 
+            this.ColumnReplacement.HeaderText = "Replacement";
+            this.ColumnReplacement.MinimumWidth = 6;
+            this.ColumnReplacement.Name = "ColumnReplacement";
+            this.ColumnReplacement.ReadOnly = true;
+            this.ColumnReplacement.Width = 125;
+            // 
+            // ColumnUseRegex
+            // 
+            this.ColumnUseRegex.HeaderText = "Use Regex";
+            this.ColumnUseRegex.MinimumWidth = 6;
+            this.ColumnUseRegex.Name = "ColumnUseRegex";
+            this.ColumnUseRegex.ReadOnly = true;
+            this.ColumnUseRegex.Width = 125;
+            // 
             // tabPageLog
             // 
             this.tabPageLog.Controls.Add(this.richTextBoxLog);
@@ -731,6 +1020,15 @@
             this.tableLayoutPanel4.PerformLayout();
             this.tableLayoutPanelMainLanguage.ResumeLayout(false);
             this.tableLayoutPanelMainLanguage.PerformLayout();
+            this.tabPageTextProcessor.ResumeLayout(false);
+            this.tabPageTextProcessor.PerformLayout();
+            this.groupBoxPreprocessRules.ResumeLayout(false);
+            this.groupBoxPreprocessRules.PerformLayout();
+            this.tableLayoutPanel5.ResumeLayout(false);
+            this.tableLayoutPanel5.PerformLayout();
+            this.tableLayoutPanel3.ResumeLayout(false);
+            this.tableLayoutPanel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.tabPageLog.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -786,5 +1084,26 @@
         private System.Windows.Forms.RadioButton radioButtonIntegrationAct;
         private System.Windows.Forms.RadioButton radioButtonIntegrationAuto;
         private System.Windows.Forms.RadioButton radioButtonPlaybackBuiltIn;
+        private System.Windows.Forms.TabPage tabPageTextProcessor;
+        private System.Windows.Forms.GroupBox groupBoxPreprocessRules;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+        private System.Windows.Forms.Button buttonAddRule;
+        private System.Windows.Forms.Button buttonDupRule;
+        private System.Windows.Forms.Button buttonDelRule;
+        private System.Windows.Forms.Button buttonMoveDown;
+        private System.Windows.Forms.Button buttonMoveUp;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnOrder;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn ColumnEnabled;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnFindPattern;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnReplacement;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn ColumnUseRegex;
+        private System.Windows.Forms.CheckBox checkBoxRuleEnabled;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
+        private System.Windows.Forms.CheckBox checkBoxUseRegex;
+        private System.Windows.Forms.Label labelFindPattern;
+        private System.Windows.Forms.Label labelReplacement;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox2;
     }
 }

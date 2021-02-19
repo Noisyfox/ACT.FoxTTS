@@ -120,17 +120,32 @@
   <data name="actPanelTitle" xml:space="preserve">
     <value>ACT TTS插件</value>
   </data>
+  <data name="buttonAddRule" xml:space="preserve">
+    <value>新增规则</value>
+  </data>
   <data name="buttonCheckUpdate" xml:space="preserve">
     <value>检查更新</value>
   </data>
+  <data name="buttonDelRule" xml:space="preserve">
+    <value>删除规则</value>
+  </data>
   <data name="buttonDownloadUpdate" xml:space="preserve">
     <value>打开下载页面</value>
+  </data>
+  <data name="buttonDupRule" xml:space="preserve">
+    <value>复制规则</value>
   </data>
   <data name="buttonIgnore" xml:space="preserve">
     <value>忽略错误（插件将无法正常工作）</value>
   </data>
   <data name="buttonIgnoreVersion" xml:space="preserve">
     <value>忽略</value>
+  </data>
+  <data name="buttonMoveDown" xml:space="preserve">
+    <value>下移</value>
+  </data>
+  <data name="buttonMoveUp" xml:space="preserve">
+    <value>上移</value>
   </data>
   <data name="buttonPreview" xml:space="preserve">
     <value>听听看!</value>
@@ -156,8 +171,14 @@
   <data name="checkBoxNotifyStableOnly" xml:space="preserve">
     <value>只提示稳定版更新</value>
   </data>
+  <data name="checkBoxRuleEnabled" xml:space="preserve">
+    <value>启用规则</value>
+  </data>
   <data name="checkBoxUseHttps" xml:space="preserve">
     <value>使用 HTTPS</value>
+  </data>
+  <data name="checkBoxUseRegex" xml:space="preserve">
+    <value>使用正则</value>
   </data>
   <data name="comboBoxPitchDefault" xml:space="preserve">
     <value>默认</value>
@@ -183,6 +204,9 @@
   <data name="groupBoxPlayback" xml:space="preserve">
     <value>回放设置</value>
   </data>
+  <data name="groupBoxPreprocessRules" xml:space="preserve">
+    <value>规则设置</value>
+  </data>
   <data name="groupBoxPreview" xml:space="preserve">
     <value>声音预览</value>
   </data>
@@ -200,6 +224,9 @@
   </data>
   <data name="labelCurrentVersion" xml:space="preserve">
     <value>当前版本:</value>
+  </data>
+  <data name="labelFindPattern" xml:space="preserve">
+    <value>被替换的文本：</value>
   </data>
   <data name="labelLatestStableVersion" xml:space="preserve">
     <value>最新稳定版本:</value>
@@ -227,6 +254,9 @@
   </data>
   <data name="labelPlaybackDevice" xml:space="preserve">
     <value>输出设备:</value>
+  </data>
+  <data name="labelReplacement" xml:space="preserve">
+    <value>替换为：</value>
   </data>
   <data name="labelSecretKey" xml:space="preserve">
     <value>Secret Key:</value>
@@ -324,6 +354,9 @@
   </data>
   <data name="tabPageLog" xml:space="preserve">
     <value>插件日志</value>
+  </data>
+  <data name="tabPageTextProcessor" xml:space="preserve">
+    <value>文本处理</value>
   </data>
   <data name="textBoxPreview" xml:space="preserve">
     <value>今天天气真不错。</value>

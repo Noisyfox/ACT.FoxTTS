@@ -94,6 +94,7 @@
     </Compile>
     <Compile Include="MainController.cs" />
     <Compile Include="playback\WMMPlayback.cs" />
+    <Compile Include="preprocess\PreProcessorSettings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SettingsHolder.cs" />
     <Compile Include="SoundPlayerWrapper.cs" />
@@ -130,6 +131,7 @@
   <ItemGroup>
     <Content Include="ILMergeOrder.txt" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="AfterBuild">
     <!-- Copy satellite assemblies. -->

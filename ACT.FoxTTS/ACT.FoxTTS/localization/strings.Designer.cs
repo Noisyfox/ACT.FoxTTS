@@ -47,8 +47,8 @@ namespace ACT.FoxTTS.localization {
         }
         
         /// <summary>
-        ///   重写当前线程的 CurrentUICulture 属性
-        ///   重写当前线程的 CurrentUICulture 属性。
+        ///   重写当前线程的 CurrentUICulture 属性，对
+        ///   使用此强类型资源类的所有资源查找执行重写。
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
         internal static global::System.Globalization.CultureInfo Culture {
@@ -70,6 +70,15 @@ namespace ACT.FoxTTS.localization {
         }
         
         /// <summary>
+        ///   查找类似 新增规则 的本地化字符串。
+        /// </summary>
+        internal static string buttonAddRule {
+            get {
+                return ResourceManager.GetString("buttonAddRule", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 检查更新 的本地化字符串。
         /// </summary>
         internal static string buttonCheckUpdate {
@@ -79,11 +88,29 @@ namespace ACT.FoxTTS.localization {
         }
         
         /// <summary>
+        ///   查找类似 删除规则 的本地化字符串。
+        /// </summary>
+        internal static string buttonDelRule {
+            get {
+                return ResourceManager.GetString("buttonDelRule", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 打开下载页面 的本地化字符串。
         /// </summary>
         internal static string buttonDownloadUpdate {
             get {
                 return ResourceManager.GetString("buttonDownloadUpdate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 复制规则 的本地化字符串。
+        /// </summary>
+        internal static string buttonDupRule {
+            get {
+                return ResourceManager.GetString("buttonDupRule", resourceCulture);
             }
         }
         
@@ -102,6 +129,24 @@ namespace ACT.FoxTTS.localization {
         internal static string buttonIgnoreVersion {
             get {
                 return ResourceManager.GetString("buttonIgnoreVersion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 下移 的本地化字符串。
+        /// </summary>
+        internal static string buttonMoveDown {
+            get {
+                return ResourceManager.GetString("buttonMoveDown", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 上移 的本地化字符串。
+        /// </summary>
+        internal static string buttonMoveUp {
+            get {
+                return ResourceManager.GetString("buttonMoveUp", resourceCulture);
             }
         }
         
@@ -178,11 +223,29 @@ namespace ACT.FoxTTS.localization {
         }
         
         /// <summary>
+        ///   查找类似 启用规则 的本地化字符串。
+        /// </summary>
+        internal static string checkBoxRuleEnabled {
+            get {
+                return ResourceManager.GetString("checkBoxRuleEnabled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 使用 HTTPS 的本地化字符串。
         /// </summary>
         internal static string checkBoxUseHttps {
             get {
                 return ResourceManager.GetString("checkBoxUseHttps", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 使用正则 的本地化字符串。
+        /// </summary>
+        internal static string checkBoxUseRegex {
+            get {
+                return ResourceManager.GetString("checkBoxUseRegex", resourceCulture);
             }
         }
         
@@ -259,6 +322,15 @@ namespace ACT.FoxTTS.localization {
         }
         
         /// <summary>
+        ///   查找类似 规则设置 的本地化字符串。
+        /// </summary>
+        internal static string groupBoxPreprocessRules {
+            get {
+                return ResourceManager.GetString("groupBoxPreprocessRules", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 声音预览 的本地化字符串。
         /// </summary>
         internal static string groupBoxPreview {
@@ -309,6 +381,15 @@ namespace ACT.FoxTTS.localization {
         internal static string labelCurrentVersion {
             get {
                 return ResourceManager.GetString("labelCurrentVersion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 被替换的文本： 的本地化字符串。
+        /// </summary>
+        internal static string labelFindPattern {
+            get {
+                return ResourceManager.GetString("labelFindPattern", resourceCulture);
             }
         }
         
@@ -390,6 +471,15 @@ namespace ACT.FoxTTS.localization {
         internal static string labelPlaybackDevice {
             get {
                 return ResourceManager.GetString("labelPlaybackDevice", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 替换为： 的本地化字符串。
+        /// </summary>
+        internal static string labelReplacement {
+            get {
+                return ResourceManager.GetString("labelReplacement", resourceCulture);
             }
         }
         
@@ -661,6 +751,15 @@ namespace ACT.FoxTTS.localization {
         internal static string tabPageLog {
             get {
                 return ResourceManager.GetString("tabPageLog", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 文本处理 的本地化字符串。
+        /// </summary>
+        internal static string tabPageTextProcessor {
+            get {
+                return ResourceManager.GetString("tabPageTextProcessor", resourceCulture);
             }
         }
         
