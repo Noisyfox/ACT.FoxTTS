@@ -90,13 +90,13 @@
             this.buttonMoveDown = new System.Windows.Forms.Button();
             this.buttonMoveUp = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.tabPageLog = new System.Windows.Forms.TabPage();
+            this.richTextBoxLog = new System.Windows.Forms.RichTextBox();
             this.ColumnOrder = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnEnabled = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.ColumnFindPattern = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnReplacement = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnUseRegex = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.tabPageLog = new System.Windows.Forms.TabPage();
-            this.richTextBoxLog = new System.Windows.Forms.RichTextBox();
             this.tabControl1.SuspendLayout();
             this.tabPageGeneralSettings.SuspendLayout();
             this.groupBoxIntegration.SuspendLayout();
@@ -911,8 +911,6 @@
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AllowUserToResizeRows = false;
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColumnOrder,
@@ -930,46 +928,6 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(986, 178);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // ColumnOrder
-            // 
-            this.ColumnOrder.HeaderText = "Order";
-            this.ColumnOrder.MinimumWidth = 6;
-            this.ColumnOrder.Name = "ColumnOrder";
-            this.ColumnOrder.ReadOnly = true;
-            this.ColumnOrder.Width = 125;
-            // 
-            // ColumnEnabled
-            // 
-            this.ColumnEnabled.HeaderText = "Enabled";
-            this.ColumnEnabled.MinimumWidth = 6;
-            this.ColumnEnabled.Name = "ColumnEnabled";
-            this.ColumnEnabled.ReadOnly = true;
-            this.ColumnEnabled.Width = 125;
-            // 
-            // ColumnFindPattern
-            // 
-            this.ColumnFindPattern.HeaderText = "Find Pattern";
-            this.ColumnFindPattern.MinimumWidth = 6;
-            this.ColumnFindPattern.Name = "ColumnFindPattern";
-            this.ColumnFindPattern.ReadOnly = true;
-            this.ColumnFindPattern.Width = 125;
-            // 
-            // ColumnReplacement
-            // 
-            this.ColumnReplacement.HeaderText = "Replacement";
-            this.ColumnReplacement.MinimumWidth = 6;
-            this.ColumnReplacement.Name = "ColumnReplacement";
-            this.ColumnReplacement.ReadOnly = true;
-            this.ColumnReplacement.Width = 125;
-            // 
-            // ColumnUseRegex
-            // 
-            this.ColumnUseRegex.HeaderText = "Use Regex";
-            this.ColumnUseRegex.MinimumWidth = 6;
-            this.ColumnUseRegex.Name = "ColumnUseRegex";
-            this.ColumnUseRegex.ReadOnly = true;
-            this.ColumnUseRegex.Width = 125;
             // 
             // tabPageLog
             // 
@@ -991,6 +949,49 @@
             this.richTextBoxLog.Size = new System.Drawing.Size(995, 828);
             this.richTextBoxLog.TabIndex = 6;
             this.richTextBoxLog.Text = "";
+            // 
+            // ColumnOrder
+            // 
+            this.ColumnOrder.HeaderText = "Order";
+            this.ColumnOrder.MinimumWidth = 6;
+            this.ColumnOrder.Name = "ColumnOrder";
+            this.ColumnOrder.ReadOnly = true;
+            this.ColumnOrder.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.ColumnOrder.Width = 125;
+            // 
+            // ColumnEnabled
+            // 
+            this.ColumnEnabled.HeaderText = "Enabled";
+            this.ColumnEnabled.MinimumWidth = 6;
+            this.ColumnEnabled.Name = "ColumnEnabled";
+            this.ColumnEnabled.ReadOnly = true;
+            this.ColumnEnabled.Width = 125;
+            // 
+            // ColumnFindPattern
+            // 
+            this.ColumnFindPattern.HeaderText = "Find Pattern";
+            this.ColumnFindPattern.MinimumWidth = 6;
+            this.ColumnFindPattern.Name = "ColumnFindPattern";
+            this.ColumnFindPattern.ReadOnly = true;
+            this.ColumnFindPattern.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.ColumnFindPattern.Width = 125;
+            // 
+            // ColumnReplacement
+            // 
+            this.ColumnReplacement.HeaderText = "Replacement";
+            this.ColumnReplacement.MinimumWidth = 6;
+            this.ColumnReplacement.Name = "ColumnReplacement";
+            this.ColumnReplacement.ReadOnly = true;
+            this.ColumnReplacement.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.ColumnReplacement.Width = 125;
+            // 
+            // ColumnUseRegex
+            // 
+            this.ColumnUseRegex.HeaderText = "Use Regex";
+            this.ColumnUseRegex.MinimumWidth = 6;
+            this.ColumnUseRegex.Name = "ColumnUseRegex";
+            this.ColumnUseRegex.ReadOnly = true;
+            this.ColumnUseRegex.Width = 125;
             // 
             // FoxTTSTabControl
             // 
@@ -1093,11 +1094,6 @@
         private System.Windows.Forms.Button buttonDelRule;
         private System.Windows.Forms.Button buttonMoveDown;
         private System.Windows.Forms.Button buttonMoveUp;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnOrder;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn ColumnEnabled;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnFindPattern;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnReplacement;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn ColumnUseRegex;
         private System.Windows.Forms.CheckBox checkBoxRuleEnabled;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.CheckBox checkBoxUseRegex;
@@ -1105,5 +1101,10 @@
         private System.Windows.Forms.Label labelReplacement;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnOrder;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn ColumnEnabled;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnFindPattern;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnReplacement;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn ColumnUseRegex;
     }
 }
