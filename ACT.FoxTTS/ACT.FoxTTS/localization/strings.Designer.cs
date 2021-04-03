@@ -250,6 +250,51 @@ namespace ACT.FoxTTS.localization {
         }
         
         /// <summary>
+        ///   查找类似 启用 的本地化字符串。
+        /// </summary>
+        internal static string ColumnEnabled {
+            get {
+                return ResourceManager.GetString("ColumnEnabled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 被替换的文本 的本地化字符串。
+        /// </summary>
+        internal static string ColumnFindPattern {
+            get {
+                return ResourceManager.GetString("ColumnFindPattern", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 顺序 的本地化字符串。
+        /// </summary>
+        internal static string ColumnOrder {
+            get {
+                return ResourceManager.GetString("ColumnOrder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 替换为 的本地化字符串。
+        /// </summary>
+        internal static string ColumnReplacement {
+            get {
+                return ResourceManager.GetString("ColumnReplacement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 使用正则 的本地化字符串。
+        /// </summary>
+        internal static string ColumnUseRegex {
+            get {
+                return ResourceManager.GetString("ColumnUseRegex", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 默认 的本地化字符串。
         /// </summary>
         internal static string comboBoxPitchDefault {

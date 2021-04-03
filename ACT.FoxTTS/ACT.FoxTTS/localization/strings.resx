@@ -180,6 +180,21 @@
   <data name="checkBoxUseRegex" xml:space="preserve">
     <value>使用正则</value>
   </data>
+  <data name="ColumnEnabled" xml:space="preserve">
+    <value>启用</value>
+  </data>
+  <data name="ColumnFindPattern" xml:space="preserve">
+    <value>被替换的文本</value>
+  </data>
+  <data name="ColumnOrder" xml:space="preserve">
+    <value>顺序</value>
+  </data>
+  <data name="ColumnReplacement" xml:space="preserve">
+    <value>替换为</value>
+  </data>
+  <data name="ColumnUseRegex" xml:space="preserve">
+    <value>使用正则</value>
+  </data>
   <data name="comboBoxPitchDefault" xml:space="preserve">
     <value>默认</value>
   </data>
