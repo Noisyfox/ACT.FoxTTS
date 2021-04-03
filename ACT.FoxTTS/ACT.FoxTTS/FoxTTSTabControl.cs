@@ -1,9 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ACT.FoxCommon;
@@ -12,6 +15,7 @@ using ACT.FoxCommon.localization;
 using ACT.FoxCommon.update;
 using ACT.FoxTTS.engine;
 using ACT.FoxTTS.localization;
+using ACT.FoxTTS.preprocess;
 
 namespace ACT.FoxTTS
 {
@@ -150,9 +154,27 @@ namespace ACT.FoxTTS
             trackBarMasterVolume.ValueChanged += OnPlaybackValueChanged;
             comboBoxPlaybackApi.SelectedIndexChanged += OnPlaybackValueChanged;
 
+            // Load text processor settings
+            dataGridViewRules.AutoGenerateColumns = false;
+            dataGridViewRules.Columns["ColumnOrder"].DataPropertyName = nameof(PreProcessorRuleViewModel.Order);
+            dataGridViewRules.Columns["ColumnEnabled"].DataPropertyName = nameof(PreProcessorRuleViewModel.Enabled);
+            dataGridViewRules.Columns["ColumnFindPattern"].DataPropertyName = nameof(PreProcessorRuleViewModel.SourcePattern);
+            dataGridViewRules.Columns["ColumnReplacement"].DataPropertyName = nameof(PreProcessorRuleViewModel.Replacement);
+            dataGridViewRules.Columns["ColumnUseRegex"].DataPropertyName = nameof(PreProcessorRuleViewModel.UseRegex);
+            foreach (var vm in _plugin.Settings.PreProcessorSettings.Rules.Select(
+                (v, index) => new PreProcessorRuleViewModel(index + 1, v)
+            ))
+            {
+                _rules.Add(vm);
+            }
+            dataGridViewRules.DataSource = _rules;
+            dataGridViewRules.SelectionChanged += DataGridViewRules_SelectionChanged;
+            _rules.ListChanged += Rules_ListChanged;
+
             comboBoxTTSEngine_SelectedIndexChanged(null, EventArgs.Empty);
             OnPluginIntegrationValueChanged(null, EventArgs.Empty);
             OnPlaybackValueChanged(null, EventArgs.Empty);
+            DataGridViewRules_SelectionChanged(null, EventArgs.Empty);
         }
 
         private void ControllerOnLanguageChanged(bool fromView, string lang)
@@ -395,5 +417,306 @@ namespace ACT.FoxTTS
 
             settings.Api = (PlaybackApi) comboBoxPlaybackApi.SelectedIndex;
         }
+
+        #region Preprocess rules
+
+        private readonly BindingList<PreProcessorRuleViewModel> _rules = new BindingList<PreProcessorRuleViewModel>();
+
+        private int GetCurrentSelectedRuleIndex()
+        {
+            var rs = dataGridViewRules.SelectedRows;
+            if (rs.Count == 0)
+            {
+                return -1;
+            }
+
+            return rs[0].Index;
+        }
+
+        private PreProcessorRuleViewModel GetCurrentSelectedRule()
+        {
+            var index = GetCurrentSelectedRuleIndex();
+            if (index < 0)
+            {
+                return null;
+            }
+
+            return _rules[index];
+        }
+
+        private void SelectRule(int index)
+        {
+            dataGridViewRules.CurrentCell = dataGridViewRules.Rows[index].Cells[0];
+            dataGridViewRules.ClearSelection();
+            dataGridViewRules.Rows[index].Selected = true;
+        }
+
+        private void UpdateRuleOrder()
+        {
+            for (var i = 0; i < _rules.Count; i++)
+            {
+                _rules[i].Order = i + 1;
+            }
+        }
+
+        private void DataGridViewRules_SelectionChanged(object sender, EventArgs e)
+        {
+            var selectedIndex = GetCurrentSelectedRuleIndex();
+            if (selectedIndex < 0)
+            {
+                buttonDupRule.Enabled = false;
+                buttonDelRule.Enabled = false;
+                buttonMoveUp.Enabled = false;
+                buttonMoveDown.Enabled = false;
+                tableEditRule.Enabled = false;
+
+                checkBoxRuleEnabled.Checked = false;
+                checkBoxUseRegex.Checked = false;
+                textBoxFindPattern.Text = "";
+                textBoxReplacement.Text = "";
+            }
+            else
+            {
+                buttonDupRule.Enabled = true;
+                buttonDelRule.Enabled = true;
+                buttonMoveUp.Enabled = selectedIndex > 0;
+                buttonMoveDown.Enabled = selectedIndex < _rules.Count - 1;
+                tableEditRule.Enabled = true;
+
+                var vm = _rules[selectedIndex];
+                checkBoxRuleEnabled.Checked = vm.Enabled;
+                checkBoxUseRegex.Checked = vm.UseRegex;
+                textBoxFindPattern.Text = vm.SourcePattern;
+                textBoxReplacement.Text = vm.Replacement;
+
+                if (vm.UseRegex)
+                {
+                    labelFindPattern.Text = strings.labelRegex;
+                }
+                else
+                {
+                    labelFindPattern.Text = strings.labelFindPattern;
+                }
+            }
+        }
+
+        private void buttonAddRule_Click(object sender, EventArgs e)
+        {
+            _rules.Add(new PreProcessorRuleViewModel(_rules.Count + 1));
+            DataGridViewRules_SelectionChanged(null, EventArgs.Empty);
+        }
+
+        private void buttonMoveUp_Click(object sender, EventArgs e)
+        {
+            var selectedIndex = GetCurrentSelectedRuleIndex();
+            if (selectedIndex > 0)
+            {
+                var r = _rules[selectedIndex];
+                _rules.RemoveAt(selectedIndex);
+                _rules.Insert(selectedIndex - 1, r);
+                UpdateRuleOrder();
+                SelectRule(selectedIndex - 1);
+                DataGridViewRules_SelectionChanged(null, EventArgs.Empty);
+            }
+        }
+
+        private void buttonMoveDown_Click(object sender, EventArgs e)
+        {
+            var selectedIndex = GetCurrentSelectedRuleIndex();
+            if (selectedIndex < _rules.Count - 1)
+            {
+                var r = _rules[selectedIndex];
+                _rules.RemoveAt(selectedIndex);
+                _rules.Insert(selectedIndex + 1, r);
+                UpdateRuleOrder();
+                SelectRule(selectedIndex + 1);
+                DataGridViewRules_SelectionChanged(null, EventArgs.Empty);
+            }
+        }
+
+        private void buttonDupRule_Click(object sender, EventArgs e)
+        {
+            var r = GetCurrentSelectedRule();
+            if (r != null)
+            {
+                _rules.Add(r.Dup(_rules.Count + 1));
+            }
+        }
+
+        private void buttonDelRule_Click(object sender, EventArgs e)
+        {
+            var selectedIndex = GetCurrentSelectedRuleIndex();
+            if (selectedIndex >= 0)
+            {
+                _rules.RemoveAt(selectedIndex);
+                UpdateRuleOrder();
+                if (GetCurrentSelectedRuleIndex() < 0 && _rules.Count > 0)
+                {
+                    SelectRule(_rules.Count - 1);
+                }
+                DataGridViewRules_SelectionChanged(null, EventArgs.Empty);
+            }
+        }
+
+        private void Rules_ListChanged(object sender, ListChangedEventArgs e)
+        {
+            _plugin.Settings.PreProcessorSettings.Rules = _rules.Select(it => it.ToRule()).ToList();
+            DataGridViewRules_SelectionChanged(null, EventArgs.Empty);
+        }
+
+        private void checkBoxRuleEnabled_CheckedChanged(object sender, EventArgs e)
+        {
+            var r = GetCurrentSelectedRule();
+            if (r != null)
+            {
+                r.Enabled = checkBoxRuleEnabled.Checked;
+            }
+        }
+
+        private void checkBoxUseRegex_CheckedChanged(object sender, EventArgs e)
+        {
+            var r = GetCurrentSelectedRule();
+            if (r != null)
+            {
+                r.UseRegex = checkBoxUseRegex.Checked;
+            }
+        }
+
+        private void textBoxFindPattern_TextChanged(object sender, EventArgs e)
+        {
+            var r = GetCurrentSelectedRule();
+            if (r != null)
+            {
+                r.SourcePattern = textBoxFindPattern.Text;
+            }
+        }
+
+        private void textBoxReplacement_TextChanged(object sender, EventArgs e)
+        {
+            var r = GetCurrentSelectedRule();
+            if (r != null)
+            {
+                r.Replacement = textBoxReplacement.Text;
+            }
+        }
+
+        sealed class PreProcessorRuleViewModel : INotifyPropertyChanged
+        {
+            private int _order;
+            private bool _enabled = true;
+            private string _sourcePattern = "";
+            private string _replacement = "";
+            private bool _useRegex = false;
+
+            public int Order
+            {
+                get => _order;
+                set
+                {
+                    if (value != _order)
+                    {
+                        _order = value;
+                        OnPropertyChanged(nameof(Order));
+                    }
+                }
+            }
+
+            public bool Enabled
+            {
+                get => _enabled;
+                set
+                {
+                    if (value != _enabled)
+                    {
+                        _enabled = value;
+                        OnPropertyChanged(nameof(Enabled));
+                    }
+                }
+            }
+
+            public string SourcePattern
+            {
+                get => _sourcePattern;
+                set
+                {
+                    if (value != _sourcePattern)
+                    {
+                        _sourcePattern = value;
+                        OnPropertyChanged(nameof(SourcePattern));
+                    }
+                }
+            }
+
+            public string Replacement
+            {
+                get => _replacement;
+                set
+                {
+                    if (value != _replacement)
+                    {
+                        _replacement = value;
+                        OnPropertyChanged(nameof(Replacement));
+                    }
+                }
+            }
+
+            public bool UseRegex
+            {
+                get => _useRegex;
+                set
+                {
+                    if (value != _useRegex)
+                    {
+                        _useRegex = value;
+                        OnPropertyChanged(nameof(UseRegex));
+                    }
+                }
+            }
+
+            public PreProcessorRuleViewModel(int order)
+            {
+                Order = order;
+            }
+
+            public PreProcessorRuleViewModel(int order, Rule r)
+            {
+                Order = order;
+                Enabled = r.Enabled;
+                SourcePattern = r.SourcePattern;
+                Replacement = r.Replacement;
+                UseRegex = r.UseRegex;
+            }
+
+            public Rule ToRule()
+            {
+                return new Rule
+                {
+                    Enabled = Enabled,
+                    SourcePattern = SourcePattern,
+                    Replacement = Replacement,
+                    UseRegex = UseRegex,
+                };
+            }
+
+            public PreProcessorRuleViewModel Dup(int index)
+            {
+                return new PreProcessorRuleViewModel(index)
+                {
+                    Enabled = Enabled,
+                    SourcePattern = SourcePattern,
+                    Replacement = Replacement,
+                    UseRegex = UseRegex,
+                };
+            }
+
+            public event PropertyChangedEventHandler PropertyChanged;
+
+            private void OnPropertyChanged([CallerMemberName] string propertyName = null)
+            {
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
+
+        #endregion
     }
 }

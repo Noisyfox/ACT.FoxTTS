@@ -520,6 +520,15 @@ namespace ACT.FoxTTS.localization {
         }
         
         /// <summary>
+        ///   查找类似 正则表达式： 的本地化字符串。
+        /// </summary>
+        internal static string labelRegex {
+            get {
+                return ResourceManager.GetString("labelRegex", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 替换为： 的本地化字符串。
         /// </summary>
         internal static string labelReplacement {

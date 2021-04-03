@@ -137,6 +137,8 @@ namespace ACT.FoxTTS
 
         public PlaybackSettings PlaybackSettings => Settings.Playback;
 
+        public PreProcessorSettings PreProcessorSettings => Settings.PreProcessorSettings;
+
         public BaiduTTSSettings BaiduTtsSettings => Settings.BaiduTtsSettings;
 
         public SAPI5Settings SApi5Settings => Settings.SApi5Settings;
