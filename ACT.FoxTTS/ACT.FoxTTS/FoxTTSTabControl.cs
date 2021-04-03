@@ -562,6 +562,7 @@ namespace ACT.FoxTTS
         {
             _plugin.Settings.PreProcessorSettings.Rules = _rules.Select(it => it.ToRule()).ToList();
             DataGridViewRules_SelectionChanged(null, EventArgs.Empty);
+            _plugin.Controller.NotifyPreProcessorSettingsChanged(true, _plugin.Settings.PreProcessorSettings);
         }
 
         private void checkBoxRuleEnabled_CheckedChanged(object sender, EventArgs e)

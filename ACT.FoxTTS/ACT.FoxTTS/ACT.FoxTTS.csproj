@@ -94,6 +94,7 @@
     </Compile>
     <Compile Include="MainController.cs" />
     <Compile Include="playback\WMMPlayback.cs" />
+    <Compile Include="preprocess\PreProcessor.cs" />
     <Compile Include="preprocess\PreProcessorSettings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SettingsHolder.cs" />

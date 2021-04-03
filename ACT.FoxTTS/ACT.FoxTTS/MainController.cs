@@ -1,4 +1,5 @@
 ﻿using ACT.FoxCommon.core;
+using ACT.FoxTTS.preprocess;
 
 namespace ACT.FoxTTS
 {
@@ -21,6 +22,15 @@ namespace ACT.FoxTTS
         public void NotifyTTSEngineChanged(bool fromView, string engine)
         {
             TTSEngineChanged?.Invoke(fromView, engine);
+        }
+
+        public delegate void OnPreProcessorSettingsChangedDelegate(bool fromView, PreProcessorSettings settings);
+
+        public event OnPreProcessorSettingsChangedDelegate PreProcessorSettingsChanged;
+
+        public void NotifyPreProcessorSettingsChanged(bool fromView, PreProcessorSettings settings)
+        {
+            PreProcessorSettingsChanged?.Invoke(fromView, settings);
         }
     }
 }
