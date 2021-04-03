@@ -268,15 +268,6 @@ namespace ACT.FoxTTS.localization {
         }
         
         /// <summary>
-        ///   查找类似 顺序 的本地化字符串。
-        /// </summary>
-        internal static string ColumnOrder {
-            get {
-                return ResourceManager.GetString("ColumnOrder", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   查找类似 替换为 的本地化字符串。
         /// </summary>
         internal static string ColumnReplacement {

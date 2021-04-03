@@ -939,8 +939,10 @@
             this.dataGridViewRules.MultiSelect = false;
             this.dataGridViewRules.Name = "dataGridViewRules";
             this.dataGridViewRules.ReadOnly = true;
-            this.dataGridViewRules.RowHeadersWidth = 51;
+            this.dataGridViewRules.RowHeadersVisible = false;
+            this.dataGridViewRules.RowHeadersWidth = 100;
             this.dataGridViewRules.RowTemplate.Height = 27;
+            this.dataGridViewRules.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewRules.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewRules.Size = new System.Drawing.Size(991, 178);
             this.dataGridViewRules.TabIndex = 0;
@@ -969,12 +971,12 @@
             // ColumnOrder
             // 
             this.ColumnOrder.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.ColumnOrder.HeaderText = "Order";
-            this.ColumnOrder.MinimumWidth = 6;
+            this.ColumnOrder.HeaderText = "";
+            this.ColumnOrder.MinimumWidth = 40;
             this.ColumnOrder.Name = "ColumnOrder";
             this.ColumnOrder.ReadOnly = true;
             this.ColumnOrder.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.ColumnOrder.Width = 41;
+            this.ColumnOrder.Width = 40;
             // 
             // ColumnEnabled
             // 
