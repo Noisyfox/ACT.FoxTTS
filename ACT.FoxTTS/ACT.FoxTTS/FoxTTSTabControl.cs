@@ -604,7 +604,7 @@ namespace ACT.FoxTTS
         sealed class PreProcessorRuleViewModel : INotifyPropertyChanged
         {
             private int _order;
-            private bool _enabled = true;
+            private bool _enabled = false;
             private string _sourcePattern = "";
             private string _replacement = "";
             private bool _useRegex = false;

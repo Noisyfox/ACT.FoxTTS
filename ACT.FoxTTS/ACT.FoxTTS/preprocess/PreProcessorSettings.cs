@@ -16,7 +16,7 @@ namespace ACT.FoxTTS.preprocess
     public class Rule
     {
         [XmlAttribute]
-        public bool Enabled = true;
+        public bool Enabled = false;
         [XmlAttribute]
         public string SourcePattern = "";
         [XmlAttribute]
