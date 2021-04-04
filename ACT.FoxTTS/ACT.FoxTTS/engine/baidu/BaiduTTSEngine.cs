@@ -63,7 +63,7 @@ namespace ACT.FoxTTS.engine.baidu
             // Calculate hash
             var wave = _plugin.Cache.GetOrCreateFile(
                 this,
-                text.Replace(Environment.NewLine, "+"),
+                text,
                 "mp3",
                 option.GetString(),
                 f =>

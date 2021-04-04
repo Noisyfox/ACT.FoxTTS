@@ -78,6 +78,7 @@ namespace ACT.FoxTTS
             string ext,
             string parameter)
         {
+            tts = tts.Replace(Environment.NewLine, "+");
             var hashTTS = tts.GetHashCode().ToString("X4");
             var hashParam = parameter.GetHashCode().ToString("X4");
             var cacheName = $"{engine.Name}.{Truncate(tts, 50)}.{hashTTS}{hashParam}.{ext}";

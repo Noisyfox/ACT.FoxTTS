@@ -59,7 +59,7 @@ namespace ACT.FoxTTS.engine.sapi5
             // Calculate hash
             var wave = _plugin.Cache.GetOrCreateFile(
                 this,
-                text.Replace(Environment.NewLine, "+"),
+                text,
                 "wav",
                 settings.ToString(),
                 f =>
