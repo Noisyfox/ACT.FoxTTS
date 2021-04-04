@@ -20,6 +20,18 @@ namespace ACT.FoxTTS.playback
         {
         }
 
+        private static string GetDeviceType(string file)
+        {
+            var ext = Path.GetExtension(file).ToLower();
+            switch (ext)
+            {
+                case ".mp3": return "mpegvideo!";
+                case ".wav": return "waveaudio!";
+            }
+
+            return "";
+        }
+
         /// <summary>
         /// Play the given wave file using WMM.
         /// This method needs to be called from main thread otherwise
@@ -49,7 +61,7 @@ namespace ACT.FoxTTS.playback
                         shortPath = TryShortenPath(tmp);
                         if (shortPath != null)
                         {
-                            waveFile = shortPath;
+                            waveFile = GetDeviceType(waveFile) + shortPath;
                         }
                         else
                         {
@@ -58,7 +70,7 @@ namespace ACT.FoxTTS.playback
                     }
                     else
                     {
-                        waveFile = tmp;
+                        waveFile = GetDeviceType(waveFile) + tmp;
                     }
                 }
             }
@@ -66,7 +78,7 @@ namespace ACT.FoxTTS.playback
             SendCmd(new[]
             {
                 "close all",
-                "open \"waveaudio!" + waveFile + "\" alias foxTTS",
+                "open \"" + waveFile + "\" alias foxTTS",
                 "play foxTTS",
             });
         }
