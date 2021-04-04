@@ -61,11 +61,12 @@ namespace ACT.FoxTTS.engine.baidu
             };
 
             // Calculate hash
-            var wave = this.GetCacheFileName(text.Replace(Environment.NewLine, "+"), "mp3", option.GetString());
-
-            lock (this)
-            {
-                if (!File.Exists(wave))
+            var wave = _plugin.Cache.GetOrCreateFile(
+                this,
+                text.Replace(Environment.NewLine, "+"),
+                "mp3",
+                option.GetString(),
+                f =>
                 {
                     var apiKey = settings.ApiKey;
                     var secretKey = settings.SecretKey;
@@ -78,11 +79,12 @@ namespace ACT.FoxTTS.engine.baidu
                     var result = client.Synthesis(text, option);
                     if (result.Success)
                     {
-                        File.WriteAllBytes(wave, result.Data);
+                        File.WriteAllBytes(f, result.Data);
                     }
                     else
                     {
-                        _plugin.Controller.NotifyLogMessageAppend(false, $"Unable to complete the request: {result.ErrorCode}: {result.ErrorMsg}");
+                        _plugin.Controller.NotifyLogMessageAppend(false,
+                            $"Unable to complete the request: {result.ErrorCode}: {result.ErrorMsg}");
                         switch (result.ErrorCode)
                         {
                             case 502:
@@ -97,8 +99,7 @@ namespace ACT.FoxTTS.engine.baidu
                                 break;
                         }
                     }
-                }
-            }
+                });
 
             _plugin.SoundPlayer.Play(wave, playDevice, isSync, volume);
         }

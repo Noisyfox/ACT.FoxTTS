@@ -57,14 +57,15 @@ namespace ACT.FoxTTS.engine.sapi5
             var settings = _plugin.Settings.SApi5Settings;
 
             // Calculate hash
-            var wave = this.GetCacheFileName(text.Replace(Environment.NewLine, "+"), "wav", settings.ToString());
-
-            lock (this)
-            {
-                if (!File.Exists(wave))
+            var wave = _plugin.Cache.GetOrCreateFile(
+                this,
+                text.Replace(Environment.NewLine, "+"),
+                "wav",
+                settings.ToString(),
+                f =>
                 {
                     using (var fileStream = new FileStream(
-                        wave,
+                        f,
                         FileMode.OpenOrCreate,
                         FileAccess.Write,
                         FileShare.ReadWrite
@@ -96,6 +97,7 @@ namespace ACT.FoxTTS.engine.sapi5
                                 xmlTextWriter.WriteEndElement();
                                 xmlTextWriter.Flush();
                             }
+
                             var content = writer.ToString();
 
                             var pb = new PromptBuilder(voice.VoiceInfo.Culture);
@@ -109,8 +111,7 @@ namespace ACT.FoxTTS.engine.sapi5
                             fileStream.Flush();
                         }
                     }
-                }
-            }
+                });
 
             _plugin.SoundPlayer.Play(wave, playDevice, isSync, volume);
         }

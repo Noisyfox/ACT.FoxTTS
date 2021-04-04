@@ -320,15 +320,15 @@ namespace ACT.FoxTTS
 
         private void linkLabelOpenCacheDir_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            if (Directory.Exists(Utils.CacheDirectory))
+            if (Directory.Exists(FileCache.CacheDirectory))
             {
-                Process.Start(Utils.CacheDirectory);
+                Process.Start(FileCache.CacheDirectory);
             }
         }
 
         private void linkLabelClearCache_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            if (Directory.Exists(Utils.CacheDirectory))
+            if (Directory.Exists(FileCache.CacheDirectory))
             {
                 var result = MessageBox.Show(
                     strings.messageAskClearCache,
@@ -344,7 +344,7 @@ namespace ACT.FoxTTS
                 Task.Run(() =>
                 {
                     foreach (var file in Directory.GetFiles(
-                        Utils.CacheDirectory,
+                        FileCache.CacheDirectory,
                         "*",
                         SearchOption.TopDirectoryOnly))
                     {

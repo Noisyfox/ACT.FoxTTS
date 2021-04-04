@@ -19,6 +19,7 @@ namespace ACT.FoxTTS
         public PreProcessor PreProcessor { get; } = new PreProcessor();
         public TTSInjector TtsInjector { get; } = new TTSInjector();
         public SoundPlayerWrapper SoundPlayer { get; } = new SoundPlayerWrapper();
+        public FileCache Cache { get; } = new FileCache();
 
         private ITTSEngine TtsEngine
         {
