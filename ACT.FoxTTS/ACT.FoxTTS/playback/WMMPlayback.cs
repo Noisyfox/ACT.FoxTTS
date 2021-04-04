@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Runtime.InteropServices;
 using System.Text;
 
@@ -6,6 +7,8 @@ namespace ACT.FoxTTS.playback
 {
     public class WMMPlayback : IPluginComponent
     {
+        private const int MAX_PATH = 127;
+
         private FoxTTSPlugin _plugin;
 
         public void AttachToAct(FoxTTSPlugin plugin)
@@ -24,10 +27,46 @@ namespace ACT.FoxTTS.playback
         /// </summary>
         public void PlaySound(string waveFile)
         {
+            if (waveFile.Length > MAX_PATH)
+            {
+                // Path too long for WMM, need to shorten
+                // Try short path first.
+                var shortPath = TryShortenPath(waveFile);
+                if (shortPath != null)
+                {
+                    waveFile = shortPath;
+                }
+                else
+                {
+                    // Short path doesn't work, copy to system temp folder with a short file name.
+                    var tmp = Path.GetTempFileName();
+                    File.Copy(waveFile, tmp, true);
+                    _plugin.Controller.NotifyLogMessageAppend(false, "File path too long for WMM, tmp file used: " + tmp);
+
+                    // Make sure tmp path is also not too long
+                    if (tmp.Length > MAX_PATH)
+                    {
+                        shortPath = TryShortenPath(tmp);
+                        if (shortPath != null)
+                        {
+                            waveFile = shortPath;
+                        }
+                        else
+                        {
+                            _plugin.Controller.NotifyLogMessageAppend(false, "Unable to shorten path " + waveFile);
+                        }
+                    }
+                    else
+                    {
+                        waveFile = tmp;
+                    }
+                }
+            }
+
             SendCmd(new[]
             {
                 "close all",
-                "open \"" + waveFile + "\" alias foxTTS",
+                "open \"waveaudio!" + waveFile + "\" alias foxTTS",
                 "play foxTTS",
             });
         }
@@ -61,5 +100,19 @@ namespace ACT.FoxTTS.playback
         [DllImport("winmm.dll", SetLastError = true)]
         private static extern bool mciGetErrorString([In] int error, [In, Out] StringBuilder buffer, [In] int bufferCount);
 
+        [DllImport("kernel32.dll", CharSet = CharSet.Unicode, EntryPoint = "GetShortPathNameW", SetLastError = true)]
+        private static extern int GetShortPathName(string pathName, StringBuilder shortName, int cbShortName);
+
+        private static string TryShortenPath(string path)
+        {
+            var buffer = new StringBuilder(MAX_PATH + 1);
+            var len = GetShortPathName(path, buffer, buffer.Capacity);
+            if (len > 0 && len <= MAX_PATH)
+            {
+                return buffer.ToString();
+            }
+
+            return null;
+        }
     }
 }
