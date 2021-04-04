@@ -90,13 +90,13 @@
             this.buttonMoveDown = new System.Windows.Forms.Button();
             this.buttonMoveUp = new System.Windows.Forms.Button();
             this.dataGridViewRules = new System.Windows.Forms.DataGridView();
-            this.tabPageLog = new System.Windows.Forms.TabPage();
-            this.richTextBoxLog = new System.Windows.Forms.RichTextBox();
             this.ColumnOrder = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnEnabled = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.ColumnFindPattern = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnReplacement = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnUseRegex = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.tabPageLog = new System.Windows.Forms.TabPage();
+            this.richTextBoxLog = new System.Windows.Forms.RichTextBox();
             this.tabControl1.SuspendLayout();
             this.tabPageGeneralSettings.SuspendLayout();
             this.groupBoxIntegration.SuspendLayout();
@@ -315,6 +315,7 @@
             this.checkBoxClearCacheExit.TabIndex = 5;
             this.checkBoxClearCacheExit.Text = "Clear Cache on Exit";
             this.checkBoxClearCacheExit.UseVisualStyleBackColor = true;
+            this.checkBoxClearCacheExit.Visible = false;
             // 
             // linkLabelClearCache
             // 
@@ -947,27 +948,6 @@
             this.dataGridViewRules.Size = new System.Drawing.Size(991, 178);
             this.dataGridViewRules.TabIndex = 0;
             // 
-            // tabPageLog
-            // 
-            this.tabPageLog.Controls.Add(this.richTextBoxLog);
-            this.tabPageLog.Location = new System.Drawing.Point(4, 22);
-            this.tabPageLog.Name = "tabPageLog";
-            this.tabPageLog.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageLog.Size = new System.Drawing.Size(1001, 834);
-            this.tabPageLog.TabIndex = 2;
-            this.tabPageLog.Text = "Log";
-            this.tabPageLog.UseVisualStyleBackColor = true;
-            // 
-            // richTextBoxLog
-            // 
-            this.richTextBoxLog.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.richTextBoxLog.Location = new System.Drawing.Point(3, 3);
-            this.richTextBoxLog.Name = "richTextBoxLog";
-            this.richTextBoxLog.ReadOnly = true;
-            this.richTextBoxLog.Size = new System.Drawing.Size(995, 828);
-            this.richTextBoxLog.TabIndex = 6;
-            this.richTextBoxLog.Text = "";
-            // 
             // ColumnOrder
             // 
             this.ColumnOrder.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
@@ -1012,7 +992,28 @@
             this.ColumnUseRegex.MinimumWidth = 6;
             this.ColumnUseRegex.Name = "ColumnUseRegex";
             this.ColumnUseRegex.ReadOnly = true;
-            this.ColumnUseRegex.Width = 65;
+            this.ColumnUseRegex.Width = 59;
+            // 
+            // tabPageLog
+            // 
+            this.tabPageLog.Controls.Add(this.richTextBoxLog);
+            this.tabPageLog.Location = new System.Drawing.Point(4, 22);
+            this.tabPageLog.Name = "tabPageLog";
+            this.tabPageLog.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageLog.Size = new System.Drawing.Size(1001, 834);
+            this.tabPageLog.TabIndex = 2;
+            this.tabPageLog.Text = "Log";
+            this.tabPageLog.UseVisualStyleBackColor = true;
+            // 
+            // richTextBoxLog
+            // 
+            this.richTextBoxLog.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.richTextBoxLog.Location = new System.Drawing.Point(3, 3);
+            this.richTextBoxLog.Name = "richTextBoxLog";
+            this.richTextBoxLog.ReadOnly = true;
+            this.richTextBoxLog.Size = new System.Drawing.Size(995, 828);
+            this.richTextBoxLog.TabIndex = 6;
+            this.richTextBoxLog.Text = "";
             // 
             // FoxTTSTabControl
             // 
