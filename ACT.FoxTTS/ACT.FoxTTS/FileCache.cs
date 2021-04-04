@@ -22,6 +22,7 @@ namespace ACT.FoxTTS
             string parameter,
             Action<string> fileCreator)
         {
+            // TODO: per-file lock?
             lock (this)
             {
                 var newCacheFile = GetCacheFileNameNew(engine, tts, ext, parameter);
