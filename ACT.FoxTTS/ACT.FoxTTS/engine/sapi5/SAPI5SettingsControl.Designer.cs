@@ -49,20 +49,21 @@
             // 
             // groupBoxTTSEngineDetail
             // 
+            this.groupBoxTTSEngineDetail.AutoSize = true;
             this.groupBoxTTSEngineDetail.BackColor = System.Drawing.SystemColors.Window;
             this.groupBoxTTSEngineDetail.Controls.Add(this.tableLayoutPanel1);
-            this.groupBoxTTSEngineDetail.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBoxTTSEngineDetail.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBoxTTSEngineDetail.Location = new System.Drawing.Point(0, 0);
-            this.groupBoxTTSEngineDetail.Margin = new System.Windows.Forms.Padding(4);
             this.groupBoxTTSEngineDetail.Name = "groupBoxTTSEngineDetail";
-            this.groupBoxTTSEngineDetail.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBoxTTSEngineDetail.Size = new System.Drawing.Size(792, 622);
+            this.groupBoxTTSEngineDetail.Size = new System.Drawing.Size(261, 211);
             this.groupBoxTTSEngineDetail.TabIndex = 0;
             this.groupBoxTTSEngineDetail.TabStop = false;
             this.groupBoxTTSEngineDetail.Text = "Engine Detail";
             // 
             // tableLayoutPanel1
             // 
+            this.tableLayoutPanel1.AutoSize = true;
+            this.tableLayoutPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -78,18 +79,16 @@
             this.tableLayoutPanel1.Controls.Add(this.labelVolumeValue, 2, 2);
             this.tableLayoutPanel1.Controls.Add(this.comboBoxPitch, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.linkLabelCopyVoice, 0, 4);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(4, 22);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 17);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 6;
+            this.tableLayoutPanel1.RowCount = 5;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(784, 596);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(255, 191);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // labelSpeed
@@ -97,10 +96,9 @@
             this.labelSpeed.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.labelSpeed.AutoSize = true;
-            this.labelSpeed.Location = new System.Drawing.Point(4, 0);
-            this.labelSpeed.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelSpeed.Location = new System.Drawing.Point(3, 0);
             this.labelSpeed.Name = "labelSpeed";
-            this.labelSpeed.Size = new System.Drawing.Size(63, 15);
+            this.labelSpeed.Size = new System.Drawing.Size(47, 12);
             this.labelSpeed.TabIndex = 0;
             this.labelSpeed.Text = "Speed:";
             // 
@@ -108,10 +106,9 @@
             // 
             this.labelPitch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.labelPitch.AutoSize = true;
-            this.labelPitch.Location = new System.Drawing.Point(4, 72);
-            this.labelPitch.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelPitch.Location = new System.Drawing.Point(3, 58);
             this.labelPitch.Name = "labelPitch";
-            this.labelPitch.Size = new System.Drawing.Size(63, 15);
+            this.labelPitch.Size = new System.Drawing.Size(47, 12);
             this.labelPitch.TabIndex = 1;
             this.labelPitch.Text = "Pitch:";
             // 
@@ -120,10 +117,9 @@
             this.labelVolume.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.labelVolume.AutoSize = true;
-            this.labelVolume.Location = new System.Drawing.Point(4, 95);
-            this.labelVolume.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelVolume.Location = new System.Drawing.Point(3, 77);
             this.labelVolume.Name = "labelVolume";
-            this.labelVolume.Size = new System.Drawing.Size(63, 15);
+            this.labelVolume.Size = new System.Drawing.Size(47, 12);
             this.labelVolume.TabIndex = 2;
             this.labelVolume.Text = "Volume:";
             // 
@@ -131,10 +127,9 @@
             // 
             this.labelPerson.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.labelPerson.AutoSize = true;
-            this.labelPerson.Location = new System.Drawing.Point(4, 167);
-            this.labelPerson.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelPerson.Location = new System.Drawing.Point(3, 135);
             this.labelPerson.Name = "labelPerson";
-            this.labelPerson.Size = new System.Drawing.Size(63, 15);
+            this.labelPerson.Size = new System.Drawing.Size(47, 12);
             this.labelPerson.TabIndex = 0;
             this.labelPerson.Text = "Person:";
             // 
@@ -142,11 +137,10 @@
             // 
             this.trackBarSpeed.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.trackBarSpeed.LargeChange = 2;
-            this.trackBarSpeed.Location = new System.Drawing.Point(75, 4);
-            this.trackBarSpeed.Margin = new System.Windows.Forms.Padding(4);
+            this.trackBarSpeed.Location = new System.Drawing.Point(56, 3);
             this.trackBarSpeed.Minimum = -10;
             this.trackBarSpeed.Name = "trackBarSpeed";
-            this.trackBarSpeed.Size = new System.Drawing.Size(666, 56);
+            this.trackBarSpeed.Size = new System.Drawing.Size(167, 45);
             this.trackBarSpeed.TabIndex = 3;
             this.trackBarSpeed.TickFrequency = 2;
             // 
@@ -154,11 +148,10 @@
             // 
             this.trackBarVolume.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.trackBarVolume.LargeChange = 10;
-            this.trackBarVolume.Location = new System.Drawing.Point(75, 99);
-            this.trackBarVolume.Margin = new System.Windows.Forms.Padding(4);
+            this.trackBarVolume.Location = new System.Drawing.Point(56, 80);
             this.trackBarVolume.Maximum = 100;
             this.trackBarVolume.Name = "trackBarVolume";
-            this.trackBarVolume.Size = new System.Drawing.Size(666, 56);
+            this.trackBarVolume.Size = new System.Drawing.Size(167, 45);
             this.trackBarVolume.TabIndex = 5;
             this.trackBarVolume.TickFrequency = 10;
             this.trackBarVolume.Value = 100;
@@ -169,33 +162,30 @@
             this.tableLayoutPanel1.SetColumnSpan(this.comboBoxPerson, 2);
             this.comboBoxPerson.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxPerson.FormattingEnabled = true;
-            this.comboBoxPerson.Location = new System.Drawing.Point(75, 163);
-            this.comboBoxPerson.Margin = new System.Windows.Forms.Padding(4);
+            this.comboBoxPerson.Location = new System.Drawing.Point(56, 131);
             this.comboBoxPerson.Name = "comboBoxPerson";
-            this.comboBoxPerson.Size = new System.Drawing.Size(705, 23);
+            this.comboBoxPerson.Size = new System.Drawing.Size(196, 20);
             this.comboBoxPerson.TabIndex = 6;
             // 
             // labelSpeedValue
             // 
             this.labelSpeedValue.AutoSize = true;
-            this.labelSpeedValue.Location = new System.Drawing.Point(749, 0);
-            this.labelSpeedValue.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labelSpeedValue.MinimumSize = new System.Drawing.Size(29, 0);
+            this.labelSpeedValue.Location = new System.Drawing.Point(229, 0);
+            this.labelSpeedValue.MinimumSize = new System.Drawing.Size(22, 0);
             this.labelSpeedValue.Name = "labelSpeedValue";
-            this.labelSpeedValue.Padding = new System.Windows.Forms.Padding(0, 12, 0, 0);
-            this.labelSpeedValue.Size = new System.Drawing.Size(29, 27);
+            this.labelSpeedValue.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
+            this.labelSpeedValue.Size = new System.Drawing.Size(22, 22);
             this.labelSpeedValue.TabIndex = 7;
             this.labelSpeedValue.Text = "0";
             // 
             // labelVolumeValue
             // 
             this.labelVolumeValue.AutoSize = true;
-            this.labelVolumeValue.Location = new System.Drawing.Point(749, 95);
-            this.labelVolumeValue.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labelVolumeValue.MinimumSize = new System.Drawing.Size(29, 0);
+            this.labelVolumeValue.Location = new System.Drawing.Point(229, 77);
+            this.labelVolumeValue.MinimumSize = new System.Drawing.Size(22, 0);
             this.labelVolumeValue.Name = "labelVolumeValue";
-            this.labelVolumeValue.Padding = new System.Windows.Forms.Padding(0, 12, 0, 0);
-            this.labelVolumeValue.Size = new System.Drawing.Size(31, 27);
+            this.labelVolumeValue.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
+            this.labelVolumeValue.Size = new System.Drawing.Size(23, 22);
             this.labelVolumeValue.TabIndex = 9;
             this.labelVolumeValue.Text = "100";
             // 
@@ -212,10 +202,9 @@
             "Medium",
             "High",
             "XHigh"});
-            this.comboBoxPitch.Location = new System.Drawing.Point(75, 68);
-            this.comboBoxPitch.Margin = new System.Windows.Forms.Padding(4);
+            this.comboBoxPitch.Location = new System.Drawing.Point(56, 54);
             this.comboBoxPitch.Name = "comboBoxPitch";
-            this.comboBoxPitch.Size = new System.Drawing.Size(705, 23);
+            this.comboBoxPitch.Size = new System.Drawing.Size(196, 20);
             this.comboBoxPitch.TabIndex = 4;
             // 
             // linkLabelCopyVoice
@@ -224,10 +213,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.linkLabelCopyVoice.AutoSize = true;
             this.tableLayoutPanel1.SetColumnSpan(this.linkLabelCopyVoice, 3);
-            this.linkLabelCopyVoice.Location = new System.Drawing.Point(3, 209);
-            this.linkLabelCopyVoice.Margin = new System.Windows.Forms.Padding(3, 19, 3, 0);
+            this.linkLabelCopyVoice.Location = new System.Drawing.Point(2, 169);
+            this.linkLabelCopyVoice.Margin = new System.Windows.Forms.Padding(2, 15, 2, 10);
             this.linkLabelCopyVoice.Name = "linkLabelCopyVoice";
-            this.linkLabelCopyVoice.Size = new System.Drawing.Size(778, 15);
+            this.linkLabelCopyVoice.Size = new System.Drawing.Size(251, 12);
             this.linkLabelCopyVoice.TabIndex = 10;
             this.linkLabelCopyVoice.TabStop = true;
             this.linkLabelCopyVoice.Text = "Fix Win10 TTS voices";
@@ -235,18 +224,20 @@
             // 
             // SAPI5SettingsControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.Controls.Add(this.groupBoxTTSEngineDetail);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "SAPI5SettingsControl";
-            this.Size = new System.Drawing.Size(792, 622);
+            this.Size = new System.Drawing.Size(261, 211);
             this.groupBoxTTSEngineDetail.ResumeLayout(false);
+            this.groupBoxTTSEngineDetail.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarSpeed)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarVolume)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 

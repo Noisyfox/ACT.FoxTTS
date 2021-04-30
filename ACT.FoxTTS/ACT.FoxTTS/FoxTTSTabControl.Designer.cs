@@ -347,13 +347,13 @@
             // 
             // panelTTSEngineSettings
             // 
-            this.panelTTSEngineSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.panelTTSEngineSettings.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelTTSEngineSettings.AutoSize = true;
             this.panelTTSEngineSettings.Location = new System.Drawing.Point(271, 43);
             this.panelTTSEngineSettings.Margin = new System.Windows.Forms.Padding(2);
             this.panelTTSEngineSettings.Name = "panelTTSEngineSettings";
-            this.panelTTSEngineSettings.Size = new System.Drawing.Size(727, 788);
+            this.panelTTSEngineSettings.Size = new System.Drawing.Size(727, 37);
             this.panelTTSEngineSettings.TabIndex = 14;
             // 
             // groupBoxPlayback
@@ -1025,6 +1025,7 @@
             this.Size = new System.Drawing.Size(1009, 860);
             this.tabControl1.ResumeLayout(false);
             this.tabPageGeneralSettings.ResumeLayout(false);
+            this.tabPageGeneralSettings.PerformLayout();
             this.groupBoxIntegration.ResumeLayout(false);
             this.groupBoxIntegration.PerformLayout();
             this.groupBoxPreview.ResumeLayout(false);

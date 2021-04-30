@@ -25,8 +25,7 @@ namespace ACT.FoxTTS.engine.baidu
 
             var parentPanel = plugin.EngineSettingsPanel;
             parentPanel.Controls.Add(this);
-            parentPanel.Resize += ParentPanelOnResize;
-            ParentPanelOnResize(parentPanel, null);
+            Dock = DockStyle.Top;
         }
 
         public void PostAttachToAct(FoxTTSPlugin plugin)
@@ -59,12 +58,6 @@ namespace ACT.FoxTTS.engine.baidu
         public void DoLocalization()
         {
             LocalizationBase.TranslateControls(this);
-        }
-
-        private void ParentPanelOnResize(object sender, EventArgs eventArgs)
-        {
-            Location = new Point(0, 0);
-            Size = ((Control)sender).Size;
         }
 
         private void OnValueChanged(object sender, EventArgs eventArgs)
