@@ -196,6 +196,24 @@ namespace ACT.FoxTTS.localization {
         }
         
         /// <summary>
+        ///   查找类似 API Key: 的本地化字符串。
+        /// </summary>
+        internal static string checkBoxApiKey {
+            get {
+                return ResourceManager.GetString("checkBoxApiKey", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 勾选以显示 API Key。截图时请注意不要泄露！ 的本地化字符串。
+        /// </summary>
+        internal static string checkBoxApiKey_Tooltip {
+            get {
+                return ResourceManager.GetString("checkBoxApiKey.Tooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 自动检查更新 的本地化字符串。
         /// </summary>
         internal static string checkBoxCheckUpdate {
@@ -228,6 +246,24 @@ namespace ACT.FoxTTS.localization {
         internal static string checkBoxRuleEnabled {
             get {
                 return ResourceManager.GetString("checkBoxRuleEnabled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Secret Key: 的本地化字符串。
+        /// </summary>
+        internal static string checkBoxSecretKey {
+            get {
+                return ResourceManager.GetString("checkBoxSecretKey", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 勾选以显示 Secret Key。截图时请注意不要泄露！ 的本地化字符串。
+        /// </summary>
+        internal static string checkBoxSecretKey_Tooltip {
+            get {
+                return ResourceManager.GetString("checkBoxSecretKey.Tooltip", resourceCulture);
             }
         }
         
@@ -403,15 +439,6 @@ namespace ACT.FoxTTS.localization {
         }
         
         /// <summary>
-        ///   查找类似 API Key: 的本地化字符串。
-        /// </summary>
-        internal static string labelApiKey {
-            get {
-                return ResourceManager.GetString("labelApiKey", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   查找类似 当前版本: 的本地化字符串。
         /// </summary>
         internal static string labelCurrentVersion {
@@ -525,15 +552,6 @@ namespace ACT.FoxTTS.localization {
         internal static string labelReplacement {
             get {
                 return ResourceManager.GetString("labelReplacement", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   查找类似 Secret Key: 的本地化字符串。
-        /// </summary>
-        internal static string labelSecretKey {
-            get {
-                return ResourceManager.GetString("labelSecretKey", resourceCulture);
             }
         }
         

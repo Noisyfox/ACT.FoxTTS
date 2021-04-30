@@ -162,6 +162,12 @@
   <data name="buttonUpdateNow" xml:space="preserve">
     <value>更新</value>
   </data>
+  <data name="checkBoxApiKey" xml:space="preserve">
+    <value>API Key:</value>
+  </data>
+  <data name="checkBoxApiKey.Tooltip" xml:space="preserve">
+    <value>勾选以显示 API Key。截图时请注意不要泄露！</value>
+  </data>
   <data name="checkBoxCheckUpdate" xml:space="preserve">
     <value>自动检查更新</value>
   </data>
@@ -173,6 +179,12 @@
   </data>
   <data name="checkBoxRuleEnabled" xml:space="preserve">
     <value>启用规则</value>
+  </data>
+  <data name="checkBoxSecretKey" xml:space="preserve">
+    <value>Secret Key:</value>
+  </data>
+  <data name="checkBoxSecretKey.Tooltip" xml:space="preserve">
+    <value>勾选以显示 Secret Key。截图时请注意不要泄露！</value>
   </data>
   <data name="checkBoxUseHttps" xml:space="preserve">
     <value>使用 HTTPS</value>
@@ -231,9 +243,6 @@
   <data name="groupBoxUpdate" xml:space="preserve">
     <value>插件更新</value>
   </data>
-  <data name="labelApiKey" xml:space="preserve">
-    <value>API Key:</value>
-  </data>
   <data name="labelCurrentVersion" xml:space="preserve">
     <value>当前版本:</value>
   </data>
@@ -272,9 +281,6 @@
   </data>
   <data name="labelReplacement" xml:space="preserve">
     <value>替换为：</value>
-  </data>
-  <data name="labelSecretKey" xml:space="preserve">
-    <value>Secret Key:</value>
   </data>
   <data name="labelSpeed" xml:space="preserve">
     <value>语速:</value>
