@@ -2,6 +2,7 @@
 using System.Xml.Serialization;
 using ACT.FoxCommon.core;
 using ACT.FoxTTS.engine.baidu;
+using ACT.FoxTTS.engine.baipiao;
 using ACT.FoxTTS.engine.sapi5;
 using ACT.FoxTTS.preprocess;
 using Advanced_Combat_Tracker;
@@ -19,6 +20,7 @@ namespace ACT.FoxTTS
         public PreProcessorSettings PreProcessorSettings = new PreProcessorSettings();
         public BaiduTTSSettings BaiduTtsSettings = new BaiduTTSSettings();
         public SAPI5Settings SApi5Settings = new SAPI5Settings();
+        public BaipiaoSettings BaipiaoSettings = new BaipiaoSettings();
 
         public PluginSettings(object ParentSettingsClass) : base(ParentSettingsClass)
         {
@@ -32,6 +34,7 @@ namespace ACT.FoxTTS
                 writer.Serialize(PreProcessorSettings);
                 writer.Serialize(BaiduTtsSettings);
                 writer.Serialize(SApi5Settings);
+                writer.Serialize(BaipiaoSettings);
             };
 
             _settingsIo.ReadSettings = reader =>
@@ -53,6 +56,9 @@ namespace ACT.FoxTTS
                         break;
                     case nameof(SAPI5Settings):
                         SApi5Settings = reader.Deserialize<SAPI5Settings>();
+                        break;
+                    case nameof(BaipiaoSettings):
+                        BaipiaoSettings = reader.Deserialize<BaipiaoSettings>();
                         break;
                 }
             };
@@ -143,6 +149,8 @@ namespace ACT.FoxTTS
         public BaiduTTSSettings BaiduTtsSettings => Settings.BaiduTtsSettings;
 
         public SAPI5Settings SApi5Settings => Settings.SApi5Settings;
+
+        public BaipiaoSettings BaipiaoSettings => Settings.BaipiaoSettings;
 
         public string TTSEngine { get; set; }
         

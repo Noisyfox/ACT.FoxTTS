@@ -69,6 +69,14 @@
     <Compile Include="engine\baidu\BaiduTTSSettingsControl.Designer.cs">
       <DependentUpon>BaiduTTSSettingsControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="engine\baipiao\BaipiaoEngine.cs" />
+    <Compile Include="engine\baipiao\BaipiaoSettings.cs" />
+    <Compile Include="engine\baipiao\BaipiaoSettingsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="engine\baipiao\BaipiaoSettingsControl.Designer.cs">
+      <DependentUpon>BaipiaoSettingsControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="engine\ITTSEngine.cs" />
     <Compile Include="engine\sapi5\SAPI5Engine.cs" />
     <Compile Include="engine\sapi5\SAPI5Settings.cs" />
@@ -118,6 +126,9 @@
   <ItemGroup>
     <EmbeddedResource Include="engine\baidu\BaiduTTSSettingsControl.resx">
       <DependentUpon>BaiduTTSSettingsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="engine\baipiao\BaipiaoSettingsControl.resx">
+      <DependentUpon>BaipiaoSettingsControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="engine\sapi5\SAPI5SettingsControl.resx">
       <DependentUpon>SAPI5SettingsControl.cs</DependentUpon>

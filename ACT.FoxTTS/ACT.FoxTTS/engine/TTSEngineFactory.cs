@@ -1,5 +1,6 @@
 ﻿using ACT.FoxCommon.localization;
 using ACT.FoxTTS.engine.baidu;
+using ACT.FoxTTS.engine.baipiao;
 using ACT.FoxTTS.engine.sapi5;
 
 namespace ACT.FoxTTS.engine
@@ -21,6 +22,7 @@ namespace ACT.FoxTTS.engine
         {
             new TTSEngineDef("ttsEngineBaidu"),
             new TTSEngineDef("ttsEngineSAPI5"),
+            new TTSEngineDef("ttsEngineBaipiao"),
         };
 
         public static ITTSEngine CreateEngine(string engine)
@@ -29,6 +31,8 @@ namespace ACT.FoxTTS.engine
             {
                 case "ttsEngineSAPI5":
                     return new SAPI5Engine();
+                case "ttsEngineBaipiao":
+                    return new BaipiaoEngine();
                 case "ttsEngineBaidu":
                 default:
                     return new BaiduTTSEngine();
