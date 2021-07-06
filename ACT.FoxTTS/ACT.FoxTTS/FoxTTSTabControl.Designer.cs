@@ -133,6 +133,7 @@
             // tabPageGeneralSettings
             // 
             this.tabPageGeneralSettings.AutoScroll = true;
+            this.tabPageGeneralSettings.BackColor = System.Drawing.SystemColors.Window;
             this.tabPageGeneralSettings.Controls.Add(this.groupBoxIntegration);
             this.tabPageGeneralSettings.Controls.Add(this.groupBoxPreview);
             this.tabPageGeneralSettings.Controls.Add(this.groupBoxTTSEngine);
@@ -146,7 +147,6 @@
             this.tabPageGeneralSettings.Size = new System.Drawing.Size(1001, 834);
             this.tabPageGeneralSettings.TabIndex = 0;
             this.tabPageGeneralSettings.Text = "General Settings";
-            this.tabPageGeneralSettings.UseVisualStyleBackColor = true;
             // 
             // groupBoxIntegration
             // 
@@ -713,6 +713,7 @@
             // tabPageTextProcessor
             // 
             this.tabPageTextProcessor.AutoScroll = true;
+            this.tabPageTextProcessor.BackColor = System.Drawing.SystemColors.Window;
             this.tabPageTextProcessor.Controls.Add(this.groupBoxPreprocessRules);
             this.tabPageTextProcessor.Location = new System.Drawing.Point(4, 22);
             this.tabPageTextProcessor.Name = "tabPageTextProcessor";
@@ -720,7 +721,6 @@
             this.tabPageTextProcessor.Size = new System.Drawing.Size(1001, 834);
             this.tabPageTextProcessor.TabIndex = 3;
             this.tabPageTextProcessor.Text = "Text Processor";
-            this.tabPageTextProcessor.UseVisualStyleBackColor = true;
             // 
             // groupBoxPreprocessRules
             // 
@@ -996,6 +996,7 @@
             // 
             // tabPageLog
             // 
+            this.tabPageLog.BackColor = System.Drawing.SystemColors.Window;
             this.tabPageLog.Controls.Add(this.richTextBoxLog);
             this.tabPageLog.Location = new System.Drawing.Point(4, 22);
             this.tabPageLog.Name = "tabPageLog";
@@ -1003,7 +1004,6 @@
             this.tabPageLog.Size = new System.Drawing.Size(1001, 834);
             this.tabPageLog.TabIndex = 2;
             this.tabPageLog.Text = "Log";
-            this.tabPageLog.UseVisualStyleBackColor = true;
             // 
             // richTextBoxLog
             // 
@@ -1019,6 +1019,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Window;
             this.Controls.Add(this.tabControl1);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FoxTTSTabControl";
