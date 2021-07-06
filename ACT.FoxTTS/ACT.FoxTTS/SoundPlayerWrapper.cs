@@ -44,7 +44,7 @@ namespace ACT.FoxTTS
                     // Use built-in api to play sounds
                     // atm we support WMM only
                     // And WMM needs to be called in main thread
-                    ActGlobals.oFormActMain.SafeInvoke(new Action(() => _wmm.PlaySound(waveFile, settings.MasterVolume)));
+                    ActGlobals.oFormActMain.SafeInvoke(new Action(() => _wmm.PlaySound(waveFile)));
                     break;
             }
         }

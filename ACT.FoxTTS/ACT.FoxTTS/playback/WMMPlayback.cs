@@ -37,7 +37,7 @@ namespace ACT.FoxTTS.playback
         /// This method needs to be called from main thread otherwise
         /// a MCIERR_CANNOT_LOAD_DRIVER error will occur.
         /// </summary>
-        public void PlaySound(string waveFile, int volume)
+        public void PlaySound(string waveFile)
         {
             if (waveFile.Length > MAX_PATH)
             {
@@ -78,8 +78,7 @@ namespace ACT.FoxTTS.playback
             SendCmd(new[]
             {
                 "close all",
-                $"open \"{waveFile}\" alias foxTTS",
-                $"setaudio foxTTS volume to {volume * 10}",
+                "open \"" + waveFile + "\" alias foxTTS",
                 "play foxTTS",
             });
         }

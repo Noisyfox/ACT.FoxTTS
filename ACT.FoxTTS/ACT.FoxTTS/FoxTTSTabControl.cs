@@ -418,7 +418,7 @@ namespace ACT.FoxTTS
             {
                 settings.Method = PlaybackMethod.BuiltIn;
 
-                trackBarMasterVolume.Enabled = true;
+                trackBarMasterVolume.Enabled = false;
                 comboBoxPlaybackApi.Enabled = true;
                 comboBoxPlaybackDevice.Enabled = false;
             }
