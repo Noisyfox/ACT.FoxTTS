@@ -175,6 +175,12 @@ namespace ACT.FoxTTS
             OnPluginIntegrationValueChanged(null, EventArgs.Empty);
             OnPlaybackValueChanged(null, EventArgs.Empty);
             DataGridViewRules_SelectionChanged(null, EventArgs.Empty);
+
+            if (_plugin.Settings.BaiduTtsSettings.WasUsingFreeKey)
+            {
+                MessageBox.Show(strings.msgBaiduFreeApiKeyExpired,
+                    strings.actPanelTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void ControllerOnLanguageChanged(bool fromView, string lang)
