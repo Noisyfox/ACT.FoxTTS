@@ -335,6 +335,12 @@
   <data name="messageNewStable" xml:space="preserve">
     <value>发现新的稳定版: {0}。</value>
   </data>
+  <data name="msgErrorInsufficientApiQuota" xml:space="preserve">
+    <value>错误：API 额度不足</value>
+  </data>
+  <data name="msgErrorInvalidApiSecretKey" xml:space="preserve">
+    <value>错误：无效的 API/Secret Key</value>
+  </data>
   <data name="radioButtonIntegrationAct" xml:space="preserve">
     <value>ACT 原生 TTS</value>
   </data>

@@ -705,6 +705,24 @@ namespace ACT.FoxTTS.localization {
         }
         
         /// <summary>
+        ///   查找类似 错误：API 额度不足 的本地化字符串。
+        /// </summary>
+        internal static string msgErrorInsufficientApiQuota {
+            get {
+                return ResourceManager.GetString("msgErrorInsufficientApiQuota", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 错误：无效的 API/Secret Key 的本地化字符串。
+        /// </summary>
+        internal static string msgErrorInvalidApiSecretKey {
+            get {
+                return ResourceManager.GetString("msgErrorInvalidApiSecretKey", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 ACT 原生 TTS 的本地化字符串。
         /// </summary>
         internal static string radioButtonIntegrationAct {

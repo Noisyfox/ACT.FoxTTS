@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Net;
+using ACT.FoxTTS.localization;
 using Baidu.Aip;
 using Baidu.Aip.Speech;
 
@@ -72,6 +73,7 @@ namespace ACT.FoxTTS.engine.baidu
                     var secretKey = settings.SecretKey;
                     if (string.IsNullOrWhiteSpace(apiKey) || string.IsNullOrWhiteSpace(secretKey))
                     {
+                        _plugin.Controller.NotifyLogMessageAppend(false, strings.msgErrorInvalidApiSecretKey);
                         return;
                     }
 
@@ -90,9 +92,9 @@ namespace ACT.FoxTTS.engine.baidu
                             case 502:
                                 if (result.ErrorMsg != null)
                                 {
-                                    if (result.ErrorMsg.StartsWith("4:"))
+                                    if (result.ErrorMsg.StartsWith("4:") || result.ErrorMsg.StartsWith("16:"))
                                     {
-                                        _plugin.Controller.NotifyLogMessageAppend(false, "API 额度不足");
+                                        _plugin.Controller.NotifyLogMessageAppend(false, strings.msgErrorInsufficientApiQuota);
                                     }
                                 }
 
