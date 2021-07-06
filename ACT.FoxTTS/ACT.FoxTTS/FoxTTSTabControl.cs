@@ -16,6 +16,7 @@ using ACT.FoxCommon.update;
 using ACT.FoxTTS.engine;
 using ACT.FoxTTS.localization;
 using ACT.FoxTTS.preprocess;
+using Advanced_Combat_Tracker;
 
 namespace ACT.FoxTTS
 {
@@ -178,8 +179,11 @@ namespace ACT.FoxTTS
 
             if (_plugin.Settings.BaiduTtsSettings.WasUsingFreeKey)
             {
-                MessageBox.Show(strings.msgBaiduFreeApiKeyExpired,
-                    strings.actPanelTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                var ts = new TraySlider
+                {
+                    ButtonLayout = TraySlider.ButtonLayoutEnum.OneButton,
+                };
+                ts.ShowTraySlider(strings.msgBaiduFreeApiKeyExpired, strings.actPanelTitle);
             }
         }
 
@@ -277,8 +281,11 @@ namespace ACT.FoxTTS
             {
                 if (forceNotify)
                 {
-                    MessageBox.Show(strings.messageLatest, strings.actPanelTitle, MessageBoxButtons.OK,
-                        MessageBoxIcon.Information);
+                    var ts = new TraySlider
+                    {
+                        ButtonLayout = TraySlider.ButtonLayoutEnum.OneButton,
+                    };
+                    ts.ShowTraySlider(strings.messageLatest, strings.actPanelTitle);
                 }
             }
             else
@@ -294,22 +301,17 @@ namespace ACT.FoxTTS
                             : strings.messageNewStable,
                         newVersion.ParsedVersion);
 
-                    MessageBoxManager.Yes = strings.buttonUpdateNow;
-                    MessageBoxManager.No = strings.buttonIgnoreVersion;
-                    MessageBoxManager.Cancel = strings.buttonUpdateLater;
-                    MessageBoxManager.Register();
-                    var res = MessageBox.Show(message, strings.actPanelTitle, MessageBoxButtons.YesNoCancel,
-                        MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
-                    MessageBoxManager.Unregister();
-
-                    if (res == DialogResult.No)
+                    var ts = new TraySlider
                     {
-                        _controller.NotifyNewVersionIgnored(true, newVersion.ParsedVersion.ToString());
-                    }
-                    else if (res == DialogResult.Yes)
-                    {
-                        System.Diagnostics.Process.Start(newVersion.PublishPage);
-                    }
+                        ButtonLayout = TraySlider.ButtonLayoutEnum.FourButton,
+                        ButtonSW = { Text = strings.buttonUpdateNow },
+                        ButtonSE = { Text = strings.buttonUpdateLater },
+                        ButtonNE = { Text = strings.buttonIgnoreVersion },
+                    };
+                    ts.ButtonNW.Hide();
+                    ts.ButtonSW.Click += (sender, args) => Process.Start(newVersion.PublishPage);
+                    ts.ButtonNE.Click += (sender, args) => _controller.NotifyNewVersionIgnored(true, newVersion.ParsedVersion.ToString());
+                    ts.ShowTraySlider(message, strings.actPanelTitle);
                 }
             }
         }

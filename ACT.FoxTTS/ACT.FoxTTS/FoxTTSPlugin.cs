@@ -4,6 +4,7 @@ using ACT.FoxCommon.core;
 using ACT.FoxTTS.engine;
 using ACT.FoxTTS.localization;
 using ACT.FoxTTS.preprocess;
+using Advanced_Combat_Tracker;
 
 namespace ACT.FoxTTS
 {
@@ -84,14 +85,14 @@ namespace ACT.FoxTTS
             catch (Exception ex)
             {
                 StatusLabel.Text = "Init Failed: " + ex;
-                if (_settingsLoaded)
+                new TraySlider
                 {
-                    MessageBox.Show($"Init failed!\nCaused by:\n{ex}");
-                }
-                else
-                {
-                    MessageBox.Show($"Init failed before settings are loaded. Settings won't be saved until next successfully initialization to prevent settings lost!\nCaused by:\n{ex}");
-                }
+                    ButtonLayout = TraySlider.ButtonLayoutEnum.OneButton
+                }.ShowTraySlider(
+                    _settingsLoaded
+                        ? $"Init failed!\nCaused by:\n{ex}"
+                        : $"Init failed before settings are loaded. Settings won't be saved until next successfully initialization to prevent settings lost!\nCaused by:\n{ex}"
+                );
             }
         }
 
