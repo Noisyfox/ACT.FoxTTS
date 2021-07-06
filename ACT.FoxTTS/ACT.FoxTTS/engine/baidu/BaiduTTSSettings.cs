@@ -5,10 +5,10 @@ namespace ACT.FoxTTS.engine.baidu
     public class BaiduTTSSettings
     {
         [XmlElement]
-        public string ApiKey = "ALLgqCqouZ9GmIiFgafuyCsG";
+        public string ApiKey = "";
 
         [XmlElement]
-        public string SecretKey = "079d11c1b742b0031adc5872661fab81";
+        public string SecretKey = "";
 
         [XmlElement]
         public int Speed = 5;
@@ -24,5 +24,18 @@ namespace ACT.FoxTTS.engine.baidu
 
         [XmlElement]
         public bool UseHttps = false;
+
+        public void RemoveFreeKey()
+        {
+            if (ApiKey == "ALLgqCqouZ9GmIiFgafuyCsG")
+            {
+                ApiKey = "";
+            }
+
+            if (SecretKey == "079d11c1b742b0031adc5872661fab81")
+            {
+                SecretKey = "";
+            }
+        }
     }
 }

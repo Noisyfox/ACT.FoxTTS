@@ -45,7 +45,6 @@
             this.labelPitchValue = new System.Windows.Forms.Label();
             this.labelVolumeValue = new System.Windows.Forms.Label();
             this.linkLabelOpenBaiduReg = new System.Windows.Forms.LinkLabel();
-            this.linkLabelSetRecommend = new System.Windows.Forms.LinkLabel();
             this.checkBoxUseHttps = new System.Windows.Forms.CheckBox();
             this.checkBoxApiKey = new System.Windows.Forms.CheckBox();
             this.checkBoxSecretKey = new System.Windows.Forms.CheckBox();
@@ -67,7 +66,7 @@
             this.groupBoxTTSEngineDetail.Margin = new System.Windows.Forms.Padding(2);
             this.groupBoxTTSEngineDetail.Name = "groupBoxTTSEngineDetail";
             this.groupBoxTTSEngineDetail.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBoxTTSEngineDetail.Size = new System.Drawing.Size(250, 337);
+            this.groupBoxTTSEngineDetail.Size = new System.Drawing.Size(250, 310);
             this.groupBoxTTSEngineDetail.TabIndex = 0;
             this.groupBoxTTSEngineDetail.TabStop = false;
             this.groupBoxTTSEngineDetail.Text = "Engine Detail";
@@ -93,8 +92,7 @@
             this.tableLayoutPanel1.Controls.Add(this.labelSpeedValue, 2, 2);
             this.tableLayoutPanel1.Controls.Add(this.labelPitchValue, 2, 3);
             this.tableLayoutPanel1.Controls.Add(this.labelVolumeValue, 2, 4);
-            this.tableLayoutPanel1.Controls.Add(this.linkLabelOpenBaiduReg, 0, 8);
-            this.tableLayoutPanel1.Controls.Add(this.linkLabelSetRecommend, 0, 7);
+            this.tableLayoutPanel1.Controls.Add(this.linkLabelOpenBaiduReg, 0, 7);
             this.tableLayoutPanel1.Controls.Add(this.checkBoxUseHttps, 0, 6);
             this.tableLayoutPanel1.Controls.Add(this.checkBoxApiKey, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.checkBoxSecretKey, 0, 1);
@@ -102,7 +100,7 @@
             this.tableLayoutPanel1.Location = new System.Drawing.Point(2, 16);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 9;
+            this.tableLayoutPanel1.RowCount = 8;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -111,8 +109,8 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(246, 319);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(246, 292);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // textBoxApiKey
@@ -283,7 +281,7 @@
             this.linkLabelOpenBaiduReg.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.linkLabelOpenBaiduReg.AutoSize = true;
             this.tableLayoutPanel1.SetColumnSpan(this.linkLabelOpenBaiduReg, 3);
-            this.linkLabelOpenBaiduReg.Location = new System.Drawing.Point(2, 297);
+            this.linkLabelOpenBaiduReg.Location = new System.Drawing.Point(2, 270);
             this.linkLabelOpenBaiduReg.Margin = new System.Windows.Forms.Padding(2, 15, 2, 10);
             this.linkLabelOpenBaiduReg.Name = "linkLabelOpenBaiduReg";
             this.linkLabelOpenBaiduReg.Size = new System.Drawing.Size(242, 12);
@@ -291,20 +289,6 @@
             this.linkLabelOpenBaiduReg.TabStop = true;
             this.linkLabelOpenBaiduReg.Text = "Register Your Own API Keys";
             this.linkLabelOpenBaiduReg.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelOpenBaiduReg_LinkClicked);
-            // 
-            // linkLabelSetRecommend
-            // 
-            this.linkLabelSetRecommend.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.linkLabelSetRecommend.AutoSize = true;
-            this.tableLayoutPanel1.SetColumnSpan(this.linkLabelSetRecommend, 3);
-            this.linkLabelSetRecommend.Location = new System.Drawing.Point(2, 270);
-            this.linkLabelSetRecommend.Margin = new System.Windows.Forms.Padding(2, 15, 2, 0);
-            this.linkLabelSetRecommend.Name = "linkLabelSetRecommend";
-            this.linkLabelSetRecommend.Size = new System.Drawing.Size(242, 12);
-            this.linkLabelSetRecommend.TabIndex = 16;
-            this.linkLabelSetRecommend.TabStop = true;
-            this.linkLabelSetRecommend.Text = "Set to Recommend";
-            this.linkLabelSetRecommend.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelSetRecommend_LinkClicked);
             // 
             // checkBoxUseHttps
             // 
@@ -352,7 +336,7 @@
             this.Controls.Add(this.groupBoxTTSEngineDetail);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "BaiduTTSSettingsControl";
-            this.Size = new System.Drawing.Size(250, 337);
+            this.Size = new System.Drawing.Size(250, 310);
             this.groupBoxTTSEngineDetail.ResumeLayout(false);
             this.groupBoxTTSEngineDetail.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -383,7 +367,6 @@
         private System.Windows.Forms.Label labelPitchValue;
         private System.Windows.Forms.Label labelVolumeValue;
         private System.Windows.Forms.LinkLabel linkLabelOpenBaiduReg;
-        private System.Windows.Forms.LinkLabel linkLabelSetRecommend;
         private System.Windows.Forms.CheckBox checkBoxUseHttps;
         private System.Windows.Forms.CheckBox checkBoxApiKey;
         private System.Windows.Forms.CheckBox checkBoxSecretKey;

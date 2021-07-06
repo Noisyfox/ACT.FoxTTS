@@ -49,6 +49,7 @@ namespace ACT.FoxTTS
                         break;
                     case nameof(BaiduTTSSettings):
                         BaiduTtsSettings = reader.Deserialize<BaiduTTSSettings>();
+                        BaiduTtsSettings.RemoveFreeKey();
                         break;
                     case nameof(SAPI5Settings):
                         SApi5Settings = reader.Deserialize<SAPI5Settings>();
