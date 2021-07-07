@@ -327,6 +327,13 @@
             this.checkBoxSecretKey.UseVisualStyleBackColor = true;
             this.checkBoxSecretKey.CheckedChanged += new System.EventHandler(this.checkBoxApiKey_CheckedChanged);
             // 
+            // toolTip1
+            // 
+            this.toolTip1.AutomaticDelay = 1;
+            this.toolTip1.AutoPopDelay = 0;
+            this.toolTip1.InitialDelay = 1;
+            this.toolTip1.ReshowDelay = 0;
+            // 
             // BaiduTTSSettingsControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
