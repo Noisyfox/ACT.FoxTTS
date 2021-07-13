@@ -166,7 +166,7 @@
     <value>API Key:</value>
   </data>
   <data name="checkBoxApiKey.Tooltip" xml:space="preserve">
-    <value>勾选以显示 API Key。截图时请注意不要泄露！</value>
+    <value>勾选以显示 API Key。截图时请注意不要泄露！5秒后自动隐藏。</value>
   </data>
   <data name="checkBoxCheckUpdate" xml:space="preserve">
     <value>自动检查更新</value>
@@ -184,7 +184,7 @@
     <value>Secret Key:</value>
   </data>
   <data name="checkBoxSecretKey.Tooltip" xml:space="preserve">
-    <value>勾选以显示 Secret Key。截图时请注意不要泄露！</value>
+    <value>勾选以显示 Secret Key。截图时请注意不要泄露！5秒后自动隐藏。</value>
   </data>
   <data name="checkBoxUseHttps" xml:space="preserve">
     <value>使用 HTTPS</value>

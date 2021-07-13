@@ -95,6 +95,19 @@ namespace ACT.FoxTTS.engine.baidu
         {
             textBoxApiKey.PasswordChar = checkBoxApiKey.Checked ? '\0' : '*';
             textBoxSecretKey.PasswordChar = checkBoxSecretKey.Checked ? '\0' : '*';
+
+            timerHideKey.Stop();
+            if (checkBoxApiKey.Checked || checkBoxSecretKey.Checked)
+            {
+                timerHideKey.Start();
+            }
+        }
+
+        private void timerHideKey_Tick(object sender, EventArgs e)
+        {
+            checkBoxApiKey.Checked = false;
+            checkBoxSecretKey.Checked = false;
+            timerHideKey.Stop();
         }
     }
 }

@@ -49,6 +49,7 @@
             this.checkBoxApiKey = new System.Windows.Forms.CheckBox();
             this.checkBoxSecretKey = new System.Windows.Forms.CheckBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.timerHideKey = new System.Windows.Forms.Timer(this.components);
             this.groupBoxTTSEngineDetail.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarSpeed)).BeginInit();
@@ -334,6 +335,11 @@
             this.toolTip1.InitialDelay = 1;
             this.toolTip1.ReshowDelay = 0;
             // 
+            // timerHideKey
+            // 
+            this.timerHideKey.Interval = 5000;
+            this.timerHideKey.Tick += new System.EventHandler(this.timerHideKey_Tick);
+            // 
             // BaiduTTSSettingsControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -378,5 +384,6 @@
         private System.Windows.Forms.CheckBox checkBoxApiKey;
         private System.Windows.Forms.CheckBox checkBoxSecretKey;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.Timer timerHideKey;
     }
 }

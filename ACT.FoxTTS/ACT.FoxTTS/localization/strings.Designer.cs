@@ -205,7 +205,7 @@ namespace ACT.FoxTTS.localization {
         }
         
         /// <summary>
-        ///   查找类似 勾选以显示 API Key。截图时请注意不要泄露！ 的本地化字符串。
+        ///   查找类似 勾选以显示 API Key。截图时请注意不要泄露！5秒后自动隐藏。 的本地化字符串。
         /// </summary>
         internal static string checkBoxApiKey_Tooltip {
             get {
@@ -259,7 +259,7 @@ namespace ACT.FoxTTS.localization {
         }
         
         /// <summary>
-        ///   查找类似 勾选以显示 Secret Key。截图时请注意不要泄露！ 的本地化字符串。
+        ///   查找类似 勾选以显示 Secret Key。截图时请注意不要泄露！5秒后自动隐藏。 的本地化字符串。
         /// </summary>
         internal static string checkBoxSecretKey_Tooltip {
             get {
