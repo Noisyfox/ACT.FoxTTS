@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Net;
 using System.Numerics;
 using System.Text;
+using ACT.FoxCommon.core;
 
 namespace ACT.FoxTTS
 {
@@ -32,6 +35,40 @@ namespace ACT.FoxTTS
                 builder.Insert(0, Alphabet[Math.Abs(((int)remainder))]);
             }
             return builder.ToString();
+        }
+
+        public static void Download(MainControllerBase controller, string url, string file)
+        {
+            using (var response = WebRequest.Create(url).GetResponse() as HttpWebResponse)
+            {
+                if (response.StatusCode != HttpStatusCode.OK)
+                {
+                    // TODO: better logging
+                    controller.NotifyLogMessageAppend(false, $"Unable to complete the request: {response}");
+                    return;
+                }
+
+                var rs = response.GetResponseStream();
+                var buffer = new byte[1024];
+                using (var fileStream = new FileStream(
+                    file,
+                    FileMode.OpenOrCreate,
+                    FileAccess.Write,
+                    FileShare.ReadWrite
+                ))
+                {
+                    while (true)
+                    {
+                        var count = rs.Read(buffer, 0, buffer.Length);
+                        if (count <= 0)
+                        {
+                            break;
+                        }
+
+                        fileStream.Write(buffer, 0, count);
+                    }
+                }
+            }
         }
     }
 }

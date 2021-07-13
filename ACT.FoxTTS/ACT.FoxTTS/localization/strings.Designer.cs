@@ -892,6 +892,15 @@ namespace ACT.FoxTTS.localization {
         }
         
         /// <summary>
+        ///   查找类似 CafeTTS（阿里云） 的本地化字符串。
+        /// </summary>
+        internal static string ttsEngineCafe {
+            get {
+                return ResourceManager.GetString("ttsEngineCafe", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 系统自带 TTS 的本地化字符串。
         /// </summary>
         internal static string ttsEngineSAPI5 {

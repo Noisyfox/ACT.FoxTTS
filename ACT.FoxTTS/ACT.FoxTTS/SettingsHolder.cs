@@ -3,6 +3,7 @@ using System.Xml.Serialization;
 using ACT.FoxCommon.core;
 using ACT.FoxTTS.engine.baidu;
 using ACT.FoxTTS.engine.baipiao;
+using ACT.FoxTTS.engine.cafe;
 using ACT.FoxTTS.engine.sapi5;
 using ACT.FoxTTS.preprocess;
 using Advanced_Combat_Tracker;
@@ -18,6 +19,7 @@ namespace ACT.FoxTTS
 
         public PlaybackSettings Playback = new PlaybackSettings();
         public PreProcessorSettings PreProcessorSettings = new PreProcessorSettings();
+        public CafeTTSSettings CafeTtsSettings = new CafeTTSSettings();
         public BaiduTTSSettings BaiduTtsSettings = new BaiduTTSSettings();
         public SAPI5Settings SApi5Settings = new SAPI5Settings();
         public BaipiaoSettings BaipiaoSettings = new BaipiaoSettings();
@@ -32,6 +34,7 @@ namespace ACT.FoxTTS
 
                 writer.Serialize(Playback);
                 writer.Serialize(PreProcessorSettings);
+                writer.Serialize(CafeTtsSettings);
                 writer.Serialize(BaiduTtsSettings);
                 writer.Serialize(SApi5Settings);
                 writer.Serialize(BaipiaoSettings);
@@ -49,6 +52,9 @@ namespace ACT.FoxTTS
                         break;
                     case nameof(PreProcessorSettings):
                         PreProcessorSettings = reader.Deserialize<PreProcessorSettings>();
+                        break;
+                    case nameof(CafeTTSSettings):
+                        CafeTtsSettings = reader.Deserialize<CafeTTSSettings>();
                         break;
                     case nameof(BaiduTTSSettings):
                         BaiduTtsSettings = reader.Deserialize<BaiduTTSSettings>();
@@ -145,6 +151,8 @@ namespace ACT.FoxTTS
         public PlaybackSettings PlaybackSettings => Settings.Playback;
 
         public PreProcessorSettings PreProcessorSettings => Settings.PreProcessorSettings;
+
+        public CafeTTSSettings CafeTtsSettings => Settings.CafeTtsSettings;
 
         public BaiduTTSSettings BaiduTtsSettings => Settings.BaiduTtsSettings;
 

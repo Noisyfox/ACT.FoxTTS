@@ -402,6 +402,9 @@
   <data name="ttsEngineBaipiao" xml:space="preserve">
     <value>百度语音（白嫖）</value>
   </data>
+  <data name="ttsEngineCafe" xml:space="preserve">
+    <value>CafeTTS（阿里云）</value>
+  </data>
   <data name="ttsEngineSAPI5" xml:space="preserve">
     <value>系统自带 TTS</value>
   </data>

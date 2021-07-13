@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Net;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ACT.FoxTTS.engine.baipiao
 {
@@ -64,36 +59,7 @@ namespace ACT.FoxTTS.engine.baipiao
                     var url =
                         $"https://fanyi.baidu.com/gettts?lan=zh&text={WebUtility.UrlEncode(text)}&spd={settings.Speed}&source=web";
 
-                    using (var response = WebRequest.Create(url).GetResponse() as HttpWebResponse)
-                    {
-                        if (response.StatusCode != HttpStatusCode.OK)
-                        {
-                            _plugin.Controller.NotifyLogMessageAppend(false,
-                                $"Unable to complete the request: {response}");
-                            return;
-                        }
-
-                        var rs = response.GetResponseStream();
-                        var buffer = new byte[1024];
-                        using (var fileStream = new FileStream(
-                            f,
-                            FileMode.OpenOrCreate,
-                            FileAccess.Write,
-                            FileShare.ReadWrite
-                        ))
-                        {
-                            while (true)
-                            {
-                                var count = rs.Read(buffer, 0, buffer.Length);
-                                if (count <= 0)
-                                {
-                                    break;
-                                }
-
-                                fileStream.Write(buffer, 0, count);
-                            }
-                        }
-                    }
+                    Utils.Download(_plugin.Controller, url, f);
                 });
 
             _plugin.SoundPlayer.Play(wave, playDevice, isSync, volume);
