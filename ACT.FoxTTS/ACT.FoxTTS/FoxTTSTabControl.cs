@@ -114,6 +114,20 @@ namespace ACT.FoxTTS
             comboBoxTTSEngine.SelectedItem =
                 TTSEngineFactory.Engines.FirstOrDefault(it => it.Name.Equals(_plugin.Settings.TTSEngine)) ??
                 TTSEngineFactory.Engines.First();
+
+            if (_plugin.Settings.BaiduTtsSettings.WasUsingFreeKey &&
+                comboBoxTTSEngine.SelectedItem == TTSEngineFactory.EngineBaidu)
+            {
+                // Automatically switch to CafeTTS if user is currently using baidu tts free key
+                comboBoxTTSEngine.SelectedItem = TTSEngineFactory.EngineCafe;
+
+                var ts = new TraySlider
+                {
+                    ButtonLayout = TraySlider.ButtonLayoutEnum.OneButton,
+                };
+                ts.ShowTraySlider(strings.msgBaiduFreeApiKeyExpired, strings.actPanelTitle);
+            }
+
             comboBoxTTSEngine.SelectedIndexChanged += comboBoxTTSEngine_SelectedIndexChanged;
 
             switch (_plugin.Settings.PluginIntegration)
@@ -176,15 +190,6 @@ namespace ACT.FoxTTS
             OnPluginIntegrationValueChanged(null, EventArgs.Empty);
             OnPlaybackValueChanged(null, EventArgs.Empty);
             DataGridViewRules_SelectionChanged(null, EventArgs.Empty);
-
-            if (_plugin.Settings.BaiduTtsSettings.WasUsingFreeKey)
-            {
-                var ts = new TraySlider
-                {
-                    ButtonLayout = TraySlider.ButtonLayoutEnum.OneButton,
-                };
-                ts.ShowTraySlider(strings.msgBaiduFreeApiKeyExpired, strings.actPanelTitle);
-            }
         }
 
         private void ControllerOnLanguageChanged(bool fromView, string lang)

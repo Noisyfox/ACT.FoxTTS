@@ -716,7 +716,9 @@ namespace ACT.FoxTTS.localization {
         }
         
         /// <summary>
-        ///   查找类似 本插件自带的免费百度语音 API Key 额度已经用完了，如需继续使用百度语音，请点击百度语音设置界面下方的 “注册 API 密钥” 按钮免费申请自己的 Key。 的本地化字符串。
+        ///   查找类似 本插件自带的免费百度语音 API Key 额度已经用完了，如需继续使用百度语音，请点击百度语音设置界面下方的 “注册 API 密钥” 按钮免费申请自己的 Key。
+        ///
+        ///已自动为你切换到了 CafeTTS。 的本地化字符串。
         /// </summary>
         internal static string msgBaiduFreeApiKeyExpired {
             get {

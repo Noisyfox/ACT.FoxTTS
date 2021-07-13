@@ -19,10 +19,13 @@ namespace ACT.FoxTTS.engine
 
     class TTSEngineFactory
     {
-        public static TTSEngineDef[] Engines =
+        public static readonly TTSEngineDef EngineCafe = new TTSEngineDef("ttsEngineCafe");
+        public static readonly TTSEngineDef EngineBaidu = new TTSEngineDef("ttsEngineBaidu");
+
+        public static readonly TTSEngineDef[] Engines =
         {
-            new TTSEngineDef("ttsEngineCafe"),
-            new TTSEngineDef("ttsEngineBaidu"),
+            EngineCafe,
+            EngineBaidu,
             new TTSEngineDef("ttsEngineSAPI5"),
             new TTSEngineDef("ttsEngineBaipiao"),
         };
