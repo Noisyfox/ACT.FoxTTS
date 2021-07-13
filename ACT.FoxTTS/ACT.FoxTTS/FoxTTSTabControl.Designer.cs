@@ -164,22 +164,26 @@
             // radioButtonIntegrationYukkuri
             // 
             this.radioButtonIntegrationYukkuri.AutoSize = true;
+            this.radioButtonIntegrationYukkuri.Enabled = false;
             this.radioButtonIntegrationYukkuri.Location = new System.Drawing.Point(9, 67);
             this.radioButtonIntegrationYukkuri.Name = "radioButtonIntegrationYukkuri";
             this.radioButtonIntegrationYukkuri.Size = new System.Drawing.Size(65, 16);
             this.radioButtonIntegrationYukkuri.TabIndex = 2;
             this.radioButtonIntegrationYukkuri.Text = "Yukkuri";
             this.radioButtonIntegrationYukkuri.UseVisualStyleBackColor = true;
+            this.radioButtonIntegrationYukkuri.Visible = false;
             // 
             // radioButtonIntegrationAct
             // 
             this.radioButtonIntegrationAct.AutoSize = true;
+            this.radioButtonIntegrationAct.Enabled = false;
             this.radioButtonIntegrationAct.Location = new System.Drawing.Point(9, 44);
             this.radioButtonIntegrationAct.Name = "radioButtonIntegrationAct";
             this.radioButtonIntegrationAct.Size = new System.Drawing.Size(41, 16);
             this.radioButtonIntegrationAct.TabIndex = 1;
             this.radioButtonIntegrationAct.Text = "ACT";
             this.radioButtonIntegrationAct.UseVisualStyleBackColor = true;
+            this.radioButtonIntegrationAct.Visible = false;
             // 
             // radioButtonIntegrationAuto
             // 

@@ -390,6 +390,10 @@ namespace ACT.FoxTTS
             {
                 settings.PluginIntegration = PluginIntegration.Auto;
             }
+
+            radioButtonIntegrationAct.Visible =
+                radioButtonIntegrationYukkuri.Visible =
+                    settings.PluginIntegration != PluginIntegration.Auto;
         }
 
         private void OnPlaybackValueChanged(object sender, EventArgs e)
