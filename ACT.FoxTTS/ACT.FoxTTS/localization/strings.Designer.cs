@@ -743,7 +743,7 @@ namespace ACT.FoxTTS.localization {
         }
         
         /// <summary>
-        ///   查找类似 ACT 原生 TTS 的本地化字符串。
+        ///   查找类似 [不推荐] ACT 原生 TTS 的本地化字符串。
         /// </summary>
         internal static string radioButtonIntegrationAct {
             get {
@@ -761,7 +761,7 @@ namespace ACT.FoxTTS.localization {
         }
         
         /// <summary>
-        ///   查找类似 Hojoring 语音合成 (TTSYukkuri) 的本地化字符串。
+        ///   查找类似 [不推荐] Hojoring 语音合成 (TTSYukkuri) 的本地化字符串。
         /// </summary>
         internal static string radioButtonIntegrationYukkuri {
             get {
@@ -788,7 +788,7 @@ namespace ACT.FoxTTS.localization {
         }
         
         /// <summary>
-        ///   查找类似 使用 TTSYukkuri 的设置进行回放 的本地化字符串。
+        ///   查找类似 [不推荐] 使用 TTSYukkuri 的设置进行回放 的本地化字符串。
         /// </summary>
         internal static string radioButtonPlaybackYukkuri {
             get {

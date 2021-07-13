@@ -350,13 +350,13 @@
     <value>错误：无效的 API/Secret Key</value>
   </data>
   <data name="radioButtonIntegrationAct" xml:space="preserve">
-    <value>ACT 原生 TTS</value>
+    <value>[不推荐] ACT 原生 TTS</value>
   </data>
   <data name="radioButtonIntegrationAuto" xml:space="preserve">
     <value>自动检测</value>
   </data>
   <data name="radioButtonIntegrationYukkuri" xml:space="preserve">
-    <value>Hojoring 语音合成 (TTSYukkuri)</value>
+    <value>[不推荐] Hojoring 语音合成 (TTSYukkuri)</value>
   </data>
   <data name="radioButtonPlaybackACT" xml:space="preserve">
     <value>使用 ACT 的设置进行回放</value>
@@ -365,7 +365,7 @@
     <value>使用内置回放 API</value>
   </data>
   <data name="radioButtonPlaybackYukkuri" xml:space="preserve">
-    <value>使用 TTSYukkuri 的设置进行回放</value>
+    <value>[不推荐] 使用 TTSYukkuri 的设置进行回放</value>
   </data>
   <data name="settingsError" xml:space="preserve">
     <value>无法加载当前的设置文件！</value>
