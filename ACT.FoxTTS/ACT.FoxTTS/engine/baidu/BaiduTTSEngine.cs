@@ -73,7 +73,8 @@ namespace ACT.FoxTTS.engine.baidu
                     var secretKey = settings.SecretKey;
                     if (string.IsNullOrWhiteSpace(apiKey) || string.IsNullOrWhiteSpace(secretKey))
                     {
-                        _plugin.Controller.NotifyLogMessageAppend(false, strings.msgErrorInvalidApiSecretKey);
+                        _plugin.Controller.NotifyLogMessageAppend(false, strings.msgErrorEmptyApiSecretKey);
+                        _settingsControl.NotifyEmptyApiKey();
                         return;
                     }
 
@@ -94,7 +95,7 @@ namespace ACT.FoxTTS.engine.baidu
                                 {
                                     if (result.ErrorMsg.StartsWith("4:") || result.ErrorMsg.StartsWith("16:"))
                                     {
-                                        _plugin.Controller.NotifyLogMessageAppend(false, strings.msgErrorInsufficientApiQuota);
+                                        _plugin.Controller.NotifyLogMessageAppend(false, strings.msgErrorBaiduInsufficientApiQuota);
                                     }
                                 }
 

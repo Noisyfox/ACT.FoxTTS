@@ -6,6 +6,7 @@ using ACT.FoxCommon;
 using ACT.FoxCommon.dpi;
 using ACT.FoxCommon.localization;
 using ACT.FoxTTS.localization;
+using Advanced_Combat_Tracker;
 
 namespace ACT.FoxTTS.engine.baidu
 {
@@ -51,6 +52,11 @@ namespace ACT.FoxTTS.engine.baidu
             OnValueChanged(null, EventArgs.Empty);
 
             checkBoxApiKey_CheckedChanged(null, EventArgs.Empty);
+
+            if (string.IsNullOrWhiteSpace(settings.ApiKey) || string.IsNullOrWhiteSpace(settings.SecretKey))
+            {
+                NotifyEmptyApiKey();
+            }
         }
 
         public void RemoveFromAct()
@@ -84,6 +90,21 @@ namespace ACT.FoxTTS.engine.baidu
             settings.Person = comboBoxPerson.SelectedIndex;
 
             settings.UseHttps = checkBoxUseHttps.Checked;
+
+            Validate(textBoxApiKey);
+            Validate(textBoxSecretKey);
+        }
+
+        private static void Validate(TextBox tb)
+        {
+            if (tb.TextLength > 0)
+            {
+                tb.ResetBackColor();
+            }
+            else
+            {
+                tb.BackColor = Color.Red;
+            }
         }
 
         private void linkLabelOpenBaiduReg_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -108,6 +129,25 @@ namespace ACT.FoxTTS.engine.baidu
             checkBoxApiKey.Checked = false;
             checkBoxSecretKey.Checked = false;
             timerHideKey.Stop();
+        }
+
+        internal void NotifyEmptyApiKey()
+        {
+            if (InvokeRequired)
+            {
+                this.SafeInvoke(new Action(delegate
+                {
+                    NotifyEmptyApiKey();
+                }));
+            }
+            else
+            {
+                var ts = new TraySlider
+                {
+                    ButtonLayout = TraySlider.ButtonLayoutEnum.OneButton,
+                };
+                ts.ShowTraySlider(strings.msgBaiduApiKeyEmpty, strings.actPanelTitle);
+            }
         }
     }
 }

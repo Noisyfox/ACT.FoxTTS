@@ -716,6 +716,17 @@ namespace ACT.FoxTTS.localization {
         }
         
         /// <summary>
+        ///   查找类似 你目前选择了百度TTS语音合成，该引擎需要自助申请 API Key 才可使用，普通用户建议在本插件的设置界面中选择其他引擎。
+        ///
+        ///请注意，你当前的设置会导致TTS没有声音！ 的本地化字符串。
+        /// </summary>
+        internal static string msgBaiduApiKeyEmpty {
+            get {
+                return ResourceManager.GetString("msgBaiduApiKeyEmpty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 本插件自带的免费百度语音 API Key 额度已经用完了，如需继续使用百度语音，请点击百度语音设置界面下方的 “注册 API 密钥” 按钮免费申请自己的 Key。
         ///
         ///已自动为你切换到了 CafeTTS。 的本地化字符串。
@@ -727,20 +738,20 @@ namespace ACT.FoxTTS.localization {
         }
         
         /// <summary>
-        ///   查找类似 错误：API 额度不足 的本地化字符串。
+        ///   查找类似 错误：API 额度不足，你的 API Key 可用次数用完了，或者账户余额不足 的本地化字符串。
         /// </summary>
-        internal static string msgErrorInsufficientApiQuota {
+        internal static string msgErrorBaiduInsufficientApiQuota {
             get {
-                return ResourceManager.GetString("msgErrorInsufficientApiQuota", resourceCulture);
+                return ResourceManager.GetString("msgErrorBaiduInsufficientApiQuota", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   查找类似 错误：无效的 API/Secret Key 的本地化字符串。
+        ///   查找类似 错误：你没有填 API/Secret Key！请确保在设置界面填入了正确的 API/Secret Key，否则会没有声音！ 的本地化字符串。
         /// </summary>
-        internal static string msgErrorInvalidApiSecretKey {
+        internal static string msgErrorEmptyApiSecretKey {
             get {
-                return ResourceManager.GetString("msgErrorInvalidApiSecretKey", resourceCulture);
+                return ResourceManager.GetString("msgErrorEmptyApiSecretKey", resourceCulture);
             }
         }
         
