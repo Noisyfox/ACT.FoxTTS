@@ -85,6 +85,15 @@
     </Compile>
     <Compile Include="engine\cafe\CafeTTSEngine.cs" />
     <Compile Include="engine\cafe\CafeTTSSettings.cs" />
+    <Compile Include="engine\Voice.cs" />
+    <Compile Include="engine\edge\EdgeTTSEngine.cs" />
+    <Compile Include="engine\edge\EdgeTTSSettings.cs" />
+    <Compile Include="engine\edge\EdgeTTSSettingsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="engine\edge\EdgeTTSSettingsControl.Designer.cs">
+      <DependentUpon>EdgeTTSSettingsControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="engine\ITTSEngine.cs" />
     <Compile Include="engine\sapi5\SAPI5Engine.cs" />
     <Compile Include="engine\sapi5\SAPI5Settings.cs" />
@@ -140,6 +149,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="engine\cafe\CafeTTSSettingsControl.resx">
       <DependentUpon>CafeTTSSettingsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="engine\edge\EdgeTTSSettingsControl.resx">
+      <DependentUpon>EdgeTTSSettingsControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="engine\sapi5\SAPI5SettingsControl.resx">
       <DependentUpon>SAPI5SettingsControl.cs</DependentUpon>

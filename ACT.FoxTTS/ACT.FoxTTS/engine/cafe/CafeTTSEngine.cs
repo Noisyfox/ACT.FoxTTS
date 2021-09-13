@@ -12,19 +12,6 @@ namespace ACT.FoxTTS.engine.cafe
         private FoxTTSPlugin _plugin;
         private readonly CafeTTSSettingsControl _settingsControl = new CafeTTSSettingsControl();
 
-        public class Voice
-        {
-            public string Value { get; }
-
-            public string DisplayName { get; }
-
-            public Voice(string value, string displayName)
-            {
-                Value = value;
-                DisplayName = displayName;
-            }
-        }
-
         public static readonly Voice[] Voices = new[]
         {
             new Voice("xiaoyun", "小云 (标准女声 通用 中英文 16K)"),

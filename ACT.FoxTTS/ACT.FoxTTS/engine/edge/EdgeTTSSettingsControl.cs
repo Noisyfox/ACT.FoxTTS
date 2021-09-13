@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
-using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using ACT.FoxCommon;
@@ -8,13 +6,13 @@ using ACT.FoxCommon.dpi;
 using ACT.FoxCommon.localization;
 using ACT.FoxTTS.localization;
 
-namespace ACT.FoxTTS.engine.cafe
+namespace ACT.FoxTTS.engine.edge
 {
-    public partial class CafeTTSSettingsControl : UserControl, IPluginComponent
+    public partial class EdgeTTSSettingsControl : UserControl, IPluginComponent
     {
         private FoxTTSPlugin _plugin;
 
-        public CafeTTSSettingsControl()
+        public EdgeTTSSettingsControl()
         {
             InitializeComponent();
 
@@ -23,7 +21,7 @@ namespace ACT.FoxTTS.engine.cafe
             // Populate voices
             comboBoxPerson.ValueMember = nameof(Voice.Value);
             comboBoxPerson.DisplayMember = nameof(Voice.DisplayName);
-            comboBoxPerson.DataSource = CafeTTSEngine.Voices;
+            comboBoxPerson.DataSource = EdgeTTSEngine.Voices;
         }
 
         public void AttachToAct(FoxTTSPlugin plugin)
@@ -37,7 +35,10 @@ namespace ACT.FoxTTS.engine.cafe
 
         public void PostAttachToAct(FoxTTSPlugin plugin)
         {
-            var settings = plugin.Settings.CafeTtsSettings;
+            var settings = plugin.Settings.EdgeTtsSettings;
+            trackBarSpeed.SetValue(settings.Speed, 100);
+            trackBarPitch.SetValue(settings.Pitch, 100);
+            trackBarVolume.SetValue(settings.Volume, 50);
             var selectedVoice = (comboBoxPerson.DataSource as Voice[]).FirstOrDefault(it => it.Value == settings.Voice);
             if (selectedVoice == null)
             {
@@ -51,6 +52,9 @@ namespace ACT.FoxTTS.engine.cafe
                 comboBoxPerson.SelectedValue = selectedVoice.Value;
             }
 
+            trackBarSpeed.ValueChanged += OnValueChanged;
+            trackBarPitch.ValueChanged += OnValueChanged;
+            trackBarVolume.ValueChanged += OnValueChanged;
             comboBoxPerson.SelectedIndexChanged += OnValueChanged;
 
             OnValueChanged(null, EventArgs.Empty);
@@ -64,14 +68,31 @@ namespace ACT.FoxTTS.engine.cafe
         public void DoLocalization()
         {
             LocalizationBase.TranslateControls(this);
+
+            var settings = _plugin.Settings.EdgeTtsSettings;
+            if (!settings.Accept)
+            {
+                MessageBox.Show(strings.labelEdgeDisclaimer,
+                    strings.actPanelTitle,
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                settings.Accept = true;
+            }
         }
 
         private void OnValueChanged(object sender, EventArgs eventArgs)
         {
-            var settings = _plugin.Settings.CafeTtsSettings;
+            var settings = _plugin.Settings.EdgeTtsSettings;
+
+            labelSpeedValue.Text = (trackBarSpeed.Value / 100.0).ToString("F2") + "X";
+            settings.Speed = trackBarSpeed.Value;
+
+            labelPitchValue.Text = (trackBarPitch.Value / 100.0).ToString("F2");
+            settings.Pitch = trackBarPitch.Value;
+
+            labelVolumeValue.Text = trackBarVolume.Value.ToString();
+            settings.Volume = trackBarVolume.Value;
 
             settings.Voice = comboBoxPerson.SelectedValue as string;
         }
-        
     }
 }

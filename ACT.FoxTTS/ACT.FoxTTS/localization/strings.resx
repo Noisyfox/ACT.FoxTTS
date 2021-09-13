@@ -251,6 +251,11 @@
   <data name="labelCurrentVersion" xml:space="preserve">
     <value>当前版本:</value>
   </data>
+  <data name="labelEdgeDisclaimer" xml:space="preserve">
+    <value>免责声明：
+白嫖微软所造成的一切后果自负，与插件作者无关。
+该引擎随时可能失效，不保证任何可用性。</value>
+  </data>
   <data name="labelFindPattern" xml:space="preserve">
     <value>被替换的文本：</value>
   </data>
@@ -411,6 +416,9 @@
   </data>
   <data name="ttsEngineCafe" xml:space="preserve">
     <value>CafeTTS（阿里云）</value>
+  </data>
+  <data name="ttsEngineEdge" xml:space="preserve">
+    <value>微软语音（白嫖）</value>
   </data>
   <data name="ttsEngineSAPI5" xml:space="preserve">
     <value>系统自带 TTS</value>

@@ -2,6 +2,7 @@
 using ACT.FoxTTS.engine.baidu;
 using ACT.FoxTTS.engine.baipiao;
 using ACT.FoxTTS.engine.cafe;
+using ACT.FoxTTS.engine.edge;
 using ACT.FoxTTS.engine.sapi5;
 
 namespace ACT.FoxTTS.engine
@@ -25,6 +26,7 @@ namespace ACT.FoxTTS.engine
         public static readonly TTSEngineDef[] Engines =
         {
             EngineCafe,
+            new TTSEngineDef("ttsEngineEdge"),
             EngineBaidu,
             new TTSEngineDef("ttsEngineSAPI5"),
             new TTSEngineDef("ttsEngineBaipiao"),
@@ -40,6 +42,8 @@ namespace ACT.FoxTTS.engine
                     return new SAPI5Engine();
                 case "ttsEngineBaipiao":
                     return new BaipiaoEngine();
+                case "ttsEngineEdge":
+                    return new EdgeTTSEngine();
                 case "ttsEngineBaidu":
                 default:
                     return new BaiduTTSEngine();

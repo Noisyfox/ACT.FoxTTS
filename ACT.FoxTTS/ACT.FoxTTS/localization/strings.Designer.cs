@@ -459,6 +459,17 @@ namespace ACT.FoxTTS.localization {
         }
         
         /// <summary>
+        ///   查找类似 免责声明：
+        ///白嫖微软所造成的一切后果自负，与插件作者无关。
+        ///该引擎随时可能失效，不保证任何可用性。 的本地化字符串。
+        /// </summary>
+        internal static string labelEdgeDisclaimer {
+            get {
+                return ResourceManager.GetString("labelEdgeDisclaimer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 被替换的文本： 的本地化字符串。
         /// </summary>
         internal static string labelFindPattern {
@@ -910,6 +921,15 @@ namespace ACT.FoxTTS.localization {
         internal static string ttsEngineCafe {
             get {
                 return ResourceManager.GetString("ttsEngineCafe", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 微软语音（白嫖） 的本地化字符串。
+        /// </summary>
+        internal static string ttsEngineEdge {
+            get {
+                return ResourceManager.GetString("ttsEngineEdge", resourceCulture);
             }
         }
         
