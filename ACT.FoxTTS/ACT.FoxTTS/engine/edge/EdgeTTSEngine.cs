@@ -225,7 +225,7 @@ namespace ACT.FoxTTS.engine.edge
                             case ProtocolState.TurnStarted:
                             case ProtocolState.Streaming:
                                 // Parsing message
-                                // The first byte is the header length
+                                // The first 2 bytes are the header length
                                 if (message.MessageBinary.Length < 2)
                                 {
                                     throw new IOException("Message too short");
