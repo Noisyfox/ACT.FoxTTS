@@ -29,7 +29,7 @@
     <ILMergeFileAlignment></ILMergeFileAlignment>
 
     <!-- added in Version 1.0.4, default=none -->
-    <ILMergeAllowDuplicateType></ILMergeAllowDuplicateType>
+    <ILMergeAllowDuplicateType>*</ILMergeAllowDuplicateType>
 
     <!-- If the <see cref="CopyAttributes"/> is also set, any assembly-level attributes names that have the same type are copied over into the target assembly -->
     <ILMergeAllowMultipleAssemblyLevelAttributes></ILMergeAllowMultipleAssemblyLevelAttributes>

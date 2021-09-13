@@ -315,12 +315,12 @@ namespace ACT.FoxTTS.engine.edge
 
         private class WSSession
         {
-            public readonly ClientWebSocket ws;
+            public readonly WebSocket ws;
             public readonly StringBuilder sb = new StringBuilder();
             public readonly MemoryStream buffer = new MemoryStream();
             public readonly byte[] array = new byte[5 * 1024];
 
-            public WSSession(ClientWebSocket ws)
+            public WSSession(WebSocket ws)
             {
                 this.ws = ws;
             }
@@ -390,9 +390,9 @@ namespace ACT.FoxTTS.engine.edge
         }
 
         private readonly CancellationTokenSource _wsCancellationSource = new CancellationTokenSource();
-        private ClientWebSocket _webSocket;
+        private WebSocket _webSocket;
 
-        private ClientWebSocket ObtainConnection()
+        private WebSocket ObtainConnection()
         {
             lock (this)
             {
@@ -403,7 +403,7 @@ namespace ACT.FoxTTS.engine.edge
 
                 if (_webSocket == null)
                 {
-                    _webSocket = new ClientWebSocket();
+                    _webSocket = SystemClientWebSocket.CreateClientWebSocket();
                 }
 
                 switch (_webSocket.State)
@@ -419,11 +419,11 @@ namespace ACT.FoxTTS.engine.edge
                     case WebSocketState.Closed:
                         _webSocket.Abort();
                         _webSocket.Dispose();
-                        _webSocket = new ClientWebSocket();
+                        _webSocket = SystemClientWebSocket.CreateClientWebSocket();
                         break;
                     case WebSocketState.Aborted:
                         _webSocket.Dispose();
-                        _webSocket = new ClientWebSocket();
+                        _webSocket = SystemClientWebSocket.CreateClientWebSocket();
                         break;
                     default:
                         throw new ArgumentOutOfRangeException();
@@ -431,10 +431,20 @@ namespace ACT.FoxTTS.engine.edge
 
                 Debug.Assert(_webSocket.State == WebSocketState.None);
                 // Connect
-                var options = _webSocket.Options;
-                options.SetRequestHeader("Accept-Encoding", "gzip, deflate, br");
-                options.SetRequestHeader("Cache-Control", "no-cache");
-                options.SetRequestHeader("Pragma", "no-cache");
+                if (_webSocket is ClientWebSocket ws)
+                {
+                    var options = ws.Options;
+                    options.SetRequestHeader("Accept-Encoding", "gzip, deflate, br");
+                    options.SetRequestHeader("Cache-Control", "no-cache");
+                    options.SetRequestHeader("Pragma", "no-cache");
+                }
+                else
+                {
+                    var options = ((System.Net.WebSockets.Managed.ClientWebSocket)_webSocket).Options;
+                    options.SetRequestHeader("Accept-Encoding", "gzip, deflate, br");
+                    options.SetRequestHeader("Cache-Control", "no-cache");
+                    options.SetRequestHeader("Pragma", "no-cache");
+                }
                 _webSocket.ConnectAsync(new Uri(URL), _wsCancellationSource.Token).Wait();
                 return _webSocket;
             }
