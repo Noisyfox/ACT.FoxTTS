@@ -1,13 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Net.Sockets;
 using System.Net.WebSockets;
 using System.Security;
 using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using ACT.FoxCommon;
 using ACT.FoxCommon.core;
 using ACT.FoxCommon.logging;
@@ -85,13 +84,13 @@ namespace ACT.FoxTTS.engine.edge
         public void Stop()
         {
             _wsCancellationSource.Cancel();
+            _keepAlive.StopWorkingThread();
             lock (this)
             {
                 _webSocket?.Abort();
                 _webSocket?.Dispose();
                 _webSocket = null;
             }
-            _keepAlive.StopWorkingThread();
             _settingsControl.RemoveFromAct();
         }
 
@@ -113,7 +112,50 @@ namespace ACT.FoxTTS.engine.edge
                 settings.ToString(),
                 f =>
                 {
-                    var result = Synthesis(settings, text);
+                    byte[] result = null;
+                    var retry = 0;
+                    while(true)
+                    {
+                        try
+                        {
+                            result = Synthesis(settings, text);
+                            break;
+                        }
+                        catch (Exception e)
+                        {
+                            Exception se = e;
+                            while (se != null)
+                            {
+                                if (se is SocketException)
+                                {
+                                    break;
+                                }
+
+                                se = se.InnerException;
+                            }
+
+                            if (se != null && ((SocketException)se).SocketErrorCode == SocketError.ConnectionReset)
+                            {
+                                Logger.Error("连接被服务器中止");
+                            }
+                            else
+                            {
+                                Logger.Error("服务器连接失败", e);
+                            }
+
+                            retry++;
+                            if (retry > 3)
+                            {
+                                Logger.Error("失败太多次，放弃重试", e);
+                                break;
+                            }
+                            else
+                            {
+                                Logger.Error($"语音合成失败，开始第 {retry} 次重试");
+                            }
+                        }
+                    }
+
                     if (result != null)
                     {
                         File.WriteAllBytes(f, result);
@@ -137,6 +179,7 @@ namespace ACT.FoxTTS.engine.edge
 
             if (ws == null)
             {
+                // Cancelled
                 return null;
             }
 
@@ -145,26 +188,35 @@ namespace ACT.FoxTTS.engine.edge
                 // Send request
                 var requestId = Guid.NewGuid().ToString().Replace("-", "");
                 var timestamp = DateTime.UtcNow.ToString("yyyy-MM-ddTHH:mm:ss.fffK");
-                SendText(ws,
-                    "Path:speech.config\r\n" +
-                    $"X-RequestId:{requestId}\r\n" +
-                    $"X-Timestamp:{timestamp}\r\n" +
-                    "Content-Type:application/json\r\n" +
-                    "\r\n" +
-                    "{\"context\":{\"synthesis\":{\"audio\":{\"metadataoptions\":{\"sentenceBoundaryEnabled\":\"false\",\"wordBoundaryEnabled\":\"false\"},\"outputFormat\":\"audio-24khz-48kbitrate-mono-mp3\"}}}}\r\n"
-                );
-                SendText(ws,
-                    "Path:ssml\r\n" +
-                    $"X-RequestId:{requestId}\r\n" +
-                    $"X-Timestamp:{timestamp}\r\n" +
-                    "Content-Type:application/ssml+xml\r\n" +
-                    "\r\n" +
-                    "<speak xmlns=\"http://www.w3.org/2001/10/synthesis\" xmlns:mstts=\"http://www.w3.org/2001/mstts\" xmlns:emo=\"http://www.w3.org/2009/10/emotionml\" version=\"1.0\" xml:lang=\"en-US\">" +
-                    $"<voice name=\"{settings.Voice}\">" +
-                    $"<prosody rate=\"{settings.Speed - 100}%\" pitch=\"{(settings.Pitch - 100) / 2}%\" volume=\"{settings.Volume.Clamp(1, 100)}\">" +
-                    text +
-                    "</prosody></voice></speak>\r\n"
-                );
+                try
+                {
+                    SendText(ws,
+                        "Path:speech.config\r\n" +
+                        $"X-RequestId:{requestId}\r\n" +
+                        $"X-Timestamp:{timestamp}\r\n" +
+                        "Content-Type:application/json\r\n" +
+                        "\r\n" +
+                        "{\"context\":{\"synthesis\":{\"audio\":{\"metadataoptions\":{\"sentenceBoundaryEnabled\":\"false\",\"wordBoundaryEnabled\":\"false\"},\"outputFormat\":\"audio-24khz-48kbitrate-mono-mp3\"}}}}\r\n"
+                    );
+                    SendText(ws,
+                        "Path:ssml\r\n" +
+                        $"X-RequestId:{requestId}\r\n" +
+                        $"X-Timestamp:{timestamp}\r\n" +
+                        "Content-Type:application/ssml+xml\r\n" +
+                        "\r\n" +
+                        "<speak xmlns=\"http://www.w3.org/2001/10/synthesis\" xmlns:mstts=\"http://www.w3.org/2001/mstts\" xmlns:emo=\"http://www.w3.org/2009/10/emotionml\" version=\"1.0\" xml:lang=\"en-US\">" +
+                        $"<voice name=\"{settings.Voice}\">" +
+                        $"<prosody rate=\"{settings.Speed - 100}%\" pitch=\"{(settings.Pitch - 100) / 2}%\" volume=\"{settings.Volume.Clamp(1, 100)}\">" +
+                        text +
+                        "</prosody></voice></speak>\r\n"
+                    );
+                }
+                catch (Exception)
+                {
+                    ws.Abort();
+                    ws.Dispose();
+                    throw;
+                }
 
                 // Start receiving
                 var buffer = new MemoryStream();
@@ -264,8 +316,7 @@ namespace ACT.FoxTTS.engine.edge
                     }
                     else if (message.Type == WebSocketMessageType.Close)
                     {
-                        Logger.Error("Unexpected closing of connection");
-                        return null;
+                        throw new IOException("Unexpected closing of connection");
                     }
                     else
                     {
@@ -438,6 +489,7 @@ namespace ACT.FoxTTS.engine.edge
 
                 Debug.Assert(_webSocket.State == WebSocketState.None);
                 // Connect
+                Logger.Info("（重新）连接 EdgeTTS 服务器中...");
                 if (_webSocket is ClientWebSocket ws)
                 {
                     var options = ws.Options;

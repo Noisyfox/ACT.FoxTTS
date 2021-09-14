@@ -169,7 +169,6 @@ namespace ACT.FoxTTS
 
         public void Speak(string message)
         {
-            Logger.Info($"Speak {message}");
             Task.Run(() =>
             {
                 injector._plugin.Speak(message, 0);
@@ -281,33 +280,28 @@ namespace ACT.FoxTTS
         // ACT.Hojoring 7.8.7+
         void Speak(string text, dynamic playDevice, dynamic voicePalette, bool isSync, float? volume)
         {
-            Logger.Info($"Speak {text}, voicePalette ignored.");
             injector._plugin.Speak(text, playDevice, isSync, volume);
         }
 
         // ACT.Hojoring 5.26.6+
         void Speak(string text, dynamic playDevice, bool isSync, float? volume)
         {
-            Logger.Info($"Speak {text}");
             injector._plugin.Speak(text, playDevice, isSync, volume);
         }
 
         void Speak(string text, dynamic playDevice, bool isSync)
         {
-            Logger.Info($"Speak {text}");
             injector._plugin.Speak(text, playDevice, isSync);
         }
 
         void Speak(string text, dynamic playDevice)
         {
-            Logger.Info($"Speak {text}");
             injector._plugin.Speak(text, playDevice);
         }
 
         // Old Yukkuri version < 3.4
         void Speak(string text)
         {
-            Logger.Info($"Speak {text}");
             injector._plugin.Speak(text, 0);
         }
 

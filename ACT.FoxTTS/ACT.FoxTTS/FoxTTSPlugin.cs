@@ -147,6 +147,7 @@ namespace ACT.FoxTTS
 
         public void Speak(string text, dynamic playDevice, bool isSync = false, float? volume = null)
         {
+            Logger.Info($"Speak {text}");
             try
             {
                 var processed = PreProcessor.Process(text);
