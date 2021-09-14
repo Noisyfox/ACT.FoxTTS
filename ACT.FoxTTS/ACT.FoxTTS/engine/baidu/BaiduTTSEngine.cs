@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Net;
+using ACT.FoxCommon.logging;
 using ACT.FoxTTS.localization;
 using Baidu.Aip;
 using Baidu.Aip.Speech;
@@ -73,7 +74,7 @@ namespace ACT.FoxTTS.engine.baidu
                     var secretKey = settings.SecretKey;
                     if (string.IsNullOrWhiteSpace(apiKey) || string.IsNullOrWhiteSpace(secretKey))
                     {
-                        _plugin.Controller.NotifyLogMessageAppend(false, strings.msgErrorEmptyApiSecretKey);
+                        Logger.Error(strings.msgErrorEmptyApiSecretKey);
                         _settingsControl.NotifyEmptyApiKey();
                         return;
                     }
@@ -86,8 +87,7 @@ namespace ACT.FoxTTS.engine.baidu
                     }
                     else
                     {
-                        _plugin.Controller.NotifyLogMessageAppend(false,
-                            $"Unable to complete the request: {result.ErrorCode}: {result.ErrorMsg}");
+                        Logger.Error($"Unable to complete the request: {result.ErrorCode}: {result.ErrorMsg}");
                         switch (result.ErrorCode)
                         {
                             case 502:
@@ -95,7 +95,7 @@ namespace ACT.FoxTTS.engine.baidu
                                 {
                                     if (result.ErrorMsg.StartsWith("4:") || result.ErrorMsg.StartsWith("16:"))
                                     {
-                                        _plugin.Controller.NotifyLogMessageAppend(false, strings.msgErrorBaiduInsufficientApiQuota);
+                                        Logger.Error(strings.msgErrorBaiduInsufficientApiQuota);
                                     }
                                 }
 

@@ -59,7 +59,7 @@ namespace ACT.FoxTTS.engine.baipiao
                     var url =
                         $"https://fanyi.baidu.com/gettts?lan=zh&text={WebUtility.UrlEncode(text)}&spd={settings.Speed}&source=web";
 
-                    Utils.Download(_plugin.Controller, url, f);
+                    Utils.Download(url, f);
                 });
 
             _plugin.SoundPlayer.Play(wave, playDevice, isSync, volume);

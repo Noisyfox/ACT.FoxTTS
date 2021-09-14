@@ -4,6 +4,7 @@ using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
 using ACT.FoxCommon.core;
+using ACT.FoxCommon.logging;
 using Advanced_Combat_Tracker;
 using ImpromptuInterface;
 using ImpromptuInterface.Build;
@@ -105,10 +106,10 @@ namespace ACT.FoxTTS
                             switch (targetIntegration)
                             {
                                 case PluginIntegration.Act:
-                                    context.Controller.NotifyLogMessageAppend(false, $"ACT integration: {successfullyInjected}");
+                                    Logger.Info($"ACT integration: {successfullyInjected}");
                                     break;
                                 case PluginIntegration.Yukkuri:
-                                    context.Controller.NotifyLogMessageAppend(false, $"Yukkuri integration: {successfullyInjected}");
+                                    Logger.Info($"Yukkuri integration: {successfullyInjected}");
                                     break;
                             }
                         }
@@ -116,7 +117,7 @@ namespace ACT.FoxTTS
                 }
                 catch (Exception e)
                 {
-                    context.Controller.NotifyLogMessageAppend(false, e.ToString());
+                    Logger.Error("Failed to inject TTS integration", e);
                 }
 
                 SafeSleep(longWait ? 5000 : 1000);
@@ -168,7 +169,7 @@ namespace ACT.FoxTTS
 
         public void Speak(string message)
         {
-            injector._plugin.Controller.NotifyLogMessageAppend(false, $"Speak {message}");
+            Logger.Info($"Speak {message}");
             Task.Run(() =>
             {
                 injector._plugin.Speak(message, 0);
@@ -235,7 +236,7 @@ namespace ACT.FoxTTS
                     _originalYukkuriInstance = instance;
                     var myInterface = Impromptu.DynamicActLike(this, context.ISpeechControllerType);
                     _yukkuriContext.SpeechControllerInstanceObject = myInterface;
-                    injector._plugin.Controller.NotifyLogMessageAppend(false, "TTSYukkuri injected!");
+                    Logger.Info("TTSYukkuri injected!");
                 }
             }
         }
@@ -256,7 +257,7 @@ namespace ACT.FoxTTS
             }
             catch (Exception e)
             {
-                injector._plugin.Controller.NotifyLogMessageAppend(false, e.ToString());
+                Logger.Error("Failed to uninject YukkuriInjector", e);
             }
 
             _yukkuriContext = null;
@@ -265,7 +266,7 @@ namespace ACT.FoxTTS
 
         void Initialize()
         {
-            injector._plugin.Controller.NotifyLogMessageAppend(false, "Initialize");
+            Logger.Info("Initialize in YukkuriInjector");
         }
 
         void Free()
@@ -273,40 +274,40 @@ namespace ACT.FoxTTS
             _originalYukkuriInstance?.Free();
             _originalYukkuriInstance = null;
 
-            injector._plugin.Controller.NotifyLogMessageAppend(false, "Free");
+            Logger.Info("Free in YukkuriInjector");
             injector.WakeUp();
         }
 
         // ACT.Hojoring 7.8.7+
         void Speak(string text, dynamic playDevice, dynamic voicePalette, bool isSync, float? volume)
         {
-            injector._plugin.Controller.NotifyLogMessageAppend(false, $"Speak {text}, voicePalette ignored.");
+            Logger.Info($"Speak {text}, voicePalette ignored.");
             injector._plugin.Speak(text, playDevice, isSync, volume);
         }
 
         // ACT.Hojoring 5.26.6+
         void Speak(string text, dynamic playDevice, bool isSync, float? volume)
         {
-            injector._plugin.Controller.NotifyLogMessageAppend(false, $"Speak {text}");
+            Logger.Info($"Speak {text}");
             injector._plugin.Speak(text, playDevice, isSync, volume);
         }
 
         void Speak(string text, dynamic playDevice, bool isSync)
         {
-            injector._plugin.Controller.NotifyLogMessageAppend(false, $"Speak {text}");
+            Logger.Info($"Speak {text}");
             injector._plugin.Speak(text, playDevice, isSync);
         }
 
         void Speak(string text, dynamic playDevice)
         {
-            injector._plugin.Controller.NotifyLogMessageAppend(false, $"Speak {text}");
+            Logger.Info($"Speak {text}");
             injector._plugin.Speak(text, playDevice);
         }
 
         // Old Yukkuri version < 3.4
         void Speak(string text)
         {
-            injector._plugin.Controller.NotifyLogMessageAppend(false, $"Speak {text}");
+            Logger.Info($"Speak {text}");
             injector._plugin.Speak(text, 0);
         }
 
@@ -369,7 +370,7 @@ namespace ACT.FoxTTS
                         _soundPlayerWrapperPlayMethodInfo.Invoke(null, new object[] { waveFile, playDevice, isSync, volume });
                         break;
                     default:
-                        _plugin.Controller.NotifyLogMessageAppend(false, $"Unsupported ACT.Hojoring version! ACT.TTSYukkuri.SoundPlayerWrapper.Play() has unexpected parameter count {paramCount}.");
+                        Logger.Error($"Unsupported ACT.Hojoring version! ACT.TTSYukkuri.SoundPlayerWrapper.Play() has unexpected parameter count {paramCount}.");
                         break;
                 }
             }

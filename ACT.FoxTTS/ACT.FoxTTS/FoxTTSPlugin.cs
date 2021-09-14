@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using ACT.FoxCommon.core;
+using ACT.FoxCommon.logging;
 using ACT.FoxTTS.engine;
 using ACT.FoxTTS.localization;
 using ACT.FoxTTS.preprocess;
@@ -38,6 +39,9 @@ namespace ACT.FoxTTS
 
         public override void InitPlugin(TabPage pluginScreenSpace, Label pluginStatusText)
         {
+            // Display log
+            Logger.OnLogging = s => Controller.NotifyLogMessageAppend(false, s);
+
             _settingsLoaded = false;
             ParentTabPage = pluginScreenSpace;
             StatusLabel = pluginStatusText;
@@ -124,12 +128,13 @@ namespace ACT.FoxTTS
                 Settings?.Save();
             }
 
+            Logger.OnLogging = null;
             StatusLabel.Text = "Exited. Bye~";
         }
 
         private void ControllerOnTtsEngineChanged(bool fromView, string engine)
         {
-            Controller.NotifyLogMessageAppend(fromView, $"TTSEngine Changed: fromView = {fromView}, engine = {engine}");
+            Logger.Info($"TTSEngine Changed: fromView = {fromView}, engine = {engine}");
             lock (this)
             {
                 _ttsEngine?.Stop();
@@ -149,7 +154,7 @@ namespace ACT.FoxTTS
             }
             catch (Exception ex)
             {
-                Controller.NotifyLogMessageAppend(false, ex.ToString());
+                Logger.Error($"Failed to speak \"{text}\"", ex);
             }
         }
     }

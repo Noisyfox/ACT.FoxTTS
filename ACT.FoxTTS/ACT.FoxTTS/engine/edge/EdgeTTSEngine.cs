@@ -10,6 +10,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using ACT.FoxCommon;
 using ACT.FoxCommon.core;
+using ACT.FoxCommon.logging;
 
 namespace ACT.FoxTTS.engine.edge
 {
@@ -122,6 +123,14 @@ namespace ACT.FoxTTS.engine.edge
             _plugin.SoundPlayer.Play(wave, playDevice, isSync, volume);
         }
 
+        private void SendText(WebSocket ws, string msg)
+        {
+            Logger.Debug($"Sending request\n{msg}");
+            ws.SendAsync(new ArraySegment<byte>(Encoding.UTF8.GetBytes(msg)),
+                WebSocketMessageType.Text, true,
+                _wsCancellationSource.Token).Wait();
+        }
+
         private byte[] Synthesis(EdgeTTSSettings settings, string text)
         {
             var ws = ObtainConnection();
@@ -136,28 +145,26 @@ namespace ACT.FoxTTS.engine.edge
                 // Send request
                 var requestId = Guid.NewGuid().ToString().Replace("-", "");
                 var timestamp = DateTime.UtcNow.ToString("yyyy-MM-ddTHH:mm:ss.fffK");
-                ws.SendAsync(new ArraySegment<byte>(Encoding.UTF8.GetBytes(
-                        "Path:speech.config\r\n" +
-                        $"X-RequestId:{requestId}\r\n" +
-                        $"X-Timestamp:{timestamp}\r\n" +
-                        "Content-Type:application/json\r\n" +
-                        "\r\n" +
-                        "{\"context\":{\"synthesis\":{\"audio\":{\"metadataoptions\":{\"sentenceBoundaryEnabled\":\"false\",\"wordBoundaryEnabled\":\"false\"},\"outputFormat\":\"audio-24khz-48kbitrate-mono-mp3\"}}}}\r\n"
-                    )),
-                    WebSocketMessageType.Text, true, _wsCancellationSource.Token).Wait();
-                ws.SendAsync(new ArraySegment<byte>(Encoding.UTF8.GetBytes(
-                        "Path:ssml\r\n" +
-                        $"X-RequestId:{requestId}\r\n" +
-                        $"X-Timestamp:{timestamp}\r\n" +
-                        "Content-Type:application/ssml+xml\r\n" +
-                        "\r\n" +
-                        "<speak xmlns=\"http://www.w3.org/2001/10/synthesis\" xmlns:mstts=\"http://www.w3.org/2001/mstts\" xmlns:emo=\"http://www.w3.org/2009/10/emotionml\" version=\"1.0\" xml:lang=\"en-US\">" +
-                        $"<voice name=\"{settings.Voice}\">" +
-                        $"<prosody rate=\"{settings.Speed - 100}%\" pitch=\"{(settings.Pitch - 100) / 2}%\" volume=\"{settings.Volume.Clamp(1, 100)}\">" +
-                        text +
-                        "</prosody></voice></speak>\r\n"
-                    )),
-                    WebSocketMessageType.Text, true, _wsCancellationSource.Token).Wait();
+                SendText(ws,
+                    "Path:speech.config\r\n" +
+                    $"X-RequestId:{requestId}\r\n" +
+                    $"X-Timestamp:{timestamp}\r\n" +
+                    "Content-Type:application/json\r\n" +
+                    "\r\n" +
+                    "{\"context\":{\"synthesis\":{\"audio\":{\"metadataoptions\":{\"sentenceBoundaryEnabled\":\"false\",\"wordBoundaryEnabled\":\"false\"},\"outputFormat\":\"audio-24khz-48kbitrate-mono-mp3\"}}}}\r\n"
+                );
+                SendText(ws,
+                    "Path:ssml\r\n" +
+                    $"X-RequestId:{requestId}\r\n" +
+                    $"X-Timestamp:{timestamp}\r\n" +
+                    "Content-Type:application/ssml+xml\r\n" +
+                    "\r\n" +
+                    "<speak xmlns=\"http://www.w3.org/2001/10/synthesis\" xmlns:mstts=\"http://www.w3.org/2001/mstts\" xmlns:emo=\"http://www.w3.org/2009/10/emotionml\" version=\"1.0\" xml:lang=\"en-US\">" +
+                    $"<voice name=\"{settings.Voice}\">" +
+                    $"<prosody rate=\"{settings.Speed - 100}%\" pitch=\"{(settings.Pitch - 100) / 2}%\" volume=\"{settings.Volume.Clamp(1, 100)}\">" +
+                    text +
+                    "</prosody></voice></speak>\r\n"
+                );
 
                 // Start receiving
                 var buffer = new MemoryStream();
@@ -166,7 +173,7 @@ namespace ACT.FoxTTS.engine.edge
                 while (true)
                 {
                     var message = ReceiveNextMessage(session);
-                    Debug.WriteLine(message);
+                    Logger.Debug($"Received WS message\n{message}");
                     if (message.Type == WebSocketMessageType.Text)
                     {
                         if (message.MessageStr.Contains(requestId))
@@ -248,7 +255,7 @@ namespace ACT.FoxTTS.engine.edge
                                 }
                                 else
                                 {
-                                    _plugin.Controller.NotifyLogMessageAppend(false, $"Warn: unexpected message with header {header}");
+                                    Logger.Warn($"Unexpected message with header {header}");
                                 }
                                 break;
                             default:
@@ -257,7 +264,7 @@ namespace ACT.FoxTTS.engine.edge
                     }
                     else if (message.Type == WebSocketMessageType.Close)
                     {
-                        _plugin.Controller.NotifyLogMessageAppend(false, "Error: unexpected closing of connection");
+                        Logger.Error("Unexpected closing of connection");
                         return null;
                     }
                     else
@@ -309,7 +316,7 @@ namespace ACT.FoxTTS.engine.edge
 
             public override string ToString()
             {
-                return $"{nameof(Type)}: {Type}, {nameof(MessageStr)}: {MessageStr}, {nameof(MessageBinary)}: {MessageBinary}";
+                return $"{nameof(Type)}: {Type}, {nameof(MessageStr)}: {MessageStr}, {nameof(MessageBinary)}: byte[{MessageBinary?.Length ?? -1}]";
             }
         }
 
@@ -462,7 +469,7 @@ namespace ACT.FoxTTS.engine.edge
                     }
                     catch (Exception e)
                     {
-                        context._plugin.Controller.NotifyLogMessageAppend(false, $"Error: unable to establish connection: {e}");
+                        Logger.Error("Unable to establish connection", e);
                     }
                     SafeSleep(5000);
                 }

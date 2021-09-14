@@ -65,7 +65,7 @@ namespace ACT.FoxTTS.engine.cafe
                 {
                     var url = $"http://tts.wakingsands.com:3002/tts.mp3?voice_font={settings.Voice}&text={WebUtility.UrlEncode(text)}";
 
-                    Utils.Download(_plugin.Controller, url, f);
+                    Utils.Download(url, f);
                 });
 
             _plugin.SoundPlayer.Play(wave, playDevice, isSync, volume);

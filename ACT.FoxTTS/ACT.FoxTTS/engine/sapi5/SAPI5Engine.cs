@@ -3,6 +3,7 @@ using System.IO;
 using System.Linq;
 using System.Speech.Synthesis;
 using System.Xml;
+using ACT.FoxCommon.logging;
 
 namespace ACT.FoxTTS.engine.sapi5
 {
@@ -78,8 +79,7 @@ namespace ACT.FoxTTS.engine.sapi5
                                 .FirstOrDefault(it => it.VoiceInfo.Id.ToLower() == settings.Voice);
                             if (voice == null)
                             {
-                                _plugin.Controller.NotifyLogMessageAppend(false,
-                                    $"Unable to find voice {settings.Voice}");
+                                Logger.Error($"Unable to find voice {settings.Voice}");
                                 return;
                             }
 

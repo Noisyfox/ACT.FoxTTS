@@ -17,7 +17,7 @@ namespace ACT.FoxTTS
     internal class PluginSettings : SettingsSerializer
     {
         private readonly SettingsIO _settingsIo = new SettingsIO("ACT.FoxTTS");
-
+        
         public PlaybackSettings Playback = new PlaybackSettings();
         public PreProcessorSettings PreProcessorSettings = new PreProcessorSettings();
         public CafeTTSSettings CafeTtsSettings = new CafeTTSSettings();

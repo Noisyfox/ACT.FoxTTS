@@ -12,6 +12,7 @@ using System.Windows.Forms;
 using ACT.FoxCommon;
 using ACT.FoxCommon.dpi;
 using ACT.FoxCommon.localization;
+using ACT.FoxCommon.logging;
 using ACT.FoxCommon.update;
 using ACT.FoxTTS.engine;
 using ACT.FoxTTS.localization;
@@ -53,6 +54,7 @@ namespace ACT.FoxTTS
             // add settings
             settings.AddControlSetting(checkBoxCheckUpdate);
             settings.AddControlSetting(checkBoxNotifyStableOnly);
+            settings.AddControlSetting(checkBoxDebugLogging);
 
             _controller = plugin.Controller;
 
@@ -89,6 +91,7 @@ namespace ACT.FoxTTS
             Location = new Point(0, 0);
             Size = ((TabPage)sender).Size;
         }
+
         private void ComboBoxLanguageSelectedIndexChanged(object sender, EventArgs e)
         {
             _controller.NotifyLanguageChanged(true, (string)comboBoxLanguage.SelectedValue);
@@ -103,9 +106,14 @@ namespace ACT.FoxTTS
         {
             Process.Start(UpdateChecker.ReleasePage);
         }
+        private void checkBoxDebugLogging_CheckedChanged(object sender, EventArgs e)
+        {
+            Logger.IsDebugLevelEnabled = checkBoxDebugLogging.Checked;
+        }
 
         private void ControllerOnSettingsLoaded()
         {
+            Logger.IsDebugLevelEnabled = checkBoxDebugLogging.Checked;
             if (checkBoxCheckUpdate.Checked)
             {
                 _plugin.UpdateChecker.CheckUpdate(false);
@@ -367,7 +375,7 @@ namespace ACT.FoxTTS
                         }
                         catch (Exception ex)
                         {
-                            _controller.NotifyLogMessageAppend(true, ex.ToString());
+                            Logger.Error($"Failed to delete file {file}", ex);
                         }
                     }
                 }).Wait();
@@ -736,5 +744,6 @@ namespace ACT.FoxTTS
         }
 
         #endregion
+
     }
 }

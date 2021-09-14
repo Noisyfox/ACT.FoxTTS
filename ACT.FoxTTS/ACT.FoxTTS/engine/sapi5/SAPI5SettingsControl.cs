@@ -7,6 +7,7 @@ using System.Windows.Forms;
 using ACT.FoxCommon;
 using ACT.FoxCommon.dpi;
 using ACT.FoxCommon.localization;
+using ACT.FoxCommon.logging;
 using ACT.FoxTTS.localization;
 
 namespace ACT.FoxTTS.engine.sapi5
@@ -131,7 +132,7 @@ namespace ACT.FoxTTS.engine.sapi5
             }
             catch (Exception ex)
             {
-                _plugin.Controller.NotifyLogMessageAppend(true, "Unable to update voice: " + ex + "\n");
+                Logger.Error("Unable to update voice", ex);
 
                 MessageBox.Show(
                     strings.messageCopyVoiceFailed,

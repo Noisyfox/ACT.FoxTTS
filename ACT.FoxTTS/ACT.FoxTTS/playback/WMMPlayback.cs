@@ -2,6 +2,7 @@
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Text;
+using ACT.FoxCommon.logging;
 
 namespace ACT.FoxTTS.playback
 {
@@ -53,7 +54,7 @@ namespace ACT.FoxTTS.playback
                     // Short path doesn't work, copy to system temp folder with a short file name.
                     var tmp = Path.GetTempFileName();
                     File.Copy(waveFile, tmp, true);
-                    _plugin.Controller.NotifyLogMessageAppend(false, "File path too long for WMM, tmp file used: " + tmp);
+                    Logger.Debug("File path too long for WMM, tmp file used: " + tmp);
 
                     // Make sure tmp path is also not too long
                     if (tmp.Length > MAX_PATH)
@@ -65,7 +66,7 @@ namespace ACT.FoxTTS.playback
                         }
                         else
                         {
-                            _plugin.Controller.NotifyLogMessageAppend(false, "Unable to shorten path " + waveFile);
+                            Logger.Warn("Unable to shorten path " + waveFile);
                         }
                     }
                     else
@@ -93,8 +94,7 @@ namespace ACT.FoxTTS.playback
                     var buffer = new StringBuilder(128);
                     var message = mciGetErrorString(errno, buffer, buffer.Capacity) ? buffer.ToString() : "Unknown";
 
-                    _plugin.Controller.NotifyLogMessageAppend(false,
-                        $"Unable to send command to WMM: \"{c}\": {message} ({errno})");
+                    Logger.Error($"Unable to send command to WMM: \"{c}\": {message} ({errno})");
 
                     return;
                 }

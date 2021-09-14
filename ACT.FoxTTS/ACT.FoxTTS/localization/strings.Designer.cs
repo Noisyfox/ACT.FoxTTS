@@ -232,6 +232,15 @@ namespace ACT.FoxTTS.localization {
         }
         
         /// <summary>
+        ///   查找类似 显示调试日志 的本地化字符串。
+        /// </summary>
+        internal static string checkBoxDebugLogging {
+            get {
+                return ResourceManager.GetString("checkBoxDebugLogging", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 只提示稳定版更新 的本地化字符串。
         /// </summary>
         internal static string checkBoxNotifyStableOnly {

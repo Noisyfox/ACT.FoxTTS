@@ -3,6 +3,7 @@ using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
+using ACT.FoxCommon.logging;
 using ACT.FoxTTS.engine;
 using Advanced_Combat_Tracker;
 
@@ -28,6 +29,7 @@ namespace ACT.FoxTTS
                 var newCacheFile = GetCacheFileNameNew(engine, tts, ext, parameter);
                 if (File.Exists(newCacheFile))
                 {
+                    Logger.Debug("Cache hit.");
                     return newCacheFile;
                 }
 
@@ -35,6 +37,7 @@ namespace ACT.FoxTTS
                 if (File.Exists(oldCacheFile))
                 {
                     // Rename old cache file to new file name
+                    Logger.Debug("Old cache hit. Rename to new cache name.");
                     File.Move(oldCacheFile, newCacheFile);
                     return newCacheFile;
                 }
@@ -44,6 +47,7 @@ namespace ACT.FoxTTS
                 {
                     Directory.CreateDirectory(CacheDirectory);
                 }
+                Logger.Debug("Cache missing, creating...");
                 fileCreator(newCacheFile);
 
                 return newCacheFile;

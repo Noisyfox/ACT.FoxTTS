@@ -5,6 +5,7 @@ using System.Net;
 using System.Numerics;
 using System.Text;
 using ACT.FoxCommon.core;
+using ACT.FoxCommon.logging;
 
 namespace ACT.FoxTTS
 {
@@ -37,14 +38,13 @@ namespace ACT.FoxTTS
             return builder.ToString();
         }
 
-        public static void Download(MainControllerBase controller, string url, string file)
+        public static void Download(string url, string file)
         {
             using (var response = WebRequest.Create(url).GetResponse() as HttpWebResponse)
             {
                 if (response.StatusCode != HttpStatusCode.OK)
                 {
-                    // TODO: better logging
-                    controller.NotifyLogMessageAppend(false, $"Unable to complete the request: {response}");
+                    Logger.Error($"Unable to complete the request: {response}");
                     return;
                 }
 

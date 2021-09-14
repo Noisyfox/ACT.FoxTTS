@@ -96,7 +96,9 @@
             this.ColumnReplacement = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnUseRegex = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.tabPageLog = new System.Windows.Forms.TabPage();
+            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.richTextBoxLog = new System.Windows.Forms.RichTextBox();
+            this.checkBoxDebugLogging = new System.Windows.Forms.CheckBox();
             this.tabControl1.SuspendLayout();
             this.tabPageGeneralSettings.SuspendLayout();
             this.groupBoxIntegration.SuspendLayout();
@@ -116,6 +118,7 @@
             this.tableLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRules)).BeginInit();
             this.tabPageLog.SuspendLayout();
+            this.tableLayoutPanel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -1001,7 +1004,7 @@
             // tabPageLog
             // 
             this.tabPageLog.BackColor = System.Drawing.SystemColors.Window;
-            this.tabPageLog.Controls.Add(this.richTextBoxLog);
+            this.tabPageLog.Controls.Add(this.tableLayoutPanel5);
             this.tabPageLog.Location = new System.Drawing.Point(4, 22);
             this.tabPageLog.Name = "tabPageLog";
             this.tabPageLog.Padding = new System.Windows.Forms.Padding(3);
@@ -1009,15 +1012,41 @@
             this.tabPageLog.TabIndex = 2;
             this.tabPageLog.Text = "Log";
             // 
+            // tableLayoutPanel5
+            // 
+            this.tableLayoutPanel5.ColumnCount = 1;
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel5.Controls.Add(this.richTextBoxLog, 0, 1);
+            this.tableLayoutPanel5.Controls.Add(this.checkBoxDebugLogging, 0, 0);
+            this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
+            this.tableLayoutPanel5.RowCount = 2;
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(995, 828);
+            this.tableLayoutPanel5.TabIndex = 7;
+            // 
             // richTextBoxLog
             // 
             this.richTextBoxLog.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.richTextBoxLog.Location = new System.Drawing.Point(3, 3);
+            this.richTextBoxLog.Location = new System.Drawing.Point(3, 25);
             this.richTextBoxLog.Name = "richTextBoxLog";
             this.richTextBoxLog.ReadOnly = true;
-            this.richTextBoxLog.Size = new System.Drawing.Size(995, 828);
+            this.richTextBoxLog.Size = new System.Drawing.Size(989, 800);
             this.richTextBoxLog.TabIndex = 6;
             this.richTextBoxLog.Text = "";
+            // 
+            // checkBoxDebugLogging
+            // 
+            this.checkBoxDebugLogging.AutoSize = true;
+            this.checkBoxDebugLogging.Location = new System.Drawing.Point(3, 3);
+            this.checkBoxDebugLogging.Name = "checkBoxDebugLogging";
+            this.checkBoxDebugLogging.Size = new System.Drawing.Size(132, 16);
+            this.checkBoxDebugLogging.TabIndex = 7;
+            this.checkBoxDebugLogging.Text = "Show Debug Logging";
+            this.checkBoxDebugLogging.UseVisualStyleBackColor = true;
+            this.checkBoxDebugLogging.CheckedChanged += new System.EventHandler(this.checkBoxDebugLogging_CheckedChanged);
             // 
             // FoxTTSTabControl
             // 
@@ -1059,6 +1088,8 @@
             this.tableLayoutPanel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRules)).EndInit();
             this.tabPageLog.ResumeLayout(false);
+            this.tableLayoutPanel5.ResumeLayout(false);
+            this.tableLayoutPanel5.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1134,5 +1165,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnFindPattern;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnReplacement;
         private System.Windows.Forms.DataGridViewCheckBoxColumn ColumnUseRegex;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
+        private System.Windows.Forms.CheckBox checkBoxDebugLogging;
     }
 }
