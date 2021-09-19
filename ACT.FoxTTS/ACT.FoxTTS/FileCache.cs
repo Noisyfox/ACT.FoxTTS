@@ -27,6 +27,7 @@ namespace ACT.FoxTTS
             lock (this)
             {
                 var newCacheFile = GetCacheFileNameNew(engine, tts, ext, parameter);
+                Logger.Debug($"Looking for cache file: {newCacheFile}");
                 if (File.Exists(newCacheFile))
                 {
                     Logger.Debug("Cache hit.");
@@ -37,7 +38,7 @@ namespace ACT.FoxTTS
                 if (File.Exists(oldCacheFile))
                 {
                     // Rename old cache file to new file name
-                    Logger.Debug("Old cache hit. Rename to new cache name.");
+                    Logger.Debug($"Old cache hit: {oldCacheFile}. Rename to new cache name.");
                     File.Move(oldCacheFile, newCacheFile);
                     return newCacheFile;
                 }
