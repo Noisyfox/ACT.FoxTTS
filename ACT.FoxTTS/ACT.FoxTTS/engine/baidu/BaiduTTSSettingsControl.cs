@@ -135,10 +135,7 @@ namespace ACT.FoxTTS.engine.baidu
         {
             if (InvokeRequired)
             {
-                this.SafeInvoke(new Action(delegate
-                {
-                    NotifyEmptyApiKey();
-                }));
+                this.SafeInvoke(new Action(NotifyEmptyApiKey));
             }
             else
             {

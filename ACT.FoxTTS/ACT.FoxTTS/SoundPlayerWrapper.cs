@@ -1,5 +1,7 @@
 ﻿using System;
 using ACT.FoxCommon;
+using ACT.FoxCommon.logging;
+using ACT.FoxTTS.localization;
 using ACT.FoxTTS.playback;
 using Advanced_Combat_Tracker;
 
@@ -38,7 +40,7 @@ namespace ACT.FoxTTS
                     break;
                 case PlaybackMethod.Act:
                     // Play sound with ACT's sound API
-                    ActGlobals.oFormActMain.PlaySoundWmpApi(waveFile, settings.MasterVolume);
+                    ActWmpPlay(waveFile, settings.MasterVolume);
                     break;
                 case PlaybackMethod.BuiltIn:
                     // Use built-in api to play sounds
@@ -46,6 +48,46 @@ namespace ACT.FoxTTS
                     // And WMM needs to be called in main thread
                     ActGlobals.oFormActMain.SafeInvoke(new Action(() => _wmm.PlaySound(waveFile)));
                     break;
+            }
+        }
+
+        /// <summary>
+        /// Play sound with ACT's WMP wrapper API
+        /// </summary>
+        private void ActWmpPlay(string WavFilePath, int VolumePercent)
+        {
+            try
+            {
+                ActGlobals.oFormActMain.PlaySoundWmpApi(WavFilePath, VolumePercent);
+            }
+            catch (Exception e)
+            {
+                if (e.ToString().Contains("6BF52A52-394A-11D3-B153-00C04F79FAA6"))
+                {
+                    // WMP unavailable
+                    Logger.Error(strings.msgErrorWMPUnavailable);
+                    Logger.Debug("Detailed exception:", e);
+
+                    ActGlobals.oFormActMain.SafeInvoke(new Action(() =>
+                    {
+                        // Show notification
+                        var ts = new TraySlider
+                        {
+                            ButtonLayout = TraySlider.ButtonLayoutEnum.OneButton,
+                        };
+                        ts.ShowTraySlider(strings.msgErrorWMPUnavailable, strings.actPanelTitle);
+
+                        // Automatically switch to WinMM
+                        _plugin.SettingsTab.SwitchToWinMMPlayback();
+
+                        // And retry this request using WinMM
+                        _wmm.PlaySound(WavFilePath);
+                    }));
+                }
+                else
+                {
+                    throw;
+                }
             }
         }
     }

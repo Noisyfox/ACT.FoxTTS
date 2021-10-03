@@ -364,6 +364,9 @@
   <data name="msgErrorEmptyApiSecretKey" xml:space="preserve">
     <value>错误：你没有填 API/Secret Key！请确保在设置界面填入了正确的 API/Secret Key，否则会没有声音！</value>
   </data>
+  <data name="msgErrorWMPUnavailable" xml:space="preserve">
+    <value>你的电脑无法使用 ACT 自带的声音播放 API，已自动切换到本插件内置的 WinMM 播放方式。</value>
+  </data>
   <data name="radioButtonIntegrationAct" xml:space="preserve">
     <value>[不推荐] ACT 原生 TTS</value>
   </data>

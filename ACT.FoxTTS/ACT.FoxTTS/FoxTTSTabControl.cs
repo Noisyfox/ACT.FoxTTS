@@ -409,6 +409,12 @@ namespace ACT.FoxTTS
                     settings.PluginIntegration != PluginIntegration.Auto;
         }
 
+        internal void SwitchToWinMMPlayback()
+        {
+            radioButtonPlaybackBuiltIn.Checked = true;
+            comboBoxPlaybackApi.SelectedIndex = (int)PlaybackApi.WinMM;
+        }
+
         private void OnPlaybackValueChanged(object sender, EventArgs e)
         {
             var settings = _plugin.Settings.PlaybackSettings;

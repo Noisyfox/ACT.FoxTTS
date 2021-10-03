@@ -776,6 +776,15 @@ namespace ACT.FoxTTS.localization {
         }
         
         /// <summary>
+        ///   查找类似 你的电脑无法使用 ACT 自带的声音播放 API，已自动切换到本插件内置的 WinMM 播放方式。 的本地化字符串。
+        /// </summary>
+        internal static string msgErrorWMPUnavailable {
+            get {
+                return ResourceManager.GetString("msgErrorWMPUnavailable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 [不推荐] ACT 原生 TTS 的本地化字符串。
         /// </summary>
         internal static string radioButtonIntegrationAct {
