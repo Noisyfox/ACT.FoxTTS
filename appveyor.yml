@@ -15,20 +15,26 @@ before_build:
 
     nuget restore ACT.FoxTTS
 
-    cp MSBuild.ILMerge.Task.targets .\ACT.FoxTTS\packages\MSBuild.ILMerge.Task.1.1.3\build\MSBuild.ILMerge.Task.targets
+    cp %APPVEYOR_BUILD_FOLDER%\MSBuild.ILMerge.Task.targets %APPVEYOR_BUILD_FOLDER%\ACT.FoxTTS\packages\MSBuild.ILMerge.Task.1.1.3\build\MSBuild.ILMerge.Task.targets
 build:
   project: ACT.FoxTTS/ACT.FoxTTS.sln
   verbosity: minimal
 after_build:
 - cmd: >-
-    cd ACT.FoxTTS\ACT.FoxTTS\bin\%CONFIGURATION%\
+    cd %APPVEYOR_BUILD_FOLDER%\ACT.FoxTTS\ACT.FoxTTS\bin\%CONFIGURATION%\
 
+    7z a -xr!*.pdb %APPVEYOR_BUILD_FOLDER%\ACT.FoxTTS-%APPVEYOR_BUILD_VERSION%-%CONFIGURATION%.7z .\*
 
-    7z a -x!*.pdb %APPVEYOR_BUILD_FOLDER%\ACT.FoxTTS-%APPVEYOR_BUILD_VERSION%-%CONFIGURATION%.7z .\*
+    cp %APPVEYOR_BUILD_FOLDER%\ACT.FoxTTS\ACT.FoxTTS\bin\%CONFIGURATION%\ACT.FoxTTS.dll %APPVEYOR_BUILD_FOLDER%\CafePackage\Plugins\ACT.FoxTTS
+
+    cd %APPVEYOR_BUILD_FOLDER%\CafePackage
+
+    7z a -tzip -xr!.gitkeep %APPVEYOR_BUILD_FOLDER%\ACT.FoxTTS-%APPVEYOR_BUILD_VERSION%-%CONFIGURATION%-CAFE.zip .\*
 test: off
 artifacts:
 - path: ACT.FoxTTS\ACT.FoxTTS\bin\**\*
   name: Bin
 - path: ACT.FoxTTS*.7z
   name: PKG
-  
+- path: ACT.FoxTTS*.zip
+  name: PKG
