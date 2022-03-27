@@ -126,8 +126,8 @@ namespace ACT.FoxTTS
             if (_plugin.Settings.BaiduTtsSettings.WasUsingFreeKey &&
                 comboBoxTTSEngine.SelectedItem == TTSEngineFactory.EngineBaidu)
             {
-                // Automatically switch to CafeTTS if user is currently using baidu tts free key
-                comboBoxTTSEngine.SelectedItem = TTSEngineFactory.EngineCafe;
+                // Automatically switch to EdgeTTS if user is currently using baidu tts free key
+                comboBoxTTSEngine.SelectedItem = TTSEngineFactory.EngineEdge;
 
                 var ts = new TraySlider
                 {

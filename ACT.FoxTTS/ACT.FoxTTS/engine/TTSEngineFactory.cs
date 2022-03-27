@@ -1,7 +1,6 @@
 ﻿using ACT.FoxCommon.localization;
 using ACT.FoxTTS.engine.baidu;
 using ACT.FoxTTS.engine.baipiao;
-using ACT.FoxTTS.engine.cafe;
 using ACT.FoxTTS.engine.edge;
 using ACT.FoxTTS.engine.sapi5;
 
@@ -20,13 +19,12 @@ namespace ACT.FoxTTS.engine
 
     class TTSEngineFactory
     {
-        public static readonly TTSEngineDef EngineCafe = new TTSEngineDef("ttsEngineCafe");
+        public static readonly TTSEngineDef EngineEdge = new TTSEngineDef("ttsEngineEdge");
         public static readonly TTSEngineDef EngineBaidu = new TTSEngineDef("ttsEngineBaidu");
 
         public static readonly TTSEngineDef[] Engines =
         {
-            EngineCafe,
-            new TTSEngineDef("ttsEngineEdge"),
+            EngineEdge,
             EngineBaidu,
             new TTSEngineDef("ttsEngineSAPI5"),
             new TTSEngineDef("ttsEngineBaipiao"),
@@ -36,17 +34,17 @@ namespace ACT.FoxTTS.engine
         {
             switch (engine)
             {
-                case "ttsEngineCafe":
-                    return new CafeTTSEngine();
+                // case "ttsEngineCafe":
+                    // return new CafeTTSEngine();
                 case "ttsEngineSAPI5":
                     return new SAPI5Engine();
                 case "ttsEngineBaipiao":
                     return new BaipiaoEngine();
-                case "ttsEngineEdge":
-                    return new EdgeTTSEngine();
                 case "ttsEngineBaidu":
-                default:
                     return new BaiduTTSEngine();
+                case "ttsEngineEdge":
+                default:
+                    return new EdgeTTSEngine();
             }
         }
     }
