@@ -40,7 +40,10 @@ namespace ACT.FoxTTS
 
         public static void Download(string url, string file)
         {
-            using (var response = WebRequest.Create(url).GetResponse() as HttpWebResponse)
+            var request = WebRequest.Create(url) as HttpWebRequest;
+            request.UserAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.74 Safari/537.36 Edg/99.0.1150.55";
+
+            using (var response = request.GetResponse() as HttpWebResponse)
             {
                 if (response.StatusCode != HttpStatusCode.OK)
                 {
