@@ -94,6 +94,14 @@
     </Compile>
     <Compile Include="engine\cafe\CafeTTSEngine.cs" />
     <Compile Include="engine\cafe\CafeTTSSettings.cs" />
+    <Compile Include="engine\google_unofficial\GoogleUnofficialTTSEngine.cs" />
+    <Compile Include="engine\google_unofficial\GoogleUnofficialTTSSettings.cs" />
+    <Compile Include="engine\google_unofficial\GoogleUnofficialTTSSettingsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="engine\google_unofficial\GoogleUnofficialTTSSettingsControl.Designer.cs">
+      <DependentUpon>GoogleUnofficialTTSSettingsControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="engine\Voice.cs" />
     <Compile Include="engine\edge\EdgeTTSEngine.cs" />
     <Compile Include="engine\edge\EdgeTTSSettings.cs" />
@@ -161,6 +169,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="engine\edge\EdgeTTSSettingsControl.resx">
       <DependentUpon>EdgeTTSSettingsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="engine\google_unofficial\GoogleUnofficialTTSSettingsControl.resx">
+      <DependentUpon>GoogleUnofficialTTSSettingsControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="engine\sapi5\SAPI5SettingsControl.resx">
       <DependentUpon>SAPI5SettingsControl.cs</DependentUpon>

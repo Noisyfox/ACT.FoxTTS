@@ -5,6 +5,7 @@ using ACT.FoxTTS.engine.baidu;
 using ACT.FoxTTS.engine.baipiao;
 using ACT.FoxTTS.engine.cafe;
 using ACT.FoxTTS.engine.edge;
+using ACT.FoxTTS.engine.google_unofficial;
 using ACT.FoxTTS.engine.sapi5;
 using ACT.FoxTTS.preprocess;
 using Advanced_Combat_Tracker;
@@ -25,6 +26,7 @@ namespace ACT.FoxTTS
         public SAPI5Settings SApi5Settings = new SAPI5Settings();
         public BaipiaoSettings BaipiaoSettings = new BaipiaoSettings();
         public EdgeTTSSettings EdgeTtsSettings = new EdgeTTSSettings();
+        public GoogleUnofficialTTSSettings GoogleUnofficialTtsSettings = new GoogleUnofficialTTSSettings();
 
         public PluginSettings(object ParentSettingsClass) : base(ParentSettingsClass)
         {
@@ -41,6 +43,7 @@ namespace ACT.FoxTTS
                 writer.Serialize(SApi5Settings);
                 writer.Serialize(BaipiaoSettings);
                 writer.Serialize(EdgeTtsSettings);
+                writer.Serialize(GoogleUnofficialTtsSettings);
             };
 
             _settingsIo.ReadSettings = reader =>
@@ -71,6 +74,9 @@ namespace ACT.FoxTTS
                         break;
                     case nameof(EdgeTTSSettings):
                         EdgeTtsSettings = reader.Deserialize<EdgeTTSSettings>();
+                        break;
+                    case nameof(GoogleUnofficialTTSSettings):
+                        GoogleUnofficialTtsSettings = reader.Deserialize<GoogleUnofficialTTSSettings>();
                         break;
                 }
             };
@@ -167,6 +173,8 @@ namespace ACT.FoxTTS
         public BaipiaoSettings BaipiaoSettings => Settings.BaipiaoSettings;
 
         public EdgeTTSSettings EdgeTtsSettings => Settings.EdgeTtsSettings;
+
+        public GoogleUnofficialTTSSettings GoogleUnofficialTtsSettings => Settings.GoogleUnofficialTtsSettings;
 
         public string TTSEngine { get; set; }
         

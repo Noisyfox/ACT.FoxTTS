@@ -2,6 +2,7 @@
 using ACT.FoxTTS.engine.baidu;
 using ACT.FoxTTS.engine.baipiao;
 using ACT.FoxTTS.engine.edge;
+using ACT.FoxTTS.engine.google_unofficial;
 using ACT.FoxTTS.engine.sapi5;
 
 namespace ACT.FoxTTS.engine
@@ -28,6 +29,7 @@ namespace ACT.FoxTTS.engine
             EngineBaidu,
             new TTSEngineDef("ttsEngineSAPI5"),
             new TTSEngineDef("ttsEngineBaipiao"),
+            new TTSEngineDef("ttsEngineGoogleUnofficial"),
         };
 
         public static ITTSEngine CreateEngine(string engine)
@@ -42,6 +44,8 @@ namespace ACT.FoxTTS.engine
                     return new BaipiaoEngine();
                 case "ttsEngineBaidu":
                     return new BaiduTTSEngine();
+                case "ttsEngineGoogleUnofficial":
+                    return new GoogleUnofficialTTSEngine();
                 case "ttsEngineEdge":
                 default:
                     return new EdgeTTSEngine();
