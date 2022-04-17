@@ -945,7 +945,7 @@ namespace ACT.FoxTTS.localization {
         }
         
         /// <summary>
-        ///   查找类似 CafeTTS（阿里云） 的本地化字符串。
+        ///   查找类似 肥肥咖啡（FFCafe）TTS 的本地化字符串。
         /// </summary>
         internal static string ttsEngineCafe {
             get {

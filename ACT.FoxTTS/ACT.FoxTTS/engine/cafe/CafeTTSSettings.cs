@@ -7,7 +7,11 @@ namespace ACT.FoxTTS.engine.cafe
         [XmlElement]
         public string Voice = "";
 
+        [XmlElement]
+        public int Rate = 0;
+
         public override string ToString() =>
-            $"{nameof(this.Voice)}:{this.Voice}";
+            $"{nameof(this.Voice)}:{this.Voice}," +
+            $"{nameof(this.Rate)}:{this.Rate}";
     }
 }

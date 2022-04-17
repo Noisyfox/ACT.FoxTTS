@@ -8,7 +8,7 @@ Add Chinese TTS (and maybe more) to ACT &amp; TTSYukkuri
 同时支持通过 Windows MCI 服务播放音频的功能，用以支持部分阉割版/电脑城装机版/Ghost版等各种妙妙系统。
 
 目前支持的 TTS 服务为：
-- ~~CafeTTS (基于阿里云TTS)~~
+- [肥肥咖啡（FFCafe）](https://ffcafe.org/)TTS
 - [百度语音](http://yuyin.baidu.com/tts)
 - SAPI5 (Windows 自带TTS)
 

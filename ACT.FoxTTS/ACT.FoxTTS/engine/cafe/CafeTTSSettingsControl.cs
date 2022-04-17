@@ -38,6 +38,7 @@ namespace ACT.FoxTTS.engine.cafe
         public void PostAttachToAct(FoxTTSPlugin plugin)
         {
             var settings = plugin.Settings.CafeTtsSettings;
+            trackBarSpeed.SetValue(settings.Rate, 0);
             var selectedVoice = (comboBoxPerson.DataSource as Voice[]).FirstOrDefault(it => it.Value == settings.Voice);
             if (selectedVoice == null)
             {
@@ -51,6 +52,7 @@ namespace ACT.FoxTTS.engine.cafe
                 comboBoxPerson.SelectedValue = selectedVoice.Value;
             }
 
+            trackBarSpeed.ValueChanged += OnValueChanged;
             comboBoxPerson.SelectedIndexChanged += OnValueChanged;
 
             OnValueChanged(null, EventArgs.Empty);
@@ -69,6 +71,9 @@ namespace ACT.FoxTTS.engine.cafe
         private void OnValueChanged(object sender, EventArgs eventArgs)
         {
             var settings = _plugin.Settings.CafeTtsSettings;
+
+            labelSpeedValue.Text = trackBarSpeed.Value.ToString();
+            settings.Rate = trackBarSpeed.Value;
 
             settings.Voice = comboBoxPerson.SelectedValue as string;
         }

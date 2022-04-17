@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Net;
 
 namespace ACT.FoxTTS.engine.cafe
 {
@@ -14,22 +9,14 @@ namespace ACT.FoxTTS.engine.cafe
 
         public static readonly Voice[] Voices = new[]
         {
-            new Voice("xiaoyun", "小云 (标准女声 通用 中英文 16K)"),
-            new Voice("xiaoda", "小达 (标准男声 通用 中英文 16K)"),
-            new Voice("xiaogang", "小刚 (温暖男声 通用 中英文 16K)"),
-            new Voice("xiaoqi", "小琪 (温柔女声 通用 中英文 16K)"),
-            new Voice("xiaoxia", "小夏 (自然女声 客服 中英文 16K)"),
-            new Voice("aijia", "艾佳 (标准女声 通用 中英文)"),
-            new Voice("aicheng", "艾诚 (温暖男声 通用 中英文)"),
-            new Voice("aiqi", "艾琪 (温柔女声 通用 中文)"),
-            new Voice("aida", "艾达 (标准男声 通用 中文)"),
-            new Voice("aihao", "艾浩 (资讯男声 文学 中文)"),
-            new Voice("aishuo", "艾硕 (自然男声 客服 中文)"),
-            new Voice("aiying", "艾颖 (软萌童声 文学 中英文)"),
-            new Voice("aitong", "艾彤 (儿童音 童声 中文)"),
-            new Voice("abby", "Abby (美语女声 英文)"),
-            new Voice("andy", "Andy (美语男声 英文)"),
-            new Voice("annie", "Annie (美语女声 英文)"),
+            new Voice("huihui", "Microsoft Huihui 中文女声"),
+            new Voice("yaoyao", "Microsoft Yaoyao 中文女声"),
+            new Voice("kangkang", "Microsoft Kangkang 中文男声"),
+            new Voice("tracy", "Microsoft Tracy 粤语女声"),
+            new Voice("danny", "Microsoft Danny 粤语男声"),
+            new Voice("yating", "Microsoft Yating 中文女声"),
+            new Voice("hanhan", "Microsoft Hanhan 中文女声"),
+            new Voice("zhiwei", "Microsoft Zhiwei 中文男声"),
         };
 
         public void AttachToAct(FoxTTSPlugin plugin)
@@ -63,7 +50,7 @@ namespace ACT.FoxTTS.engine.cafe
                 settings.ToString(),
                 f =>
                 {
-                    var url = $"http://tts.wakingsands.com:3002/tts.mp3?voice_font={settings.Voice}&text={WebUtility.UrlEncode(text)}";
+                    var url = $"https://tts.xivcdn.com/api/say?voice={settings.Voice}&text={WebUtility.UrlEncode(text)}&rate={settings.Rate}";
 
                     Utils.Download(url, f);
                 });
