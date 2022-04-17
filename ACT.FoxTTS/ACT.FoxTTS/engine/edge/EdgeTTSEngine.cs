@@ -489,7 +489,7 @@ namespace ACT.FoxTTS.engine.edge
 
                 Debug.Assert(_webSocket.State == WebSocketState.None);
                 // Connect
-                Logger.Info("（重新）连接 EdgeTTS 服务器中...");
+                Logger.Debug("（重新）连接 EdgeTTS 服务器中...");
                 if (_webSocket is ClientWebSocket ws)
                 {
                     var options = ws.Options;
