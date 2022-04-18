@@ -214,6 +214,60 @@ namespace ACT.FoxTTS.localization {
         }
         
         /// <summary>
+        ///   查找类似 应用ID: 的本地化字符串。
+        /// </summary>
+        internal static string checkBoxAppId {
+            get {
+                return ResourceManager.GetString("checkBoxAppId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 勾选以显示应用ID。截图时请注意不要泄露！5秒后自动隐藏。 的本地化字符串。
+        /// </summary>
+        internal static string checkBoxAppId_Tooltip {
+            get {
+                return ResourceManager.GetString("checkBoxAppId.Tooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 App Key: 的本地化字符串。
+        /// </summary>
+        internal static string checkBoxAppKey {
+            get {
+                return ResourceManager.GetString("checkBoxAppKey", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 勾选以显示 App Key。截图时请注意不要泄露！5秒后自动隐藏。 的本地化字符串。
+        /// </summary>
+        internal static string checkBoxAppKey_Tooltip {
+            get {
+                return ResourceManager.GetString("checkBoxAppKey.Tooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 应用密钥: 的本地化字符串。
+        /// </summary>
+        internal static string checkBoxAppSecret {
+            get {
+                return ResourceManager.GetString("checkBoxAppSecret", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 勾选以显示应用密钥。截图时请注意不要泄露！5秒后自动隐藏。 的本地化字符串。
+        /// </summary>
+        internal static string checkBoxAppSecret_Tooltip {
+            get {
+                return ResourceManager.GetString("checkBoxAppSecret.Tooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 自动检查更新 的本地化字符串。
         /// </summary>
         internal static string checkBoxCheckUpdate {
@@ -661,6 +715,15 @@ namespace ACT.FoxTTS.localization {
         }
         
         /// <summary>
+        ///   查找类似 注册应用密钥 的本地化字符串。
+        /// </summary>
+        internal static string linkLabelOpenYoudaoReg {
+            get {
+                return ResourceManager.GetString("linkLabelOpenYoudaoReg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 设为推荐值 的本地化字符串。
         /// </summary>
         internal static string linkLabelSetRecommend {
@@ -792,6 +855,62 @@ namespace ACT.FoxTTS.localization {
         internal static string msgErrorWMPUnavailable {
             get {
                 return ResourceManager.GetString("msgErrorWMPUnavailable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 错误：身份认证失败，请确保在设置界面填入了正确的应用ID/密钥 的本地化字符串。
+        /// </summary>
+        internal static string msgErrorYoudaoAuthFail {
+            get {
+                return ResourceManager.GetString("msgErrorYoudaoAuthFail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 错误：API 额度不足，你的应用密钥可用次数用完了，或者账户余额不足 的本地化字符串。
+        /// </summary>
+        internal static string msgErrorYoudaoInsufficientApiQuota {
+            get {
+                return ResourceManager.GetString("msgErrorYoudaoInsufficientApiQuota", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 错误：请求过于频繁，请稍后再试 的本地化字符串。
+        /// </summary>
+        internal static string msgErrorYoudaoTooFrequent {
+            get {
+                return ResourceManager.GetString("msgErrorYoudaoTooFrequent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 错误：文本过长 的本地化字符串。
+        /// </summary>
+        internal static string msgErrorYoudaoTooLong {
+            get {
+                return ResourceManager.GetString("msgErrorYoudaoTooLong", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 意料之外的错误代码 {0}，请参考有道智云语音合成服务API文档的错误代码列表，或联系开发者并提供插件日志。 的本地化字符串。
+        /// </summary>
+        internal static string msgErrorYoudaoUnexpected {
+            get {
+                return ResourceManager.GetString("msgErrorYoudaoUnexpected", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 你目前选择了有道TTS语音合成，该引擎需要自助申请应用密钥才可使用，普通用户建议在本插件的设置界面中选择其他引擎。
+        ///
+        ///请注意，你当前的设置会导致TTS没有声音！ 的本地化字符串。
+        /// </summary>
+        internal static string msgYoudaoAppKeyEmpty {
+            get {
+                return ResourceManager.GetString("msgYoudaoAppKeyEmpty", resourceCulture);
             }
         }
         
@@ -977,6 +1096,15 @@ namespace ACT.FoxTTS.localization {
         internal static string ttsEngineSAPI5 {
             get {
                 return ResourceManager.GetString("ttsEngineSAPI5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 有道智云 TTS 的本地化字符串。
+        /// </summary>
+        internal static string ttsEngineYoudao {
+            get {
+                return ResourceManager.GetString("ttsEngineYoudao", resourceCulture);
             }
         }
         

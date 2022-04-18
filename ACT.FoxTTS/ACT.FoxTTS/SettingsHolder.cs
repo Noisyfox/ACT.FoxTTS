@@ -7,6 +7,7 @@ using ACT.FoxTTS.engine.cafe;
 using ACT.FoxTTS.engine.edge;
 using ACT.FoxTTS.engine.google_unofficial;
 using ACT.FoxTTS.engine.sapi5;
+using ACT.FoxTTS.engine.youdao;
 using ACT.FoxTTS.preprocess;
 using Advanced_Combat_Tracker;
 
@@ -27,6 +28,7 @@ namespace ACT.FoxTTS
         public BaipiaoSettings BaipiaoSettings = new BaipiaoSettings();
         public EdgeTTSSettings EdgeTtsSettings = new EdgeTTSSettings();
         public GoogleUnofficialTTSSettings GoogleUnofficialTtsSettings = new GoogleUnofficialTTSSettings();
+        public YoudaoTTSSettings YoudaoTtsSettings = new YoudaoTTSSettings();
 
         public PluginSettings(object ParentSettingsClass) : base(ParentSettingsClass)
         {
@@ -44,6 +46,7 @@ namespace ACT.FoxTTS
                 writer.Serialize(BaipiaoSettings);
                 writer.Serialize(EdgeTtsSettings);
                 writer.Serialize(GoogleUnofficialTtsSettings);
+                writer.Serialize(YoudaoTtsSettings);
             };
 
             _settingsIo.ReadSettings = reader =>
@@ -56,7 +59,7 @@ namespace ACT.FoxTTS
                     case nameof(PlaybackSettings):
                         Playback = reader.Deserialize<PlaybackSettings>();
                         break;
-                    case nameof(PreProcessorSettings):
+                    case nameof(preprocess.PreProcessorSettings):
                         PreProcessorSettings = reader.Deserialize<PreProcessorSettings>();
                         break;
                     case nameof(CafeTTSSettings):
@@ -77,6 +80,9 @@ namespace ACT.FoxTTS
                         break;
                     case nameof(GoogleUnofficialTTSSettings):
                         GoogleUnofficialTtsSettings = reader.Deserialize<GoogleUnofficialTTSSettings>();
+                        break;
+                    case nameof(YoudaoTTSSettings):
+                        YoudaoTtsSettings = reader.Deserialize<YoudaoTTSSettings>();
                         break;
                 }
             };
@@ -175,6 +181,8 @@ namespace ACT.FoxTTS
         public EdgeTTSSettings EdgeTtsSettings => Settings.EdgeTtsSettings;
 
         public GoogleUnofficialTTSSettings GoogleUnofficialTtsSettings => Settings.GoogleUnofficialTtsSettings;
+
+        public YoudaoTTSSettings YoudaoTtsSettings => Settings.YoudaoTtsSettings;
 
         public string TTSEngine { get; set; }
         

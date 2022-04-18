@@ -10,6 +10,7 @@ Add Chinese TTS (and maybe more) to ACT &amp; TTSYukkuri
 目前支持的 TTS 服务为：
 - [肥肥咖啡（FFCafe）](https://ffcafe.org/)TTS
 - [百度语音](http://yuyin.baidu.com/tts)
+- [有道语音](https://ai.youdao.com/product-tts.s)
 - SAPI5 (Windows 自带TTS)
 
 # 如何使用

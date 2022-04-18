@@ -168,6 +168,24 @@
   <data name="checkBoxApiKey.Tooltip" xml:space="preserve">
     <value>勾选以显示 API Key。截图时请注意不要泄露！5秒后自动隐藏。</value>
   </data>
+  <data name="checkBoxAppId" xml:space="preserve">
+    <value>应用ID:</value>
+  </data>
+  <data name="checkBoxAppId.Tooltip" xml:space="preserve">
+    <value>勾选以显示应用ID。截图时请注意不要泄露！5秒后自动隐藏。</value>
+  </data>
+  <data name="checkBoxAppKey" xml:space="preserve">
+    <value>App Key:</value>
+  </data>
+  <data name="checkBoxAppKey.Tooltip" xml:space="preserve">
+    <value>勾选以显示 App Key。截图时请注意不要泄露！5秒后自动隐藏。</value>
+  </data>
+  <data name="checkBoxAppSecret" xml:space="preserve">
+    <value>应用密钥:</value>
+  </data>
+  <data name="checkBoxAppSecret.Tooltip" xml:space="preserve">
+    <value>勾选以显示应用密钥。截图时请注意不要泄露！5秒后自动隐藏。</value>
+  </data>
   <data name="checkBoxCheckUpdate" xml:space="preserve">
     <value>自动检查更新</value>
   </data>
@@ -321,6 +339,9 @@
   <data name="linkLabelOpenCacheDir" xml:space="preserve">
     <value>打开缓存文件夹</value>
   </data>
+  <data name="linkLabelOpenYoudaoReg" xml:space="preserve">
+    <value>注册应用密钥</value>
+  </data>
   <data name="linkLabelSetRecommend" xml:space="preserve">
     <value>设为推荐值</value>
   </data>
@@ -371,6 +392,26 @@
   </data>
   <data name="msgErrorWMPUnavailable" xml:space="preserve">
     <value>你的电脑无法使用 ACT 自带的声音播放 API，已自动切换到本插件内置的 WinMM 播放方式。</value>
+  </data>
+  <data name="msgErrorYoudaoAuthFail" xml:space="preserve">
+    <value>错误：身份认证失败，请确保在设置界面填入了正确的应用ID/密钥</value>
+  </data>
+  <data name="msgErrorYoudaoInsufficientApiQuota" xml:space="preserve">
+    <value>错误：API 额度不足，你的应用密钥可用次数用完了，或者账户余额不足</value>
+  </data>
+  <data name="msgErrorYoudaoTooFrequent" xml:space="preserve">
+    <value>错误：请求过于频繁，请稍后再试</value>
+  </data>
+  <data name="msgErrorYoudaoTooLong" xml:space="preserve">
+    <value>错误：文本过长</value>
+  </data>
+  <data name="msgErrorYoudaoUnexpected" xml:space="preserve">
+    <value>意料之外的错误代码 {0}，请参考有道智云语音合成服务API文档的错误代码列表，或联系开发者并提供插件日志。</value>
+  </data>
+  <data name="msgYoudaoAppKeyEmpty" xml:space="preserve">
+    <value>你目前选择了有道TTS语音合成，该引擎需要自助申请应用密钥才可使用，普通用户建议在本插件的设置界面中选择其他引擎。
+
+请注意，你当前的设置会导致TTS没有声音！</value>
   </data>
   <data name="radioButtonIntegrationAct" xml:space="preserve">
     <value>[不推荐] ACT 原生 TTS</value>
@@ -436,6 +477,9 @@
   </data>
   <data name="ttsEngineSAPI5" xml:space="preserve">
     <value>系统自带 TTS</value>
+  </data>
+  <data name="ttsEngineYoudao" xml:space="preserve">
+    <value>有道智云 TTS</value>
   </data>
   <data name="updateChecking" xml:space="preserve">
     <value>检查中...</value>

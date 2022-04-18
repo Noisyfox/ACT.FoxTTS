@@ -5,6 +5,7 @@ using ACT.FoxTTS.engine.cafe;
 using ACT.FoxTTS.engine.edge;
 using ACT.FoxTTS.engine.google_unofficial;
 using ACT.FoxTTS.engine.sapi5;
+using ACT.FoxTTS.engine.youdao;
 
 namespace ACT.FoxTTS.engine
 {
@@ -30,6 +31,7 @@ namespace ACT.FoxTTS.engine
         {
             EngineCafe,
             EngineBaidu,
+            new TTSEngineDef("ttsEngineYoudao"),
             new TTSEngineDef("ttsEngineSAPI5"),
             EngineEdge,
             new TTSEngineDef("ttsEngineBaipiao"),
@@ -40,19 +42,21 @@ namespace ACT.FoxTTS.engine
         {
             switch (engine)
             {
-                case "ttsEngineCafe":
-                    return new CafeTTSEngine();
                 case "ttsEngineSAPI5":
                     return new SAPI5Engine();
                 case "ttsEngineBaipiao":
                     return new BaipiaoEngine();
                 case "ttsEngineBaidu":
                     return new BaiduTTSEngine();
+                case "ttsEngineYoudao":
+                    return new YoudaoTTSEngine();
+                case "ttsEngineEdge":
+                    return new EdgeTTSEngine();
                 case "ttsEngineGoogleUnofficial":
                     return new GoogleUnofficialTTSEngine();
-                case "ttsEngineEdge":
+                case "ttsEngineCafe":
                 default:
-                    return new EdgeTTSEngine();
+                    return new CafeTTSEngine();
             }
         }
     }

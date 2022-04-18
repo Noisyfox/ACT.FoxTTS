@@ -122,6 +122,14 @@
     </Compile>
     <Compile Include="engine\sapi5\VoiceCopier.cs" />
     <Compile Include="engine\TTSEngineFactory.cs" />
+    <Compile Include="engine\youdao\YoudaoTTSEngine.cs" />
+    <Compile Include="engine\youdao\YoudaoTTSSettings.cs" />
+    <Compile Include="engine\youdao\YoudaoTTSSettingsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="engine\youdao\YoudaoTTSSettingsControl.Designer.cs">
+      <DependentUpon>YoudaoTTSSettingsControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="FileCache.cs" />
     <Compile Include="FoxTTSPlugin.cs" />
     <Compile Include="FoxTTSTabControl.cs">
@@ -175,6 +183,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="engine\sapi5\SAPI5SettingsControl.resx">
       <DependentUpon>SAPI5SettingsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="engine\youdao\YoudaoTTSSettingsControl.resx">
+      <DependentUpon>YoudaoTTSSettingsControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FoxTTSTabControl.resx">
       <DependentUpon>FoxTTSTabControl.cs</DependentUpon>
