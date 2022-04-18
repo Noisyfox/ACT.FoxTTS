@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
 using System.IO;
-using System.Linq;
 using System.Net.Sockets;
 using System.Net.WebSockets;
 using System.Security;
@@ -164,14 +163,7 @@ namespace ACT.FoxTTS.engine.edge
 
             _plugin.SoundPlayer.Play(wave, playDevice, isSync, volume);
         }
-
-        private void SendText(WebSocket ws, string msg)
-        {
-            Logger.Debug($"Sending request\n{msg}");
-            ws.SendAsync(new ArraySegment<byte>(Encoding.UTF8.GetBytes(msg)),
-                WebSocketMessageType.Text, true,
-                _wsCancellationSource.Token).Wait();
-        }
+        
 
         private byte[] Synthesis(EdgeTTSSettings settings, string text)
         {
@@ -190,15 +182,16 @@ namespace ACT.FoxTTS.engine.edge
                 var timestamp = DateTime.UtcNow.ToString("yyyy-MM-ddTHH:mm:ss.fffK");
                 try
                 {
-                    SendText(ws,
+                    ws.SendText(
                         "Path:speech.config\r\n" +
                         $"X-RequestId:{requestId}\r\n" +
                         $"X-Timestamp:{timestamp}\r\n" +
                         "Content-Type:application/json\r\n" +
                         "\r\n" +
-                        "{\"context\":{\"synthesis\":{\"audio\":{\"metadataoptions\":{\"sentenceBoundaryEnabled\":\"false\",\"wordBoundaryEnabled\":\"false\"},\"outputFormat\":\"audio-24khz-48kbitrate-mono-mp3\"}}}}\r\n"
+                        "{\"context\":{\"synthesis\":{\"audio\":{\"metadataoptions\":{\"sentenceBoundaryEnabled\":\"false\",\"wordBoundaryEnabled\":\"false\"},\"outputFormat\":\"audio-24khz-48kbitrate-mono-mp3\"}}}}\r\n",
+                        _wsCancellationSource
                     );
-                    SendText(ws,
+                    ws.SendText(
                         "Path:ssml\r\n" +
                         $"X-RequestId:{requestId}\r\n" +
                         $"X-Timestamp:{timestamp}\r\n" +
@@ -208,7 +201,8 @@ namespace ACT.FoxTTS.engine.edge
                         $"<voice name=\"{settings.Voice}\">" +
                         $"<prosody rate=\"{settings.Speed - 100}%\" pitch=\"{(settings.Pitch - 100) / 2}%\" volume=\"{settings.Volume.Clamp(1, 100)}\">" +
                         text +
-                        "</prosody></voice></speak>\r\n"
+                        "</prosody></voice></speak>\r\n",
+                        _wsCancellationSource
                     );
                 }
                 catch (Exception)
@@ -220,11 +214,11 @@ namespace ACT.FoxTTS.engine.edge
 
                 // Start receiving
                 var buffer = new MemoryStream();
-                var session = new WSSession(ws);
+                var session = new WebSocketHelper.Session(ws);
                 var state = ProtocolState.NotStarted;
                 while (true)
                 {
-                    var message = ReceiveNextMessage(session);
+                    var message = WebSocketHelper.ReceiveNextMessage(session, _wsCancellationSource);
                     Logger.Debug($"Received WS message\n{message}");
                     if (message.Type == WebSocketMessageType.Text)
                     {
@@ -331,120 +325,6 @@ namespace ACT.FoxTTS.engine.edge
             NotStarted,
             TurnStarted, // turn.start received
             Streaming, // audio binary started
-        }
-
-        private class WSMessage
-        {
-
-            public static readonly WSMessage Close = new WSMessage();
-
-            public readonly WebSocketMessageType Type;
-
-            public readonly string MessageStr;
-
-            public readonly byte[] MessageBinary;
-
-            public WSMessage(string message)
-            {
-                Type = WebSocketMessageType.Text;
-                MessageStr = message;
-                MessageBinary = null;
-            }
-
-            public WSMessage(byte[] message)
-            {
-                Type = WebSocketMessageType.Binary;
-                MessageStr = null;
-                MessageBinary = message;
-            }
-
-            private WSMessage()
-            {
-                Type = WebSocketMessageType.Close;
-                MessageStr = null;
-                MessageBinary = null;
-            }
-
-            public override string ToString()
-            {
-                return $"{nameof(Type)}: {Type}, {nameof(MessageStr)}: {MessageStr}, {nameof(MessageBinary)}: byte[{MessageBinary?.Length ?? -1}]";
-            }
-        }
-
-        private class WSSession
-        {
-            public readonly WebSocket ws;
-            public readonly StringBuilder sb = new StringBuilder();
-            public readonly MemoryStream buffer = new MemoryStream();
-            public readonly byte[] array = new byte[5 * 1024];
-
-            public WSSession(WebSocket ws)
-            {
-                this.ws = ws;
-            }
-        }
-
-        private WSMessage ReceiveNextMessage(WSSession session)
-        {
-            var ws = session.ws;
-            var sb = session.sb;
-            var buffer = session.buffer;
-            var array = session.array;
-
-            sb.Clear();
-            buffer.Position = 0;
-            buffer.SetLength(0);
-
-            WebSocketMessageType? previousMessageType = null;
-
-            while (true)
-            {
-                var result = ws.ReceiveAsync(new ArraySegment<byte>(array), _wsCancellationSource.Token).Result;
-                switch (result.MessageType)
-                {
-                    case WebSocketMessageType.Text:
-                        if (previousMessageType != null && previousMessageType != WebSocketMessageType.Text)
-                        {
-                            throw new IOException("Unexpected WebSocketMessageType");
-                        }
-
-                        if (result.Count > 0)
-                        {
-                            sb.Append(Encoding.UTF8.GetString(array, 0, result.Count));
-                        }
-                        break;
-                    case WebSocketMessageType.Binary:
-                        if (previousMessageType != null && previousMessageType != WebSocketMessageType.Binary)
-                        {
-                            throw new IOException("Unexpected WebSocketMessageType");
-                        }
-
-                        if (result.Count > 0)
-                        {
-                            buffer.Write(array, 0, result.Count);
-                        }
-                        break;
-                    case WebSocketMessageType.Close:
-                        Debug.Assert(sb.Length == 0);
-                        Debug.Assert(buffer.Length == 0);
-                        return WSMessage.Close;
-                    default:
-                        throw new ArgumentOutOfRangeException();
-                }
-                previousMessageType = result.MessageType;
-
-                if (result.EndOfMessage)
-                {
-                    if (previousMessageType == WebSocketMessageType.Text)
-                    {
-                        return new WSMessage(sb.ToString());
-                    }
-                    else
-                    {
-                        return new WSMessage(buffer.ToArray());
-                    }
-                }
-            }
         }
 
         private readonly CancellationTokenSource _wsCancellationSource = new CancellationTokenSource();

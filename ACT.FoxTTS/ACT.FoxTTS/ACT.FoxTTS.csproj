@@ -154,6 +154,7 @@
     <Compile Include="TTSInjector.cs" />
     <Compile Include="UpdateChecker.cs" />
     <Compile Include="Utils.cs" />
+    <Compile Include="WebSocketHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ACT.FoxCommon\ACT.FoxCommon\ACT.FoxCommon.csproj">
