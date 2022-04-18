@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("ACT.FoxTTS")]
-[assembly: AssemblyCopyright("Copyright © 2018-2021 Noisyfox")]
+[assembly: AssemblyCopyright("Copyright © 2018-2022 Noisyfox")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
