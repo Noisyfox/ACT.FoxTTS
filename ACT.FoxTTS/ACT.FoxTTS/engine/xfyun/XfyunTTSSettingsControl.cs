@@ -163,7 +163,7 @@ namespace ACT.FoxTTS.engine.xfyun
                 {
                     ButtonLayout = TraySlider.ButtonLayoutEnum.OneButton,
                 };
-                ts.ShowTraySlider(strings.msgBaiduApiKeyEmpty, strings.actPanelTitle);
+                ts.ShowTraySlider(strings.msgXfyunApiKeyEmpty, strings.actPanelTitle);
             }
         }
     }

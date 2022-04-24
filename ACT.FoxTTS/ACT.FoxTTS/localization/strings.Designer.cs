@@ -886,6 +886,33 @@ namespace ACT.FoxTTS.localization {
         }
         
         /// <summary>
+        ///   查找类似 错误：身份认证失败，请确保在设置界面填入了正确的 API Secret/API Key 的本地化字符串。
+        /// </summary>
+        internal static string msgErrorXfyunAuthFail {
+            get {
+                return ResourceManager.GetString("msgErrorXfyunAuthFail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 错误：API 额度不足，你的应用密钥可用次数用完了，或者账户余额不足，或者选择了未授权的发音人 的本地化字符串。
+        /// </summary>
+        internal static string msgErrorXfyunInsufficientApiQuota {
+            get {
+                return ResourceManager.GetString("msgErrorXfyunInsufficientApiQuota", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 错误：身份认证失败，请确保在设置界面填入了正确的应用ID 的本地化字符串。
+        /// </summary>
+        internal static string msgErrorXfyunWrongAppId {
+            get {
+                return ResourceManager.GetString("msgErrorXfyunWrongAppId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 错误：身份认证失败，请确保在设置界面填入了正确的应用ID/密钥 的本地化字符串。
         /// </summary>
         internal static string msgErrorYoudaoAuthFail {
@@ -927,6 +954,17 @@ namespace ACT.FoxTTS.localization {
         internal static string msgErrorYoudaoUnexpected {
             get {
                 return ResourceManager.GetString("msgErrorYoudaoUnexpected", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 你目前选择讯飞语音合成，该引擎需要自助申请 API Key 才可使用，普通用户建议在本插件的设置界面中选择其他引擎。
+        ///
+        ///请注意，你当前的设置会导致TTS没有声音！ 的本地化字符串。
+        /// </summary>
+        internal static string msgXfyunApiKeyEmpty {
+            get {
+                return ResourceManager.GetString("msgXfyunApiKeyEmpty", resourceCulture);
             }
         }
         

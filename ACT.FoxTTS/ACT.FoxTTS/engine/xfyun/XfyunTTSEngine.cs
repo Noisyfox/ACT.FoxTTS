@@ -1,6 +1,6 @@
 ﻿using System;
-using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using System.Net;
 using System.Net.WebSockets;
 using System.Security.Cryptography;
@@ -60,7 +60,9 @@ namespace ACT.FoxTTS.engine.xfyun
                 settings.ToString(),
                 f =>
                 {
-                    var result = Synthesis(settings, text);
+                    byte[] result = null;
+                    
+                    result = Synthesis(settings, text);
 
                     if (result != null)
                     {
@@ -110,7 +112,37 @@ namespace ACT.FoxTTS.engine.xfyun
                     $"wss://tts-api.xfyun.cn/v2/tts?host=tts-api.xfyun.cn" +
                     $"&date={WebUtility.UrlEncode(date).Replace("+", "%20")}" +
                     $"&authorization={Convert.ToBase64String(Encoding.UTF8.GetBytes(authorization))}";
-                ws.ConnectAsync(new Uri(url), _wsCancellationSource.Token).Wait();
+                try
+                {
+                    ws.ConnectAsync(new Uri(url), _wsCancellationSource.Token).Wait();
+                }
+                catch (AggregateException e)
+                {
+                    var inner = e.InnerExceptions.First().GetBaseException();
+                    if (inner is WebException webException)
+                    {
+                        var resp = (HttpWebResponse)webException.Response;
+                        string body = null;
+                        using (var stream = resp.GetResponseStream())
+                        {
+                            if (stream != null)
+                            {
+                                var reader = new StreamReader(stream, string.IsNullOrEmpty(resp.CharacterSet) ? Encoding.UTF8 : Encoding.GetEncoding(resp.CharacterSet));
+                                body = reader.ReadToEnd();
+                            }
+                        }
+                        Logger.Error($"Unable to connect to server: {body}");
+                        switch (resp.StatusCode)
+                        {
+                            case HttpStatusCode.Unauthorized:
+                            case HttpStatusCode.Forbidden:
+                                Logger.Error(strings.msgErrorXfyunAuthFail);
+                                return null;
+                        }
+                    }
+
+                    throw;
+                }
 
                 // Send request
                 var request = new TTSRequest
@@ -144,26 +176,36 @@ namespace ACT.FoxTTS.engine.xfyun
                     if (message.Type == WebSocketMessageType.Text)
                     {
                         var resp = JsonConvert.DeserializeObject<TTSResponse>(message.MessageStr);
-                        switch (resp.Code)
+                        if (resp.Code == 0)
                         {
-                            case 0:
-                                // Success!
-                                if (resp.Data != null)
+                            // Success!
+                            if (resp.Data != null)
+                            {
+                                var data = Convert.FromBase64String(resp.Data.Audio);
+                                buffer.Write(data, 0, data.Length);
+
+                                if (resp.Data.Status == 2)
                                 {
-                                    var data = Convert.FromBase64String(resp.Data.Audio);
-                                    buffer.Write(data, 0, data.Length);
-
-                                    if (resp.Data.Status == 2)
-                                    {
-                                        // Complete!
-                                        return buffer.ToArray();
-                                    }
+                                    // Complete!
+                                    return buffer.ToArray();
                                 }
-
-                                break;
-                            default:
-                                Logger.Error($"Unexpected response code received: {resp.Code}: {resp.Message}");
-                                break;
+                            }
+                        }
+                        else
+                        {
+                            Logger.Error($"Unexpected response code received: {resp.Code}: {resp.Message}");
+                            switch (resp.Code)
+                            {
+                                case 10005:
+                                case 10313:
+                                    Logger.Error(strings.msgErrorXfyunWrongAppId);
+                                    break;
+                                case 11200:
+                                case 11201:
+                                    Logger.Error(strings.msgErrorXfyunInsufficientApiQuota);
+                                    break;
+                            }
+                            return null;
                         }
                     }
                     else if (message.Type == WebSocketMessageType.Binary)

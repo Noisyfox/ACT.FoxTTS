@@ -402,6 +402,15 @@
   <data name="msgErrorWMPUnavailable" xml:space="preserve">
     <value>你的电脑无法使用 ACT 自带的声音播放 API，已自动切换到本插件内置的 WinMM 播放方式。</value>
   </data>
+  <data name="msgErrorXfyunAuthFail" xml:space="preserve">
+    <value>错误：身份认证失败，请确保在设置界面填入了正确的 API Secret/API Key</value>
+  </data>
+  <data name="msgErrorXfyunInsufficientApiQuota" xml:space="preserve">
+    <value>错误：API 额度不足，你的应用密钥可用次数用完了，或者账户余额不足，或者选择了未授权的发音人</value>
+  </data>
+  <data name="msgErrorXfyunWrongAppId" xml:space="preserve">
+    <value>错误：身份认证失败，请确保在设置界面填入了正确的应用ID</value>
+  </data>
   <data name="msgErrorYoudaoAuthFail" xml:space="preserve">
     <value>错误：身份认证失败，请确保在设置界面填入了正确的应用ID/密钥</value>
   </data>
@@ -416,6 +425,11 @@
   </data>
   <data name="msgErrorYoudaoUnexpected" xml:space="preserve">
     <value>意料之外的错误代码 {0}，请参考有道智云语音合成服务API文档的错误代码列表，或联系开发者并提供插件日志。</value>
+  </data>
+  <data name="msgXfyunApiKeyEmpty" xml:space="preserve">
+    <value>你目前选择讯飞语音合成，该引擎需要自助申请 API Key 才可使用，普通用户建议在本插件的设置界面中选择其他引擎。
+
+请注意，你当前的设置会导致TTS没有声音！</value>
   </data>
   <data name="msgYoudaoAppKeyEmpty" xml:space="preserve">
     <value>你目前选择了有道TTS语音合成，该引擎需要自助申请应用密钥才可使用，普通用户建议在本插件的设置界面中选择其他引擎。
