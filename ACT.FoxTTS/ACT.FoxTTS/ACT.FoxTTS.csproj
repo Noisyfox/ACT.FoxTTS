@@ -122,6 +122,14 @@
     </Compile>
     <Compile Include="engine\sapi5\VoiceCopier.cs" />
     <Compile Include="engine\TTSEngineFactory.cs" />
+    <Compile Include="engine\xfyun\XfyunTTSEngine.cs" />
+    <Compile Include="engine\xfyun\XfyunTTSSettings.cs" />
+    <Compile Include="engine\xfyun\XfyunTTSSettingsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="engine\xfyun\XfyunTTSSettingsControl.Designer.cs">
+      <DependentUpon>XfyunTTSSettingsControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="engine\youdao\YoudaoTTSEngine.cs" />
     <Compile Include="engine\youdao\YoudaoTTSSettings.cs" />
     <Compile Include="engine\youdao\YoudaoTTSSettingsControl.cs">
@@ -184,6 +192,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="engine\sapi5\SAPI5SettingsControl.resx">
       <DependentUpon>SAPI5SettingsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="engine\xfyun\XfyunTTSSettingsControl.resx">
+      <DependentUpon>XfyunTTSSettingsControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="engine\youdao\YoudaoTTSSettingsControl.resx">
       <DependentUpon>YoudaoTTSSettingsControl.cs</DependentUpon>

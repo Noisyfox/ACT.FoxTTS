@@ -7,6 +7,7 @@ using ACT.FoxTTS.engine.cafe;
 using ACT.FoxTTS.engine.edge;
 using ACT.FoxTTS.engine.google_unofficial;
 using ACT.FoxTTS.engine.sapi5;
+using ACT.FoxTTS.engine.xfyun;
 using ACT.FoxTTS.engine.youdao;
 using ACT.FoxTTS.preprocess;
 using Advanced_Combat_Tracker;
@@ -29,6 +30,7 @@ namespace ACT.FoxTTS
         public EdgeTTSSettings EdgeTtsSettings = new EdgeTTSSettings();
         public GoogleUnofficialTTSSettings GoogleUnofficialTtsSettings = new GoogleUnofficialTTSSettings();
         public YoudaoTTSSettings YoudaoTtsSettings = new YoudaoTTSSettings();
+        public XfyunTTSSettings XfyunTtsSettings = new XfyunTTSSettings();
 
         public PluginSettings(object ParentSettingsClass) : base(ParentSettingsClass)
         {
@@ -47,6 +49,7 @@ namespace ACT.FoxTTS
                 writer.Serialize(EdgeTtsSettings);
                 writer.Serialize(GoogleUnofficialTtsSettings);
                 writer.Serialize(YoudaoTtsSettings);
+                writer.Serialize(XfyunTtsSettings);
             };
 
             _settingsIo.ReadSettings = reader =>
@@ -83,6 +86,9 @@ namespace ACT.FoxTTS
                         break;
                     case nameof(YoudaoTTSSettings):
                         YoudaoTtsSettings = reader.Deserialize<YoudaoTTSSettings>();
+                        break;
+                    case nameof(XfyunTTSSettings):
+                        XfyunTtsSettings = reader.Deserialize<XfyunTTSSettings>();
                         break;
                 }
             };
@@ -183,6 +189,8 @@ namespace ACT.FoxTTS
         public GoogleUnofficialTTSSettings GoogleUnofficialTtsSettings => Settings.GoogleUnofficialTtsSettings;
 
         public YoudaoTTSSettings YoudaoTtsSettings => Settings.YoudaoTtsSettings;
+
+        public XfyunTTSSettings XfyunTtsSettings => Settings.XfyunTtsSettings;
 
         public string TTSEngine { get; set; }
         

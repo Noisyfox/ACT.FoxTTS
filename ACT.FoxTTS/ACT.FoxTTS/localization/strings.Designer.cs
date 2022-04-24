@@ -214,6 +214,24 @@ namespace ACT.FoxTTS.localization {
         }
         
         /// <summary>
+        ///   查找类似 API Secret: 的本地化字符串。
+        /// </summary>
+        internal static string checkBoxApiSecret {
+            get {
+                return ResourceManager.GetString("checkBoxApiSecret", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 勾选以显示 API Secret。截图时请注意不要泄露！5秒后自动隐藏。 的本地化字符串。
+        /// </summary>
+        internal static string checkBoxApiSecret_Tooltip {
+            get {
+                return ResourceManager.GetString("checkBoxApiSecret.Tooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 应用ID: 的本地化字符串。
         /// </summary>
         internal static string checkBoxAppId {
@@ -715,6 +733,15 @@ namespace ACT.FoxTTS.localization {
         }
         
         /// <summary>
+        ///   查找类似 注册 API 密钥 的本地化字符串。
+        /// </summary>
+        internal static string linkLabelOpenXfyunReg {
+            get {
+                return ResourceManager.GetString("linkLabelOpenXfyunReg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 注册应用密钥 的本地化字符串。
         /// </summary>
         internal static string linkLabelOpenYoudaoReg {
@@ -1096,6 +1123,15 @@ namespace ACT.FoxTTS.localization {
         internal static string ttsEngineSAPI5 {
             get {
                 return ResourceManager.GetString("ttsEngineSAPI5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 讯飞语音 的本地化字符串。
+        /// </summary>
+        internal static string ttsEngineXfyun {
+            get {
+                return ResourceManager.GetString("ttsEngineXfyun", resourceCulture);
             }
         }
         

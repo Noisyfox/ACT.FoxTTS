@@ -168,6 +168,12 @@
   <data name="checkBoxApiKey.Tooltip" xml:space="preserve">
     <value>勾选以显示 API Key。截图时请注意不要泄露！5秒后自动隐藏。</value>
   </data>
+  <data name="checkBoxApiSecret" xml:space="preserve">
+    <value>API Secret:</value>
+  </data>
+  <data name="checkBoxApiSecret.Tooltip" xml:space="preserve">
+    <value>勾选以显示 API Secret。截图时请注意不要泄露！5秒后自动隐藏。</value>
+  </data>
   <data name="checkBoxAppId" xml:space="preserve">
     <value>应用ID:</value>
   </data>
@@ -339,6 +345,9 @@
   <data name="linkLabelOpenCacheDir" xml:space="preserve">
     <value>打开缓存文件夹</value>
   </data>
+  <data name="linkLabelOpenXfyunReg" xml:space="preserve">
+    <value>注册 API 密钥</value>
+  </data>
   <data name="linkLabelOpenYoudaoReg" xml:space="preserve">
     <value>注册应用密钥</value>
   </data>
@@ -477,6 +486,9 @@
   </data>
   <data name="ttsEngineSAPI5" xml:space="preserve">
     <value>系统自带 TTS</value>
+  </data>
+  <data name="ttsEngineXfyun" xml:space="preserve">
+    <value>讯飞语音</value>
   </data>
   <data name="ttsEngineYoudao" xml:space="preserve">
     <value>有道智云 TTS</value>
