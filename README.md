@@ -11,6 +11,7 @@ Add Chinese TTS (and maybe more) to ACT &amp; TTSYukkuri
 - [肥肥咖啡（FFCafe）](https://ffcafe.org/)TTS
 - [百度语音](http://yuyin.baidu.com/tts)
 - [有道语音](https://ai.youdao.com/product-tts.s)
+- [讯飞语音](https://www.xfyun.cn/services/online_tts)
 - SAPI5 (Windows 自带TTS)
 
 # 如何使用
