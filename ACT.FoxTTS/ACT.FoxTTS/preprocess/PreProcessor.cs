@@ -24,11 +24,17 @@ namespace ACT.FoxTTS.preprocess
             _plugin = plugin;
             _controller = plugin.Controller;
 
+            _controller.SettingsLoaded += _controller_SettingsLoaded;
             _controller.PreProcessorSettingsChanged += _controller_PreProcessorSettingsChanged;
         }
 
         public void PostAttachToAct(FoxTTSPlugin plugin)
         {
+        }
+
+        private void _controller_SettingsLoaded()
+        {
+            _controller_PreProcessorSettingsChanged(false, _plugin.Settings.PreProcessorSettings);
         }
 
         private void _controller_PreProcessorSettingsChanged(bool fromView, PreProcessorSettings settings)
