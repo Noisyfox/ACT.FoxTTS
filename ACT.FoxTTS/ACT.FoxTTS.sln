@@ -1,11 +1,21 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27428.2015
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32319.34
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ACT.FoxTTS", "ACT.FoxTTS\ACT.FoxTTS.csproj", "{6AD6E0AA-02AA-45BA-9D0B-6DC29E662647}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ACT.FoxCommon", "ACT.FoxCommon\ACT.FoxCommon\ACT.FoxCommon.csproj", "{78342B89-6BAA-43E8-824A-A6FB06CDE993}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NAudio.Core", "NAudio\NAudio.Core\NAudio.Core.csproj", "{4BED7903-8E39-4A35-BDE1-0B35A5FC2C33}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NAudio.Wasapi", "NAudio\NAudio.Wasapi\NAudio.Wasapi.csproj", "{DF267726-728E-48FD-A999-442E4975A5F6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NAudio.WinMM", "NAudio\NAudio.WinMM\NAudio.WinMM.csproj", "{7595703F-F243-420D-A689-216B2894C97C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NAudio", "NAudio\NAudio\NAudio.csproj", "{3BEEB771-852B-4405-87D5-B47DB0F63E50}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NAudio", "NAudio", "{169C8812-8CE9-4455-BDBE-CAACC8121037}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,9 +31,31 @@ Global
 		{78342B89-6BAA-43E8-824A-A6FB06CDE993}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{78342B89-6BAA-43E8-824A-A6FB06CDE993}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{78342B89-6BAA-43E8-824A-A6FB06CDE993}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4BED7903-8E39-4A35-BDE1-0B35A5FC2C33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4BED7903-8E39-4A35-BDE1-0B35A5FC2C33}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4BED7903-8E39-4A35-BDE1-0B35A5FC2C33}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4BED7903-8E39-4A35-BDE1-0B35A5FC2C33}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF267726-728E-48FD-A999-442E4975A5F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF267726-728E-48FD-A999-442E4975A5F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF267726-728E-48FD-A999-442E4975A5F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF267726-728E-48FD-A999-442E4975A5F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7595703F-F243-420D-A689-216B2894C97C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7595703F-F243-420D-A689-216B2894C97C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7595703F-F243-420D-A689-216B2894C97C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7595703F-F243-420D-A689-216B2894C97C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3BEEB771-852B-4405-87D5-B47DB0F63E50}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3BEEB771-852B-4405-87D5-B47DB0F63E50}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3BEEB771-852B-4405-87D5-B47DB0F63E50}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3BEEB771-852B-4405-87D5-B47DB0F63E50}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{4BED7903-8E39-4A35-BDE1-0B35A5FC2C33} = {169C8812-8CE9-4455-BDBE-CAACC8121037}
+		{DF267726-728E-48FD-A999-442E4975A5F6} = {169C8812-8CE9-4455-BDBE-CAACC8121037}
+		{7595703F-F243-420D-A689-216B2894C97C} = {169C8812-8CE9-4455-BDBE-CAACC8121037}
+		{3BEEB771-852B-4405-87D5-B47DB0F63E50} = {169C8812-8CE9-4455-BDBE-CAACC8121037}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0C18669A-BB7C-45BA-A8BC-2668B27D6962}

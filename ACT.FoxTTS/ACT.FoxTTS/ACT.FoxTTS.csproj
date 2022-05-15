@@ -169,6 +169,22 @@
       <Project>{78342b89-6baa-43e8-824a-a6fb06cde993}</Project>
       <Name>ACT.FoxCommon</Name>
     </ProjectReference>
+    <ProjectReference Include="..\NAudio\NAudio.Core\NAudio.Core.csproj">
+      <Project>{4bed7903-8e39-4a35-bde1-0b35a5fc2c33}</Project>
+      <Name>NAudio.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NAudio\NAudio.Wasapi\NAudio.Wasapi.csproj">
+      <Project>{df267726-728e-48fd-a999-442e4975a5f6}</Project>
+      <Name>NAudio.Wasapi</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NAudio\NAudio.WinMM\NAudio.WinMM.csproj">
+      <Project>{7595703f-f243-420d-a689-216b2894c97c}</Project>
+      <Name>NAudio.WinMM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NAudio\NAudio\NAudio.csproj">
+      <Project>{3beeb771-852b-4405-87d5-b47db0f63e50}</Project>
+      <Name>NAudio</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="ILMerge.props" />
