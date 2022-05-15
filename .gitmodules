@@ -1,3 +1,7 @@
 [submodule "ACT.FoxTTS/ACT.FoxCommon"]
 	path = ACT.FoxTTS/ACT.FoxCommon
 	url = https://github.com/Noisyfox/ACT.FoxCommon.git
+[submodule "ACT.FoxTTS/NAudio"]
+	path = ACT.FoxTTS/NAudio
+	url = https://github.com/Noisyfox/NAudio.git
+	branch = lite
