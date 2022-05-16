@@ -10,7 +10,7 @@ namespace ACT.FoxTTS.playback
 {
     public class WaveOutPlayback : NAudioPlayerBase
     {
-        public override string Name => "WaveOut";
+        public override string Name => SoundPlayerWrapper.PlayerWaveOut;
 
         protected override IWavePlayer CreateWavePlayer(string deviceId)
         {

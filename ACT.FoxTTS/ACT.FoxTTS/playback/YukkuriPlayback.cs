@@ -15,7 +15,7 @@ namespace ACT.FoxTTS.playback
         {
         }
 
-        public string Name => "Yukurri";
+        public string Name => SoundPlayerWrapper.PlayerYukurri;
 
         public bool SupportVolumeControl => false;
 

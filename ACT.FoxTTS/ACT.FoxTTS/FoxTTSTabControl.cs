@@ -176,6 +176,10 @@ namespace ACT.FoxTTS
                     break;
             }
             comboBoxPlaybackApi.SelectedItem = playbackSettings.Api;
+            if (comboBoxPlaybackApi.SelectedIndex == -1)
+            {
+                comboBoxPlaybackApi.SelectedIndex = 0;
+            }
             radioButtonPlaybackACT.CheckedChanged += OnPlayerValueChanged;
             radioButtonPlaybackYukkuri.CheckedChanged += OnPlayerValueChanged;
             radioButtonPlaybackBuiltIn.CheckedChanged += OnPlayerValueChanged;
@@ -417,10 +421,21 @@ namespace ACT.FoxTTS
                     settings.PluginIntegration != PluginIntegration.Auto;
         }
 
-        internal void SwitchToWinMMPlayback()
+        internal void SwitchPlaybackPlayer(string player)
         {
-            radioButtonPlaybackBuiltIn.Checked = true;
-            comboBoxPlaybackApi.SelectedItem = SoundPlayerWrapper.ApiWinMM;
+            switch (player)
+            {
+                case SoundPlayerWrapper.PlayerACT:
+                    radioButtonPlaybackACT.Checked = true;
+                    break;
+                case SoundPlayerWrapper.PlayerYukurri:
+                    radioButtonPlaybackYukkuri.Checked = true;
+                    break;
+                default:
+                    radioButtonPlaybackBuiltIn.Checked = true;
+                    comboBoxPlaybackApi.SelectedItem = player;
+                    break;
+            }
         }
 
         private void OnPlayerValueChanged(object sender, EventArgs e)

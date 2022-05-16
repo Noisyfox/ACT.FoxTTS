@@ -403,7 +403,7 @@
     <value>错误：你没有填 API/Secret Key！请确保在设置界面填入了正确的 API/Secret Key，否则会没有声音！</value>
   </data>
   <data name="msgErrorWMPUnavailable" xml:space="preserve">
-    <value>你的电脑无法使用 ACT 自带的声音播放 API，已自动切换到本插件内置的 WinMM 播放方式。</value>
+    <value>你的电脑无法使用 ACT 自带的声音播放 API，已自动切换到本插件内置的 WASAPI 播放方式。</value>
   </data>
   <data name="msgErrorXfyunAuthFail" xml:space="preserve">
     <value>错误：身份认证失败，请确保在设置界面填入了正确的 API Secret/API Key</value>
@@ -449,7 +449,7 @@
     <value>[不推荐] Hojoring 语音合成 (TTSYukkuri)</value>
   </data>
   <data name="radioButtonPlaybackACT" xml:space="preserve">
-    <value>使用 ACT 的设置进行回放</value>
+    <value>[不推荐] 使用 ACT 的设置进行回放</value>
   </data>
   <data name="radioButtonPlaybackBuiltIn" xml:space="preserve">
     <value>使用内置回放 API</value>

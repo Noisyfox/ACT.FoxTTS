@@ -381,29 +381,29 @@
             // radioButtonPlaybackBuiltIn
             // 
             this.radioButtonPlaybackBuiltIn.AutoSize = true;
-            this.radioButtonPlaybackBuiltIn.Location = new System.Drawing.Point(6, 63);
+            this.radioButtonPlaybackBuiltIn.Checked = true;
+            this.radioButtonPlaybackBuiltIn.Location = new System.Drawing.Point(6, 19);
             this.radioButtonPlaybackBuiltIn.Name = "radioButtonPlaybackBuiltIn";
             this.radioButtonPlaybackBuiltIn.Size = new System.Drawing.Size(185, 16);
             this.radioButtonPlaybackBuiltIn.TabIndex = 3;
+            this.radioButtonPlaybackBuiltIn.TabStop = true;
             this.radioButtonPlaybackBuiltIn.Text = "Use Built-in Sound Playback";
             this.radioButtonPlaybackBuiltIn.UseVisualStyleBackColor = true;
             // 
             // radioButtonPlaybackACT
             // 
             this.radioButtonPlaybackACT.AutoSize = true;
-            this.radioButtonPlaybackACT.Checked = true;
-            this.radioButtonPlaybackACT.Location = new System.Drawing.Point(6, 19);
+            this.radioButtonPlaybackACT.Location = new System.Drawing.Point(6, 41);
             this.radioButtonPlaybackACT.Name = "radioButtonPlaybackACT";
             this.radioButtonPlaybackACT.Size = new System.Drawing.Size(179, 16);
             this.radioButtonPlaybackACT.TabIndex = 2;
-            this.radioButtonPlaybackACT.TabStop = true;
             this.radioButtonPlaybackACT.Text = "Use ACT for Sound Playback";
             this.radioButtonPlaybackACT.UseVisualStyleBackColor = true;
             // 
             // radioButtonPlaybackYukkuri
             // 
             this.radioButtonPlaybackYukkuri.AutoSize = true;
-            this.radioButtonPlaybackYukkuri.Location = new System.Drawing.Point(6, 41);
+            this.radioButtonPlaybackYukkuri.Location = new System.Drawing.Point(6, 63);
             this.radioButtonPlaybackYukkuri.Name = "radioButtonPlaybackYukkuri";
             this.radioButtonPlaybackYukkuri.Size = new System.Drawing.Size(221, 16);
             this.radioButtonPlaybackYukkuri.TabIndex = 1;

@@ -122,7 +122,7 @@ namespace ACT.FoxTTS
     public class PlaybackSettings
     {
         [XmlElement]
-        public PlaybackMethod Method = PlaybackMethod.Act;
+        public PlaybackMethod Method = PlaybackMethod.BuiltIn;
 
         [XmlElement]
         public int MasterVolume = 100;

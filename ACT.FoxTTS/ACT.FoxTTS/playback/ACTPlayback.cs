@@ -20,7 +20,7 @@ namespace ACT.FoxTTS.playback
         {
         }
 
-        public string Name => "ACT";
+        public string Name => SoundPlayerWrapper.PlayerACT;
 
         public bool SupportVolumeControl => true;
 
@@ -61,10 +61,10 @@ namespace ACT.FoxTTS.playback
                         };
                         ts.ShowTraySlider(strings.msgErrorWMPUnavailable, strings.actPanelTitle);
             
-                        // Automatically switch to WinMM
-                        _plugin.SettingsTab.SwitchToWinMMPlayback();
-            
-                        // And retry this request using WinMM
+                        // Automatically switch to WASAPI
+                        _plugin.SettingsTab.SwitchPlaybackPlayer(SoundPlayerWrapper.PlayerWASAPI);
+
+                        // And retry this request using WASAPI
                         _plugin.SoundPlayer.Play(WavFilePath);
                     }));
                 }

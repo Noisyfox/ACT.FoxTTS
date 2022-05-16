@@ -8,7 +8,7 @@ namespace ACT.FoxTTS.playback
     public class DirectSoundPlayback : NAudioPlayerBase
     {
 
-        public override string Name => "DirectSound";
+        public override string Name => SoundPlayerWrapper.PlayerDirectSound;
 
         protected override IWavePlayer CreateWavePlayer(string deviceId)
         {

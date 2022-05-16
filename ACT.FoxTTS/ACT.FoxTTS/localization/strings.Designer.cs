@@ -886,7 +886,7 @@ namespace ACT.FoxTTS.localization {
         }
         
         /// <summary>
-        ///   查找类似 你的电脑无法使用 ACT 自带的声音播放 API，已自动切换到本插件内置的 WinMM 播放方式。 的本地化字符串。
+        ///   查找类似 你的电脑无法使用 ACT 自带的声音播放 API，已自动切换到本插件内置的 WASAPI 播放方式。 的本地化字符串。
         /// </summary>
         internal static string msgErrorWMPUnavailable {
             get {
@@ -1016,7 +1016,7 @@ namespace ACT.FoxTTS.localization {
         }
         
         /// <summary>
-        ///   查找类似 使用 ACT 的设置进行回放 的本地化字符串。
+        ///   查找类似 [不推荐] 使用 ACT 的设置进行回放 的本地化字符串。
         /// </summary>
         internal static string radioButtonPlaybackACT {
             get {

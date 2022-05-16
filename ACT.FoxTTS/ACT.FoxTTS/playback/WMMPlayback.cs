@@ -13,7 +13,7 @@ namespace ACT.FoxTTS.playback
     {
         private const int MAX_PATH = 127;
 
-        public string Name => "WinMM";
+        public string Name => SoundPlayerWrapper.PlayerWinMM;
 
         public bool SupportVolumeControl => false;
 

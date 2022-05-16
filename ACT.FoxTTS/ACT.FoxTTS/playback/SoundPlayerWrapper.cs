@@ -8,14 +8,19 @@ namespace ACT.FoxTTS.playback
 
         public IPlayer CurrentPlayer { get; private set; }
 
-        public const string ApiWinMM = "WinMM";
+        public const string PlayerACT = "ACT";
+        public const string PlayerYukurri = "Yukurri";
+        public const string PlayerWASAPI = "WASAPI";
+        public const string PlayerDirectSound = "DirectSound";
+        public const string PlayerWaveOut = "WaveOut";
+        public const string PlayerWinMM = "WinMM";
 
         public static readonly string[] Apis =
         {
-            "WinMM",
-            "DirectSound",
-            "WaveOut",
-            "WASAPI",
+            PlayerWASAPI,
+            PlayerDirectSound,
+            PlayerWaveOut,
+            PlayerWinMM,
         };
 
         public void AttachToAct(FoxTTSPlugin plugin)
@@ -33,13 +38,27 @@ namespace ACT.FoxTTS.playback
 
                     switch (player)
                     {
-                        case "ACT": CurrentPlayer = new ACTPlayback(); break;
-                        case "Yukurri": CurrentPlayer = new YukkuriPlayback(); break;
-                        case "DirectSound": CurrentPlayer = new DirectSoundPlayback(); break;
-                        case "WaveOut": CurrentPlayer = new WaveOutPlayback(); break;
-                        case "WASAPI": CurrentPlayer = new WASAPIPlayback(); break;
-                        case "WinMM": default: CurrentPlayer = new WMMPlayback(); break;
+                        case PlayerACT:
+                            CurrentPlayer = new ACTPlayback();
+                            break;
+                        case PlayerYukurri:
+                            CurrentPlayer = new YukkuriPlayback();
+                            break;
+                        case PlayerDirectSound:
+                            CurrentPlayer = new DirectSoundPlayback();
+                            break;
+                        case PlayerWaveOut:
+                            CurrentPlayer = new WaveOutPlayback();
+                            break;
+                        case PlayerWinMM:
+                            CurrentPlayer = new WMMPlayback();
+                            break;
+                        case PlayerWASAPI:
+                        default:
+                            CurrentPlayer = new WASAPIPlayback();
+                            break;
                     }
+
                     CurrentPlayer.AttachToAct(_plugin);
                     CurrentPlayer.PostAttachToAct(_plugin);
                     _plugin.Controller.NotifyPlayerChanged(false, player);

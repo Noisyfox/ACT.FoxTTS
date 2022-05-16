@@ -8,7 +8,7 @@ namespace ACT.FoxTTS.playback
 {
     public class WASAPIPlayback : NAudioPlayerBase
     {
-        public override string Name => "WASAPI";
+        public override string Name => SoundPlayerWrapper.PlayerWASAPI;
 
         protected override IWavePlayer CreateWavePlayer(string deviceId)
         {
