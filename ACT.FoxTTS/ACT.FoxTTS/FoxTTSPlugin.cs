@@ -4,6 +4,7 @@ using ACT.FoxCommon.core;
 using ACT.FoxCommon.logging;
 using ACT.FoxTTS.engine;
 using ACT.FoxTTS.localization;
+using ACT.FoxTTS.playback;
 using ACT.FoxTTS.preprocess;
 using Advanced_Combat_Tracker;
 

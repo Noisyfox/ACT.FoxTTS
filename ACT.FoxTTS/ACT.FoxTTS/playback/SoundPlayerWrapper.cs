@@ -2,10 +2,9 @@
 using ACT.FoxCommon;
 using ACT.FoxCommon.logging;
 using ACT.FoxTTS.localization;
-using ACT.FoxTTS.playback;
 using Advanced_Combat_Tracker;
 
-namespace ACT.FoxTTS
+namespace ACT.FoxTTS.playback
 {
     public class SoundPlayerWrapper : IPluginComponent
     {

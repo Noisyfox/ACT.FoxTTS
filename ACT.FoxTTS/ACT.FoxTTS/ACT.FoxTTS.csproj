@@ -158,7 +158,7 @@
     <Compile Include="preprocess\PreProcessorSettings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SettingsHolder.cs" />
-    <Compile Include="SoundPlayerWrapper.cs" />
+    <Compile Include="playback\SoundPlayerWrapper.cs" />
     <Compile Include="TTSInjector.cs" />
     <Compile Include="UpdateChecker.cs" />
     <Compile Include="Utils.cs" />
