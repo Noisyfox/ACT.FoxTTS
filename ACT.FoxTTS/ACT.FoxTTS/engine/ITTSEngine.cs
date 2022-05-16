@@ -12,6 +12,6 @@ namespace ACT.FoxTTS.engine
 
         void Stop();
 
-        void Speak(string text, dynamic playDevice, bool isSync, float? volume);
+        void Speak(string text);
     }
 }

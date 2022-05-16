@@ -419,13 +419,13 @@
             this.tableLayoutPanelPlayback.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanelPlayback.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanelPlayback.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanelPlayback.Controls.Add(this.labelMasterVolume, 0, 0);
-            this.tableLayoutPanelPlayback.Controls.Add(this.trackBarMasterVolume, 1, 0);
-            this.tableLayoutPanelPlayback.Controls.Add(this.labelCurrentVolume, 2, 0);
-            this.tableLayoutPanelPlayback.Controls.Add(this.labelPlaybackApi, 0, 1);
-            this.tableLayoutPanelPlayback.Controls.Add(this.comboBoxPlaybackApi, 1, 1);
-            this.tableLayoutPanelPlayback.Controls.Add(this.labelPlaybackDevice, 0, 2);
-            this.tableLayoutPanelPlayback.Controls.Add(this.comboBoxPlaybackDevice, 1, 2);
+            this.tableLayoutPanelPlayback.Controls.Add(this.labelPlaybackApi, 0, 0);
+            this.tableLayoutPanelPlayback.Controls.Add(this.comboBoxPlaybackApi, 1, 0);
+            this.tableLayoutPanelPlayback.Controls.Add(this.labelPlaybackDevice, 0, 1);
+            this.tableLayoutPanelPlayback.Controls.Add(this.trackBarMasterVolume, 1, 2);
+            this.tableLayoutPanelPlayback.Controls.Add(this.comboBoxPlaybackDevice, 1, 1);
+            this.tableLayoutPanelPlayback.Controls.Add(this.labelCurrentVolume, 1, 2);
+            this.tableLayoutPanelPlayback.Controls.Add(this.labelMasterVolume, 0, 2);
             this.tableLayoutPanelPlayback.Location = new System.Drawing.Point(5, 84);
             this.tableLayoutPanelPlayback.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanelPlayback.Name = "tableLayoutPanelPlayback";
@@ -442,7 +442,7 @@
             this.labelMasterVolume.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.labelMasterVolume.AutoSize = true;
-            this.labelMasterVolume.Location = new System.Drawing.Point(2, 0);
+            this.labelMasterVolume.Location = new System.Drawing.Point(2, 48);
             this.labelMasterVolume.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelMasterVolume.Name = "labelMasterVolume";
             this.labelMasterVolume.Padding = new System.Windows.Forms.Padding(0, 6, 0, 0);
@@ -454,7 +454,7 @@
             // 
             this.trackBarMasterVolume.BackColor = System.Drawing.SystemColors.Window;
             this.trackBarMasterVolume.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.trackBarMasterVolume.Location = new System.Drawing.Point(83, 2);
+            this.trackBarMasterVolume.Location = new System.Drawing.Point(83, 50);
             this.trackBarMasterVolume.Margin = new System.Windows.Forms.Padding(2);
             this.trackBarMasterVolume.Maximum = 100;
             this.trackBarMasterVolume.Name = "trackBarMasterVolume";
@@ -466,7 +466,7 @@
             // labelCurrentVolume
             // 
             this.labelCurrentVolume.AutoSize = true;
-            this.labelCurrentVolume.Location = new System.Drawing.Point(220, 0);
+            this.labelCurrentVolume.Location = new System.Drawing.Point(220, 48);
             this.labelCurrentVolume.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelCurrentVolume.MinimumSize = new System.Drawing.Size(30, 0);
             this.labelCurrentVolume.Name = "labelCurrentVolume";
@@ -479,7 +479,7 @@
             // 
             this.labelPlaybackApi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.labelPlaybackApi.AutoSize = true;
-            this.labelPlaybackApi.Location = new System.Drawing.Point(2, 55);
+            this.labelPlaybackApi.Location = new System.Drawing.Point(2, 6);
             this.labelPlaybackApi.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelPlaybackApi.Name = "labelPlaybackApi";
             this.labelPlaybackApi.Size = new System.Drawing.Size(77, 12);
@@ -494,7 +494,7 @@
             this.comboBoxPlaybackApi.FormattingEnabled = true;
             this.comboBoxPlaybackApi.Items.AddRange(new object[] {
             "WinMM"});
-            this.comboBoxPlaybackApi.Location = new System.Drawing.Point(83, 51);
+            this.comboBoxPlaybackApi.Location = new System.Drawing.Point(83, 2);
             this.comboBoxPlaybackApi.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxPlaybackApi.Name = "comboBoxPlaybackApi";
             this.comboBoxPlaybackApi.Size = new System.Drawing.Size(167, 20);
@@ -504,7 +504,7 @@
             // 
             this.labelPlaybackDevice.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.labelPlaybackDevice.AutoSize = true;
-            this.labelPlaybackDevice.Location = new System.Drawing.Point(2, 79);
+            this.labelPlaybackDevice.Location = new System.Drawing.Point(2, 30);
             this.labelPlaybackDevice.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelPlaybackDevice.Name = "labelPlaybackDevice";
             this.labelPlaybackDevice.Size = new System.Drawing.Size(77, 12);
@@ -517,7 +517,7 @@
             this.tableLayoutPanelPlayback.SetColumnSpan(this.comboBoxPlaybackDevice, 2);
             this.comboBoxPlaybackDevice.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxPlaybackDevice.FormattingEnabled = true;
-            this.comboBoxPlaybackDevice.Location = new System.Drawing.Point(83, 75);
+            this.comboBoxPlaybackDevice.Location = new System.Drawing.Point(83, 26);
             this.comboBoxPlaybackDevice.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxPlaybackDevice.Name = "comboBoxPlaybackDevice";
             this.comboBoxPlaybackDevice.Size = new System.Drawing.Size(167, 20);

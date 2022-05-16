@@ -39,7 +39,7 @@ namespace ACT.FoxTTS.engine.cafe
             _settingsControl.RemoveFromAct();
         }
 
-        public void Speak(string text, dynamic playDevice, bool isSync, float? volume)
+        public void Speak(string text)
         {
             var settings = _plugin.Settings.CafeTtsSettings;
 
@@ -55,7 +55,7 @@ namespace ACT.FoxTTS.engine.cafe
                     Utils.Download(url, f);
                 });
 
-            _plugin.SoundPlayer.Play(wave, playDevice, isSync, volume);
+            _plugin.SoundPlayer.Play(wave);
         }
     }
 }

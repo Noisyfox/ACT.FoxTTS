@@ -36,7 +36,7 @@ namespace ACT.FoxTTS.engine.youdao
             _settingsControl.RemoveFromAct();
         }
 
-        public void Speak(string text, dynamic playDevice, bool isSync, float? volume)
+        public void Speak(string text)
         {
             var settings = _plugin.Settings.YoudaoTtsSettings;
 
@@ -141,7 +141,7 @@ namespace ACT.FoxTTS.engine.youdao
                     }
                 });
 
-            _plugin.SoundPlayer.Play(wave, playDevice, isSync, volume);
+            _plugin.SoundPlayer.Play(wave);
         }
 
         private static string ComputeHash(string input, HashAlgorithm algorithm)

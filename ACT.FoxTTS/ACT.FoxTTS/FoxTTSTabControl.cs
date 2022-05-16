@@ -336,7 +336,7 @@ namespace ACT.FoxTTS
 
         private void buttonPreview_Click(object sender, EventArgs e)
         {
-            Task.Run(() => _plugin.Speak(textBoxPreview.Text, 0));
+            Task.Run(() => _plugin.Speak(textBoxPreview.Text));
         }
 
         private void linkLabelOpenCacheDir_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -750,6 +750,5 @@ namespace ACT.FoxTTS
         }
 
         #endregion
-
     }
 }

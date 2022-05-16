@@ -53,7 +53,7 @@ namespace ACT.FoxTTS.engine.sapi5
             }
         }
 
-        public void Speak(string text, dynamic playDevice, bool isSync, float? volume)
+        public void Speak(string text)
         {
             var settings = _plugin.Settings.SApi5Settings;
 
@@ -113,7 +113,7 @@ namespace ACT.FoxTTS.engine.sapi5
                     }
                 });
 
-            _plugin.SoundPlayer.Play(wave, playDevice, isSync, volume);
+            _plugin.SoundPlayer.Play(wave);
         }
     }
 }

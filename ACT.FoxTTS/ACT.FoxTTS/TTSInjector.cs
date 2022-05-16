@@ -171,7 +171,7 @@ namespace ACT.FoxTTS
         {
             Task.Run(() =>
             {
-                injector._plugin.Speak(message, 0);
+                injector._plugin.Speak(message);
             });
         }
 
@@ -280,29 +280,29 @@ namespace ACT.FoxTTS
         // ACT.Hojoring 7.8.7+
         void Speak(string text, dynamic playDevice, dynamic voicePalette, bool isSync, float? volume)
         {
-            injector._plugin.Speak(text, playDevice, isSync, volume);
+            injector._plugin.Speak(text);
         }
 
         // ACT.Hojoring 5.26.6+
         void Speak(string text, dynamic playDevice, bool isSync, float? volume)
         {
-            injector._plugin.Speak(text, playDevice, isSync, volume);
+            injector._plugin.Speak(text);
         }
 
         void Speak(string text, dynamic playDevice, bool isSync)
         {
-            injector._plugin.Speak(text, playDevice, isSync);
+            injector._plugin.Speak(text);
         }
 
         void Speak(string text, dynamic playDevice)
         {
-            injector._plugin.Speak(text, playDevice);
+            injector._plugin.Speak(text);
         }
 
         // Old Yukkuri version < 3.4
         void Speak(string text)
         {
-            injector._plugin.Speak(text, 0);
+            injector._plugin.Speak(text);
         }
 
         public void PlayTTSYukkuri(string waveFile, dynamic playDevice, bool isSync, float? volume)

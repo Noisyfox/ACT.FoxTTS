@@ -1,23 +1,39 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Text;
+using ACT.FoxCommon;
 using ACT.FoxCommon.logging;
+using Advanced_Combat_Tracker;
 
 namespace ACT.FoxTTS.playback
 {
-    public class WMMPlayback : IPluginComponent
+    public class WMMPlayback : IPlayer
     {
         private const int MAX_PATH = 127;
 
-        private FoxTTSPlugin _plugin;
+        public string Name => "WinMM";
+
+        public bool SupportVolumeControl => false;
 
         public void AttachToAct(FoxTTSPlugin plugin)
         {
-            _plugin = plugin;
         }
 
         public void PostAttachToAct(FoxTTSPlugin plugin)
+        {
+        }
+
+        public List<Device> ListDevices() => null;
+
+        public void Play(string file, int volume, string deviceId)
+        {
+            // WMM needs to be called in main thread
+            ActGlobals.oFormActMain.SafeInvoke(new Action(() => PlaySound(file)));
+        }
+
+        public void Stop()
         {
         }
 
@@ -38,7 +54,7 @@ namespace ACT.FoxTTS.playback
         /// This method needs to be called from main thread otherwise
         /// a MCIERR_CANNOT_LOAD_DRIVER error will occur.
         /// </summary>
-        public void PlaySound(string waveFile)
+        private void PlaySound(string waveFile)
         {
             if (waveFile.Length > MAX_PATH)
             {

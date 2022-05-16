@@ -27,7 +27,7 @@ namespace ACT.FoxTTS.engine.google_unofficial
             _settingsControl.RemoveFromAct();
         }
 
-        public void Speak(string text, dynamic playDevice, bool isSync, float? volume)
+        public void Speak(string text)
         {
             var settings = _plugin.Settings.GoogleUnofficialTtsSettings;
             if (!settings.Accept)
@@ -47,7 +47,7 @@ namespace ACT.FoxTTS.engine.google_unofficial
                     Utils.Download(url, f);
                 });
 
-            _plugin.SoundPlayer.Play(wave, playDevice, isSync, volume);
+            _plugin.SoundPlayer.Play(wave);
         }
     }
 }

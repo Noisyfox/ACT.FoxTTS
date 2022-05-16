@@ -36,7 +36,7 @@ namespace ACT.FoxTTS.engine.baipiao
             '\\', '/', '*', '>', '<', '?', '|', '\"', ':'
         });
 
-        public void Speak(string text, dynamic playDevice, bool isSync, float? volume)
+        public void Speak(string text)
         {
             var settings = _plugin.Settings.BaipiaoSettings;
             if (!settings.Accept)
@@ -62,7 +62,7 @@ namespace ACT.FoxTTS.engine.baipiao
                     Utils.Download(url, f);
                 });
 
-            _plugin.SoundPlayer.Play(wave, playDevice, isSync, volume);
+            _plugin.SoundPlayer.Play(wave);
         }
     }
 }

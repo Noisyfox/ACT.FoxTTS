@@ -146,13 +146,13 @@ namespace ACT.FoxTTS
             }
         }
 
-        public void Speak(string text, dynamic playDevice, bool isSync = false, float? volume = null)
+        public void Speak(string text)
         {
             Logger.Info($"Speak {text}");
             try
             {
                 var processed = PreProcessor.Process(text);
-                TtsEngine?.Speak(processed, playDevice, isSync, volume);
+                TtsEngine?.Speak(processed);
             }
             catch (Exception ex)
             {

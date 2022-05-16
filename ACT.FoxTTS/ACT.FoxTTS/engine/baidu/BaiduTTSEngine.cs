@@ -48,7 +48,7 @@ namespace ACT.FoxTTS.engine.baidu
             5 // 度小娇
         };
 
-        public void Speak(string text, dynamic playDevice, bool isSync, float? volume)
+        public void Speak(string text)
         {
             var settings = _plugin.Settings.BaiduTtsSettings;
 
@@ -104,7 +104,7 @@ namespace ACT.FoxTTS.engine.baidu
                     }
                 });
 
-            _plugin.SoundPlayer.Play(wave, playDevice, isSync, volume);
+            _plugin.SoundPlayer.Play(wave);
         }
 
         private class TtsWithHttps : Tts
