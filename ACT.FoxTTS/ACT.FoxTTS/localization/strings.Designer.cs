@@ -349,6 +349,15 @@ namespace ACT.FoxTTS.localization {
         }
         
         /// <summary>
+        ///   查找类似 播放下一句前立即终止当前播放的内容 的本地化字符串。
+        /// </summary>
+        internal static string checkBoxStopPrevious {
+            get {
+                return ResourceManager.GetString("checkBoxStopPrevious", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 使用 HTTPS 的本地化字符串。
         /// </summary>
         internal static string checkBoxUseHttps {

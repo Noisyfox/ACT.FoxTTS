@@ -8,6 +8,8 @@ namespace ACT.FoxTTS.playback
 
         bool SupportVolumeControl { get; }
 
+        bool SupportSessionControl { get; }
+
         void Stop();
 
         void Play(string file, int volume, string deviceId);

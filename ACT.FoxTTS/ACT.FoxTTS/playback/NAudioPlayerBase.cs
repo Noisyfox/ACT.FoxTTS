@@ -7,8 +7,11 @@ namespace ACT.FoxTTS.playback
 {
     public abstract class NAudioPlayerBase : IPlayer
     {
+        protected FoxTTSPlugin _plugin;
+
         public void AttachToAct(FoxTTSPlugin plugin)
         {
+            _plugin = plugin;
         }
 
         public void PostAttachToAct(FoxTTSPlugin plugin)
@@ -19,8 +22,49 @@ namespace ACT.FoxTTS.playback
 
         public bool SupportVolumeControl => true;
 
+        public bool SupportSessionControl => true;
+
+        private List<PlayerSession> _sessions = new List<PlayerSession>();
+
+        private void CloseSession(PlayerSession session)
+        {
+            var didDispose = false;
+            lock (session)
+            {
+                if (!session.Disposed)
+                {
+                    session.Disposed = true;
+                    didDispose = true;
+                }
+            }
+
+            if (didDispose)
+            {
+                session.Dispose();
+                lock (_sessions)
+                {
+                    _sessions.Remove(session);
+                }
+            }
+        }
+
         public void Stop()
         {
+            StopAllSessions();
+        }
+
+        private void StopAllSessions()
+        {
+            lock (_sessions)
+            {
+                var s = new List<PlayerSession>(_sessions);
+                _sessions.Clear();
+
+                foreach (var session in s)
+                {
+                    CloseSession(session);
+                }
+            }
         }
 
         public void Play(string file, int volume, string deviceId)
@@ -43,13 +87,25 @@ namespace ACT.FoxTTS.playback
                     Player = player,
                 };
                 player.Init(audio);
-                player.PlaybackStopped += delegate { session.Dispose(); };
+                player.PlaybackStopped += delegate
+                {
+                    CloseSession(session);
+                };
+                lock (_sessions)
+                {
+                    if (_plugin.Settings.PlaybackSettings.StopPrevious)
+                    {
+                        StopAllSessions();
+                        _sessions.Add(session);
+                    }
+                }
+
                 player.Play();
             }
             catch (Exception)
             {
-                audio?.Dispose();
                 player?.Dispose();
+                audio?.Dispose();
                 throw;
             }
         }
@@ -60,13 +116,14 @@ namespace ACT.FoxTTS.playback
 
         private class PlayerSession: IDisposable
         {
+            public bool Disposed = false;
             public AudioFileReader Reader;
             public IWavePlayer Player;
 
             public void Dispose()
             {
-                Reader?.Dispose();
-                Player?.Dispose();
+                Player.Dispose();
+                Reader.Dispose();
             }
         }
     }

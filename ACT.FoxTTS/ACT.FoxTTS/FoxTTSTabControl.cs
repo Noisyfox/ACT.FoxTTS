@@ -180,6 +180,7 @@ namespace ACT.FoxTTS
             {
                 comboBoxPlaybackApi.SelectedIndex = 0;
             }
+            checkBoxStopPrevious.Checked = playbackSettings.StopPrevious;
             radioButtonPlaybackACT.CheckedChanged += OnPlayerValueChanged;
             radioButtonPlaybackYukkuri.CheckedChanged += OnPlayerValueChanged;
             radioButtonPlaybackBuiltIn.CheckedChanged += OnPlayerValueChanged;
@@ -187,6 +188,7 @@ namespace ACT.FoxTTS
 
             comboBoxPlaybackDevice.SelectedIndexChanged += OnPlaybackValueChanged;
             trackBarMasterVolume.ValueChanged += OnPlaybackValueChanged;
+            checkBoxStopPrevious.CheckedChanged += OnPlaybackValueChanged;
 
             // Load text processor settings
             dataGridViewRules.AutoGenerateColumns = false;
@@ -472,6 +474,7 @@ namespace ACT.FoxTTS
             comboBoxPlaybackDevice.SelectedIndexChanged -= OnPlaybackValueChanged;
             var currentPlayer = _plugin.SoundPlayer.CurrentPlayer;
             trackBarMasterVolume.Enabled = currentPlayer.SupportVolumeControl;
+            checkBoxStopPrevious.Enabled = currentPlayer.SupportSessionControl;
             var devices = currentPlayer.ListDevices();
             if (devices == null)
             {
@@ -496,6 +499,7 @@ namespace ACT.FoxTTS
             settings.MasterVolume = trackBarMasterVolume.Value;
             labelCurrentVolume.Text = settings.MasterVolume.ToString();
             settings.Device = ((Device)comboBoxPlaybackDevice.SelectedItem)?.ID;
+            settings.StopPrevious = checkBoxStopPrevious.Checked;
         }
 
         #region Preprocess rules

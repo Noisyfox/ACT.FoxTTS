@@ -99,6 +99,7 @@
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.richTextBoxLog = new System.Windows.Forms.RichTextBox();
             this.checkBoxDebugLogging = new System.Windows.Forms.CheckBox();
+            this.checkBoxStopPrevious = new System.Windows.Forms.CheckBox();
             this.tabControl1.SuspendLayout();
             this.tabPageGeneralSettings.SuspendLayout();
             this.groupBoxIntegration.SuspendLayout();
@@ -203,7 +204,7 @@
             // groupBoxPreview
             // 
             this.groupBoxPreview.Controls.Add(this.tableLayoutPanel2);
-            this.groupBoxPreview.Location = new System.Drawing.Point(5, 478);
+            this.groupBoxPreview.Location = new System.Drawing.Point(6, 494);
             this.groupBoxPreview.Margin = new System.Windows.Forms.Padding(2);
             this.groupBoxPreview.Name = "groupBoxPreview";
             this.groupBoxPreview.Padding = new System.Windows.Forms.Padding(2);
@@ -254,7 +255,7 @@
             // groupBoxTTSEngine
             // 
             this.groupBoxTTSEngine.Controls.Add(this.tableLayoutPanel1);
-            this.groupBoxTTSEngine.Location = new System.Drawing.Point(5, 341);
+            this.groupBoxTTSEngine.Location = new System.Drawing.Point(5, 357);
             this.groupBoxTTSEngine.Margin = new System.Windows.Forms.Padding(2);
             this.groupBoxTTSEngine.Name = "groupBoxTTSEngine";
             this.groupBoxTTSEngine.Padding = new System.Windows.Forms.Padding(2);
@@ -373,7 +374,7 @@
             this.groupBoxPlayback.Margin = new System.Windows.Forms.Padding(2);
             this.groupBoxPlayback.Name = "groupBoxPlayback";
             this.groupBoxPlayback.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBoxPlayback.Size = new System.Drawing.Size(262, 197);
+            this.groupBoxPlayback.Size = new System.Drawing.Size(262, 213);
             this.groupBoxPlayback.TabIndex = 5;
             this.groupBoxPlayback.TabStop = false;
             this.groupBoxPlayback.Text = "Playback";
@@ -424,8 +425,9 @@
             this.tableLayoutPanelPlayback.Controls.Add(this.labelPlaybackDevice, 0, 1);
             this.tableLayoutPanelPlayback.Controls.Add(this.trackBarMasterVolume, 1, 2);
             this.tableLayoutPanelPlayback.Controls.Add(this.comboBoxPlaybackDevice, 1, 1);
-            this.tableLayoutPanelPlayback.Controls.Add(this.labelCurrentVolume, 1, 2);
             this.tableLayoutPanelPlayback.Controls.Add(this.labelMasterVolume, 0, 2);
+            this.tableLayoutPanelPlayback.Controls.Add(this.checkBoxStopPrevious, 0, 3);
+            this.tableLayoutPanelPlayback.Controls.Add(this.labelCurrentVolume, 2, 2);
             this.tableLayoutPanelPlayback.Location = new System.Drawing.Point(5, 84);
             this.tableLayoutPanelPlayback.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanelPlayback.Name = "tableLayoutPanelPlayback";
@@ -434,7 +436,7 @@
             this.tableLayoutPanelPlayback.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanelPlayback.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanelPlayback.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanelPlayback.Size = new System.Drawing.Size(252, 108);
+            this.tableLayoutPanelPlayback.Size = new System.Drawing.Size(252, 124);
             this.tableLayoutPanelPlayback.TabIndex = 1;
             // 
             // labelPlaybackApi
@@ -524,7 +526,7 @@
             // groupBoxUpdate
             // 
             this.groupBoxUpdate.Controls.Add(this.tableLayoutPanel4);
-            this.groupBoxUpdate.Location = new System.Drawing.Point(5, 533);
+            this.groupBoxUpdate.Location = new System.Drawing.Point(5, 549);
             this.groupBoxUpdate.Margin = new System.Windows.Forms.Padding(2);
             this.groupBoxUpdate.Name = "groupBoxUpdate";
             this.groupBoxUpdate.Size = new System.Drawing.Size(262, 173);
@@ -1046,6 +1048,19 @@
             this.checkBoxDebugLogging.UseVisualStyleBackColor = true;
             this.checkBoxDebugLogging.CheckedChanged += new System.EventHandler(this.checkBoxDebugLogging_CheckedChanged);
             // 
+            // checkBoxStopPrevious
+            // 
+            this.checkBoxStopPrevious.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.checkBoxStopPrevious.AutoSize = true;
+            this.tableLayoutPanelPlayback.SetColumnSpan(this.checkBoxStopPrevious, 3);
+            this.checkBoxStopPrevious.Location = new System.Drawing.Point(3, 100);
+            this.checkBoxStopPrevious.Name = "checkBoxStopPrevious";
+            this.checkBoxStopPrevious.Size = new System.Drawing.Size(246, 16);
+            this.checkBoxStopPrevious.TabIndex = 7;
+            this.checkBoxStopPrevious.Text = "Stop Previous";
+            this.checkBoxStopPrevious.UseVisualStyleBackColor = true;
+            // 
             // FoxTTSTabControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1165,5 +1180,6 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn ColumnUseRegex;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.CheckBox checkBoxDebugLogging;
+        private System.Windows.Forms.CheckBox checkBoxStopPrevious;
     }
 }

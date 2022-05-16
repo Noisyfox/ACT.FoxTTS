@@ -132,6 +132,9 @@ namespace ACT.FoxTTS
 
         [XmlElement]
         public string Device = null;
+
+        [XmlElement]
+        public bool StopPrevious = false;
     }
 
     public class SettingsHolder : IPluginComponent

@@ -17,6 +17,8 @@ namespace ACT.FoxTTS.playback
 
         public bool SupportVolumeControl => false;
 
+        public bool SupportSessionControl => false;
+
         public void AttachToAct(FoxTTSPlugin plugin)
         {
         }

@@ -213,6 +213,9 @@
   <data name="checkBoxSecretKey.Tooltip" xml:space="preserve">
     <value>勾选以显示 Secret Key。截图时请注意不要泄露！5秒后自动隐藏。</value>
   </data>
+  <data name="checkBoxStopPrevious" xml:space="preserve">
+    <value>播放下一句前立即终止当前播放的内容</value>
+  </data>
   <data name="checkBoxUseHttps" xml:space="preserve">
     <value>使用 HTTPS</value>
   </data>
