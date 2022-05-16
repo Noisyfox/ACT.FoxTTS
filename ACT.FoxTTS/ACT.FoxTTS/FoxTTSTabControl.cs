@@ -16,6 +16,7 @@ using ACT.FoxCommon.logging;
 using ACT.FoxCommon.update;
 using ACT.FoxTTS.engine;
 using ACT.FoxTTS.localization;
+using ACT.FoxTTS.playback;
 using ACT.FoxTTS.preprocess;
 using Advanced_Combat_Tracker;
 
@@ -35,6 +36,8 @@ namespace ACT.FoxTTS
             comboBoxLanguage.DataSource = Localization.SupportedLanguages;
             comboBoxTTSEngine.DisplayMember = nameof(TTSEngineDef.DisplayName);
             comboBoxTTSEngine.ValueMember = nameof(TTSEngineDef.Name);
+            comboBoxPlaybackApi.DisplayMember = nameof(Device.Name);
+            comboBoxPlaybackApi.ValueMember = nameof(Device.ID);
 
             labelCurrentVersionValue.Text = Assembly.GetCallingAssembly().GetName().Version.ToString();
 
@@ -66,6 +69,7 @@ namespace ACT.FoxTTS
             _controller.UpdateCheckingStarted += ControllerOnUpdateCheckingStarted;
             _controller.VersionChecked += ControllerOnVersionChecked;
             _controller.TTSEngineChanged += ControllerOnTtsEngineChanged;
+            _controller.PlayerChanged += ControllerOnPlayerChanged;
         }
 
         public void PostAttachToAct(FoxTTSPlugin plugin)
@@ -82,6 +86,7 @@ namespace ACT.FoxTTS
             LocalizationBase.TranslateControls(this);
 
             comboBoxTTSEngine.DataSource = TTSEngineFactory.Engines;
+            comboBoxPlaybackApi.DataSource = SoundPlayerWrapper.Apis;
             labelLatestStableVersionValue.Text = strings.versionUnknown;
             labelLatestVersionValue.Text = strings.versionUnknown;
         }
@@ -170,12 +175,14 @@ namespace ACT.FoxTTS
                     radioButtonPlaybackBuiltIn.Checked = true;
                     break;
             }
-            comboBoxPlaybackApi.SelectedIndex = (int) playbackSettings.Api;
-            radioButtonPlaybackACT.CheckedChanged += OnPlaybackValueChanged;
-            radioButtonPlaybackYukkuri.CheckedChanged += OnPlaybackValueChanged;
-            radioButtonPlaybackBuiltIn.CheckedChanged += OnPlaybackValueChanged;
+            comboBoxPlaybackApi.SelectedItem = playbackSettings.Api;
+            radioButtonPlaybackACT.CheckedChanged += OnPlayerValueChanged;
+            radioButtonPlaybackYukkuri.CheckedChanged += OnPlayerValueChanged;
+            radioButtonPlaybackBuiltIn.CheckedChanged += OnPlayerValueChanged;
+            comboBoxPlaybackApi.SelectedIndexChanged += OnPlayerValueChanged;
+
+            comboBoxPlaybackDevice.SelectedIndexChanged += OnPlaybackValueChanged;
             trackBarMasterVolume.ValueChanged += OnPlaybackValueChanged;
-            comboBoxPlaybackApi.SelectedIndexChanged += OnPlaybackValueChanged;
 
             // Load text processor settings
             dataGridViewRules.AutoGenerateColumns = false;
@@ -196,6 +203,7 @@ namespace ACT.FoxTTS
 
             comboBoxTTSEngine_SelectedIndexChanged(null, EventArgs.Empty);
             OnPluginIntegrationValueChanged(null, EventArgs.Empty);
+            OnPlayerValueChanged(null, EventArgs.Empty);
             OnPlaybackValueChanged(null, EventArgs.Empty);
             DataGridViewRules_SelectionChanged(null, EventArgs.Empty);
         }
@@ -412,7 +420,59 @@ namespace ACT.FoxTTS
         internal void SwitchToWinMMPlayback()
         {
             radioButtonPlaybackBuiltIn.Checked = true;
-            comboBoxPlaybackApi.SelectedIndex = (int)PlaybackApi.WinMM;
+            comboBoxPlaybackApi.SelectedItem = SoundPlayerWrapper.ApiWinMM;
+        }
+
+        private void OnPlayerValueChanged(object sender, EventArgs e)
+        {
+            var settings = _plugin.Settings.PlaybackSettings;
+
+            settings.Api = (string)comboBoxPlaybackApi.SelectedItem;
+
+            if (radioButtonPlaybackACT.Checked)
+            {
+                settings.Method = PlaybackMethod.Act;
+                comboBoxPlaybackApi.Enabled = false;
+                _plugin.SoundPlayer.SelectPlayer("ACT");
+            }
+            else if (radioButtonPlaybackYukkuri.Checked)
+            {
+                settings.Method = PlaybackMethod.Yukkuri;
+                comboBoxPlaybackApi.Enabled = false;
+                _plugin.SoundPlayer.SelectPlayer("Yukurri");
+            }
+            else
+            {
+                settings.Method = PlaybackMethod.BuiltIn;
+                comboBoxPlaybackApi.Enabled = true;
+                _plugin.SoundPlayer.SelectPlayer((string)comboBoxPlaybackApi.SelectedItem);
+            }
+        }
+
+        private void ControllerOnPlayerChanged(bool fromView, string player)
+        {
+            Logger.Info($"PlayerChanged: fromView = {fromView}, player = {player}");
+            var settings = _plugin.Settings.PlaybackSettings;
+
+            comboBoxPlaybackDevice.SelectedIndexChanged -= OnPlaybackValueChanged;
+            var currentPlayer = _plugin.SoundPlayer.CurrentPlayer;
+            trackBarMasterVolume.Enabled = currentPlayer.SupportVolumeControl;
+            var devices = currentPlayer.ListDevices();
+            if (devices == null)
+            {
+                comboBoxPlaybackDevice.DataSource = null;
+                comboBoxPlaybackDevice.Enabled = false;
+            }
+            else
+            {
+                comboBoxPlaybackDevice.DataSource = devices;
+                comboBoxPlaybackDevice.Enabled = true;
+                comboBoxPlaybackDevice.SelectedItem = devices.FirstOrDefault(it => it.ID == settings.Device) ??
+                                                      devices.FirstOrDefault();
+            }
+
+            comboBoxPlaybackDevice.SelectedIndexChanged += OnPlaybackValueChanged;
+            OnPlaybackValueChanged(this, EventArgs.Empty);
         }
 
         private void OnPlaybackValueChanged(object sender, EventArgs e)
@@ -420,33 +480,7 @@ namespace ACT.FoxTTS
             var settings = _plugin.Settings.PlaybackSettings;
             settings.MasterVolume = trackBarMasterVolume.Value;
             labelCurrentVolume.Text = settings.MasterVolume.ToString();
-
-            if (radioButtonPlaybackACT.Checked)
-            {
-                settings.Method = PlaybackMethod.Act;
-
-                trackBarMasterVolume.Enabled = true;
-                comboBoxPlaybackApi.Enabled = false;
-                comboBoxPlaybackDevice.Enabled = false;
-            }
-            else if (radioButtonPlaybackYukkuri.Checked)
-            {
-                settings.Method = PlaybackMethod.Yukkuri;
-
-                trackBarMasterVolume.Enabled = false;
-                comboBoxPlaybackApi.Enabled = false;
-                comboBoxPlaybackDevice.Enabled = false;
-            }
-            else
-            {
-                settings.Method = PlaybackMethod.BuiltIn;
-
-                trackBarMasterVolume.Enabled = false;
-                comboBoxPlaybackApi.Enabled = true;
-                comboBoxPlaybackDevice.Enabled = false;
-            }
-
-            settings.Api = (PlaybackApi) comboBoxPlaybackApi.SelectedIndex;
+            settings.Device = ((Device)comboBoxPlaybackDevice.SelectedItem)?.ID;
         }
 
         #region Preprocess rules

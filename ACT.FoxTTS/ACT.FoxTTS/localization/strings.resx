@@ -249,6 +249,9 @@
   <data name="comboBoxPitchXLow" xml:space="preserve">
     <value>非常低</value>
   </data>
+  <data name="deviceDefault" xml:space="preserve">
+    <value>默认设备</value>
+  </data>
   <data name="groupBoxIntegration" xml:space="preserve">
     <value>插件集成</value>
   </data>

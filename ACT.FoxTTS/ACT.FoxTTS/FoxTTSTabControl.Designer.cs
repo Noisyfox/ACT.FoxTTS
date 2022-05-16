@@ -51,13 +51,13 @@
             this.radioButtonPlaybackACT = new System.Windows.Forms.RadioButton();
             this.radioButtonPlaybackYukkuri = new System.Windows.Forms.RadioButton();
             this.tableLayoutPanelPlayback = new System.Windows.Forms.TableLayoutPanel();
-            this.labelMasterVolume = new System.Windows.Forms.Label();
-            this.trackBarMasterVolume = new System.Windows.Forms.TrackBar();
-            this.labelCurrentVolume = new System.Windows.Forms.Label();
             this.labelPlaybackApi = new System.Windows.Forms.Label();
             this.comboBoxPlaybackApi = new System.Windows.Forms.ComboBox();
             this.labelPlaybackDevice = new System.Windows.Forms.Label();
+            this.trackBarMasterVolume = new System.Windows.Forms.TrackBar();
             this.comboBoxPlaybackDevice = new System.Windows.Forms.ComboBox();
+            this.labelCurrentVolume = new System.Windows.Forms.Label();
+            this.labelMasterVolume = new System.Windows.Forms.Label();
             this.groupBoxUpdate = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.labelCurrentVersion = new System.Windows.Forms.Label();
@@ -437,44 +437,6 @@
             this.tableLayoutPanelPlayback.Size = new System.Drawing.Size(252, 108);
             this.tableLayoutPanelPlayback.TabIndex = 1;
             // 
-            // labelMasterVolume
-            // 
-            this.labelMasterVolume.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelMasterVolume.AutoSize = true;
-            this.labelMasterVolume.Location = new System.Drawing.Point(2, 48);
-            this.labelMasterVolume.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.labelMasterVolume.Name = "labelMasterVolume";
-            this.labelMasterVolume.Padding = new System.Windows.Forms.Padding(0, 6, 0, 0);
-            this.labelMasterVolume.Size = new System.Drawing.Size(77, 18);
-            this.labelMasterVolume.TabIndex = 0;
-            this.labelMasterVolume.Text = "Master Vol.:";
-            // 
-            // trackBarMasterVolume
-            // 
-            this.trackBarMasterVolume.BackColor = System.Drawing.SystemColors.Window;
-            this.trackBarMasterVolume.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.trackBarMasterVolume.Location = new System.Drawing.Point(83, 50);
-            this.trackBarMasterVolume.Margin = new System.Windows.Forms.Padding(2);
-            this.trackBarMasterVolume.Maximum = 100;
-            this.trackBarMasterVolume.Name = "trackBarMasterVolume";
-            this.trackBarMasterVolume.Size = new System.Drawing.Size(133, 45);
-            this.trackBarMasterVolume.TabIndex = 3;
-            this.trackBarMasterVolume.TickStyle = System.Windows.Forms.TickStyle.None;
-            this.trackBarMasterVolume.Value = 100;
-            // 
-            // labelCurrentVolume
-            // 
-            this.labelCurrentVolume.AutoSize = true;
-            this.labelCurrentVolume.Location = new System.Drawing.Point(220, 48);
-            this.labelCurrentVolume.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.labelCurrentVolume.MinimumSize = new System.Drawing.Size(30, 0);
-            this.labelCurrentVolume.Name = "labelCurrentVolume";
-            this.labelCurrentVolume.Padding = new System.Windows.Forms.Padding(0, 6, 0, 0);
-            this.labelCurrentVolume.Size = new System.Drawing.Size(30, 18);
-            this.labelCurrentVolume.TabIndex = 2;
-            this.labelCurrentVolume.Text = "100";
-            // 
             // labelPlaybackApi
             // 
             this.labelPlaybackApi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
@@ -492,8 +454,6 @@
             this.tableLayoutPanelPlayback.SetColumnSpan(this.comboBoxPlaybackApi, 2);
             this.comboBoxPlaybackApi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxPlaybackApi.FormattingEnabled = true;
-            this.comboBoxPlaybackApi.Items.AddRange(new object[] {
-            "WinMM"});
             this.comboBoxPlaybackApi.Location = new System.Drawing.Point(83, 2);
             this.comboBoxPlaybackApi.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxPlaybackApi.Name = "comboBoxPlaybackApi";
@@ -511,6 +471,19 @@
             this.labelPlaybackDevice.TabIndex = 5;
             this.labelPlaybackDevice.Text = "Device:";
             // 
+            // trackBarMasterVolume
+            // 
+            this.trackBarMasterVolume.BackColor = System.Drawing.SystemColors.Window;
+            this.trackBarMasterVolume.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.trackBarMasterVolume.Location = new System.Drawing.Point(83, 50);
+            this.trackBarMasterVolume.Margin = new System.Windows.Forms.Padding(2);
+            this.trackBarMasterVolume.Maximum = 100;
+            this.trackBarMasterVolume.Name = "trackBarMasterVolume";
+            this.trackBarMasterVolume.Size = new System.Drawing.Size(133, 45);
+            this.trackBarMasterVolume.TabIndex = 3;
+            this.trackBarMasterVolume.TickStyle = System.Windows.Forms.TickStyle.None;
+            this.trackBarMasterVolume.Value = 100;
+            // 
             // comboBoxPlaybackDevice
             // 
             this.comboBoxPlaybackDevice.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
@@ -522,6 +495,31 @@
             this.comboBoxPlaybackDevice.Name = "comboBoxPlaybackDevice";
             this.comboBoxPlaybackDevice.Size = new System.Drawing.Size(167, 20);
             this.comboBoxPlaybackDevice.TabIndex = 6;
+            // 
+            // labelCurrentVolume
+            // 
+            this.labelCurrentVolume.AutoSize = true;
+            this.labelCurrentVolume.Location = new System.Drawing.Point(220, 48);
+            this.labelCurrentVolume.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelCurrentVolume.MinimumSize = new System.Drawing.Size(30, 0);
+            this.labelCurrentVolume.Name = "labelCurrentVolume";
+            this.labelCurrentVolume.Padding = new System.Windows.Forms.Padding(0, 6, 0, 0);
+            this.labelCurrentVolume.Size = new System.Drawing.Size(30, 18);
+            this.labelCurrentVolume.TabIndex = 2;
+            this.labelCurrentVolume.Text = "100";
+            // 
+            // labelMasterVolume
+            // 
+            this.labelMasterVolume.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelMasterVolume.AutoSize = true;
+            this.labelMasterVolume.Location = new System.Drawing.Point(2, 48);
+            this.labelMasterVolume.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelMasterVolume.Name = "labelMasterVolume";
+            this.labelMasterVolume.Padding = new System.Windows.Forms.Padding(0, 6, 0, 0);
+            this.labelMasterVolume.Size = new System.Drawing.Size(77, 18);
+            this.labelMasterVolume.TabIndex = 0;
+            this.labelMasterVolume.Text = "Master Vol.:";
             // 
             // groupBoxUpdate
             // 

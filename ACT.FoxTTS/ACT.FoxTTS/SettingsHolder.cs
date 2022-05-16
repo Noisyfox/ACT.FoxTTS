@@ -119,11 +119,6 @@ namespace ACT.FoxTTS
         BuiltIn, // Use built in playback apis
     }
 
-    public enum PlaybackApi : int
-    {
-        WinMM = 0,
-    }
-
     public class PlaybackSettings
     {
         [XmlElement]
@@ -133,7 +128,10 @@ namespace ACT.FoxTTS
         public int MasterVolume = 100;
 
         [XmlElement]
-        public PlaybackApi Api = PlaybackApi.WinMM;
+        public string Api = null;
+
+        [XmlElement]
+        public string Device = null;
     }
 
     public class SettingsHolder : IPluginComponent

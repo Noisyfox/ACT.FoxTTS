@@ -24,6 +24,15 @@ namespace ACT.FoxTTS
             TTSEngineChanged?.Invoke(fromView, engine);
         }
 
+        public delegate void OnPlayerChangedDelegate(bool fromView, string player);
+
+        public event OnPlayerChangedDelegate PlayerChanged;
+
+        public void NotifyPlayerChanged(bool fromView, string player)
+        {
+            PlayerChanged?.Invoke(fromView, player);
+        }
+
         public delegate void OnPreProcessorSettingsChangedDelegate(bool fromView, PreProcessorSettings settings);
 
         public event OnPreProcessorSettingsChangedDelegate PreProcessorSettingsChanged;

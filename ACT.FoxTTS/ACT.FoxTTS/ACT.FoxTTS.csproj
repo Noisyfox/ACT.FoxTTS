@@ -155,7 +155,11 @@
     <Compile Include="MainController.cs" />
     <Compile Include="playback\ACTPlayback.cs" />
     <Compile Include="playback\Device.cs" />
+    <Compile Include="playback\DirectSoundPlayback.cs" />
     <Compile Include="playback\IPlayer.cs" />
+    <Compile Include="playback\NAudioPlayerBase.cs" />
+    <Compile Include="playback\WASAPIPlayback.cs" />
+    <Compile Include="playback\WaveOutPlayback.cs" />
     <Compile Include="playback\WMMPlayback.cs" />
     <Compile Include="playback\YukkuriPlayback.cs" />
     <Compile Include="preprocess\PreProcessor.cs" />

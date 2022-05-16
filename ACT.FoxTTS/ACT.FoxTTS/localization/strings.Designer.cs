@@ -457,6 +457,15 @@ namespace ACT.FoxTTS.localization {
         }
         
         /// <summary>
+        ///   查找类似 默认设备 的本地化字符串。
+        /// </summary>
+        internal static string deviceDefault {
+            get {
+                return ResourceManager.GetString("deviceDefault", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 插件集成 的本地化字符串。
         /// </summary>
         internal static string groupBoxIntegration {
