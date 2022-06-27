@@ -188,7 +188,7 @@ namespace ACT.FoxTTS.engine.edge
                         $"X-Timestamp:{timestamp}\r\n" +
                         "Content-Type:application/json\r\n" +
                         "\r\n" +
-                        "{\"context\":{\"synthesis\":{\"audio\":{\"metadataoptions\":{\"sentenceBoundaryEnabled\":\"false\",\"wordBoundaryEnabled\":\"false\"},\"outputFormat\":\"audio-24khz-48kbitrate-mono-mp3\"}}}}\r\n",
+                        "{\"context\":{\"synthesis\":{\"audio\":{\"metadataoptions\":{\"sentenceBoundaryEnabled\":\"false\",\"wordBoundaryEnabled\":\"false\"},\"outputFormat\":\"audio-16khz-32kbitrate-mono-mp3\"}}}}\r\n",
                         _wsCancellationSource
                     );
                     ws.SendText(
