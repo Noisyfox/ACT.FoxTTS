@@ -472,6 +472,7 @@ namespace ACT.FoxTTS
             var settings = _plugin.Settings.PlaybackSettings;
 
             comboBoxPlaybackDevice.SelectedIndexChanged -= OnPlaybackValueChanged;
+            trackBarMasterVolume.ValueChanged -= OnPlaybackValueChanged;
             var currentPlayer = _plugin.SoundPlayer.CurrentPlayer;
             trackBarMasterVolume.Enabled = currentPlayer.SupportVolumeControl;
             checkBoxStopPrevious.Enabled = currentPlayer.SupportSessionControl;
@@ -489,7 +490,12 @@ namespace ACT.FoxTTS
                                                       devices.FirstOrDefault();
             }
 
+            var maxVolume = currentPlayer.SupportVolumeBoost ? 300 : 100;
+            trackBarMasterVolume.Value = trackBarMasterVolume.Value.Clamp(0, maxVolume);
+            trackBarMasterVolume.Maximum = maxVolume;
+
             comboBoxPlaybackDevice.SelectedIndexChanged += OnPlaybackValueChanged;
+            trackBarMasterVolume.ValueChanged += OnPlaybackValueChanged;
             OnPlaybackValueChanged(this, EventArgs.Empty);
         }
 

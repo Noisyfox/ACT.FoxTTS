@@ -56,8 +56,9 @@
             this.labelPlaybackDevice = new System.Windows.Forms.Label();
             this.trackBarMasterVolume = new System.Windows.Forms.TrackBar();
             this.comboBoxPlaybackDevice = new System.Windows.Forms.ComboBox();
-            this.labelCurrentVolume = new System.Windows.Forms.Label();
             this.labelMasterVolume = new System.Windows.Forms.Label();
+            this.checkBoxStopPrevious = new System.Windows.Forms.CheckBox();
+            this.labelCurrentVolume = new System.Windows.Forms.Label();
             this.groupBoxUpdate = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.labelCurrentVersion = new System.Windows.Forms.Label();
@@ -99,7 +100,6 @@
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.richTextBoxLog = new System.Windows.Forms.RichTextBox();
             this.checkBoxDebugLogging = new System.Windows.Forms.CheckBox();
-            this.checkBoxStopPrevious = new System.Windows.Forms.CheckBox();
             this.tabControl1.SuspendLayout();
             this.tabPageGeneralSettings.SuspendLayout();
             this.groupBoxIntegration.SuspendLayout();
@@ -479,7 +479,7 @@
             this.trackBarMasterVolume.Dock = System.Windows.Forms.DockStyle.Fill;
             this.trackBarMasterVolume.Location = new System.Drawing.Point(83, 50);
             this.trackBarMasterVolume.Margin = new System.Windows.Forms.Padding(2);
-            this.trackBarMasterVolume.Maximum = 100;
+            this.trackBarMasterVolume.Maximum = 300;
             this.trackBarMasterVolume.Name = "trackBarMasterVolume";
             this.trackBarMasterVolume.Size = new System.Drawing.Size(133, 45);
             this.trackBarMasterVolume.TabIndex = 3;
@@ -498,18 +498,6 @@
             this.comboBoxPlaybackDevice.Size = new System.Drawing.Size(167, 20);
             this.comboBoxPlaybackDevice.TabIndex = 6;
             // 
-            // labelCurrentVolume
-            // 
-            this.labelCurrentVolume.AutoSize = true;
-            this.labelCurrentVolume.Location = new System.Drawing.Point(220, 48);
-            this.labelCurrentVolume.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.labelCurrentVolume.MinimumSize = new System.Drawing.Size(30, 0);
-            this.labelCurrentVolume.Name = "labelCurrentVolume";
-            this.labelCurrentVolume.Padding = new System.Windows.Forms.Padding(0, 6, 0, 0);
-            this.labelCurrentVolume.Size = new System.Drawing.Size(30, 18);
-            this.labelCurrentVolume.TabIndex = 2;
-            this.labelCurrentVolume.Text = "100";
-            // 
             // labelMasterVolume
             // 
             this.labelMasterVolume.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -522,6 +510,31 @@
             this.labelMasterVolume.Size = new System.Drawing.Size(77, 18);
             this.labelMasterVolume.TabIndex = 0;
             this.labelMasterVolume.Text = "Master Vol.:";
+            // 
+            // checkBoxStopPrevious
+            // 
+            this.checkBoxStopPrevious.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.checkBoxStopPrevious.AutoSize = true;
+            this.tableLayoutPanelPlayback.SetColumnSpan(this.checkBoxStopPrevious, 3);
+            this.checkBoxStopPrevious.Location = new System.Drawing.Point(3, 100);
+            this.checkBoxStopPrevious.Name = "checkBoxStopPrevious";
+            this.checkBoxStopPrevious.Size = new System.Drawing.Size(246, 16);
+            this.checkBoxStopPrevious.TabIndex = 7;
+            this.checkBoxStopPrevious.Text = "Stop Previous";
+            this.checkBoxStopPrevious.UseVisualStyleBackColor = true;
+            // 
+            // labelCurrentVolume
+            // 
+            this.labelCurrentVolume.AutoSize = true;
+            this.labelCurrentVolume.Location = new System.Drawing.Point(220, 48);
+            this.labelCurrentVolume.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelCurrentVolume.MinimumSize = new System.Drawing.Size(30, 0);
+            this.labelCurrentVolume.Name = "labelCurrentVolume";
+            this.labelCurrentVolume.Padding = new System.Windows.Forms.Padding(0, 6, 0, 0);
+            this.labelCurrentVolume.Size = new System.Drawing.Size(30, 18);
+            this.labelCurrentVolume.TabIndex = 2;
+            this.labelCurrentVolume.Text = "100";
             // 
             // groupBoxUpdate
             // 
@@ -1047,19 +1060,6 @@
             this.checkBoxDebugLogging.Text = "Show Debug Logging";
             this.checkBoxDebugLogging.UseVisualStyleBackColor = true;
             this.checkBoxDebugLogging.CheckedChanged += new System.EventHandler(this.checkBoxDebugLogging_CheckedChanged);
-            // 
-            // checkBoxStopPrevious
-            // 
-            this.checkBoxStopPrevious.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.checkBoxStopPrevious.AutoSize = true;
-            this.tableLayoutPanelPlayback.SetColumnSpan(this.checkBoxStopPrevious, 3);
-            this.checkBoxStopPrevious.Location = new System.Drawing.Point(3, 100);
-            this.checkBoxStopPrevious.Name = "checkBoxStopPrevious";
-            this.checkBoxStopPrevious.Size = new System.Drawing.Size(246, 16);
-            this.checkBoxStopPrevious.TabIndex = 7;
-            this.checkBoxStopPrevious.Text = "Stop Previous";
-            this.checkBoxStopPrevious.UseVisualStyleBackColor = true;
             // 
             // FoxTTSTabControl
             // 

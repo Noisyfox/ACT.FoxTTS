@@ -19,6 +19,8 @@ namespace ACT.FoxTTS.playback
 
         public bool SupportVolumeControl => false;
 
+        public bool SupportVolumeBoost => false;
+
         public bool SupportSessionControl => false;
 
         public void Stop()

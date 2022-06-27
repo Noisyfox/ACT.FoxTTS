@@ -22,6 +22,8 @@ namespace ACT.FoxTTS.playback
 
         public bool SupportVolumeControl => true;
 
+        public bool SupportVolumeBoost => true;
+
         public bool SupportSessionControl => true;
 
         private List<PlayerSession> _sessions = new List<PlayerSession>();
