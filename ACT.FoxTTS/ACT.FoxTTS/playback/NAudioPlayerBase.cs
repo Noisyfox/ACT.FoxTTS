@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using ACT.FoxCommon.logging;
 using NAudio.Wave;
 
 namespace ACT.FoxTTS.playback
@@ -82,6 +83,28 @@ namespace ACT.FoxTTS.playback
             try
             {
                 audio = new AudioFileReader(file) {Volume = volume / 100f};
+
+                if (Logger.IsDebugLevelEnabled)
+                {
+                    // find the max peak
+                    float max = 0;
+                    float[] buffer = new float[audio.WaveFormat.SampleRate];
+                    int read;
+                    do
+                    {
+                        read = audio.Read(buffer, 0, buffer.Length);
+                        for (int n = 0; n < read; n++)
+                        {
+                            var abs = Math.Abs(buffer[n]);
+                            if (abs > max) max = abs;
+                        }
+                    } while (read > 0);
+
+                    Logger.Debug($"Max sample value: {max}");
+
+                    audio.Position = 0;
+                }
+
                 player = CreateWavePlayer(deviceId);
                 var session = new PlayerSession
                 {
