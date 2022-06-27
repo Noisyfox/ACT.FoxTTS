@@ -197,7 +197,7 @@ namespace ACT.FoxTTS.engine.edge
                         $"X-Timestamp:{timestamp}\r\n" +
                         "Content-Type:application/ssml+xml\r\n" +
                         "\r\n" +
-                        "<speak xmlns=\"http://www.w3.org/2001/10/synthesis\" xmlns:mstts=\"http://www.w3.org/2001/mstts\" xmlns:emo=\"http://www.w3.org/2009/10/emotionml\" version=\"1.0\" xml:lang=\"en-US\">" +
+                        "<speak xmlns=\"http://www.w3.org/2001/10/synthesis\" version=\"1.0\" xml:lang=\"en-US\">" +
                         $"<voice name=\"{settings.Voice}\">" +
                         $"<prosody rate=\"{settings.Speed - 100}%\" pitch=\"{(settings.Pitch - 100) / 2}%\" volume=\"{settings.Volume.Clamp(1, 100)}\">" +
                         text +
