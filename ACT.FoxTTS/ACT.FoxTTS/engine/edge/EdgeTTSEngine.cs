@@ -20,46 +20,30 @@ namespace ACT.FoxTTS.engine.edge
         private const string URL =
             "wss://speech.platform.bing.com/consumer/speech/synthesize/readaloud/edge/v1?TrustedClientToken=6A5AA1D4EAFF4E9FB37E23D68491D6F4";
 
+        /// <summary>
+        /// Obtained from:
+        /// https://speech.platform.bing.com/consumer/speech/synthesize/readaloud/voices/list?trustedclienttoken=6A5AA1D4EAFF4E9FB37E23D68491D6F4
+        /// </summary>
         public static readonly Voice[] Voices = new[]
         {
             new Voice("zh-CN-XiaoxiaoNeural", "中文-普通话-女 晓晓"),
-            new Voice("zh-CN-XiaoyouNeural", "中文-普通话-儿童-女 晓悠"),
-            new Voice("zh-CN-XiaomoNeural", "中文-普通话-女 晓墨"),
-            new Voice("zh-CN-XiaoxuanNeural", "中文-普通话-女 晓萱"),
-            new Voice("zh-CN-XiaohanNeural", "中文-普通话-女 晓涵"),
-            new Voice("zh-CN-XiaoruiNeural", "中文-普通话-女 晓睿"),
-            new Voice("zh-CN-XiaochenNeural", "中文-普通话-女 晓辰"),
-            new Voice("zh-CN-XiaoqiuNeural", "中文-普通话-女 晓秋"),
-            new Voice("zh-CN-XiaoshuangNeural", "中文-普通话-儿童-女 晓双"),
-            new Voice("zh-CN-XiaoyanNeural", "中文-普通话-女 晓颜"),
+            new Voice("zh-CN-XiaoyiNeural", "中文-普通话-女 晓依"),
+            new Voice("zh-CN-YunjianNeural", "中文-普通话-男 云健"),
             new Voice("zh-CN-YunyangNeural", "中文-普通话-新闻-男 云扬"),
-            new Voice("zh-CN-YunyeNeural", "中文-普通话-故事-男 云野"),
+            new Voice("zh-CN-YunxiaNeural", "中文-普通话-儿童-男 云霞"),
             new Voice("zh-CN-YunxiNeural", "中文-普通话-男 云希"),
-            new Voice("zh-HK-HiuGaaiNeural", "中文-粤语-女 曉曼"),
+            
             new Voice("zh-HK-HiuMaanNeural", "中文-粤语-女 曉佳"),
-            new Voice("zh-HK-WanLungNeural", "中文-粤语-男 雲龍"),
+
             new Voice("zh-TW-HsiaoChenNeural", "中文-台普-女 曉臻"),
-            new Voice("zh-TW-HsiaoYuNeural", "中文-台普-女 曉雨"),
-            new Voice("zh-TW-YunJheNeural", "中文-台普-男 雲哲"),
+
             new Voice("ja-JP-NanamiNeural", "日语-女 七海"),
-            new Voice("ja-JP-KeitaNeural", "日语-男 圭太"),
+
             new Voice("en-US-AriaNeural", "英语-美国-女 阿莉雅"),
             new Voice("en-US-JennyNeural", "英语-美国-女 珍妮"),
             new Voice("en-US-GuyNeural", "英语-美国-男 盖"),
-            new Voice("en-US-AmberNeural", "英语-美国-女 安柏"),
-            new Voice("en-US-AshleyNeura", "英语-美国-女 艾什莉"),
-            new Voice("en-US-CoraNeural", "英语-美国-女 科拉"),
-            new Voice("en-US-ElizabethNeural", "英语-美国-女 伊丽莎白"),
-            new Voice("en-US-MichelleNeural", "英语-美国-女 米歇尔"),
-            new Voice("en-US-MonicaNeural", "英语-美国-女 莫妮卡"),
-            new Voice("en-US-AnaNeural", "英语-美国-儿童-女 安娜"),
-            new Voice("en-US-BrandonNeural", "英语-美国-男 布兰登"),
-            new Voice("en-US-ChristopherNeural", "英语-美国-男 克里斯多弗"),
-            new Voice("en-US-JacobNeural", "英语-美国-男 雅各布"),
-            new Voice("en-US-EricNeural", "英语-美国-男 埃里克"),
-            new Voice("en-GB-LibbyNeural", "英语-英国-女 利比"),
-            new Voice("en-GB-MiaNeural", "英语-英国-女 米亚"),
-            new Voice("en-GB-RyanNeural", "英语-英国-男 瑞恩"),
+
+            new Voice("en-GB-SoniaNeural", "英语-英国-女 索尼娅"),
         };
 
         public void AttachToAct(FoxTTSPlugin plugin)
