@@ -70,6 +70,699 @@ namespace ACT.FoxTTS.localization {
         }
         
         /// <summary>
+        ///   查找类似 男孩 的本地化字符串。
+        /// </summary>
+        internal static string azureRole_Boy {
+            get {
+                return ResourceManager.GetString("azureRole_Boy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 无 的本地化字符串。
+        /// </summary>
+        internal static string azureRole_Default {
+            get {
+                return ResourceManager.GetString("azureRole_Default", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 女孩 的本地化字符串。
+        /// </summary>
+        internal static string azureRole_Girl {
+            get {
+                return ResourceManager.GetString("azureRole_Girl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 旁白 的本地化字符串。
+        /// </summary>
+        internal static string azureRole_Narrator {
+            get {
+                return ResourceManager.GetString("azureRole_Narrator", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 中年女性 的本地化字符串。
+        /// </summary>
+        internal static string azureRole_OlderAdultFemale {
+            get {
+                return ResourceManager.GetString("azureRole_OlderAdultFemale", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 中年男性 的本地化字符串。
+        /// </summary>
+        internal static string azureRole_OlderAdultMale {
+            get {
+                return ResourceManager.GetString("azureRole_OlderAdultMale", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 老年女性 的本地化字符串。
+        /// </summary>
+        internal static string azureRole_SeniorFemale {
+            get {
+                return ResourceManager.GetString("azureRole_SeniorFemale", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 老年男性 的本地化字符串。
+        /// </summary>
+        internal static string azureRole_SeniorMale {
+            get {
+                return ResourceManager.GetString("azureRole_SeniorMale", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 青年女性 的本地化字符串。
+        /// </summary>
+        internal static string azureRole_YoungAdultFemale {
+            get {
+                return ResourceManager.GetString("azureRole_YoungAdultFemale", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 青年男性 的本地化字符串。
+        /// </summary>
+        internal static string azureRole_YoungAdultMale {
+            get {
+                return ResourceManager.GetString("azureRole_YoungAdultMale", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 广告 的本地化字符串。
+        /// </summary>
+        internal static string azureStyle_advertisement_upbeat {
+            get {
+                return ResourceManager.GetString("azureStyle_advertisement-upbeat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 用兴奋和精力充沛的语气推广产品或服务。 的本地化字符串。
+        /// </summary>
+        internal static string azureStyle_advertisement_upbeat_Desc {
+            get {
+                return ResourceManager.GetString("azureStyle_advertisement-upbeat.Desc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 亲切 的本地化字符串。
+        /// </summary>
+        internal static string azureStyle_affectionate {
+            get {
+                return ResourceManager.GetString("azureStyle_affectionate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 以较高的音调和音量表达温暖而亲切的语气。 说话者处于吸引听众注意力的状态。 说话者的个性往往是讨喜的。 的本地化字符串。
+        /// </summary>
+        internal static string azureStyle_affectionate_Desc {
+            get {
+                return ResourceManager.GetString("azureStyle_affectionate.Desc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 生气 的本地化字符串。
+        /// </summary>
+        internal static string azureStyle_angry {
+            get {
+                return ResourceManager.GetString("azureStyle_angry", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 表达生气和厌恶的语气。 的本地化字符串。
+        /// </summary>
+        internal static string azureStyle_angry_Desc {
+            get {
+                return ResourceManager.GetString("azureStyle_angry.Desc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 助理 的本地化字符串。
+        /// </summary>
+        internal static string azureStyle_assistant {
+            get {
+                return ResourceManager.GetString("azureStyle_assistant", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 以热情而轻松的语气对数字助理讲话。 的本地化字符串。
+        /// </summary>
+        internal static string azureStyle_assistant_Desc {
+            get {
+                return ResourceManager.GetString("azureStyle_assistant.Desc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 平静 的本地化字符串。
+        /// </summary>
+        internal static string azureStyle_calm {
+            get {
+                return ResourceManager.GetString("azureStyle_calm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 以沉着冷静的态度说话。 语气、音调和韵律与其他语音类型相比要统一得多。 的本地化字符串。
+        /// </summary>
+        internal static string azureStyle_calm_Desc {
+            get {
+                return ResourceManager.GetString("azureStyle_calm.Desc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 聊天 的本地化字符串。
+        /// </summary>
+        internal static string azureStyle_chat {
+            get {
+                return ResourceManager.GetString("azureStyle_chat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 表达轻松随意的语气。 的本地化字符串。
+        /// </summary>
+        internal static string azureStyle_chat_Desc {
+            get {
+                return ResourceManager.GetString("azureStyle_chat.Desc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 愉悦 的本地化字符串。
+        /// </summary>
+        internal static string azureStyle_cheerful {
+            get {
+                return ResourceManager.GetString("azureStyle_cheerful", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 表达积极愉快的语气。 的本地化字符串。
+        /// </summary>
+        internal static string azureStyle_cheerful_Desc {
+            get {
+                return ResourceManager.GetString("azureStyle_cheerful.Desc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 客服 的本地化字符串。
+        /// </summary>
+        internal static string azureStyle_customerservice {
+            get {
+                return ResourceManager.GetString("azureStyle_customerservice", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 以友好热情的语气为客户提供支持。 的本地化字符串。
+        /// </summary>
+        internal static string azureStyle_customerservice_Desc {
+            get {
+                return ResourceManager.GetString("azureStyle_customerservice.Desc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 郁闷 的本地化字符串。
+        /// </summary>
+        internal static string azureStyle_depressed {
+            get {
+                return ResourceManager.GetString("azureStyle_depressed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 调低音调和音量来表达忧郁、沮丧的语气。 的本地化字符串。
+        /// </summary>
+        internal static string azureStyle_depressed_Desc {
+            get {
+                return ResourceManager.GetString("azureStyle_depressed.Desc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 不满 的本地化字符串。
+        /// </summary>
+        internal static string azureStyle_disgruntled {
+            get {
+                return ResourceManager.GetString("azureStyle_disgruntled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 表达轻蔑和抱怨的语气。 这种情绪的语音表现出不悦和蔑视。 的本地化字符串。
+        /// </summary>
+        internal static string azureStyle_disgruntled_Desc {
+            get {
+                return ResourceManager.GetString("azureStyle_disgruntled.Desc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 尴尬 的本地化字符串。
+        /// </summary>
+        internal static string azureStyle_embarrassed {
+            get {
+                return ResourceManager.GetString("azureStyle_embarrassed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 在说话者感到不舒适时表达不确定、犹豫的语气。 的本地化字符串。
+        /// </summary>
+        internal static string azureStyle_embarrassed_Desc {
+            get {
+                return ResourceManager.GetString("azureStyle_embarrassed.Desc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 善解人意 的本地化字符串。
+        /// </summary>
+        internal static string azureStyle_empathetic {
+            get {
+                return ResourceManager.GetString("azureStyle_empathetic", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 表达关心和理解。 的本地化字符串。
+        /// </summary>
+        internal static string azureStyle_empathetic_Desc {
+            get {
+                return ResourceManager.GetString("azureStyle_empathetic.Desc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 羡慕 的本地化字符串。
+        /// </summary>
+        internal static string azureStyle_envious {
+            get {
+                return ResourceManager.GetString("azureStyle_envious", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 当你渴望别人拥有的东西时，表达一种钦佩的语气。 的本地化字符串。
+        /// </summary>
+        internal static string azureStyle_envious_Desc {
+            get {
+                return ResourceManager.GetString("azureStyle_envious.Desc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 激动 的本地化字符串。
+        /// </summary>
+        internal static string azureStyle_excited {
+            get {
+                return ResourceManager.GetString("azureStyle_excited", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 表达乐观和充满希望的语气。 似乎发生了一些美好的事情，说话人对此非常满意。 的本地化字符串。
+        /// </summary>
+        internal static string azureStyle_excited_Desc {
+            get {
+                return ResourceManager.GetString("azureStyle_excited.Desc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 害怕 的本地化字符串。
+        /// </summary>
+        internal static string azureStyle_fearful {
+            get {
+                return ResourceManager.GetString("azureStyle_fearful", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 以较高的音调、较高的音量和较快的语速来表达恐惧、紧张的语气。 说话人处于紧张和不安的状态。 的本地化字符串。
+        /// </summary>
+        internal static string azureStyle_fearful_Desc {
+            get {
+                return ResourceManager.GetString("azureStyle_fearful.Desc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 友好 的本地化字符串。
+        /// </summary>
+        internal static string azureStyle_friendly {
+            get {
+                return ResourceManager.GetString("azureStyle_friendly", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 表达一种愉快、怡人且温暖的语气。 听起来很真诚且满怀关切。 的本地化字符串。
+        /// </summary>
+        internal static string azureStyle_friendly_Desc {
+            get {
+                return ResourceManager.GetString("azureStyle_friendly.Desc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 普通 的本地化字符串。
+        /// </summary>
+        internal static string azureStyle_general {
+            get {
+                return ResourceManager.GetString("azureStyle_general", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 和蔼 的本地化字符串。
+        /// </summary>
+        internal static string azureStyle_gentle {
+            get {
+                return ResourceManager.GetString("azureStyle_gentle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 以较低的音调和音量表达温和、礼貌和愉快的语气。 的本地化字符串。
+        /// </summary>
+        internal static string azureStyle_gentle_Desc {
+            get {
+                return ResourceManager.GetString("azureStyle_gentle.Desc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 充满希望 的本地化字符串。
+        /// </summary>
+        internal static string azureStyle_hopeful {
+            get {
+                return ResourceManager.GetString("azureStyle_hopeful", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 表达一种温暖且渴望的语气。 听起来像是会有好事发生在说话人身上。 的本地化字符串。
+        /// </summary>
+        internal static string azureStyle_hopeful_Desc {
+            get {
+                return ResourceManager.GetString("azureStyle_hopeful.Desc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 抒情 的本地化字符串。
+        /// </summary>
+        internal static string azureStyle_lyrical {
+            get {
+                return ResourceManager.GetString("azureStyle_lyrical", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 以优美又带感伤的方式表达情感。 的本地化字符串。
+        /// </summary>
+        internal static string azureStyle_lyrical_Desc {
+            get {
+                return ResourceManager.GetString("azureStyle_lyrical.Desc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 旁白-专业 的本地化字符串。
+        /// </summary>
+        internal static string azureStyle_narration_professional {
+            get {
+                return ResourceManager.GetString("azureStyle_narration-professional", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 以专业、客观的语气朗读内容。 的本地化字符串。
+        /// </summary>
+        internal static string azureStyle_narration_professional_Desc {
+            get {
+                return ResourceManager.GetString("azureStyle_narration-professional.Desc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 旁白-轻松 的本地化字符串。
+        /// </summary>
+        internal static string azureStyle_narration_relaxed {
+            get {
+                return ResourceManager.GetString("azureStyle_narration-relaxed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 为内容阅读表达一种舒缓而悦耳的语气。 的本地化字符串。
+        /// </summary>
+        internal static string azureStyle_narration_relaxed_Desc {
+            get {
+                return ResourceManager.GetString("azureStyle_narration-relaxed.Desc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 播音 的本地化字符串。
+        /// </summary>
+        internal static string azureStyle_newscast {
+            get {
+                return ResourceManager.GetString("azureStyle_newscast", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 新闻-非正式 的本地化字符串。
+        /// </summary>
+        internal static string azureStyle_newscast_casual {
+            get {
+                return ResourceManager.GetString("azureStyle_newscast-casual", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 以通用、随意的语气发布一般新闻。 的本地化字符串。
+        /// </summary>
+        internal static string azureStyle_newscast_casual_Desc {
+            get {
+                return ResourceManager.GetString("azureStyle_newscast-casual.Desc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 以正式专业的语气叙述新闻。 的本地化字符串。
+        /// </summary>
+        internal static string azureStyle_newscast_Desc {
+            get {
+                return ResourceManager.GetString("azureStyle_newscast.Desc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 新闻-正式 的本地化字符串。
+        /// </summary>
+        internal static string azureStyle_newscast_formal {
+            get {
+                return ResourceManager.GetString("azureStyle_newscast-formal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 以正式、自信和权威的语气发布新闻。 的本地化字符串。
+        /// </summary>
+        internal static string azureStyle_newscast_formal_Desc {
+            get {
+                return ResourceManager.GetString("azureStyle_newscast-formal.Desc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 诗歌朗诵 的本地化字符串。
+        /// </summary>
+        internal static string azureStyle_poetry_reading {
+            get {
+                return ResourceManager.GetString("azureStyle_poetry-reading", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 在读诗时表达出带情感和节奏的语气。 的本地化字符串。
+        /// </summary>
+        internal static string azureStyle_poetry_reading_Desc {
+            get {
+                return ResourceManager.GetString("azureStyle_poetry-reading.Desc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 悲伤 的本地化字符串。
+        /// </summary>
+        internal static string azureStyle_sad {
+            get {
+                return ResourceManager.GetString("azureStyle_sad", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 表达悲伤语气。 的本地化字符串。
+        /// </summary>
+        internal static string azureStyle_sad_Desc {
+            get {
+                return ResourceManager.GetString("azureStyle_sad.Desc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 严肃 的本地化字符串。
+        /// </summary>
+        internal static string azureStyle_serious {
+            get {
+                return ResourceManager.GetString("azureStyle_serious", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 表达严肃和命令的语气。 说话者的声音通常比较僵硬，节奏也不那么轻松。 的本地化字符串。
+        /// </summary>
+        internal static string azureStyle_serious_Desc {
+            get {
+                return ResourceManager.GetString("azureStyle_serious.Desc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 喊叫 的本地化字符串。
+        /// </summary>
+        internal static string azureStyle_shouting {
+            get {
+                return ResourceManager.GetString("azureStyle_shouting", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 就像从遥远的地方说话或在外面说话，但能让自己清楚地听到。 的本地化字符串。
+        /// </summary>
+        internal static string azureStyle_shouting_Desc {
+            get {
+                return ResourceManager.GetString("azureStyle_shouting.Desc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 体育解说 的本地化字符串。
+        /// </summary>
+        internal static string azureStyle_sports_commentary {
+            get {
+                return ResourceManager.GetString("azureStyle_sports-commentary", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 用轻松有趣的语气播报体育赛事。 的本地化字符串。
+        /// </summary>
+        internal static string azureStyle_sports_commentary_Desc {
+            get {
+                return ResourceManager.GetString("azureStyle_sports-commentary.Desc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 激情体育解说 的本地化字符串。
+        /// </summary>
+        internal static string azureStyle_sports_commentary_excited {
+            get {
+                return ResourceManager.GetString("azureStyle_sports-commentary-excited", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 用快速且充满活力的语气播报体育赛事精彩瞬间。 的本地化字符串。
+        /// </summary>
+        internal static string azureStyle_sports_commentary_excited_Desc {
+            get {
+                return ResourceManager.GetString("azureStyle_sports-commentary-excited.Desc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 恐惧 的本地化字符串。
+        /// </summary>
+        internal static string azureStyle_terrified {
+            get {
+                return ResourceManager.GetString("azureStyle_terrified", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 说话非常柔和，发出的声音小且温柔。 的本地化字符串。
+        /// </summary>
+        internal static string azureStyle_terrified_Desc {
+            get {
+                return ResourceManager.GetString("azureStyle_terrified.Desc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 不友好 的本地化字符串。
+        /// </summary>
+        internal static string azureStyle_unfriendly {
+            get {
+                return ResourceManager.GetString("azureStyle_unfriendly", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 表达一种非常害怕的语气，语速快且声音颤抖。 听起来说话人处于不稳定的疯狂状态。 的本地化字符串。
+        /// </summary>
+        internal static string azureStyle_unfriendly_Desc {
+            get {
+                return ResourceManager.GetString("azureStyle_unfriendly.Desc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 耳语 的本地化字符串。
+        /// </summary>
+        internal static string azureStyle_whispering {
+            get {
+                return ResourceManager.GetString("azureStyle_whispering", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 表达一种冷淡无情的语气。 的本地化字符串。
+        /// </summary>
+        internal static string azureStyle_whispering_Desc {
+            get {
+                return ResourceManager.GetString("azureStyle_whispering.Desc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 新增规则 的本地化字符串。
         /// </summary>
         internal static string buttonAddRule {
@@ -679,6 +1372,15 @@ namespace ACT.FoxTTS.localization {
         }
         
         /// <summary>
+        ///   查找类似 区域: 的本地化字符串。
+        /// </summary>
+        internal static string labelRegion {
+            get {
+                return ResourceManager.GetString("labelRegion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 替换为： 的本地化字符串。
         /// </summary>
         internal static string labelReplacement {
@@ -688,11 +1390,38 @@ namespace ACT.FoxTTS.localization {
         }
         
         /// <summary>
+        ///   查找类似 角色扮演: 的本地化字符串。
+        /// </summary>
+        internal static string labelRole {
+            get {
+                return ResourceManager.GetString("labelRole", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 语速: 的本地化字符串。
         /// </summary>
         internal static string labelSpeed {
             get {
                 return ResourceManager.GetString("labelSpeed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 说话风格: 的本地化字符串。
+        /// </summary>
+        internal static string labelStyle {
+            get {
+                return ResourceManager.GetString("labelStyle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 风格强度: 的本地化字符串。
+        /// </summary>
+        internal static string labelStyleDegree {
+            get {
+                return ResourceManager.GetString("labelStyleDegree", resourceCulture);
             }
         }
         
@@ -855,6 +1584,17 @@ namespace ACT.FoxTTS.localization {
         }
         
         /// <summary>
+        ///   查找类似 你目前选择微软语音合成，该引擎需要自助申请 API Key 才可使用，普通用户建议在本插件的设置界面中选择其他引擎。
+        ///
+        ///请注意，你当前的设置会导致TTS没有声音！ 的本地化字符串。
+        /// </summary>
+        internal static string msgAzureApiKeyEmpty {
+            get {
+                return ResourceManager.GetString("msgAzureApiKeyEmpty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 你目前选择了百度TTS语音合成，该引擎需要自助申请 API Key 才可使用，普通用户建议在本插件的设置界面中选择其他引擎。
         ///
         ///请注意，你当前的设置会导致TTS没有声音！ 的本地化字符串。
@@ -877,6 +1617,15 @@ namespace ACT.FoxTTS.localization {
         }
         
         /// <summary>
+        ///   查找类似 错误：身份认证失败，请确保在设置界面填入了正确的密钥与区域 的本地化字符串。
+        /// </summary>
+        internal static string msgErrorAzureAuthFail {
+            get {
+                return ResourceManager.GetString("msgErrorAzureAuthFail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 错误：API 额度不足，你的 API Key 可用次数用完了，或者账户余额不足 的本地化字符串。
         /// </summary>
         internal static string msgErrorBaiduInsufficientApiQuota {
@@ -891,6 +1640,15 @@ namespace ACT.FoxTTS.localization {
         internal static string msgErrorEmptyApiSecretKey {
             get {
                 return ResourceManager.GetString("msgErrorEmptyApiSecretKey", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 错误：你没有填 Api Key/区域！请确保在设置界面填入了正确的 API Key 和区域，否则会没有声音！ 的本地化字符串。
+        /// </summary>
+        internal static string msgErrorEmptyKeyRegion {
+            get {
+                return ResourceManager.GetString("msgErrorEmptyKeyRegion", resourceCulture);
             }
         }
         
@@ -1125,6 +1883,15 @@ namespace ACT.FoxTTS.localization {
         internal static string textBoxPreview {
             get {
                 return ResourceManager.GetString("textBoxPreview", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 微软语音 的本地化字符串。
+        /// </summary>
+        internal static string ttsEngineAzure {
+            get {
+                return ResourceManager.GetString("ttsEngineAzure", resourceCulture);
             }
         }
         

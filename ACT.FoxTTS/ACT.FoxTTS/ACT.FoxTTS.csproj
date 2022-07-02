@@ -70,6 +70,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="engine\azure\AzureTTSEngine.cs" />
+    <Compile Include="engine\azure\AzureTTSSettings.cs" />
+    <Compile Include="engine\azure\AzureTTSSettingsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="engine\azure\AzureTTSSettingsControl.Designer.cs">
+      <DependentUpon>AzureTTSSettingsControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="engine\azure\AzureVoice.cs" />
+    <Compile Include="engine\azure\AzureWSSynthesiser.cs" />
     <Compile Include="engine\baidu\BaiduTTSEngine.cs" />
     <Compile Include="engine\baidu\BaiduTTSSettings.cs" />
     <Compile Include="engine\baidu\BaiduTTSSettingsControl.cs">
@@ -199,6 +209,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="engine\azure\AzureTTSSettingsControl.resx">
+      <DependentUpon>AzureTTSSettingsControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="engine\baidu\BaiduTTSSettingsControl.resx">
       <DependentUpon>BaiduTTSSettingsControl.cs</DependentUpon>
     </EmbeddedResource>

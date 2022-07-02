@@ -4,11 +4,10 @@ using System.IO;
 using System.Net.Sockets;
 using System.Net.WebSockets;
 using System.Security;
-using System.Text;
 using System.Threading;
-using ACT.FoxCommon;
 using ACT.FoxCommon.core;
 using ACT.FoxCommon.logging;
+using ACT.FoxTTS.engine.azure;
 
 namespace ACT.FoxTTS.engine.edge
 {
@@ -175,149 +174,8 @@ namespace ACT.FoxTTS.engine.edge
                 return null;
             }
 
-            lock (ws)
-            {
-                // Send request
-                var requestId = Guid.NewGuid().ToString().Replace("-", "");
-                var timestamp = DateTime.UtcNow.ToString("yyyy-MM-ddTHH:mm:ss.fffK");
-                try
-                {
-                    ws.SendText(
-                        "Path:speech.config\r\n" +
-                        $"X-RequestId:{requestId}\r\n" +
-                        $"X-Timestamp:{timestamp}\r\n" +
-                        "Content-Type:application/json\r\n" +
-                        "\r\n" +
-                        "{\"context\":{\"synthesis\":{\"audio\":{\"metadataoptions\":{\"sentenceBoundaryEnabled\":\"false\",\"wordBoundaryEnabled\":\"false\"},\"outputFormat\":\"audio-16khz-32kbitrate-mono-mp3\"}}}}\r\n",
-                        _wsCancellationSource
-                    );
-                    ws.SendText(
-                        "Path:ssml\r\n" +
-                        $"X-RequestId:{requestId}\r\n" +
-                        $"X-Timestamp:{timestamp}\r\n" +
-                        "Content-Type:application/ssml+xml\r\n" +
-                        "\r\n" +
-                        "<speak xmlns=\"http://www.w3.org/2001/10/synthesis\" version=\"1.0\" xml:lang=\"en-US\">" +
-                        $"<voice name=\"{settings.Voice}\">" +
-                        $"<prosody rate=\"{settings.Speed - 100}%\" pitch=\"{(settings.Pitch - 100) / 2}%\" volume=\"{settings.Volume.Clamp(1, 100)}\">" +
-                        text +
-                        "</prosody></voice></speak>\r\n",
-                        _wsCancellationSource
-                    );
-                }
-                catch (Exception)
-                {
-                    ws.Abort();
-                    ws.Dispose();
-                    throw;
-                }
-
-                // Start receiving
-                var buffer = new MemoryStream();
-                var session = new WebSocketHelper.Session(ws);
-                var state = ProtocolState.NotStarted;
-                while (true)
-                {
-                    var message = WebSocketHelper.ReceiveNextMessage(session, _wsCancellationSource);
-                    Logger.Debug($"Received WS message\n{message}");
-                    if (message.Type == WebSocketMessageType.Text)
-                    {
-                        if (message.MessageStr.Contains(requestId))
-                        {
-                            switch (state)
-                            {
-                                case ProtocolState.NotStarted:
-                                    if (message.MessageStr.Contains("Path:turn.start"))
-                                    {
-                                        state = ProtocolState.TurnStarted;
-                                    }
-                                    break;
-                                case ProtocolState.TurnStarted:
-                                    if (message.MessageStr.Contains("Path:turn.end"))
-                                    {
-                                        throw new IOException("Unexpected turn.end");
-                                    }
-                                    else if (message.MessageStr.Contains("Path:turn.start"))
-                                    {
-                                        throw new IOException("Turn already started");
-                                    }
-                                    break;
-                                case ProtocolState.Streaming:
-                                    if (message.MessageStr.Contains("Path:turn.end"))
-                                    {
-                                        // All done
-                                        return buffer.ToArray();
-                                    }
-                                    else
-                                    {
-                                        throw new IOException($"Unexpected message during streaming: {message.MessageStr}");
-                                    }
-                                default:
-                                    throw new ArgumentOutOfRangeException();
-                            }
-                        }
-                        else
-                        {
-                            if (state != ProtocolState.NotStarted)
-                            {
-                                throw new IOException("Unexpected request id during streaming");
-                            }
-                            else
-                            {
-                                // Ignore
-                            }
-                        }
-                    }
-                    else if (message.Type == WebSocketMessageType.Binary)
-                    {
-                        switch (state)
-                        {
-                            case ProtocolState.NotStarted:
-                                // Do nothing
-                                break;
-                            case ProtocolState.TurnStarted:
-                            case ProtocolState.Streaming:
-                                // Parsing message
-                                // The first 2 bytes are the header length
-                                if (message.MessageBinary.Length < 2)
-                                {
-                                    throw new IOException("Message too short");
-                                }
-                                var headerLen = (message.MessageBinary[0] << 8) + message.MessageBinary[1];
-                                if (message.MessageBinary.Length < 2 + headerLen)
-                                {
-                                    throw new IOException("Message too short");
-                                }
-                                var header = Encoding.UTF8.GetString(message.MessageBinary, 2, headerLen);
-                                if (header.EndsWith("Path:audio\r\n"))
-                                {
-                                    if (!header.Contains(requestId))
-                                    {
-                                        throw new IOException("Unexpected request id during streaming");
-                                    }
-                                    state = ProtocolState.Streaming;
-
-                                    buffer.Write(message.MessageBinary, 2 + headerLen, message.MessageBinary.Length - 2 - headerLen);
-                                }
-                                else
-                                {
-                                    Logger.Warn($"Unexpected message with header {header}");
-                                }
-                                break;
-                            default:
-                                throw new ArgumentOutOfRangeException();
-                        }
-                    }
-                    else if (message.Type == WebSocketMessageType.Close)
-                    {
-                        throw new IOException("Unexpected closing of connection");
-                    }
-                    else
-                    {
-                        throw new ArgumentOutOfRangeException();
-                    }
-                }
-            }
+            return AzureWSSynthesiser.Synthesis(ws, _wsCancellationSource,
+                text, settings.Speed, settings.Pitch, settings.Volume, settings.Voice);
         }
 
         private enum ProtocolState

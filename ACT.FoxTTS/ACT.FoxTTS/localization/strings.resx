@@ -120,6 +120,237 @@
   <data name="actPanelTitle" xml:space="preserve">
     <value>ACT TTS插件</value>
   </data>
+  <data name="azureRole_Boy" xml:space="preserve">
+    <value>男孩</value>
+  </data>
+  <data name="azureRole_Default" xml:space="preserve">
+    <value>无</value>
+  </data>
+  <data name="azureRole_Girl" xml:space="preserve">
+    <value>女孩</value>
+  </data>
+  <data name="azureRole_Narrator" xml:space="preserve">
+    <value>旁白</value>
+  </data>
+  <data name="azureRole_OlderAdultFemale" xml:space="preserve">
+    <value>中年女性</value>
+  </data>
+  <data name="azureRole_OlderAdultMale" xml:space="preserve">
+    <value>中年男性</value>
+  </data>
+  <data name="azureRole_SeniorFemale" xml:space="preserve">
+    <value>老年女性</value>
+  </data>
+  <data name="azureRole_SeniorMale" xml:space="preserve">
+    <value>老年男性</value>
+  </data>
+  <data name="azureRole_YoungAdultFemale" xml:space="preserve">
+    <value>青年女性</value>
+  </data>
+  <data name="azureRole_YoungAdultMale" xml:space="preserve">
+    <value>青年男性</value>
+  </data>
+  <data name="azureStyle_advertisement-upbeat" xml:space="preserve">
+    <value>广告</value>
+  </data>
+  <data name="azureStyle_advertisement-upbeat.Desc" xml:space="preserve">
+    <value>用兴奋和精力充沛的语气推广产品或服务。</value>
+  </data>
+  <data name="azureStyle_affectionate" xml:space="preserve">
+    <value>亲切</value>
+  </data>
+  <data name="azureStyle_affectionate.Desc" xml:space="preserve">
+    <value>以较高的音调和音量表达温暖而亲切的语气。 说话者处于吸引听众注意力的状态。 说话者的个性往往是讨喜的。</value>
+  </data>
+  <data name="azureStyle_angry" xml:space="preserve">
+    <value>生气</value>
+  </data>
+  <data name="azureStyle_angry.Desc" xml:space="preserve">
+    <value>表达生气和厌恶的语气。</value>
+  </data>
+  <data name="azureStyle_assistant" xml:space="preserve">
+    <value>助理</value>
+  </data>
+  <data name="azureStyle_assistant.Desc" xml:space="preserve">
+    <value>以热情而轻松的语气对数字助理讲话。</value>
+  </data>
+  <data name="azureStyle_calm" xml:space="preserve">
+    <value>平静</value>
+  </data>
+  <data name="azureStyle_calm.Desc" xml:space="preserve">
+    <value>以沉着冷静的态度说话。 语气、音调和韵律与其他语音类型相比要统一得多。</value>
+  </data>
+  <data name="azureStyle_chat" xml:space="preserve">
+    <value>聊天</value>
+  </data>
+  <data name="azureStyle_chat.Desc" xml:space="preserve">
+    <value>表达轻松随意的语气。</value>
+  </data>
+  <data name="azureStyle_cheerful" xml:space="preserve">
+    <value>愉悦</value>
+  </data>
+  <data name="azureStyle_cheerful.Desc" xml:space="preserve">
+    <value>表达积极愉快的语气。</value>
+  </data>
+  <data name="azureStyle_customerservice" xml:space="preserve">
+    <value>客服</value>
+  </data>
+  <data name="azureStyle_customerservice.Desc" xml:space="preserve">
+    <value>以友好热情的语气为客户提供支持。</value>
+  </data>
+  <data name="azureStyle_depressed" xml:space="preserve">
+    <value>郁闷</value>
+  </data>
+  <data name="azureStyle_depressed.Desc" xml:space="preserve">
+    <value>调低音调和音量来表达忧郁、沮丧的语气。</value>
+  </data>
+  <data name="azureStyle_disgruntled" xml:space="preserve">
+    <value>不满</value>
+  </data>
+  <data name="azureStyle_disgruntled.Desc" xml:space="preserve">
+    <value>表达轻蔑和抱怨的语气。 这种情绪的语音表现出不悦和蔑视。</value>
+  </data>
+  <data name="azureStyle_embarrassed" xml:space="preserve">
+    <value>尴尬</value>
+  </data>
+  <data name="azureStyle_embarrassed.Desc" xml:space="preserve">
+    <value>在说话者感到不舒适时表达不确定、犹豫的语气。</value>
+  </data>
+  <data name="azureStyle_empathetic" xml:space="preserve">
+    <value>善解人意</value>
+  </data>
+  <data name="azureStyle_empathetic.Desc" xml:space="preserve">
+    <value>表达关心和理解。</value>
+  </data>
+  <data name="azureStyle_envious" xml:space="preserve">
+    <value>羡慕</value>
+  </data>
+  <data name="azureStyle_envious.Desc" xml:space="preserve">
+    <value>当你渴望别人拥有的东西时，表达一种钦佩的语气。</value>
+  </data>
+  <data name="azureStyle_excited" xml:space="preserve">
+    <value>激动</value>
+  </data>
+  <data name="azureStyle_excited.Desc" xml:space="preserve">
+    <value>表达乐观和充满希望的语气。 似乎发生了一些美好的事情，说话人对此非常满意。</value>
+  </data>
+  <data name="azureStyle_fearful" xml:space="preserve">
+    <value>害怕</value>
+  </data>
+  <data name="azureStyle_fearful.Desc" xml:space="preserve">
+    <value>以较高的音调、较高的音量和较快的语速来表达恐惧、紧张的语气。 说话人处于紧张和不安的状态。</value>
+  </data>
+  <data name="azureStyle_friendly" xml:space="preserve">
+    <value>友好</value>
+  </data>
+  <data name="azureStyle_friendly.Desc" xml:space="preserve">
+    <value>表达一种愉快、怡人且温暖的语气。 听起来很真诚且满怀关切。</value>
+  </data>
+  <data name="azureStyle_general" xml:space="preserve">
+    <value>普通</value>
+  </data>
+  <data name="azureStyle_gentle" xml:space="preserve">
+    <value>和蔼</value>
+  </data>
+  <data name="azureStyle_gentle.Desc" xml:space="preserve">
+    <value>以较低的音调和音量表达温和、礼貌和愉快的语气。</value>
+  </data>
+  <data name="azureStyle_hopeful" xml:space="preserve">
+    <value>充满希望</value>
+  </data>
+  <data name="azureStyle_hopeful.Desc" xml:space="preserve">
+    <value>表达一种温暖且渴望的语气。 听起来像是会有好事发生在说话人身上。</value>
+  </data>
+  <data name="azureStyle_lyrical" xml:space="preserve">
+    <value>抒情</value>
+  </data>
+  <data name="azureStyle_lyrical.Desc" xml:space="preserve">
+    <value>以优美又带感伤的方式表达情感。</value>
+  </data>
+  <data name="azureStyle_narration-professional" xml:space="preserve">
+    <value>旁白-专业</value>
+  </data>
+  <data name="azureStyle_narration-professional.Desc" xml:space="preserve">
+    <value>以专业、客观的语气朗读内容。</value>
+  </data>
+  <data name="azureStyle_narration-relaxed" xml:space="preserve">
+    <value>旁白-轻松</value>
+  </data>
+  <data name="azureStyle_narration-relaxed.Desc" xml:space="preserve">
+    <value>为内容阅读表达一种舒缓而悦耳的语气。</value>
+  </data>
+  <data name="azureStyle_newscast" xml:space="preserve">
+    <value>播音</value>
+  </data>
+  <data name="azureStyle_newscast-casual" xml:space="preserve">
+    <value>新闻-非正式</value>
+  </data>
+  <data name="azureStyle_newscast-casual.Desc" xml:space="preserve">
+    <value>以通用、随意的语气发布一般新闻。</value>
+  </data>
+  <data name="azureStyle_newscast-formal" xml:space="preserve">
+    <value>新闻-正式</value>
+  </data>
+  <data name="azureStyle_newscast-formal.Desc" xml:space="preserve">
+    <value>以正式、自信和权威的语气发布新闻。</value>
+  </data>
+  <data name="azureStyle_newscast.Desc" xml:space="preserve">
+    <value>以正式专业的语气叙述新闻。</value>
+  </data>
+  <data name="azureStyle_poetry-reading" xml:space="preserve">
+    <value>诗歌朗诵</value>
+  </data>
+  <data name="azureStyle_poetry-reading.Desc" xml:space="preserve">
+    <value>在读诗时表达出带情感和节奏的语气。</value>
+  </data>
+  <data name="azureStyle_sad" xml:space="preserve">
+    <value>悲伤</value>
+  </data>
+  <data name="azureStyle_sad.Desc" xml:space="preserve">
+    <value>表达悲伤语气。</value>
+  </data>
+  <data name="azureStyle_serious" xml:space="preserve">
+    <value>严肃</value>
+  </data>
+  <data name="azureStyle_serious.Desc" xml:space="preserve">
+    <value>表达严肃和命令的语气。 说话者的声音通常比较僵硬，节奏也不那么轻松。</value>
+  </data>
+  <data name="azureStyle_shouting" xml:space="preserve">
+    <value>喊叫</value>
+  </data>
+  <data name="azureStyle_shouting.Desc" xml:space="preserve">
+    <value>就像从遥远的地方说话或在外面说话，但能让自己清楚地听到。</value>
+  </data>
+  <data name="azureStyle_sports-commentary" xml:space="preserve">
+    <value>体育解说</value>
+  </data>
+  <data name="azureStyle_sports-commentary-excited" xml:space="preserve">
+    <value>激情体育解说</value>
+  </data>
+  <data name="azureStyle_sports-commentary-excited.Desc" xml:space="preserve">
+    <value>用快速且充满活力的语气播报体育赛事精彩瞬间。</value>
+  </data>
+  <data name="azureStyle_sports-commentary.Desc" xml:space="preserve">
+    <value>用轻松有趣的语气播报体育赛事。</value>
+  </data>
+  <data name="azureStyle_terrified" xml:space="preserve">
+    <value>恐惧</value>
+  </data>
+  <data name="azureStyle_terrified.Desc" xml:space="preserve">
+    <value>说话非常柔和，发出的声音小且温柔。</value>
+  </data>
+  <data name="azureStyle_unfriendly" xml:space="preserve">
+    <value>不友好</value>
+  </data>
+  <data name="azureStyle_unfriendly.Desc" xml:space="preserve">
+    <value>表达一种非常害怕的语气，语速快且声音颤抖。 听起来说话人处于不稳定的疯狂状态。</value>
+  </data>
+  <data name="azureStyle_whispering" xml:space="preserve">
+    <value>耳语</value>
+  </data>
+  <data name="azureStyle_whispering.Desc" xml:space="preserve">
+    <value>表达一种冷淡无情的语气。</value>
+  </data>
   <data name="buttonAddRule" xml:space="preserve">
     <value>新增规则</value>
   </data>
@@ -327,11 +558,23 @@
   <data name="labelRegex" xml:space="preserve">
     <value>正则表达式：</value>
   </data>
+  <data name="labelRegion" xml:space="preserve">
+    <value>区域:</value>
+  </data>
   <data name="labelReplacement" xml:space="preserve">
     <value>替换为：</value>
   </data>
+  <data name="labelRole" xml:space="preserve">
+    <value>角色扮演:</value>
+  </data>
   <data name="labelSpeed" xml:space="preserve">
     <value>语速:</value>
+  </data>
+  <data name="labelStyle" xml:space="preserve">
+    <value>说话风格:</value>
+  </data>
+  <data name="labelStyleDegree" xml:space="preserve">
+    <value>风格强度:</value>
   </data>
   <data name="labelTTSEngine" xml:space="preserve">
     <value>引擎:</value>
@@ -389,6 +632,11 @@
   <data name="messageNewStable" xml:space="preserve">
     <value>发现新的稳定版: {0}。</value>
   </data>
+  <data name="msgAzureApiKeyEmpty" xml:space="preserve">
+    <value>你目前选择微软语音合成，该引擎需要自助申请 API Key 才可使用，普通用户建议在本插件的设置界面中选择其他引擎。
+
+请注意，你当前的设置会导致TTS没有声音！</value>
+  </data>
   <data name="msgBaiduApiKeyEmpty" xml:space="preserve">
     <value>你目前选择了百度TTS语音合成，该引擎需要自助申请 API Key 才可使用，普通用户建议在本插件的设置界面中选择其他引擎。
 
@@ -399,11 +647,17 @@
 
 已自动为你切换到了 CafeTTS。</value>
   </data>
+  <data name="msgErrorAzureAuthFail" xml:space="preserve">
+    <value>错误：身份认证失败，请确保在设置界面填入了正确的密钥与区域</value>
+  </data>
   <data name="msgErrorBaiduInsufficientApiQuota" xml:space="preserve">
     <value>错误：API 额度不足，你的 API Key 可用次数用完了，或者账户余额不足</value>
   </data>
   <data name="msgErrorEmptyApiSecretKey" xml:space="preserve">
     <value>错误：你没有填 API/Secret Key！请确保在设置界面填入了正确的 API/Secret Key，否则会没有声音！</value>
+  </data>
+  <data name="msgErrorEmptyKeyRegion" xml:space="preserve">
+    <value>错误：你没有填 Api Key/区域！请确保在设置界面填入了正确的 API Key 和区域，否则会没有声音！</value>
   </data>
   <data name="msgErrorWMPUnavailable" xml:space="preserve">
     <value>你的电脑无法使用 ACT 自带的声音播放 API，已自动切换到本插件内置的 WASAPI 播放方式。</value>
@@ -488,6 +742,9 @@
   </data>
   <data name="textBoxPreview" xml:space="preserve">
     <value>今天天气真不错。</value>
+  </data>
+  <data name="ttsEngineAzure" xml:space="preserve">
+    <value>微软语音</value>
   </data>
   <data name="ttsEngineBaidu" xml:space="preserve">
     <value>百度语音</value>

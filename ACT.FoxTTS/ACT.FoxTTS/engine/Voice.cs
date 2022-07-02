@@ -11,5 +11,10 @@
             Value = value;
             DisplayName = displayName;
         }
+
+        public override string ToString()
+        {
+            return $"{nameof(Value)}: {Value}, {nameof(DisplayName)}: {DisplayName}";
+        }
     }
 }
