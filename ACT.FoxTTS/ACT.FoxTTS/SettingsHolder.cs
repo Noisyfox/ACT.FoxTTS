@@ -5,6 +5,7 @@ using ACT.FoxTTS.engine.azure;
 using ACT.FoxTTS.engine.baidu;
 using ACT.FoxTTS.engine.baipiao;
 using ACT.FoxTTS.engine.cafe;
+using ACT.FoxTTS.engine.cafepro;
 using ACT.FoxTTS.engine.edge;
 using ACT.FoxTTS.engine.google_unofficial;
 using ACT.FoxTTS.engine.sapi5;
@@ -33,6 +34,7 @@ namespace ACT.FoxTTS
         public YoudaoTTSSettings YoudaoTtsSettings = new YoudaoTTSSettings();
         public XfyunTTSSettings XfyunTtsSettings = new XfyunTTSSettings();
         public AzureTTSSettings AzureTtsSettings = new AzureTTSSettings();
+        public CafeProTTSSettings CafeProTtsSettings = new CafeProTTSSettings();
 
         public PluginSettings(object ParentSettingsClass) : base(ParentSettingsClass)
         {
@@ -53,6 +55,7 @@ namespace ACT.FoxTTS
                 writer.Serialize(YoudaoTtsSettings);
                 writer.Serialize(XfyunTtsSettings);
                 writer.Serialize(AzureTtsSettings);
+                writer.Serialize(CafeProTtsSettings);
             };
 
             _settingsIo.ReadSettings = reader =>
@@ -95,6 +98,9 @@ namespace ACT.FoxTTS
                         break;
                     case nameof(AzureTTSSettings):
                         AzureTtsSettings = reader.Deserialize<AzureTTSSettings>();
+                        break;
+                    case nameof(CafeProTTSSettings):
+                        CafeProTtsSettings = reader.Deserialize<CafeProTTSSettings>();
                         break;
                 }
             };
@@ -200,6 +206,8 @@ namespace ACT.FoxTTS
         public XfyunTTSSettings XfyunTtsSettings => Settings.XfyunTtsSettings;
 
         public AzureTTSSettings AzureTtsSettings => Settings.AzureTtsSettings;
+
+        public CafeProTTSSettings CafeProTtsSettings => Settings.CafeProTtsSettings;
 
         public string TTSEngine { get; set; }
         

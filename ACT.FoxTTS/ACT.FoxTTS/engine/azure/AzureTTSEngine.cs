@@ -97,9 +97,6 @@ namespace ACT.FoxTTS.engine.azure
             new AzureVoice("en-GB-RyanNeural", "英语-英国-男 瑞恩"),
         };
 
-        public static readonly string StyleGeneral = "general";
-        public static readonly string RoleDefault = "Default";
-
 
         public void AttachToAct(FoxTTSPlugin plugin)
         {

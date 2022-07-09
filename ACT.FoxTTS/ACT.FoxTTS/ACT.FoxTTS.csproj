@@ -24,6 +24,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>8</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -32,6 +33,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>8</LangVersion>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Advanced Combat Tracker">
@@ -95,6 +97,14 @@
     </Compile>
     <Compile Include="engine\baipiao\BaipiaoSettingsControl.Designer.cs">
       <DependentUpon>BaipiaoSettingsControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="engine\cafepro\CafeProTTSEngine.cs" />
+    <Compile Include="engine\cafepro\CafeProTTSSettings.cs" />
+    <Compile Include="engine\cafepro\CafeProTTSSettingsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="engine\cafepro\CafeProTTSSettingsControl.Designer.cs">
+      <DependentUpon>CafeProTTSSettingsControl.cs</DependentUpon>
     </Compile>
     <Compile Include="engine\cafe\CafeTTSSettingsControl.cs">
       <SubType>UserControl</SubType>
@@ -217,6 +227,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="engine\baipiao\BaipiaoSettingsControl.resx">
       <DependentUpon>BaipiaoSettingsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="engine\cafepro\CafeProTTSSettingsControl.resx">
+      <DependentUpon>CafeProTTSSettingsControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="engine\cafe\CafeTTSSettingsControl.resx">
       <DependentUpon>CafeTTSSettingsControl.cs</DependentUpon>

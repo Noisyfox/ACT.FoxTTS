@@ -1,22 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using ACT.FoxCommon;
 using ACT.FoxCommon.dpi;
 using ACT.FoxCommon.localization;
-using ACT.FoxTTS.localization;
-using Advanced_Combat_Tracker;
+using ACT.FoxTTS.engine.azure;
 
-namespace ACT.FoxTTS.engine.azure
+namespace ACT.FoxTTS.engine.cafepro
 {
-    public partial class AzureTTSSettingsControl : UserControl, IPluginComponent
+    public partial class CafeProTTSSettingsControl : UserControl, IPluginComponent
     {
         private FoxTTSPlugin _plugin;
 
-        public AzureTTSSettingsControl()
+        public CafeProTTSSettingsControl()
         {
             InitializeComponent();
 
@@ -25,7 +22,7 @@ namespace ACT.FoxTTS.engine.azure
             // Populate voices
             comboBoxPerson.ValueMember = nameof(AzureVoice.Value);
             comboBoxPerson.DisplayMember = nameof(AzureVoice.DisplayName);
-            comboBoxPerson.DataSource = AzureTTSEngine.Voices;
+            comboBoxPerson.DataSource = CafeProTTSEngine.Voices;
         }
 
         public void AttachToAct(FoxTTSPlugin plugin)
@@ -39,9 +36,7 @@ namespace ACT.FoxTTS.engine.azure
 
         public void PostAttachToAct(FoxTTSPlugin plugin)
         {
-            var settings = plugin.Settings.AzureTtsSettings;
-            textBoxApiKey.Text = settings.Key;
-            textBoxRegion.Text = settings.Region;
+            var settings = plugin.Settings.CafeProTtsSettings;
             trackBarSpeed.SetValue(settings.Speed, 100);
             trackBarPitch.SetValue(settings.Pitch, 100);
             trackBarVolume.SetValue(settings.Volume, 50);
@@ -58,9 +53,7 @@ namespace ACT.FoxTTS.engine.azure
                 comboBoxPerson.SelectedValue = selectedVoice.Value;
             }
             trackBarStyleDegree.SetValue(settings.StyleDegree, 100);
-            
-            textBoxApiKey.TextChanged += OnValueChanged;
-            textBoxRegion.TextChanged += OnValueChanged;
+
             trackBarSpeed.ValueChanged += OnValueChanged;
             trackBarPitch.ValueChanged += OnValueChanged;
             trackBarVolume.ValueChanged += OnValueChanged;
@@ -71,13 +64,6 @@ namespace ACT.FoxTTS.engine.azure
 
             OnPersonChanged(null, EventArgs.Empty);
             OnValueChanged(null, EventArgs.Empty);
-
-            checkBoxApiKey_CheckedChanged(null, EventArgs.Empty);
-
-            if (string.IsNullOrWhiteSpace(settings.Key) || string.IsNullOrWhiteSpace(settings.Region))
-            {
-                NotifyEmptyApiKey();
-            }
         }
 
         public void RemoveFromAct()
@@ -88,15 +74,11 @@ namespace ACT.FoxTTS.engine.azure
         public void DoLocalization()
         {
             LocalizationBase.TranslateControls(this);
-            toolTip1.SetToolTip(checkBoxApiKey, strings.checkBoxApiKey_Tooltip);
         }
 
         private void OnValueChanged(object sender, EventArgs eventArgs)
         {
-            var settings = _plugin.Settings.AzureTtsSettings;
-
-            settings.Key = textBoxApiKey.Text;
-            settings.Region = textBoxRegion.Text;
+            var settings = _plugin.Settings.CafeProTtsSettings;
 
             labelSpeedValue.Text = (trackBarSpeed.Value / 100.0).ToString("F2") + "X";
             settings.Speed = trackBarSpeed.Value;
@@ -128,15 +110,12 @@ namespace ACT.FoxTTS.engine.azure
                 settings.Role = AzureVoice.RoleDefault;
             }
 
-            Validate(textBoxApiKey);
-            Validate(textBoxRegion);
-
             UpdateStyleDescription();
         }
 
         private void OnPersonChanged(object sender, EventArgs eventArgs)
         {
-            var settings = _plugin.Settings.AzureTtsSettings;
+            var settings = _plugin.Settings.CafeProTtsSettings;
             var voice = comboBoxPerson.SelectedItem as AzureVoice;
             settings.Voice = voice.Value;
 
@@ -220,56 +199,6 @@ namespace ACT.FoxTTS.engine.azure
             else
             {
                 labelStyleDescription.Text = " ";
-            }
-        }
-
-        private static void Validate(TextBox tb)
-        {
-            if (tb.TextLength > 0)
-            {
-                tb.ResetBackColor();
-            }
-            else
-            {
-                tb.BackColor = Color.Red;
-            }
-        }
-
-        private void linkLabelOpenXfyunReg_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            Process.Start(@"https://docs.microsoft.com/zh-cn/azure/cognitive-services/speech-service/get-started-speech-to-text?tabs=terminal&pivots=programming-language-csharp#prerequisites");
-        }
-
-        private void checkBoxApiKey_CheckedChanged(object sender, System.EventArgs e)
-        {
-            textBoxApiKey.PasswordChar = checkBoxApiKey.Checked ? '\0' : '*';
-
-            timerHideKey.Stop();
-            if (checkBoxApiKey.Checked)
-            {
-                timerHideKey.Start();
-            }
-        }
-
-        private void timerHideKey_Tick(object sender, System.EventArgs e)
-        {
-            checkBoxApiKey.Checked = false;
-            timerHideKey.Stop();
-        }
-
-        internal void NotifyEmptyApiKey()
-        {
-            if (InvokeRequired)
-            {
-                this.SafeInvoke(new Action(NotifyEmptyApiKey));
-            }
-            else
-            {
-                var ts = new TraySlider
-                {
-                    ButtonLayout = TraySlider.ButtonLayoutEnum.OneButton,
-                };
-                ts.ShowTraySlider(strings.msgAzureApiKeyEmpty, strings.actPanelTitle);
             }
         }
     }

@@ -755,6 +755,9 @@
   <data name="ttsEngineCafe" xml:space="preserve">
     <value>肥肥咖啡（FFCafe）TTS</value>
   </data>
+  <data name="ttsEngineCafePro" xml:space="preserve">
+    <value>肥肥咖啡（FFCafe）TTS Pro</value>
+  </data>
   <data name="ttsEngineEdge" xml:space="preserve">
     <value>微软语音（白嫖）</value>
   </data>

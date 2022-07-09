@@ -87,16 +87,16 @@ namespace ACT.FoxTTS.engine.youdao
                     }
                     
                     // Parse response
-                    var resp = (HttpWebResponse)req.GetResponse();
+                    using var resp = (HttpWebResponse)req.GetResponse();
                     if (resp.ContentType.ToLower() == "audio/mp3")
                     {
                         // OK, save file
-                        SaveBinaryFile(resp, f);
+                        resp.SaveToBinaryFile(f);
                     }
                     else
                     {
                         // Error
-                        var stream = resp.GetResponseStream();
+                        using var stream = resp.GetResponseStream();
                         string result;
                         using (var reader = new StreamReader(stream, Encoding.UTF8))
                         {
@@ -149,37 +149,6 @@ namespace ACT.FoxTTS.engine.youdao
             Byte[] inputBytes = Encoding.UTF8.GetBytes(input);
             Byte[] hashedBytes = algorithm.ComputeHash(inputBytes);
             return BitConverter.ToString(hashedBytes).Replace("-", "");
-        }
-
-        private static bool SaveBinaryFile(WebResponse response, string filePath)
-        {
-            bool Value = true;
-            byte[] buffer = new byte[1024];
-
-            try
-            {
-                if (File.Exists(filePath))
-                    File.Delete(filePath);
-                Stream outStream = System.IO.File.Create(filePath);
-                Stream inStream = response.GetResponseStream();
-
-                int l;
-                do
-                {
-                    l = inStream.Read(buffer, 0, buffer.Length);
-                    if (l > 0)
-                        outStream.Write(buffer, 0, l);
-                }
-                while (l > 0);
-
-                outStream.Close();
-                inStream.Close();
-            }
-            catch
-            {
-                Value = false;
-            }
-            return Value;
         }
     }
 }

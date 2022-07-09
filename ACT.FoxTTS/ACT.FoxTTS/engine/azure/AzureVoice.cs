@@ -41,5 +41,8 @@
         {
             return $"{base.ToString()}, {nameof(Styles)}: {Styles}, {nameof(SupportStyleDegree)}: {SupportStyleDegree}, {nameof(Roles)}: {Roles}";
         }
+
+        public static readonly string StyleGeneral = "general";
+        public static readonly string RoleDefault = "Default";
     }
 }

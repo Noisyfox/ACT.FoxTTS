@@ -3,6 +3,7 @@ using ACT.FoxTTS.engine.azure;
 using ACT.FoxTTS.engine.baidu;
 using ACT.FoxTTS.engine.baipiao;
 using ACT.FoxTTS.engine.cafe;
+using ACT.FoxTTS.engine.cafepro;
 using ACT.FoxTTS.engine.edge;
 using ACT.FoxTTS.engine.google_unofficial;
 using ACT.FoxTTS.engine.sapi5;
@@ -32,6 +33,7 @@ namespace ACT.FoxTTS.engine
         public static readonly TTSEngineDef[] Engines =
         {
             EngineCafe,
+            new TTSEngineDef("ttsEngineCafePro"),
             EngineBaidu,
             new TTSEngineDef("ttsEngineYoudao"),
             new TTSEngineDef("ttsEngineXfyun"),
@@ -62,6 +64,8 @@ namespace ACT.FoxTTS.engine
                     return new EdgeTTSEngine();
                 case "ttsEngineGoogleUnofficial":
                     return new GoogleUnofficialTTSEngine();
+                case "ttsEngineCafePro":
+                    return new CafeProTTSEngine();
                 case "ttsEngineCafe":
                 default:
                     return new CafeTTSEngine();

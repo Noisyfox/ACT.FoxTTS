@@ -1923,6 +1923,15 @@ namespace ACT.FoxTTS.localization {
         }
         
         /// <summary>
+        ///   查找类似 肥肥咖啡（FFCafe）TTS Pro 的本地化字符串。
+        /// </summary>
+        internal static string ttsEngineCafePro {
+            get {
+                return ResourceManager.GetString("ttsEngineCafePro", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 微软语音（白嫖） 的本地化字符串。
         /// </summary>
         internal static string ttsEngineEdge {
