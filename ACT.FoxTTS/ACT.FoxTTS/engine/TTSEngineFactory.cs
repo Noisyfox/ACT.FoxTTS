@@ -1,4 +1,5 @@
 ﻿using ACT.FoxCommon.localization;
+using ACT.FoxTTS.engine.aliyun;
 using ACT.FoxTTS.engine.azure;
 using ACT.FoxTTS.engine.baidu;
 using ACT.FoxTTS.engine.baipiao;
@@ -37,6 +38,7 @@ namespace ACT.FoxTTS.engine
             EngineBaidu,
             new TTSEngineDef("ttsEngineYoudao"),
             new TTSEngineDef("ttsEngineXfyun"),
+            new TTSEngineDef("ttsEngineAliyun"),
             new TTSEngineDef("ttsEngineAzure"),
             new TTSEngineDef("ttsEngineSAPI5"),
             EngineEdge,
@@ -66,6 +68,8 @@ namespace ACT.FoxTTS.engine
                     return new GoogleUnofficialTTSEngine();
                 case "ttsEngineCafePro":
                     return new CafeProTTSEngine();
+                case "ttsEngineAliyun":
+                    return new AliyunTTSEngine();
                 case "ttsEngineCafe":
                 default:
                     return new CafeTTSEngine();

@@ -70,6 +70,87 @@ namespace ACT.FoxTTS.localization {
         }
         
         /// <summary>
+        ///   查找类似 生气 的本地化字符串。
+        /// </summary>
+        internal static string aliyunEmotion_angry {
+            get {
+                return ResourceManager.GetString("aliyunEmotion_angry", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 激动 的本地化字符串。
+        /// </summary>
+        internal static string aliyunEmotion_arousal {
+            get {
+                return ResourceManager.GetString("aliyunEmotion_arousal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 害怕 的本地化字符串。
+        /// </summary>
+        internal static string aliyunEmotion_fear {
+            get {
+                return ResourceManager.GetString("aliyunEmotion_fear", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 开心 的本地化字符串。
+        /// </summary>
+        internal static string aliyunEmotion_happy {
+            get {
+                return ResourceManager.GetString("aliyunEmotion_happy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 厌恶 的本地化字符串。
+        /// </summary>
+        internal static string aliyunEmotion_hate {
+            get {
+                return ResourceManager.GetString("aliyunEmotion_hate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 无情感 的本地化字符串。
+        /// </summary>
+        internal static string aliyunEmotion_neutral {
+            get {
+                return ResourceManager.GetString("aliyunEmotion_neutral", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 普通 的本地化字符串。
+        /// </summary>
+        internal static string aliyunEmotion_none {
+            get {
+                return ResourceManager.GetString("aliyunEmotion_none", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 悲伤 的本地化字符串。
+        /// </summary>
+        internal static string aliyunEmotion_sad {
+            get {
+                return ResourceManager.GetString("aliyunEmotion_sad", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 惊讶 的本地化字符串。
+        /// </summary>
+        internal static string aliyunEmotion_surprise {
+            get {
+                return ResourceManager.GetString("aliyunEmotion_surprise", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 男孩 的本地化字符串。
         /// </summary>
         internal static string azureRole_Boy {
@@ -889,6 +970,42 @@ namespace ACT.FoxTTS.localization {
         }
         
         /// <summary>
+        ///   查找类似 AccessKey Id: 的本地化字符串。
+        /// </summary>
+        internal static string checkBoxAccessKeyId {
+            get {
+                return ResourceManager.GetString("checkBoxAccessKeyId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 勾选以显示 AccessKey Id。截图时请注意不要泄露！5秒后自动隐藏。 的本地化字符串。
+        /// </summary>
+        internal static string checkBoxAccessKeyId_Tooltip {
+            get {
+                return ResourceManager.GetString("checkBoxAccessKeyId.Tooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 AccessKey Secret: 的本地化字符串。
+        /// </summary>
+        internal static string checkBoxAccessKeySecret {
+            get {
+                return ResourceManager.GetString("checkBoxAccessKeySecret", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 勾选以显示 AccessKey Secret。截图时请注意不要泄露！5秒后自动隐藏。 的本地化字符串。
+        /// </summary>
+        internal static string checkBoxAccessKeySecret_Tooltip {
+            get {
+                return ResourceManager.GetString("checkBoxAccessKeySecret.Tooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 API Key: 的本地化字符串。
         /// </summary>
         internal static string checkBoxApiKey {
@@ -1262,6 +1379,33 @@ namespace ACT.FoxTTS.localization {
         }
         
         /// <summary>
+        ///   查找类似 音效: 的本地化字符串。
+        /// </summary>
+        internal static string labelEffect {
+            get {
+                return ResourceManager.GetString("labelEffect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 情绪: 的本地化字符串。
+        /// </summary>
+        internal static string labelEmotion {
+            get {
+                return ResourceManager.GetString("labelEmotion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 情绪强度: 的本地化字符串。
+        /// </summary>
+        internal static string labelEmotionIntensity {
+            get {
+                return ResourceManager.GetString("labelEmotionIntensity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 被替换的文本： 的本地化字符串。
         /// </summary>
         internal static string labelFindPattern {
@@ -1584,6 +1728,17 @@ namespace ACT.FoxTTS.localization {
         }
         
         /// <summary>
+        ///   查找类似 你目前选择阿里云语音合成，该引擎需要自助申请 API Key 才可使用，普通用户建议在本插件的设置界面中选择其他引擎。
+        ///
+        ///请注意，你当前的设置会导致TTS没有声音！ 的本地化字符串。
+        /// </summary>
+        internal static string msgAliyunApiKeyEmpty {
+            get {
+                return ResourceManager.GetString("msgAliyunApiKeyEmpty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 你目前选择微软语音合成，该引擎需要自助申请 API Key 才可使用，普通用户建议在本插件的设置界面中选择其他引擎。
         ///
         ///请注意，你当前的设置会导致TTS没有声音！ 的本地化字符串。
@@ -1883,6 +2038,15 @@ namespace ACT.FoxTTS.localization {
         internal static string textBoxPreview {
             get {
                 return ResourceManager.GetString("textBoxPreview", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 阿里云 TTS 的本地化字符串。
+        /// </summary>
+        internal static string ttsEngineAliyun {
+            get {
+                return ResourceManager.GetString("ttsEngineAliyun", resourceCulture);
             }
         }
         

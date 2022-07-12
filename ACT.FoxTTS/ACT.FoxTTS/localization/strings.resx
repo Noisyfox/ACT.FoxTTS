@@ -120,6 +120,33 @@
   <data name="actPanelTitle" xml:space="preserve">
     <value>ACT TTS插件</value>
   </data>
+  <data name="aliyunEmotion_angry" xml:space="preserve">
+    <value>生气</value>
+  </data>
+  <data name="aliyunEmotion_arousal" xml:space="preserve">
+    <value>激动</value>
+  </data>
+  <data name="aliyunEmotion_fear" xml:space="preserve">
+    <value>害怕</value>
+  </data>
+  <data name="aliyunEmotion_happy" xml:space="preserve">
+    <value>开心</value>
+  </data>
+  <data name="aliyunEmotion_hate" xml:space="preserve">
+    <value>厌恶</value>
+  </data>
+  <data name="aliyunEmotion_neutral" xml:space="preserve">
+    <value>无情感</value>
+  </data>
+  <data name="aliyunEmotion_none" xml:space="preserve">
+    <value>普通</value>
+  </data>
+  <data name="aliyunEmotion_sad" xml:space="preserve">
+    <value>悲伤</value>
+  </data>
+  <data name="aliyunEmotion_surprise" xml:space="preserve">
+    <value>惊讶</value>
+  </data>
   <data name="azureRole_Boy" xml:space="preserve">
     <value>男孩</value>
   </data>
@@ -393,6 +420,18 @@
   <data name="buttonUpdateNow" xml:space="preserve">
     <value>更新</value>
   </data>
+  <data name="checkBoxAccessKeyId" xml:space="preserve">
+    <value>AccessKey Id:</value>
+  </data>
+  <data name="checkBoxAccessKeyId.Tooltip" xml:space="preserve">
+    <value>勾选以显示 AccessKey Id。截图时请注意不要泄露！5秒后自动隐藏。</value>
+  </data>
+  <data name="checkBoxAccessKeySecret" xml:space="preserve">
+    <value>AccessKey Secret:</value>
+  </data>
+  <data name="checkBoxAccessKeySecret.Tooltip" xml:space="preserve">
+    <value>勾选以显示 AccessKey Secret。截图时请注意不要泄露！5秒后自动隐藏。</value>
+  </data>
   <data name="checkBoxApiKey" xml:space="preserve">
     <value>API Key:</value>
   </data>
@@ -520,6 +559,15 @@
 白嫖微软所造成的一切后果自负，与插件作者无关。
 该引擎随时可能失效，不保证任何可用性。</value>
   </data>
+  <data name="labelEffect" xml:space="preserve">
+    <value>音效:</value>
+  </data>
+  <data name="labelEmotion" xml:space="preserve">
+    <value>情绪:</value>
+  </data>
+  <data name="labelEmotionIntensity" xml:space="preserve">
+    <value>情绪强度:</value>
+  </data>
   <data name="labelFindPattern" xml:space="preserve">
     <value>被替换的文本：</value>
   </data>
@@ -632,6 +680,11 @@
   <data name="messageNewStable" xml:space="preserve">
     <value>发现新的稳定版: {0}。</value>
   </data>
+  <data name="msgAliyunApiKeyEmpty" xml:space="preserve">
+    <value>你目前选择阿里云语音合成，该引擎需要自助申请 API Key 才可使用，普通用户建议在本插件的设置界面中选择其他引擎。
+
+请注意，你当前的设置会导致TTS没有声音！</value>
+  </data>
   <data name="msgAzureApiKeyEmpty" xml:space="preserve">
     <value>你目前选择微软语音合成，该引擎需要自助申请 API Key 才可使用，普通用户建议在本插件的设置界面中选择其他引擎。
 
@@ -742,6 +795,9 @@
   </data>
   <data name="textBoxPreview" xml:space="preserve">
     <value>今天天气真不错。</value>
+  </data>
+  <data name="ttsEngineAliyun" xml:space="preserve">
+    <value>阿里云 TTS</value>
   </data>
   <data name="ttsEngineAzure" xml:space="preserve">
     <value>微软语音</value>

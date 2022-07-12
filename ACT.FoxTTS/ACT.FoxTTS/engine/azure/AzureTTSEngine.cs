@@ -375,7 +375,7 @@ namespace ACT.FoxTTS.engine.azure
                 reqStream.Close();
             }
 
-            var response = (HttpWebResponse)request.GetResponse();
+            using var response = (HttpWebResponse)request.GetResponse();
             var result = new StreamReader(response.GetResponseStream()).ReadToEnd();
 
             switch (response.StatusCode)

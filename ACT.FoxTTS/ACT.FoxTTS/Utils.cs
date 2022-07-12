@@ -74,5 +74,20 @@ namespace ACT.FoxTTS
                 fileStream.Write(buffer, 0, count);
             }
         }
+
+        public static HttpWebResponse GetHttpResponse(this HttpWebRequest request)
+        {
+            HttpWebResponse response;
+            try
+            {
+                response = (HttpWebResponse)request.GetResponse();
+            }
+            catch (WebException e)
+            {
+                response = (HttpWebResponse)e.Response ?? throw e;
+            }
+
+            return response;
+        }
     }
 }

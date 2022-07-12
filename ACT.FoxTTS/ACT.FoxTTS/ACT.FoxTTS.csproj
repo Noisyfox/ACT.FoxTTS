@@ -72,6 +72,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="engine\aliyun\AliyunTTSSettingsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="engine\aliyun\AliyunTTSSettingsControl.Designer.cs">
+      <DependentUpon>AliyunTTSSettingsControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="engine\aliyun\AliyunTTSEngine.cs" />
+    <Compile Include="engine\aliyun\AliyunTTSSettings.cs" />
+    <Compile Include="engine\aliyun\AliyunVoice.cs" />
     <Compile Include="engine\azure\AzureTTSEngine.cs" />
     <Compile Include="engine\azure\AzureTTSSettings.cs" />
     <Compile Include="engine\azure\AzureTTSSettingsControl.cs">
@@ -219,6 +228,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="engine\aliyun\AliyunTTSSettingsControl.resx">
+      <DependentUpon>AliyunTTSSettingsControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="engine\azure\AzureTTSSettingsControl.resx">
       <DependentUpon>AzureTTSSettingsControl.cs</DependentUpon>
     </EmbeddedResource>
