@@ -112,6 +112,7 @@ namespace ACT.FoxTTS.engine.aliyun
             toolTip1.SetToolTip(checkBoxAccessKeyId, strings.checkBoxAccessKeyId_Tooltip);
             toolTip1.SetToolTip(checkBoxAccessKeySecret, strings.checkBoxAccessKeySecret_Tooltip);
             toolTip1.SetToolTip(checkBoxAppId, strings.checkBoxAppId_Tooltip);
+            toolTip1.SetToolTip(checkBoxCustomizedVoice, strings.checkBoxCustomizedVoice_Tooltip);
         }
 
         private void OnValueChanged(object sender, EventArgs eventArgs)
@@ -235,6 +236,7 @@ namespace ACT.FoxTTS.engine.aliyun
             checkBoxAccessKeyId.Checked = false;
             checkBoxAccessKeySecret.Checked = false;
             checkBoxAppId.Checked = false;
+            checkBoxCustomizedVoice.Checked = false;
             timerHideKey.Stop();
         }
 
@@ -275,9 +277,10 @@ namespace ACT.FoxTTS.engine.aliyun
             textBoxAccessKeyId.PasswordChar = checkBoxAccessKeyId.Checked ? '\0' : '*';
             textBoxAccessKeySecret.PasswordChar = checkBoxAccessKeySecret.Checked ? '\0' : '*';
             textBoxAppId.PasswordChar = checkBoxAppId.Checked ? '\0' : '*';
+            textBoxCustomizedVoice.PasswordChar = checkBoxCustomizedVoice.Checked ? '\0' : '*';
 
             timerHideKey.Stop();
-            if (checkBoxAccessKeyId.Checked || checkBoxAccessKeySecret.Checked || checkBoxAppId.Checked)
+            if (checkBoxAccessKeyId.Checked || checkBoxAccessKeySecret.Checked || checkBoxAppId.Checked || checkBoxCustomizedVoice.Checked)
             {
                 timerHideKey.Start();
             }

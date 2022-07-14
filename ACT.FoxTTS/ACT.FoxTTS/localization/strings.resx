@@ -468,6 +468,12 @@
   <data name="checkBoxClearCacheExit" xml:space="preserve">
     <value>退出时清空 TTS 缓存</value>
   </data>
+  <data name="checkBoxCustomizedVoice" xml:space="preserve">
+    <value>个性化人声 ID:</value>
+  </data>
+  <data name="checkBoxCustomizedVoice.Tooltip" xml:space="preserve">
+    <value>勾选以显示自定义人声 ID。截图时请注意不要泄露！5秒后自动隐藏。</value>
+  </data>
   <data name="checkBoxDebugLogging" xml:space="preserve">
     <value>显示调试日志</value>
   </data>
@@ -553,9 +559,6 @@
   </data>
   <data name="labelCurrentVersion" xml:space="preserve">
     <value>当前版本:</value>
-  </data>
-  <data name="labelCustomizedVoice" xml:space="preserve">
-    <value>个性化人声 ID:</value>
   </data>
   <data name="labelEdgeDisclaimer" xml:space="preserve">
     <value>免责声明：

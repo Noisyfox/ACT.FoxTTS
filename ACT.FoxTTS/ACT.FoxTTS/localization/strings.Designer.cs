@@ -1114,6 +1114,24 @@ namespace ACT.FoxTTS.localization {
         }
         
         /// <summary>
+        ///   查找类似 个性化人声 ID: 的本地化字符串。
+        /// </summary>
+        internal static string checkBoxCustomizedVoice {
+            get {
+                return ResourceManager.GetString("checkBoxCustomizedVoice", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 勾选以显示自定义人声 ID。截图时请注意不要泄露！5秒后自动隐藏。 的本地化字符串。
+        /// </summary>
+        internal static string checkBoxCustomizedVoice_Tooltip {
+            get {
+                return ResourceManager.GetString("checkBoxCustomizedVoice.Tooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 显示调试日志 的本地化字符串。
         /// </summary>
         internal static string checkBoxDebugLogging {
@@ -1364,15 +1382,6 @@ namespace ACT.FoxTTS.localization {
         internal static string labelCurrentVersion {
             get {
                 return ResourceManager.GetString("labelCurrentVersion", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   查找类似 个性化人声 ID: 的本地化字符串。
-        /// </summary>
-        internal static string labelCustomizedVoice {
-            get {
-                return ResourceManager.GetString("labelCustomizedVoice", resourceCulture);
             }
         }
         

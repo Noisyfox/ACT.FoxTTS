@@ -56,11 +56,11 @@
             this.textBoxAppId = new System.Windows.Forms.TextBox();
             this.textBoxAccessKeySecret = new System.Windows.Forms.TextBox();
             this.checkBoxAppId = new System.Windows.Forms.CheckBox();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.timerHideKey = new System.Windows.Forms.Timer(this.components);
-            this.labelCustomizedVoice = new System.Windows.Forms.Label();
             this.linkLabelCustomizedVoice = new System.Windows.Forms.LinkLabel();
             this.textBoxCustomizedVoice = new System.Windows.Forms.TextBox();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.timerHideKey = new System.Windows.Forms.Timer(this.components);
+            this.checkBoxCustomizedVoice = new System.Windows.Forms.CheckBox();
             this.groupBoxTTSEngineDetail.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarSpeed)).BeginInit();
@@ -117,9 +117,9 @@
             this.tableLayoutPanel1.Controls.Add(this.textBoxAppId, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.textBoxAccessKeySecret, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.checkBoxAppId, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.labelCustomizedVoice, 0, 7);
             this.tableLayoutPanel1.Controls.Add(this.linkLabelCustomizedVoice, 0, 8);
             this.tableLayoutPanel1.Controls.Add(this.textBoxCustomizedVoice, 1, 7);
+            this.tableLayoutPanel1.Controls.Add(this.checkBoxCustomizedVoice, 0, 7);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(2, 16);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
@@ -148,10 +148,10 @@
             this.tableLayoutPanel1.SetColumnSpan(this.comboBoxEffect, 2);
             this.comboBoxEffect.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxEffect.FormattingEnabled = true;
-            this.comboBoxEffect.Location = new System.Drawing.Point(134, 387);
+            this.comboBoxEffect.Location = new System.Drawing.Point(152, 387);
             this.comboBoxEffect.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxEffect.Name = "comboBoxEffect";
-            this.comboBoxEffect.Size = new System.Drawing.Size(480, 20);
+            this.comboBoxEffect.Size = new System.Drawing.Size(462, 20);
             this.comboBoxEffect.TabIndex = 30;
             // 
             // comboBoxEmotion
@@ -160,10 +160,10 @@
             this.tableLayoutPanel1.SetColumnSpan(this.comboBoxEmotion, 2);
             this.comboBoxEmotion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxEmotion.FormattingEnabled = true;
-            this.comboBoxEmotion.Location = new System.Drawing.Point(134, 312);
+            this.comboBoxEmotion.Location = new System.Drawing.Point(152, 312);
             this.comboBoxEmotion.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxEmotion.Name = "comboBoxEmotion";
-            this.comboBoxEmotion.Size = new System.Drawing.Size(480, 20);
+            this.comboBoxEmotion.Size = new System.Drawing.Size(462, 20);
             this.comboBoxEmotion.TabIndex = 29;
             // 
             // labelEmotion
@@ -173,7 +173,7 @@
             this.labelEmotion.Location = new System.Drawing.Point(2, 316);
             this.labelEmotion.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelEmotion.Name = "labelEmotion";
-            this.labelEmotion.Size = new System.Drawing.Size(128, 12);
+            this.labelEmotion.Size = new System.Drawing.Size(146, 12);
             this.labelEmotion.TabIndex = 27;
             this.labelEmotion.Text = "Emotion:";
             // 
@@ -200,7 +200,7 @@
             this.labelSpeed.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelSpeed.Name = "labelSpeed";
             this.labelSpeed.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
-            this.labelSpeed.Size = new System.Drawing.Size(128, 22);
+            this.labelSpeed.Size = new System.Drawing.Size(146, 22);
             this.labelSpeed.TabIndex = 4;
             this.labelSpeed.Text = "Speed:";
             // 
@@ -213,7 +213,7 @@
             this.labelPitch.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelPitch.Name = "labelPitch";
             this.labelPitch.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
-            this.labelPitch.Size = new System.Drawing.Size(128, 22);
+            this.labelPitch.Size = new System.Drawing.Size(146, 22);
             this.labelPitch.TabIndex = 5;
             this.labelPitch.Text = "Pitch:";
             // 
@@ -226,7 +226,7 @@
             this.labelVolume.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelVolume.Name = "labelVolume";
             this.labelVolume.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
-            this.labelVolume.Size = new System.Drawing.Size(128, 22);
+            this.labelVolume.Size = new System.Drawing.Size(146, 22);
             this.labelVolume.TabIndex = 6;
             this.labelVolume.Text = "Volume:";
             // 
@@ -237,42 +237,42 @@
             this.labelPerson.Location = new System.Drawing.Point(2, 228);
             this.labelPerson.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelPerson.Name = "labelPerson";
-            this.labelPerson.Size = new System.Drawing.Size(128, 12);
+            this.labelPerson.Size = new System.Drawing.Size(146, 12);
             this.labelPerson.TabIndex = 7;
             this.labelPerson.Text = "Person:";
             // 
             // trackBarSpeed
             // 
             this.trackBarSpeed.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.trackBarSpeed.Location = new System.Drawing.Point(134, 77);
+            this.trackBarSpeed.Location = new System.Drawing.Point(152, 77);
             this.trackBarSpeed.Margin = new System.Windows.Forms.Padding(2);
             this.trackBarSpeed.Maximum = 500;
             this.trackBarSpeed.Minimum = -500;
             this.trackBarSpeed.Name = "trackBarSpeed";
-            this.trackBarSpeed.Size = new System.Drawing.Size(454, 45);
+            this.trackBarSpeed.Size = new System.Drawing.Size(436, 45);
             this.trackBarSpeed.TabIndex = 8;
             this.trackBarSpeed.TickFrequency = 100;
             // 
             // trackBarPitch
             // 
             this.trackBarPitch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.trackBarPitch.Location = new System.Drawing.Point(134, 126);
+            this.trackBarPitch.Location = new System.Drawing.Point(152, 126);
             this.trackBarPitch.Margin = new System.Windows.Forms.Padding(2);
             this.trackBarPitch.Maximum = 500;
             this.trackBarPitch.Minimum = -500;
             this.trackBarPitch.Name = "trackBarPitch";
-            this.trackBarPitch.Size = new System.Drawing.Size(454, 45);
+            this.trackBarPitch.Size = new System.Drawing.Size(436, 45);
             this.trackBarPitch.TabIndex = 9;
             this.trackBarPitch.TickFrequency = 100;
             // 
             // trackBarVolume
             // 
             this.trackBarVolume.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.trackBarVolume.Location = new System.Drawing.Point(134, 175);
+            this.trackBarVolume.Location = new System.Drawing.Point(152, 175);
             this.trackBarVolume.Margin = new System.Windows.Forms.Padding(2);
             this.trackBarVolume.Maximum = 100;
             this.trackBarVolume.Name = "trackBarVolume";
-            this.trackBarVolume.Size = new System.Drawing.Size(454, 45);
+            this.trackBarVolume.Size = new System.Drawing.Size(436, 45);
             this.trackBarVolume.TabIndex = 10;
             this.trackBarVolume.TickFrequency = 10;
             this.trackBarVolume.Value = 50;
@@ -283,10 +283,10 @@
             this.tableLayoutPanel1.SetColumnSpan(this.comboBoxPerson, 2);
             this.comboBoxPerson.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxPerson.FormattingEnabled = true;
-            this.comboBoxPerson.Location = new System.Drawing.Point(134, 224);
+            this.comboBoxPerson.Location = new System.Drawing.Point(152, 224);
             this.comboBoxPerson.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxPerson.Name = "comboBoxPerson";
-            this.comboBoxPerson.Size = new System.Drawing.Size(480, 20);
+            this.comboBoxPerson.Size = new System.Drawing.Size(462, 20);
             this.comboBoxPerson.TabIndex = 11;
             // 
             // labelSpeedValue
@@ -331,10 +331,10 @@
             // 
             this.trackBarEmotionIntensity.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.trackBarEmotionIntensity.Location = new System.Drawing.Point(135, 337);
+            this.trackBarEmotionIntensity.Location = new System.Drawing.Point(153, 337);
             this.trackBarEmotionIntensity.Maximum = 200;
             this.trackBarEmotionIntensity.Name = "trackBarEmotionIntensity";
-            this.trackBarEmotionIntensity.Size = new System.Drawing.Size(452, 45);
+            this.trackBarEmotionIntensity.Size = new System.Drawing.Size(434, 45);
             this.trackBarEmotionIntensity.TabIndex = 24;
             this.trackBarEmotionIntensity.TickFrequency = 20;
             this.trackBarEmotionIntensity.Value = 100;
@@ -348,7 +348,7 @@
             this.labelEmotionIntensity.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelEmotionIntensity.Name = "labelEmotionIntensity";
             this.labelEmotionIntensity.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
-            this.labelEmotionIntensity.Size = new System.Drawing.Size(128, 22);
+            this.labelEmotionIntensity.Size = new System.Drawing.Size(146, 22);
             this.labelEmotionIntensity.TabIndex = 25;
             this.labelEmotionIntensity.Text = "Emotion Intensity:";
             // 
@@ -371,7 +371,7 @@
             this.labelEffect.Location = new System.Drawing.Point(2, 391);
             this.labelEffect.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelEffect.Name = "labelEffect";
-            this.labelEffect.Size = new System.Drawing.Size(128, 12);
+            this.labelEffect.Size = new System.Drawing.Size(146, 12);
             this.labelEffect.TabIndex = 28;
             this.labelEffect.Text = "Effect:";
             // 
@@ -379,10 +379,10 @@
             // 
             this.textBoxAccessKeyId.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel1.SetColumnSpan(this.textBoxAccessKeyId, 2);
-            this.textBoxAccessKeyId.Location = new System.Drawing.Point(134, 27);
+            this.textBoxAccessKeyId.Location = new System.Drawing.Point(152, 27);
             this.textBoxAccessKeyId.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxAccessKeyId.Name = "textBoxAccessKeyId";
-            this.textBoxAccessKeyId.Size = new System.Drawing.Size(480, 21);
+            this.textBoxAccessKeyId.Size = new System.Drawing.Size(462, 21);
             this.textBoxAccessKeyId.TabIndex = 22;
             // 
             // checkBoxAccessKeySecret
@@ -391,7 +391,7 @@
             this.checkBoxAccessKeySecret.AutoSize = true;
             this.checkBoxAccessKeySecret.Location = new System.Drawing.Point(3, 54);
             this.checkBoxAccessKeySecret.Name = "checkBoxAccessKeySecret";
-            this.checkBoxAccessKeySecret.Size = new System.Drawing.Size(126, 16);
+            this.checkBoxAccessKeySecret.Size = new System.Drawing.Size(144, 16);
             this.checkBoxAccessKeySecret.TabIndex = 32;
             this.checkBoxAccessKeySecret.Text = "AccessKey Secret:";
             this.checkBoxAccessKeySecret.UseVisualStyleBackColor = true;
@@ -403,7 +403,7 @@
             this.checkBoxAccessKeyId.AutoSize = true;
             this.checkBoxAccessKeyId.Location = new System.Drawing.Point(3, 29);
             this.checkBoxAccessKeyId.Name = "checkBoxAccessKeyId";
-            this.checkBoxAccessKeyId.Size = new System.Drawing.Size(126, 16);
+            this.checkBoxAccessKeyId.Size = new System.Drawing.Size(144, 16);
             this.checkBoxAccessKeyId.TabIndex = 19;
             this.checkBoxAccessKeyId.Text = "AccessKey Id:";
             this.checkBoxAccessKeyId.UseVisualStyleBackColor = true;
@@ -413,20 +413,20 @@
             // 
             this.textBoxAppId.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel1.SetColumnSpan(this.textBoxAppId, 2);
-            this.textBoxAppId.Location = new System.Drawing.Point(134, 2);
+            this.textBoxAppId.Location = new System.Drawing.Point(152, 2);
             this.textBoxAppId.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxAppId.Name = "textBoxAppId";
-            this.textBoxAppId.Size = new System.Drawing.Size(480, 21);
+            this.textBoxAppId.Size = new System.Drawing.Size(462, 21);
             this.textBoxAppId.TabIndex = 34;
             // 
             // textBoxAccessKeySecret
             // 
             this.textBoxAccessKeySecret.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel1.SetColumnSpan(this.textBoxAccessKeySecret, 2);
-            this.textBoxAccessKeySecret.Location = new System.Drawing.Point(134, 52);
+            this.textBoxAccessKeySecret.Location = new System.Drawing.Point(152, 52);
             this.textBoxAccessKeySecret.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxAccessKeySecret.Name = "textBoxAccessKeySecret";
-            this.textBoxAccessKeySecret.Size = new System.Drawing.Size(480, 21);
+            this.textBoxAccessKeySecret.Size = new System.Drawing.Size(462, 21);
             this.textBoxAccessKeySecret.TabIndex = 35;
             // 
             // checkBoxAppId
@@ -435,33 +435,11 @@
             this.checkBoxAppId.AutoSize = true;
             this.checkBoxAppId.Location = new System.Drawing.Point(3, 4);
             this.checkBoxAppId.Name = "checkBoxAppId";
-            this.checkBoxAppId.Size = new System.Drawing.Size(126, 16);
+            this.checkBoxAppId.Size = new System.Drawing.Size(144, 16);
             this.checkBoxAppId.TabIndex = 36;
             this.checkBoxAppId.Text = "App ID:";
             this.checkBoxAppId.UseVisualStyleBackColor = true;
             this.checkBoxAppId.CheckedChanged += new System.EventHandler(this.checkBoxAppId_CheckedChanged);
-            // 
-            // toolTip1
-            // 
-            this.toolTip1.AutomaticDelay = 1;
-            this.toolTip1.AutoPopDelay = 0;
-            this.toolTip1.InitialDelay = 1;
-            this.toolTip1.ReshowDelay = 0;
-            // 
-            // timerHideKey
-            // 
-            this.timerHideKey.Interval = 5000;
-            this.timerHideKey.Tick += new System.EventHandler(this.timerHideKey_Tick);
-            // 
-            // labelCustomizedVoice
-            // 
-            this.labelCustomizedVoice.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelCustomizedVoice.AutoSize = true;
-            this.labelCustomizedVoice.Location = new System.Drawing.Point(3, 253);
-            this.labelCustomizedVoice.Name = "labelCustomizedVoice";
-            this.labelCustomizedVoice.Size = new System.Drawing.Size(126, 12);
-            this.labelCustomizedVoice.TabIndex = 37;
-            this.labelCustomizedVoice.Text = "Customized Voice ID:";
             // 
             // linkLabelCustomizedVoice
             // 
@@ -481,10 +459,34 @@
             // 
             this.textBoxCustomizedVoice.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel1.SetColumnSpan(this.textBoxCustomizedVoice, 2);
-            this.textBoxCustomizedVoice.Location = new System.Drawing.Point(135, 249);
+            this.textBoxCustomizedVoice.Location = new System.Drawing.Point(153, 249);
             this.textBoxCustomizedVoice.Name = "textBoxCustomizedVoice";
-            this.textBoxCustomizedVoice.Size = new System.Drawing.Size(478, 21);
+            this.textBoxCustomizedVoice.Size = new System.Drawing.Size(460, 21);
             this.textBoxCustomizedVoice.TabIndex = 39;
+            // 
+            // toolTip1
+            // 
+            this.toolTip1.AutomaticDelay = 1;
+            this.toolTip1.AutoPopDelay = 0;
+            this.toolTip1.InitialDelay = 1;
+            this.toolTip1.ReshowDelay = 0;
+            // 
+            // timerHideKey
+            // 
+            this.timerHideKey.Interval = 5000;
+            this.timerHideKey.Tick += new System.EventHandler(this.timerHideKey_Tick);
+            // 
+            // checkBoxCustomizedVoice
+            // 
+            this.checkBoxCustomizedVoice.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.checkBoxCustomizedVoice.AutoSize = true;
+            this.checkBoxCustomizedVoice.Location = new System.Drawing.Point(3, 251);
+            this.checkBoxCustomizedVoice.Name = "checkBoxCustomizedVoice";
+            this.checkBoxCustomizedVoice.Size = new System.Drawing.Size(144, 16);
+            this.checkBoxCustomizedVoice.TabIndex = 40;
+            this.checkBoxCustomizedVoice.Text = "Customized Voice ID:";
+            this.checkBoxCustomizedVoice.UseVisualStyleBackColor = true;
+            this.checkBoxCustomizedVoice.CheckedChanged += new System.EventHandler(this.checkBoxAppId_CheckedChanged);
             // 
             // AliyunTTSSettingsControl
             // 
@@ -538,8 +540,8 @@
         private System.Windows.Forms.CheckBox checkBoxAppId;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Timer timerHideKey;
-        private System.Windows.Forms.Label labelCustomizedVoice;
         private System.Windows.Forms.LinkLabel linkLabelCustomizedVoice;
         private System.Windows.Forms.TextBox textBoxCustomizedVoice;
+        private System.Windows.Forms.CheckBox checkBoxCustomizedVoice;
     }
 }
