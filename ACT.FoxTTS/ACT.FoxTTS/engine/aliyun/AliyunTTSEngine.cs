@@ -171,15 +171,18 @@ namespace ACT.FoxTTS.engine.aliyun
                     }
 
                     // Build SSML
+                    var needSSML = false;
                     var effectSSML = "";
                     if (!string.IsNullOrWhiteSpace(settings.Effect) && settings.Effect != EffectNone)
                     {
+                        needSSML = true;
                         effectSSML = $"effect=\"{settings.Effect}\"";
                     }
                     var textSSML = text;
                     if (!string.IsNullOrWhiteSpace(settings.EmotionCategory) &&
                         settings.EmotionCategory != AliyunVoice.EmotionNone)
                     {
+                        needSSML = true;
                         var intensity = settings.EmotionIntensity;
                         if (intensity == 0)
                         {
@@ -187,6 +190,7 @@ namespace ACT.FoxTTS.engine.aliyun
                         }
                         textSSML = $"<emotion category=\"{settings.EmotionCategory}\" intensity=\"{intensity / 100f}\">{text}</emotion>";
                     }
+                    Logger.Debug($"needSSML={needSSML}");
                     var ssml =
                         $"<speak {effectSSML}>" +
                         textSSML +
@@ -197,7 +201,7 @@ namespace ACT.FoxTTS.engine.aliyun
                     reqObj["appkey"] = appId;
                     reqObj["token"] = _currentAccessToken.Token;
                     reqObj["format"] = "mp3";
-                    reqObj["text"] = ssml;
+                    reqObj["text"] = needSSML ? ssml : text;
                     reqObj["voice"] = settings.Voice;
                     reqObj["speech_rate"] = settings.Speed;
                     reqObj["pitch_rate"] = settings.Pitch;
