@@ -17,8 +17,8 @@ namespace ACT.FoxTTS.playback
 
         public static readonly string[] Apis =
         {
-            PlayerWASAPI,
             PlayerDirectSound,
+            PlayerWASAPI,
             PlayerWaveOut,
             PlayerWinMM,
         };
