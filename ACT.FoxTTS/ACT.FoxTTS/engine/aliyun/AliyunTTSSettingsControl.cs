@@ -51,6 +51,7 @@ namespace ACT.FoxTTS.engine.aliyun
             trackBarSpeed.SetValue(settings.Speed, 0);
             trackBarPitch.SetValue(settings.Pitch, 0);
             trackBarVolume.SetValue(settings.Volume, 50);
+            textBoxCustomizedVoice.Text = settings.CustomizedVoice;
             var selectedVoice = (comboBoxPerson.DataSource as Voice[]).FirstOrDefault(it => it.Value == settings.Voice);
             if (selectedVoice == null)
             {
@@ -83,6 +84,7 @@ namespace ACT.FoxTTS.engine.aliyun
             trackBarSpeed.ValueChanged += OnValueChanged;
             trackBarPitch.ValueChanged += OnValueChanged;
             trackBarVolume.ValueChanged += OnValueChanged;
+            textBoxCustomizedVoice.TextChanged += OnValueChanged;
             comboBoxPerson.SelectedIndexChanged += OnPersonChanged;
             comboBoxEmotion.SelectedIndexChanged += OnValueChanged;
             trackBarEmotionIntensity.ValueChanged += OnValueChanged;
@@ -132,6 +134,8 @@ namespace ACT.FoxTTS.engine.aliyun
             labelEmotionIntensityValue.Text = (trackBarEmotionIntensity.Value / 100.0).ToString("F2");
             settings.EmotionIntensity = trackBarEmotionIntensity.Value;
 
+            settings.CustomizedVoice = textBoxCustomizedVoice.Text;
+
             if (comboBoxEmotion.Items.Count > 0)
             {
                 settings.EmotionCategory = comboBoxEmotion.SelectedValue as string;
@@ -146,6 +150,11 @@ namespace ACT.FoxTTS.engine.aliyun
             Validate(textBoxAppId);
             Validate(textBoxAccessKeyId);
             Validate(textBoxAccessKeySecret);
+
+            if (textBoxCustomizedVoice.Enabled)
+            {
+                Validate(textBoxCustomizedVoice);
+            }
         }
 
         private void OnPersonChanged(object sender, EventArgs eventArgs)
@@ -158,12 +167,14 @@ namespace ACT.FoxTTS.engine.aliyun
 
             if (voice.Emotions == null)
             {
+                trackBarEmotionIntensity.Enabled = false;
                 comboBoxEmotion.Enabled = false;
                 comboBoxEmotion.DataSource = null;
                 settings.EmotionCategory = AliyunVoice.EmotionNone;
             }
             else
             {
+                trackBarEmotionIntensity.Enabled = true;
                 comboBoxEmotion.Enabled = true;
                 comboBoxEmotion.ValueMember = nameof(Voice.Value);
                 comboBoxEmotion.DisplayMember = nameof(Voice.DisplayName);
@@ -187,6 +198,19 @@ namespace ACT.FoxTTS.engine.aliyun
             }
 
             comboBoxEmotion.SelectedIndexChanged += OnValueChanged;
+
+            if (voice.Value == AliyunTTSEngine.VoiceCustomized)
+            {
+                textBoxCustomizedVoice.Enabled = true;
+                Validate(textBoxCustomizedVoice);
+                comboBoxEffect.Enabled = false;
+            }
+            else
+            {
+                textBoxCustomizedVoice.ResetBackColor();
+                textBoxCustomizedVoice.Enabled = false;
+                comboBoxEffect.Enabled = true;
+            }
         }
 
         private static void Validate(TextBox tb)
@@ -230,6 +254,22 @@ namespace ACT.FoxTTS.engine.aliyun
             }
         }
 
+        internal void NotifyEmptyCustomizedVoiceId()
+        {
+            if (InvokeRequired)
+            {
+                this.SafeInvoke(new Action(NotifyEmptyCustomizedVoiceId));
+            }
+            else
+            {
+                var ts = new TraySlider
+                {
+                    ButtonLayout = TraySlider.ButtonLayoutEnum.OneButton,
+                };
+                ts.ShowTraySlider(strings.msgErrorEmptyCustomizedVoiceId, strings.actPanelTitle);
+            }
+        }
+
         private void checkBoxAppId_CheckedChanged(object sender, EventArgs e)
         {
             textBoxAccessKeyId.PasswordChar = checkBoxAccessKeyId.Checked ? '\0' : '*';
@@ -241,6 +281,11 @@ namespace ACT.FoxTTS.engine.aliyun
             {
                 timerHideKey.Start();
             }
+        }
+
+        private void linkLabelCustomizedVoice_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Process.Start(@"https://help.aliyun.com/document_detail/187946.html");
         }
     }
 }

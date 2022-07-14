@@ -17,6 +17,7 @@ namespace ACT.FoxTTS.engine.aliyun
     {
         private FoxTTSPlugin _plugin;
         private readonly AliyunTTSSettingsControl _settingsControl = new AliyunTTSSettingsControl();
+        public const string VoiceCustomized = "customized";
 
         public static readonly AliyunVoice[] Voices = new[]
         {
@@ -104,6 +105,7 @@ namespace ACT.FoxTTS.engine.aliyun
             new AliyunVoice("tala", "菲律宾语女声 Tala"),
             new AliyunVoice("tien", "越南语女声 Tien"),
             new AliyunVoice("becca", "美语客服女声 Becca"),
+            new AliyunVoice(VoiceCustomized, "个性化人声定制"),
         };
 
         public const string EffectNone = "none";
@@ -163,26 +165,19 @@ namespace ACT.FoxTTS.engine.aliyun
                         return;
                     }
 
-                    // Auth
-                    if (_currentAccessToken == null || !_currentAccessToken.IsValid(accessKeyId, accessKeySecret))
-                    {
-                        Logger.Info("刷新Token中...");
-                        _currentAccessToken = ObtainNewToken(accessKeyId, accessKeySecret) ?? throw new Exception("身份认证失败");
-                    }
-
                     // Build SSML
-                    var needSSML = false;
+                    var useSSML = false;
                     var effectSSML = "";
                     if (!string.IsNullOrWhiteSpace(settings.Effect) && settings.Effect != EffectNone)
                     {
-                        needSSML = true;
+                        useSSML = true;
                         effectSSML = $"effect=\"{settings.Effect}\"";
                     }
                     var textSSML = text;
                     if (!string.IsNullOrWhiteSpace(settings.EmotionCategory) &&
                         settings.EmotionCategory != AliyunVoice.EmotionNone)
                     {
-                        needSSML = true;
+                        useSSML = true;
                         var intensity = settings.EmotionIntensity;
                         if (intensity == 0)
                         {
@@ -190,19 +185,40 @@ namespace ACT.FoxTTS.engine.aliyun
                         }
                         textSSML = $"<emotion category=\"{settings.EmotionCategory}\" intensity=\"{intensity / 100f}\">{text}</emotion>";
                     }
-                    Logger.Debug($"needSSML={needSSML}");
                     var ssml =
                         $"<speak {effectSSML}>" +
                         textSSML +
                         "</speak>";
+
+                    var voice = settings.Voice;
+                    if (voice == VoiceCustomized)
+                    {
+                        useSSML = false;
+                        voice = settings.CustomizedVoice;
+
+                        if (string.IsNullOrWhiteSpace(voice))
+                        {
+                            Logger.Error(strings.msgErrorEmptyCustomizedVoiceId);
+                            _settingsControl.NotifyEmptyCustomizedVoiceId();
+                            return;
+                        }
+                    }
+                    Logger.Debug($"needSSML={useSSML}");
+
+                    // Auth
+                    if (_currentAccessToken == null || !_currentAccessToken.IsValid(accessKeyId, accessKeySecret))
+                    {
+                        Logger.Info("刷新Token中...");
+                        _currentAccessToken = ObtainNewToken(accessKeyId, accessKeySecret) ?? throw new Exception("身份认证失败");
+                    }
 
                     // Build request body
                     var reqObj = new JObject();
                     reqObj["appkey"] = appId;
                     reqObj["token"] = _currentAccessToken.Token;
                     reqObj["format"] = "mp3";
-                    reqObj["text"] = needSSML ? ssml : text;
-                    reqObj["voice"] = settings.Voice;
+                    reqObj["text"] = useSSML ? ssml : text;
+                    reqObj["voice"] = voice;
                     reqObj["speech_rate"] = settings.Speed;
                     reqObj["pitch_rate"] = settings.Pitch;
                     reqObj["volume"] = settings.Volume;

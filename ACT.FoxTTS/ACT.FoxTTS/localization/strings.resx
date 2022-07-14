@@ -554,6 +554,9 @@
   <data name="labelCurrentVersion" xml:space="preserve">
     <value>当前版本:</value>
   </data>
+  <data name="labelCustomizedVoice" xml:space="preserve">
+    <value>个性化人声 ID:</value>
+  </data>
   <data name="labelEdgeDisclaimer" xml:space="preserve">
     <value>免责声明：
 白嫖微软所造成的一切后果自负，与插件作者无关。
@@ -636,6 +639,9 @@
   <data name="linkLabelCopyVoice" xml:space="preserve">
     <value>修复 Win10 TTS 人声列表</value>
   </data>
+  <data name="linkLabelCustomizedVoice" xml:space="preserve">
+    <value>查看个性化人声定制说明</value>
+  </data>
   <data name="linkLabelOpenBaiduReg" xml:space="preserve">
     <value>注册 API 密钥</value>
   </data>
@@ -708,6 +714,9 @@
   </data>
   <data name="msgErrorEmptyApiSecretKey" xml:space="preserve">
     <value>错误：你没有填 API/Secret Key！请确保在设置界面填入了正确的 API/Secret Key，否则会没有声音！</value>
+  </data>
+  <data name="msgErrorEmptyCustomizedVoiceId" xml:space="preserve">
+    <value>自定义人声 ID 未填写！请确保在设置界面填入了正确的人声 ID，否则会没有声音！</value>
   </data>
   <data name="msgErrorEmptyKeyRegion" xml:space="preserve">
     <value>错误：你没有填 Api Key/区域！请确保在设置界面填入了正确的 API Key 和区域，否则会没有声音！</value>

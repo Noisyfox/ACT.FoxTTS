@@ -26,6 +26,9 @@ namespace ACT.FoxTTS.engine.aliyun
         public string Voice = "";
 
         [XmlElement]
+        public string CustomizedVoice = "";
+
+        [XmlElement]
         public string EmotionCategory = "";
 
         [XmlElement]
@@ -36,7 +39,7 @@ namespace ACT.FoxTTS.engine.aliyun
 
         public override string ToString()
         {
-            return $"{nameof(Speed)}: {Speed}, {nameof(Pitch)}: {Pitch}, {nameof(Volume)}: {Volume}, {nameof(Voice)}: {Voice}, {nameof(EmotionCategory)}: {EmotionCategory}, {nameof(EmotionIntensity)}: {EmotionIntensity}, {nameof(Effect)}: {Effect}";
+            return $"{nameof(Speed)}: {Speed}, {nameof(Pitch)}: {Pitch}, {nameof(Volume)}: {Volume}, {nameof(Voice)}: {Voice}, {nameof(CustomizedVoice)}: {CustomizedVoice}, {nameof(EmotionCategory)}: {EmotionCategory}, {nameof(EmotionIntensity)}: {EmotionIntensity}, {nameof(Effect)}: {Effect}";
         }
     }
 }

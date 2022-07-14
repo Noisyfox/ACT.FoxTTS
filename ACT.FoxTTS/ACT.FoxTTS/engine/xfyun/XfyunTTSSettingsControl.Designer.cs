@@ -33,8 +33,6 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.textBoxAppId = new System.Windows.Forms.TextBox();
             this.checkBoxAppId = new System.Windows.Forms.CheckBox();
-            this.textBoxApiKey = new System.Windows.Forms.TextBox();
-            this.textBoxApiSecret = new System.Windows.Forms.TextBox();
             this.labelSpeed = new System.Windows.Forms.Label();
             this.labelPitch = new System.Windows.Forms.Label();
             this.labelVolume = new System.Windows.Forms.Label();
@@ -49,6 +47,8 @@
             this.linkLabelOpenXfyunReg = new System.Windows.Forms.LinkLabel();
             this.checkBoxApiKey = new System.Windows.Forms.CheckBox();
             this.checkBoxApiSecret = new System.Windows.Forms.CheckBox();
+            this.textBoxApiKey = new System.Windows.Forms.TextBox();
+            this.textBoxApiSecret = new System.Windows.Forms.TextBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.timerHideKey = new System.Windows.Forms.Timer(this.components);
             this.groupBoxTTSEngineDetail.SuspendLayout();
@@ -137,26 +137,6 @@
             this.checkBoxAppId.Text = "App ID:";
             this.checkBoxAppId.UseVisualStyleBackColor = true;
             this.checkBoxAppId.CheckedChanged += new System.EventHandler(this.checkBoxApiKey_CheckedChanged);
-            // 
-            // textBoxApiKey
-            // 
-            this.textBoxApiKey.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel1.SetColumnSpan(this.textBoxApiKey, 2);
-            this.textBoxApiKey.Location = new System.Drawing.Point(98, 52);
-            this.textBoxApiKey.Margin = new System.Windows.Forms.Padding(2);
-            this.textBoxApiKey.Name = "textBoxApiKey";
-            this.textBoxApiKey.Size = new System.Drawing.Size(183, 21);
-            this.textBoxApiKey.TabIndex = 2;
-            // 
-            // textBoxApiSecret
-            // 
-            this.textBoxApiSecret.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel1.SetColumnSpan(this.textBoxApiSecret, 2);
-            this.textBoxApiSecret.Location = new System.Drawing.Point(98, 27);
-            this.textBoxApiSecret.Margin = new System.Windows.Forms.Padding(2);
-            this.textBoxApiSecret.Name = "textBoxApiSecret";
-            this.textBoxApiSecret.Size = new System.Drawing.Size(183, 21);
-            this.textBoxApiSecret.TabIndex = 3;
             // 
             // labelSpeed
             // 
@@ -335,6 +315,26 @@
             this.checkBoxApiSecret.Text = "API Secret:";
             this.checkBoxApiSecret.UseVisualStyleBackColor = true;
             this.checkBoxApiSecret.CheckedChanged += new System.EventHandler(this.checkBoxApiKey_CheckedChanged);
+            // 
+            // textBoxApiKey
+            // 
+            this.textBoxApiKey.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel1.SetColumnSpan(this.textBoxApiKey, 2);
+            this.textBoxApiKey.Location = new System.Drawing.Point(98, 52);
+            this.textBoxApiKey.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxApiKey.Name = "textBoxApiKey";
+            this.textBoxApiKey.Size = new System.Drawing.Size(183, 21);
+            this.textBoxApiKey.TabIndex = 2;
+            // 
+            // textBoxApiSecret
+            // 
+            this.textBoxApiSecret.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel1.SetColumnSpan(this.textBoxApiSecret, 2);
+            this.textBoxApiSecret.Location = new System.Drawing.Point(98, 27);
+            this.textBoxApiSecret.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxApiSecret.Name = "textBoxApiSecret";
+            this.textBoxApiSecret.Size = new System.Drawing.Size(183, 21);
+            this.textBoxApiSecret.TabIndex = 3;
             // 
             // toolTip1
             // 

@@ -1368,6 +1368,15 @@ namespace ACT.FoxTTS.localization {
         }
         
         /// <summary>
+        ///   查找类似 个性化人声 ID: 的本地化字符串。
+        /// </summary>
+        internal static string labelCustomizedVoice {
+            get {
+                return ResourceManager.GetString("labelCustomizedVoice", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 免责声明：
         ///白嫖微软所造成的一切后果自负，与插件作者无关。
         ///该引擎随时可能失效，不保证任何可用性。 的本地化字符串。
@@ -1606,6 +1615,15 @@ namespace ACT.FoxTTS.localization {
         }
         
         /// <summary>
+        ///   查找类似 查看个性化人声定制说明 的本地化字符串。
+        /// </summary>
+        internal static string linkLabelCustomizedVoice {
+            get {
+                return ResourceManager.GetString("linkLabelCustomizedVoice", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 注册 API 密钥 的本地化字符串。
         /// </summary>
         internal static string linkLabelOpenBaiduReg {
@@ -1795,6 +1813,15 @@ namespace ACT.FoxTTS.localization {
         internal static string msgErrorEmptyApiSecretKey {
             get {
                 return ResourceManager.GetString("msgErrorEmptyApiSecretKey", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 自定义人声 ID 未填写！请确保在设置界面填入了正确的人声 ID，否则会没有声音！ 的本地化字符串。
+        /// </summary>
+        internal static string msgErrorEmptyCustomizedVoiceId {
+            get {
+                return ResourceManager.GetString("msgErrorEmptyCustomizedVoiceId", resourceCulture);
             }
         }
         

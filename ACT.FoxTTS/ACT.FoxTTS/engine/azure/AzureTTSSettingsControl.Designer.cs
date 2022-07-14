@@ -54,9 +54,9 @@
             this.labelStyleDegree = new System.Windows.Forms.Label();
             this.labelStyleDegreeValue = new System.Windows.Forms.Label();
             this.labelRole = new System.Windows.Forms.Label();
+            this.labelStyleDescription = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.timerHideKey = new System.Windows.Forms.Timer(this.components);
-            this.labelStyleDescription = new System.Windows.Forms.Label();
             this.groupBoxTTSEngineDetail.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarSpeed)).BeginInit();
@@ -408,18 +408,6 @@
             this.labelRole.TabIndex = 28;
             this.labelRole.Text = "Role:";
             // 
-            // toolTip1
-            // 
-            this.toolTip1.AutomaticDelay = 1;
-            this.toolTip1.AutoPopDelay = 0;
-            this.toolTip1.InitialDelay = 1;
-            this.toolTip1.ReshowDelay = 0;
-            // 
-            // timerHideKey
-            // 
-            this.timerHideKey.Interval = 5000;
-            this.timerHideKey.Tick += new System.EventHandler(this.timerHideKey_Tick);
-            // 
             // labelStyleDescription
             // 
             this.labelStyleDescription.AutoSize = true;
@@ -432,13 +420,26 @@
             this.labelStyleDescription.TabIndex = 31;
             this.labelStyleDescription.Text = "Style description";
             // 
+            // toolTip1
+            // 
+            this.toolTip1.AutomaticDelay = 1;
+            this.toolTip1.AutoPopDelay = 0;
+            this.toolTip1.InitialDelay = 1;
+            this.toolTip1.ReshowDelay = 0;
+            // 
+            // timerHideKey
+            // 
+            this.timerHideKey.Interval = 5000;
+            this.timerHideKey.Tick += new System.EventHandler(this.timerHideKey_Tick);
+            // 
             // AzureTTSSettingsControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.Controls.Add(this.groupBoxTTSEngineDetail);
             this.Name = "AzureTTSSettingsControl";
-            this.Size = new System.Drawing.Size(366, 474);
+            this.Size = new System.Drawing.Size(366, 410);
             this.groupBoxTTSEngineDetail.ResumeLayout(false);
             this.groupBoxTTSEngineDetail.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);

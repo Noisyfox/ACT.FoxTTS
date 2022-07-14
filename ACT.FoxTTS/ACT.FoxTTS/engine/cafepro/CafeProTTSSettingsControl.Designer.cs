@@ -356,9 +356,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.Controls.Add(this.groupBoxTTSEngineDetail);
             this.Name = "CafeProTTSSettingsControl";
-            this.Size = new System.Drawing.Size(378, 344);
+            this.Size = new System.Drawing.Size(378, 323);
             this.groupBoxTTSEngineDetail.ResumeLayout(false);
             this.groupBoxTTSEngineDetail.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);

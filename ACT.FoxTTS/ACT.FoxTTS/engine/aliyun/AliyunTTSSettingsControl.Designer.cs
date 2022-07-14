@@ -58,6 +58,9 @@
             this.checkBoxAppId = new System.Windows.Forms.CheckBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.timerHideKey = new System.Windows.Forms.Timer(this.components);
+            this.labelCustomizedVoice = new System.Windows.Forms.Label();
+            this.linkLabelCustomizedVoice = new System.Windows.Forms.LinkLabel();
+            this.textBoxCustomizedVoice = new System.Windows.Forms.TextBox();
             this.groupBoxTTSEngineDetail.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarSpeed)).BeginInit();
@@ -76,7 +79,7 @@
             this.groupBoxTTSEngineDetail.Margin = new System.Windows.Forms.Padding(2);
             this.groupBoxTTSEngineDetail.Name = "groupBoxTTSEngineDetail";
             this.groupBoxTTSEngineDetail.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBoxTTSEngineDetail.Size = new System.Drawing.Size(620, 408);
+            this.groupBoxTTSEngineDetail.Size = new System.Drawing.Size(620, 472);
             this.groupBoxTTSEngineDetail.TabIndex = 3;
             this.groupBoxTTSEngineDetail.TabStop = false;
             this.groupBoxTTSEngineDetail.Text = "Engine Detail";
@@ -89,10 +92,10 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel1.Controls.Add(this.comboBoxEffect, 1, 9);
-            this.tableLayoutPanel1.Controls.Add(this.comboBoxEmotion, 1, 7);
-            this.tableLayoutPanel1.Controls.Add(this.labelEmotion, 0, 7);
-            this.tableLayoutPanel1.Controls.Add(this.linkLabelOpenXfyunReg, 0, 10);
+            this.tableLayoutPanel1.Controls.Add(this.comboBoxEffect, 1, 11);
+            this.tableLayoutPanel1.Controls.Add(this.comboBoxEmotion, 1, 9);
+            this.tableLayoutPanel1.Controls.Add(this.labelEmotion, 0, 9);
+            this.tableLayoutPanel1.Controls.Add(this.linkLabelOpenXfyunReg, 0, 12);
             this.tableLayoutPanel1.Controls.Add(this.labelSpeed, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.labelPitch, 0, 4);
             this.tableLayoutPanel1.Controls.Add(this.labelVolume, 0, 5);
@@ -104,22 +107,25 @@
             this.tableLayoutPanel1.Controls.Add(this.labelSpeedValue, 2, 3);
             this.tableLayoutPanel1.Controls.Add(this.labelPitchValue, 2, 4);
             this.tableLayoutPanel1.Controls.Add(this.labelVolumeValue, 2, 5);
-            this.tableLayoutPanel1.Controls.Add(this.trackBarEmotionIntensity, 1, 8);
-            this.tableLayoutPanel1.Controls.Add(this.labelEmotionIntensity, 0, 8);
-            this.tableLayoutPanel1.Controls.Add(this.labelEmotionIntensityValue, 2, 8);
-            this.tableLayoutPanel1.Controls.Add(this.labelEffect, 0, 9);
+            this.tableLayoutPanel1.Controls.Add(this.trackBarEmotionIntensity, 1, 10);
+            this.tableLayoutPanel1.Controls.Add(this.labelEmotionIntensity, 0, 10);
+            this.tableLayoutPanel1.Controls.Add(this.labelEmotionIntensityValue, 2, 10);
+            this.tableLayoutPanel1.Controls.Add(this.labelEffect, 0, 11);
             this.tableLayoutPanel1.Controls.Add(this.textBoxAccessKeyId, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.checkBoxAccessKeySecret, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.checkBoxAccessKeyId, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.textBoxAppId, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.textBoxAccessKeySecret, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.checkBoxAppId, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.labelCustomizedVoice, 0, 7);
+            this.tableLayoutPanel1.Controls.Add(this.linkLabelCustomizedVoice, 0, 8);
+            this.tableLayoutPanel1.Controls.Add(this.textBoxCustomizedVoice, 1, 7);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(2, 16);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.Padding = new System.Windows.Forms.Padding(0, 0, 0, 8);
-            this.tableLayoutPanel1.RowCount = 11;
+            this.tableLayoutPanel1.RowCount = 13;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -131,8 +137,9 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(616, 390);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(616, 454);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // comboBoxEffect
@@ -141,7 +148,7 @@
             this.tableLayoutPanel1.SetColumnSpan(this.comboBoxEffect, 2);
             this.comboBoxEffect.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxEffect.FormattingEnabled = true;
-            this.comboBoxEffect.Location = new System.Drawing.Point(134, 323);
+            this.comboBoxEffect.Location = new System.Drawing.Point(134, 387);
             this.comboBoxEffect.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxEffect.Name = "comboBoxEffect";
             this.comboBoxEffect.Size = new System.Drawing.Size(480, 20);
@@ -153,7 +160,7 @@
             this.tableLayoutPanel1.SetColumnSpan(this.comboBoxEmotion, 2);
             this.comboBoxEmotion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxEmotion.FormattingEnabled = true;
-            this.comboBoxEmotion.Location = new System.Drawing.Point(134, 248);
+            this.comboBoxEmotion.Location = new System.Drawing.Point(134, 312);
             this.comboBoxEmotion.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxEmotion.Name = "comboBoxEmotion";
             this.comboBoxEmotion.Size = new System.Drawing.Size(480, 20);
@@ -163,7 +170,7 @@
             // 
             this.labelEmotion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.labelEmotion.AutoSize = true;
-            this.labelEmotion.Location = new System.Drawing.Point(2, 252);
+            this.labelEmotion.Location = new System.Drawing.Point(2, 316);
             this.labelEmotion.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelEmotion.Name = "labelEmotion";
             this.labelEmotion.Size = new System.Drawing.Size(128, 12);
@@ -175,7 +182,7 @@
             this.linkLabelOpenXfyunReg.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.linkLabelOpenXfyunReg.AutoSize = true;
             this.tableLayoutPanel1.SetColumnSpan(this.linkLabelOpenXfyunReg, 3);
-            this.linkLabelOpenXfyunReg.Location = new System.Drawing.Point(2, 360);
+            this.linkLabelOpenXfyunReg.Location = new System.Drawing.Point(2, 424);
             this.linkLabelOpenXfyunReg.Margin = new System.Windows.Forms.Padding(2, 15, 2, 10);
             this.linkLabelOpenXfyunReg.Name = "linkLabelOpenXfyunReg";
             this.linkLabelOpenXfyunReg.Size = new System.Drawing.Size(612, 12);
@@ -324,7 +331,7 @@
             // 
             this.trackBarEmotionIntensity.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.trackBarEmotionIntensity.Location = new System.Drawing.Point(135, 273);
+            this.trackBarEmotionIntensity.Location = new System.Drawing.Point(135, 337);
             this.trackBarEmotionIntensity.Maximum = 200;
             this.trackBarEmotionIntensity.Name = "trackBarEmotionIntensity";
             this.trackBarEmotionIntensity.Size = new System.Drawing.Size(452, 45);
@@ -337,7 +344,7 @@
             this.labelEmotionIntensity.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.labelEmotionIntensity.AutoSize = true;
-            this.labelEmotionIntensity.Location = new System.Drawing.Point(2, 270);
+            this.labelEmotionIntensity.Location = new System.Drawing.Point(2, 334);
             this.labelEmotionIntensity.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelEmotionIntensity.Name = "labelEmotionIntensity";
             this.labelEmotionIntensity.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
@@ -348,7 +355,7 @@
             // labelEmotionIntensityValue
             // 
             this.labelEmotionIntensityValue.AutoSize = true;
-            this.labelEmotionIntensityValue.Location = new System.Drawing.Point(592, 270);
+            this.labelEmotionIntensityValue.Location = new System.Drawing.Point(592, 334);
             this.labelEmotionIntensityValue.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelEmotionIntensityValue.MinimumSize = new System.Drawing.Size(22, 0);
             this.labelEmotionIntensityValue.Name = "labelEmotionIntensityValue";
@@ -361,7 +368,7 @@
             // 
             this.labelEffect.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.labelEffect.AutoSize = true;
-            this.labelEffect.Location = new System.Drawing.Point(2, 327);
+            this.labelEffect.Location = new System.Drawing.Point(2, 391);
             this.labelEffect.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelEffect.Name = "labelEffect";
             this.labelEffect.Size = new System.Drawing.Size(128, 12);
@@ -446,13 +453,47 @@
             this.timerHideKey.Interval = 5000;
             this.timerHideKey.Tick += new System.EventHandler(this.timerHideKey_Tick);
             // 
+            // labelCustomizedVoice
+            // 
+            this.labelCustomizedVoice.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelCustomizedVoice.AutoSize = true;
+            this.labelCustomizedVoice.Location = new System.Drawing.Point(3, 253);
+            this.labelCustomizedVoice.Name = "labelCustomizedVoice";
+            this.labelCustomizedVoice.Size = new System.Drawing.Size(126, 12);
+            this.labelCustomizedVoice.TabIndex = 37;
+            this.labelCustomizedVoice.Text = "Customized Voice ID:";
+            // 
+            // linkLabelCustomizedVoice
+            // 
+            this.linkLabelCustomizedVoice.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.linkLabelCustomizedVoice.AutoSize = true;
+            this.tableLayoutPanel1.SetColumnSpan(this.linkLabelCustomizedVoice, 3);
+            this.linkLabelCustomizedVoice.Location = new System.Drawing.Point(2, 288);
+            this.linkLabelCustomizedVoice.Margin = new System.Windows.Forms.Padding(2, 15, 2, 10);
+            this.linkLabelCustomizedVoice.Name = "linkLabelCustomizedVoice";
+            this.linkLabelCustomizedVoice.Size = new System.Drawing.Size(612, 12);
+            this.linkLabelCustomizedVoice.TabIndex = 38;
+            this.linkLabelCustomizedVoice.TabStop = true;
+            this.linkLabelCustomizedVoice.Text = "About Customized Voice";
+            this.linkLabelCustomizedVoice.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelCustomizedVoice_LinkClicked);
+            // 
+            // textBoxCustomizedVoice
+            // 
+            this.textBoxCustomizedVoice.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel1.SetColumnSpan(this.textBoxCustomizedVoice, 2);
+            this.textBoxCustomizedVoice.Location = new System.Drawing.Point(135, 249);
+            this.textBoxCustomizedVoice.Name = "textBoxCustomizedVoice";
+            this.textBoxCustomizedVoice.Size = new System.Drawing.Size(478, 21);
+            this.textBoxCustomizedVoice.TabIndex = 39;
+            // 
             // AliyunTTSSettingsControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.Controls.Add(this.groupBoxTTSEngineDetail);
             this.Name = "AliyunTTSSettingsControl";
-            this.Size = new System.Drawing.Size(620, 433);
+            this.Size = new System.Drawing.Size(620, 472);
             this.groupBoxTTSEngineDetail.ResumeLayout(false);
             this.groupBoxTTSEngineDetail.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -497,5 +538,8 @@
         private System.Windows.Forms.CheckBox checkBoxAppId;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Timer timerHideKey;
+        private System.Windows.Forms.Label labelCustomizedVoice;
+        private System.Windows.Forms.LinkLabel linkLabelCustomizedVoice;
+        private System.Windows.Forms.TextBox textBoxCustomizedVoice;
     }
 }

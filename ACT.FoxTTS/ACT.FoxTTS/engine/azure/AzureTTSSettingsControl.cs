@@ -146,12 +146,14 @@ namespace ACT.FoxTTS.engine.azure
 
             if (voice.Styles == null)
             {
+                trackBarStyleDegree.Enabled = false;
                 comboBoxStyle.Enabled = false;
                 comboBoxStyle.DataSource = null;
                 settings.Style = AzureVoice.StyleGeneral;
             }
             else
             {
+                trackBarStyleDegree.Enabled = true;
                 comboBoxStyle.Enabled = true;
                 comboBoxStyle.ValueMember = nameof(Voice.Value);
                 comboBoxStyle.DisplayMember = nameof(Voice.DisplayName);

@@ -133,10 +133,11 @@ namespace ACT.FoxTTS.engine.baipiao
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.Controls.Add(this.groupBoxTTSEngineDetail);
             this.Name = "BaipiaoSettingsControl";
-            this.Size = new System.Drawing.Size(319, 311);
+            this.Size = new System.Drawing.Size(319, 104);
             this.groupBoxTTSEngineDetail.ResumeLayout(false);
             this.groupBoxTTSEngineDetail.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
