@@ -174,7 +174,7 @@ namespace ACT.FoxTTS.engine.aliyun
                     var effectSSML = "";
                     if (!string.IsNullOrWhiteSpace(settings.Effect) && settings.Effect != EffectNone)
                     {
-                        effectSSML = $" effect=\"{settings.Effect}\"";
+                        effectSSML = $"effect=\"{settings.Effect}\"";
                     }
                     var textSSML = text;
                     if (!string.IsNullOrWhiteSpace(settings.EmotionCategory) &&
@@ -188,7 +188,7 @@ namespace ACT.FoxTTS.engine.aliyun
                         textSSML = $"<emotion category=\"{settings.EmotionCategory}\" intensity=\"{intensity / 100f}\">{text}</emotion>";
                     }
                     var ssml =
-                        $"<speak voice=\"{settings.Voice}\" rate=\"{settings.Speed}\" pitch=\"{settings.Pitch}\" volume=\"{settings.Volume}\"{effectSSML}>" +
+                        $"<speak {effectSSML}>" +
                         textSSML +
                         "</speak>";
 
@@ -196,8 +196,12 @@ namespace ACT.FoxTTS.engine.aliyun
                     var reqObj = new JObject();
                     reqObj["appkey"] = appId;
                     reqObj["token"] = _currentAccessToken.Token;
-                    reqObj["text"] = ssml;
                     reqObj["format"] = "mp3";
+                    reqObj["text"] = ssml;
+                    reqObj["voice"] = settings.Voice;
+                    reqObj["speech_rate"] = settings.Speed;
+                    reqObj["pitch_rate"] = settings.Pitch;
+                    reqObj["volume"] = settings.Volume;
                     var requestBody = reqObj.ToString();
 
                     // Send request
