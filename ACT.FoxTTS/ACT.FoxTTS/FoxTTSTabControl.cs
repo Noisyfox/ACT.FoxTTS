@@ -418,9 +418,7 @@ namespace ACT.FoxTTS
                 settings.PluginIntegration = PluginIntegration.Auto;
             }
 
-            radioButtonIntegrationAct.Visible =
-                radioButtonIntegrationYukkuri.Visible =
-                    settings.PluginIntegration != PluginIntegration.Auto;
+            groupBoxIntegration.Visible = settings.PluginIntegration != PluginIntegration.Auto;
         }
 
         internal void SwitchPlaybackPlayer(string player)

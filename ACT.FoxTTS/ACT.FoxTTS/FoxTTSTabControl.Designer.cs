@@ -42,7 +42,6 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.labelTTSEngine = new System.Windows.Forms.Label();
             this.comboBoxTTSEngine = new System.Windows.Forms.ComboBox();
-            this.checkBoxClearCacheExit = new System.Windows.Forms.CheckBox();
             this.linkLabelClearCache = new System.Windows.Forms.LinkLabel();
             this.linkLabelOpenCacheDir = new System.Windows.Forms.LinkLabel();
             this.panelTTSEngineSettings = new System.Windows.Forms.Panel();
@@ -157,7 +156,7 @@
             this.groupBoxIntegration.Controls.Add(this.radioButtonIntegrationYukkuri);
             this.groupBoxIntegration.Controls.Add(this.radioButtonIntegrationAct);
             this.groupBoxIntegration.Controls.Add(this.radioButtonIntegrationAuto);
-            this.groupBoxIntegration.Location = new System.Drawing.Point(5, 43);
+            this.groupBoxIntegration.Location = new System.Drawing.Point(6, 491);
             this.groupBoxIntegration.Margin = new System.Windows.Forms.Padding(2);
             this.groupBoxIntegration.Name = "groupBoxIntegration";
             this.groupBoxIntegration.Size = new System.Drawing.Size(262, 93);
@@ -204,7 +203,7 @@
             // groupBoxPreview
             // 
             this.groupBoxPreview.Controls.Add(this.tableLayoutPanel2);
-            this.groupBoxPreview.Location = new System.Drawing.Point(6, 494);
+            this.groupBoxPreview.Location = new System.Drawing.Point(6, 259);
             this.groupBoxPreview.Margin = new System.Windows.Forms.Padding(2);
             this.groupBoxPreview.Name = "groupBoxPreview";
             this.groupBoxPreview.Padding = new System.Windows.Forms.Padding(2);
@@ -254,12 +253,14 @@
             // 
             // groupBoxTTSEngine
             // 
+            this.groupBoxTTSEngine.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBoxTTSEngine.Controls.Add(this.tableLayoutPanel1);
-            this.groupBoxTTSEngine.Location = new System.Drawing.Point(5, 357);
+            this.groupBoxTTSEngine.Location = new System.Drawing.Point(272, 42);
             this.groupBoxTTSEngine.Margin = new System.Windows.Forms.Padding(2);
             this.groupBoxTTSEngine.Name = "groupBoxTTSEngine";
             this.groupBoxTTSEngine.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBoxTTSEngine.Size = new System.Drawing.Size(262, 133);
+            this.groupBoxTTSEngine.Size = new System.Drawing.Size(724, 79);
             this.groupBoxTTSEngine.TabIndex = 7;
             this.groupBoxTTSEngine.TabStop = false;
             this.groupBoxTTSEngine.Text = "TTS Engine";
@@ -271,21 +272,19 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Controls.Add(this.labelTTSEngine, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.comboBoxTTSEngine, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.checkBoxClearCacheExit, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.linkLabelClearCache, 0, 4);
-            this.tableLayoutPanel1.Controls.Add(this.linkLabelOpenCacheDir, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.linkLabelClearCache, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.linkLabelOpenCacheDir, 0, 2);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(2, 16);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 6;
+            this.tableLayoutPanel1.RowCount = 5;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 16F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(258, 115);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(720, 61);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // labelTTSEngine
@@ -307,33 +306,18 @@
             this.comboBoxTTSEngine.Location = new System.Drawing.Point(53, 2);
             this.comboBoxTTSEngine.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxTTSEngine.Name = "comboBoxTTSEngine";
-            this.comboBoxTTSEngine.Size = new System.Drawing.Size(203, 20);
+            this.comboBoxTTSEngine.Size = new System.Drawing.Size(665, 20);
             this.comboBoxTTSEngine.TabIndex = 4;
-            // 
-            // checkBoxClearCacheExit
-            // 
-            this.checkBoxClearCacheExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.checkBoxClearCacheExit.AutoSize = true;
-            this.tableLayoutPanel1.SetColumnSpan(this.checkBoxClearCacheExit, 2);
-            this.checkBoxClearCacheExit.Enabled = false;
-            this.checkBoxClearCacheExit.Location = new System.Drawing.Point(2, 26);
-            this.checkBoxClearCacheExit.Margin = new System.Windows.Forms.Padding(2);
-            this.checkBoxClearCacheExit.Name = "checkBoxClearCacheExit";
-            this.checkBoxClearCacheExit.Size = new System.Drawing.Size(254, 16);
-            this.checkBoxClearCacheExit.TabIndex = 5;
-            this.checkBoxClearCacheExit.Text = "Clear Cache on Exit";
-            this.checkBoxClearCacheExit.UseVisualStyleBackColor = true;
-            this.checkBoxClearCacheExit.Visible = false;
             // 
             // linkLabelClearCache
             // 
             this.linkLabelClearCache.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.linkLabelClearCache.AutoSize = true;
             this.tableLayoutPanel1.SetColumnSpan(this.linkLabelClearCache, 2);
-            this.linkLabelClearCache.Location = new System.Drawing.Point(2, 87);
+            this.linkLabelClearCache.Location = new System.Drawing.Point(2, 42);
             this.linkLabelClearCache.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.linkLabelClearCache.Name = "linkLabelClearCache";
-            this.linkLabelClearCache.Size = new System.Drawing.Size(254, 12);
+            this.linkLabelClearCache.Size = new System.Drawing.Size(716, 12);
             this.linkLabelClearCache.TabIndex = 7;
             this.linkLabelClearCache.TabStop = true;
             this.linkLabelClearCache.Text = "Clear Cache Right Now";
@@ -344,10 +328,11 @@
             this.linkLabelOpenCacheDir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.linkLabelOpenCacheDir.AutoSize = true;
             this.tableLayoutPanel1.SetColumnSpan(this.linkLabelOpenCacheDir, 2);
-            this.linkLabelOpenCacheDir.Location = new System.Drawing.Point(2, 75);
+            this.linkLabelOpenCacheDir.Location = new System.Drawing.Point(2, 24);
             this.linkLabelOpenCacheDir.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.linkLabelOpenCacheDir.Name = "linkLabelOpenCacheDir";
-            this.linkLabelOpenCacheDir.Size = new System.Drawing.Size(254, 12);
+            this.linkLabelOpenCacheDir.Padding = new System.Windows.Forms.Padding(0, 6, 0, 0);
+            this.linkLabelOpenCacheDir.Size = new System.Drawing.Size(716, 18);
             this.linkLabelOpenCacheDir.TabIndex = 6;
             this.linkLabelOpenCacheDir.TabStop = true;
             this.linkLabelOpenCacheDir.Text = "Open Cache Directory";
@@ -358,7 +343,7 @@
             this.panelTTSEngineSettings.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelTTSEngineSettings.AutoSize = true;
-            this.panelTTSEngineSettings.Location = new System.Drawing.Point(271, 43);
+            this.panelTTSEngineSettings.Location = new System.Drawing.Point(272, 125);
             this.panelTTSEngineSettings.Margin = new System.Windows.Forms.Padding(2);
             this.panelTTSEngineSettings.Name = "panelTTSEngineSettings";
             this.panelTTSEngineSettings.Size = new System.Drawing.Size(727, 37);
@@ -370,7 +355,7 @@
             this.groupBoxPlayback.Controls.Add(this.radioButtonPlaybackACT);
             this.groupBoxPlayback.Controls.Add(this.radioButtonPlaybackYukkuri);
             this.groupBoxPlayback.Controls.Add(this.tableLayoutPanelPlayback);
-            this.groupBoxPlayback.Location = new System.Drawing.Point(5, 140);
+            this.groupBoxPlayback.Location = new System.Drawing.Point(6, 42);
             this.groupBoxPlayback.Margin = new System.Windows.Forms.Padding(2);
             this.groupBoxPlayback.Name = "groupBoxPlayback";
             this.groupBoxPlayback.Padding = new System.Windows.Forms.Padding(2);
@@ -539,7 +524,7 @@
             // groupBoxUpdate
             // 
             this.groupBoxUpdate.Controls.Add(this.tableLayoutPanel4);
-            this.groupBoxUpdate.Location = new System.Drawing.Point(5, 549);
+            this.groupBoxUpdate.Location = new System.Drawing.Point(6, 314);
             this.groupBoxUpdate.Margin = new System.Windows.Forms.Padding(2);
             this.groupBoxUpdate.Name = "groupBoxUpdate";
             this.groupBoxUpdate.Size = new System.Drawing.Size(262, 173);
@@ -1143,7 +1128,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label labelTTSEngine;
         private System.Windows.Forms.ComboBox comboBoxTTSEngine;
-        private System.Windows.Forms.CheckBox checkBoxClearCacheExit;
         private System.Windows.Forms.LinkLabel linkLabelClearCache;
         private System.Windows.Forms.LinkLabel linkLabelOpenCacheDir;
         private System.Windows.Forms.GroupBox groupBoxPreview;
