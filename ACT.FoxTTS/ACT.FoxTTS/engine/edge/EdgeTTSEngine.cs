@@ -4,6 +4,8 @@ using System.IO;
 using System.Net.Sockets;
 using System.Net.WebSockets;
 using System.Security;
+using System.Security.Cryptography;
+using System.Text;
 using System.Threading;
 using ACT.FoxCommon.core;
 using ACT.FoxCommon.logging;
@@ -226,7 +228,7 @@ namespace ACT.FoxTTS.engine.edge
                     options.SetRequestHeader("Cache-Control", "no-cache");
                     options.SetRequestHeader("Pragma", "no-cache");
                 }
-                _webSocket.ConnectAsync(new Uri(URL), _wsCancellationSource.Token).Wait();
+                _webSocket.ConnectAsync(new Uri(URL + $"&Sec-MS-GEC={Sec_MS_GEC.Get()}&Sec-MS-GEC-Version=1-132.0.2917.0"), _wsCancellationSource.Token).Wait();
                 return _webSocket;
             }
         }
@@ -247,6 +249,30 @@ namespace ACT.FoxTTS.engine.edge
                     }
                     SafeSleep(5000);
                 }
+            }
+        }
+
+        internal static class Sec_MS_GEC
+        {
+            private static string _sec_ms_gec;
+            private static long _ticks;
+
+            public static void Update()
+            {
+                long ticks = DateTime.Now.ToFileTimeUtc();
+                string str = (ticks - (ticks % 3_000_000_000)).ToString() + "6A5AA1D4EAFF4E9FB37E23D68491D6F4";
+                SHA256Managed Sha256 = new SHA256Managed();
+                byte[] by = Sha256.ComputeHash(Encoding.UTF8.GetBytes(str));
+
+                _sec_ms_gec = BitConverter.ToString(by).Replace("-", "").ToUpper();
+                _ticks = ticks;
+            }
+
+            public static string Get()
+            {
+                if (DateTime.Now.ToFileTimeUtc() >= _ticks + 3_000_000_000) Update();
+                Logger.Debug("Sec-MS-GEC: " + _sec_ms_gec);
+                return _sec_ms_gec;
             }
         }
     }
